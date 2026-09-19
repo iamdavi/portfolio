@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>David Otero Mato — Fullstack Developer</title>
+  <meta name="description"
+    content="Portfolio de David Otero Mato — Desarrollador fullstack con experiencia en PHP, Vue.js, AWS, infraestructura cloud y IA generativa.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://davidotero.es/">
+  <meta name="theme-color" content="#0c0c0f">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://davidotero.es/">
+  <meta property="og:title" content="David Otero Mato — Fullstack Developer">
+  <meta property="og:description"
+    content="Portfolio de David Otero Mato — Desarrollador fullstack con experiencia en PHP, Vue.js, AWS, infraestructura cloud y IA generativa.">
+  <meta property="og:image" content="https://davidotero.es/photo_busto_paris_panteon.png">
+  <meta property="og:image:width" content="523">
+  <meta property="og:image:height" content="522">
+  <meta property="og:locale" content="es_ES">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="David Otero Mato — Fullstack Developer">
+  <meta name="twitter:description"
+    content="Portfolio de David Otero Mato — Desarrollador fullstack con experiencia en PHP, Vue.js, AWS, infraestructura cloud y IA generativa.">
+  <meta name="twitter:image" content="https://davidotero.es/photo_busto_paris_panteon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.simpleicons.org">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://unpkg.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "David Otero Mato",
+    "url": "https://davidotero.es/",
+    "jobTitle": "Fullstack Developer",
+    "sameAs": [
+      "https://github.com/iamDavi",
+      "https://www.linkedin.com/in/david-otero-mato-438610213/"
+    ]
+  }
+  </script>
+</head>
+
+<body>
+
+  <div id="particles-js"></div>
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav id="navbar">
+    <a href="#hero" class="nav-logo" aria-label="Inicio">
+      <svg viewBox="0 0 71 82" height="32" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+          <linearGradient id="nav-d-grad" x1="0" y1="40.5" x2="70.89" y2="40.5" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#3a7a58" />
+            <stop offset="1" stop-color="#6ec4a0" />
+          </linearGradient>
+        </defs>
+        <path fill="none" stroke="url(#nav-d-grad)" stroke-linecap="round" stroke-miterlimit="10" stroke-width="5"
+          d="M2.5,64.9V10.04c0-4.16,3.38-7.54,7.54-7.54h27.25c17.18,0,31.1,13.93,31.1,31.1h0c0,17.18-13.93,31.1-31.11,31.1h-18.44c-3.81,0-6.9,3.09-6.9,6.9h0c0,3.81,3.09,6.9,6.9,6.9h37.55" />
+      </svg>
+    </a>
+    <button class="hamburger" aria-label="Abrir menú">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links">
+      <li><a href="#about">Sobre mí</a></li>
+      <li><a href="#skills">Habilidades</a></li>
+      <li><a href="#experience">Experiencia</a></li>
+      <li><a href="#cv">CV</a></li>
+      <li><a href="#contact" class="nav-cta">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- ========== HERO ========== -->
+  <section id="hero">
+    <div class="hero-grid"></div>
+
+    <div class="hero-content">
+      <div class="hero-logo-wrap">
+        <img src="logo.svg" alt="David Otero" class="hero-logo">
+      </div>
+      <div class="hero-badge">
+        <span class="badge-dot"></span>
+        Disponible para proyectos freelance
+      </div>
+      <h1 class="hero-name">David Otero</h1>
+      <p class="hero-title">
+        <span class="typewriter-text"></span><span class="typewriter-cursor"></span>
+      </p>
+      <p class="hero-description">
+        Desarrollador fullstack con más de 8 años de experiencia construyendo productos digitales end-to-end.
+        Especializado en PHP, Vue.js, AWS y el uso avanzado de IA generativa para acelerar el desarrollo.
+      </p>
+      <div class="hero-cta">
+        <a href="#skills" class="btn-primary">
+          <svg width="17" height="17" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+          Ver habilidades
+        </a>
+        <a href="#cv" class="btn-secondary">
+          <svg width="17" height="17" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+          </svg>
+          Ver CV
+        </a>
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <div class="scroll-mouse">
+        <div class="scroll-dot"></div>
+      </div>
+      <span>scroll</span>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT ========== -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid reveal">
+        <div class="about-text">
+          <p class="section-label">— Sobre mí</p>
+          <h2>Autodidacta apasionado<br>por <span style="color:var(--accent-light)">el código</span></h2>
+          <br>
+          <p>
+            Tras completar mi formación en Administración de Sistemas, descubrí mi pasión por el
+            <strong>desarrollo web</strong>, área en la que he sido principalmente <strong>autodidacta</strong>.
+          </p>
+          <p>
+            Mi capacidad de <strong>aprendizaje autónomo</strong>, entusiasmo por resolver problemas y afán
+            por mejorar continuamente me han permitido optimizar mi entorno de trabajo y encontrar
+            <strong>soluciones eficientes</strong>.
+          </p>
+          <p>
+            Además, he liderado la incorporación de nuevos miembros en proyectos, lo que me ha permitido
+            desarrollar habilidades de <strong>comunicación y enseñanza</strong> a través de ejemplos prácticos.
+          </p>
+
+          <p class="languages-label">Idiomas</p>
+          <div class="language-item">
+            <span class="language-name">Castellano</span>
+            <div class="language-bar-bg">
+              <div class="language-bar-fill" data-width="100%"></div>
+            </div>
+            <span class="language-level">Nativo</span>
+          </div>
+          <div class="language-item">
+            <span class="language-name">Gallego</span>
+            <div class="language-bar-bg">
+              <div class="language-bar-fill" data-width="100%"></div>
+            </div>
+            <span class="language-level">Nativo</span>
+          </div>
+          <div class="language-item">
+            <span class="language-name">Inglés</span>
+            <div class="language-bar-bg">
+              <div class="language-bar-fill" data-width="60%"></div>
+            </div>
+            <span class="language-level">Intermedio</span>
+          </div>
+        </div>
+
+        <div class="about-photo-area">
+          <picture>
+            <source srcset="photo_busto_paris_panteon.webp" type="image/webp">
+            <img src="photo_busto_paris_panteon.png" alt="David Otero Mato" class="about-photo" width="523"
+              height="522" loading="lazy" decoding="async">
+          </picture>
+
+          <div class="contact-quick">
+            <a href="mailto:itsdavid.otero@gmail.com" class="contact-item">
+              <div class="contact-icon">
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              itsdavid.otero@gmail.com
+            </a>
+            <a href="tel:+34661695846" class="contact-item">
+              <div class="contact-icon">
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+              </div>
+              (+34) 661 695 846
+            </a>
+            <a href="https://github.com/iamDavi" target="_blank" rel="noopener" class="contact-item">
+              <div class="contact-icon">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+              </div>
+              github.com/iamDavi
+            </a>
+            <a href="https://www.linkedin.com/in/david-otero-mato-438610213/" target="_blank" rel="noopener"
+              class="contact-item">
+              <div class="contact-icon">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                </svg>
+              </div>
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SKILLS ========== -->
+  <section id="skills">
+    <div class="container">
+      <div class="reveal" style="text-align:center;margin-bottom:2rem;">
+        <p class="section-label">— Habilidades</p>
+        <h2 class="section-title">Stack <span>tecnológico</span></h2>
+        <p class="section-subtitle">Haz click en cada categoría para explorar las tecnologías</p>
+      </div>
+
+      <div class="skills-tabs reveal">
+        <button class="tab-btn" data-tab="frontend"><i data-lucide="palette"></i> Frontend</button>
+        <button class="tab-btn" data-tab="backend"><i data-lucide="server"></i> Backend</button>
+        <button class="tab-btn" data-tab="scripting"><i data-lucide="scroll-text"></i> Scripting</button>
+        <button class="tab-btn" data-tab="servers"><i data-lucide="monitor"></i> Servidores</button>
+        <button class="tab-btn" data-tab="aws"><i data-lucide="cloud"></i> AWS</button>
+        <button class="tab-btn" data-tab="vibe"><i data-lucide="sparkles"></i> Vibe Coding</button>
+        <button class="tab-btn" data-tab="soft"><i data-lucide="users"></i> Soft Skills</button>
+      </div>
+
+      <!-- Frontend -->
+      <div class="tab-panel" id="tab-frontend">
+        <p class="skill-description">
+          Construcción de interfaces modernas, <strong>responsive</strong> y orientadas al usuario. Mi framework
+          principal es <strong>Vue.js</strong>, con el que desarrollo SPAs y componentes reutilizables. Adapto el stack
+          de estilos (SASS, Tailwind, Bootstrap, Vuetify) al proyecto y visualizo datos complejos con
+          <strong>ChartJS</strong>.
+        </p>
+        <div class="skills-grid">
+          <div class="skill-card"><img src="https://cdn.simpleicons.org/html5/E34F26" width="28" height="28" alt="HTML5"
+              class="skill-icon-img">HTML5</div>
+          <div class="skill-card"><img src="https://cdn.simpleicons.org/css/1572B6" width="28" height="28" alt="CSS3"
+              class="skill-icon-img">CSS3</div>
+          <div class="skill-card"><img src="https://cdn.simpleicons.org/sass/CC6699" width="28" height="28" alt="SASS"
+              class="skill-icon-img">SASS</div>
+          <div class="skill-card"><img src="https://cdn.simpleicons.org/javascript/F7DF1E" width="28" height="28"
+              alt="JavaScript" class="skill-icon-img">JavaScript</div>
+          <div class="skill-card"><img src="https://cdn.simpleicons.org/vuedotjs/4FC08D" width="28" height="28"
+              alt="Vue.js" class="skill-icon-img">Vue.js</div>
+          <div class="skill-card"><img src="https://cdn.simpleicons.org/vuetify/1867C0" width="28" height="28"
+              alt="Vuetify" class="skill-icon-img">Vuetify</div>
+          <div class="skill-card"><img src="https://cdn.simpleicons.org/bootstrap/7952B3" width="28" height="28"
+              alt="Bootstrap" class="skill-icon-img">Bootstrap</div>
+          <div class="skill-card"><img src="https://cdn.simpleicons.org/bulma/00D1B2" width="28" height="28" alt="Bulma"
+              class="skill-icon-img">Bulma</div>
+          <div class="skill-card"><img src="https://cdn.simpleicons.org/tailwindcss/06B6D4" width="28" height="28"
+              alt="Tailwind" class="skill-icon-img">Tailwind</div>
+          <div class="skill-card"><img src="https://cdn.simpleicons.org/chartdotjs/FF6384" width="28" height="28"
+              alt="ChartJS" class="skill-icon-img">ChartJS</div>
+          <div class="skill-card"><img src="https://cdn.simpleicons.org/jquery/0769AD" width="28" height="28"
+              alt="jQuery" class="skill-icon-img">jQuery</div>
+          <div class="skill-card"><span class="skill-icon-lucide"><i data-lucide="layers"></i></span>Materialize</div>
+        </div>
+      </div>
+
+      <!-- Backend -->
+      <div class="tab-panel" id="tab-backend">
+        <p class="skill-description">
+          Desarrollo de <strong>APIs REST robustas</strong>, lógica de negocio compleja y arquitecturas mantenibles.
+          Lenguaje principal <strong>PHP con Symfony</strong> (experiencia en v3 y migración a v7), complementado con
+          <strong>Python</strong> y <strong>Node.js</strong>. Capaz de mantener proyectos legacy y modernizarlos sin
+          romper lo que funciona.
+        </p>
+        <div class="skills-grid">
+          <div class="skill-card"><img src="https://cdn.simpleicons.org/php/777BB4" width="28" height="28" alt="PHP"
+              class="skill-icon-img">PHP</div>
+          <div class="skill-card"><img src="https://cdn.simpleicons.org/python/3776AB" width="28" height="28"
+              alt="Python" class="skill-icon-img">Python</div>
+          <div class="skill-card"><img src="https://cdn.simpleicons.org/nodedotjs/5FA04E" width="28" height="28"
+              alt="Node.js" class="skill-icon-img">Node.js</div>
+          <div class="skill-card"><span class="skill-icon-lucide"><i data-lucide="database"></i></span>Doctrine</div>
+          <div class="skill-card"><img src="https://cdn.simpleicons.org/symfony/ffffff" width="28" height="28"
+              alt="Symfony" class="skill-icon-img">Symfony</div>
+          <div class="skill-card"><img src="https://cdn.simpleicons.org/django/44B78B" width="28" height="28"
+              alt="Django" class="skill-icon-img">Django</div>
+          <div class="skill-card"><img src="https://cdn.simpleicons.org/express/ffffff" width="28" height="28"
+              alt="Express" class="skill-icon-img">Express</div>
+          <div class="skill-card"><span class="skill-icon-lucide"><i data-lucide="search"></i></span>Beautiful Soup
+          </div>
+        </div>
+      </div>
+
+      <!-- Scripting -->
+      <div class="tab-panel" id="tab-scripting">
+        <p class="skill-description">
+          Automatización de procesos que eliminan trabajo manual repetitivo. Generación dinámica de <strong>informes
+            PDF</strong>, exportación e importación de <strong>CSV</strong>, integración con <strong>APIs
+            externas</strong> y visualización de datos. Útil para conectar sistemas, generar documentación automática o
+          agilizar operaciones internas.
+        </p>
+        <div class="skills-grid">
+          <div class="skill-card"><span class="skill-icon-lucide"><i data-lucide="file-text"></i></span>Parseo de
+            archivos</div>
+          <div class="skill-card"><span class="skill-icon-lucide"><i data-lucide="table"></i></span>CSV</div>
+          <div class="skill-card"><span class="skill-icon-lucide"><i data-lucide="bar-chart-2"></i></span>Gráficas</div>
+          <div class="skill-card"><span class="skill-icon-lucide"><i data-lucide="file"></i></span>PDF</div>
+          <div class="skill-card"><span class="skill-icon-lucide"><i data-lucide="plug"></i></span>APIs REST</div>
+          <div class="skill-card"><span class="skill-icon-lucide"><i data-lucide="bot"></i></span>Automatización</div>
+        </div>
+      </div>
+
+      <!-- Servers -->
+      <div class="tab-panel" id="tab-servers">
+        <p class="skill-description">
+          Puesta en marcha y mantenimiento de servidores <strong>Linux</strong> en producción, desde cero hasta el
+          primer request. Configuración de <strong>Apache</strong> y <strong>Nginx</strong>, gestión de certificados
+          SSL, firewall y múltiples dominios en el mismo servidor. Entornos estables, seguros y sin sorpresas.
+        </p>
+        <div class="skills-grid">
+          <div class="skill-card"><img src="https://cdn.simpleicons.org/apache/D22128" width="28" height="28"
+              alt="Apache" class="skill-icon-img">Apache</div>
+          <div class="skill-card"><img src="https://cdn.simpleicons.org/nginx/009639" width="28" height="28" alt="Nginx"
+              class="skill-icon-img">Nginx</div>
+          <div class="skill-card"><span class="skill-icon-lucide"><i data-lucide="shield"></i></span>Firewall</div>
+          <div class="skill-card"><span class="skill-icon-lucide"><i data-lucide="globe"></i></span>Virtual Hosts</div>
+          <div class="skill-card"><img src="https://cdn.simpleicons.org/linux/FCC624" width="28" height="28" alt="Linux"
+              class="skill-icon-img">Linux</div>
+          <div class="skill-card"><span class="skill-icon-lucide"><i data-lucide="terminal"></i></span>SSH</div>
+        </div>
+      </div>
+
+      <!-- AWS -->
+      <div class="tab-panel" id="tab-aws">
+        <p class="skill-description">
+          Infraestructura cloud en <strong>producción real</strong>, sin depender de un equipo DevOps dedicado. Dominio
+          de los servicios clave de <strong>AWS</strong>: cómputo, bases de datos, balanceo de carga y despliegue
+          automatizado. Capaz de diseñar, desplegar y mantener la arquitectura cloud de un proyecto de principio a fin.
+        </p>
+        <div class="aws-diagram">
+          <div class="aws-service">
+            <div class="aws-name">EC2</div>
+            <div class="aws-desc">Instancias de cómputo</div>
+          </div>
+          <div class="aws-service">
+            <div class="aws-name">RDS</div>
+            <div class="aws-desc">Bases de datos relacionales</div>
+          </div>
+          <div class="aws-service">
+            <div class="aws-name">Route53</div>
+            <div class="aws-desc">DNS y dominios</div>
+          </div>
+          <div class="aws-service">
+            <div class="aws-name">ELB</div>
+            <div class="aws-desc">Balanceadores de carga</div>
+          </div>
+          <div class="aws-service">
+            <div class="aws-name">ECR</div>
+            <div class="aws-desc">Registro de contenedores</div>
+          </div>
+          <div class="aws-service">
+            <div class="aws-name">Elastic Beanstalk</div>
+            <div class="aws-desc">Deploy automatizado</div>
+          </div>
+          <div class="aws-service">
+            <div class="aws-name">Grupos de seguridad</div>
+            <div class="aws-desc">Firewall cloud</div>
+          </div>
+          <div class="aws-service">
+            <div class="aws-name">Grupos de destino</div>
+            <div class="aws-desc">Target groups</div>
+          </div>
+          <div class="aws-service">
+            <div class="aws-name">IAM</div>
+            <div class="aws-desc">Gestión de accesos</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vibe Coding -->
+      <div class="tab-panel" id="tab-vibe">
+        <div class="vibe-card">
+          <p class="vibe-title">
+            <i data-lucide="sparkles"></i>
+            Vibe Coding con Claude Code
+          </p>
+          <p class="vibe-body">
+            Uso avanzado de <strong>IA generativa</strong> (Claude Code) con optimización de ventana de contexto,
+            diseño de <strong>prompts estructurados</strong>, documentación fragmentada, creación de
+            <strong>agentes</strong> y skills dedicadas. No solo uso la IA como copiloto — diseño los flujos
+            de trabajo para que la IA sea un miembro productivo del equipo de desarrollo.
+          </p>
+        </div>
+        <div class="skills-grid">
+          <div class="skill-card"><span class="skill-icon-lucide"><i data-lucide="sparkles"></i></span>Claude Code</div>
+          <div class="skill-card"><span class="skill-icon-lucide"><i data-lucide="wand-2"></i></span>Prompt Engineering
+          </div>
+          <div class="skill-card"><span class="skill-icon-lucide"><i data-lucide="brain"></i></span>Context Window</div>
+          <div class="skill-card"><span class="skill-icon-lucide"><i data-lucide="bot"></i></span>Agentes IA</div>
+          <div class="skill-card"><span class="skill-icon-lucide"><i data-lucide="book-open"></i></span>Docs fragmentada
+          </div>
+          <div class="skill-card"><span class="skill-icon-lucide"><i data-lucide="zap"></i></span>Skills dedicadas</div>
+        </div>
+      </div>
+
+      <!-- Soft Skills -->
+      <div class="tab-panel" id="tab-soft">
+        <p class="skill-description">
+          Más de 8 años en equipos reales: he liderado la incorporación de nuevos developers, gestionado proyectos de
+          principio a fin y trabajado con autonomía total en remoto. <strong>Comunicación directa</strong>, capacidad de
+          aprender cualquier tecnología que requiera el proyecto y orientación a resultados sin necesidad de supervisión
+          constante.
+        </p>
+        <div class="soft-skills-grid">
+          <div class="soft-skill-item"><span class="si-icon"><i
+                data-lucide="message-circle"></i></span><span>Comunicación efectiva</span></div>
+          <div class="soft-skill-item"><span class="si-icon"><i data-lucide="graduation-cap"></i></span><span>Liderazgo
+              técnico</span></div>
+          <div class="soft-skill-item"><span class="si-icon"><i data-lucide="book-open"></i></span><span>Autoaprendizaje
+              continuo</span></div>
+          <div class="soft-skill-item"><span class="si-icon"><i data-lucide="search"></i></span><span>Resolución de
+              problemas</span></div>
+          <div class="soft-skill-item"><span class="si-icon"><i data-lucide="trending-up"></i></span><span>Mentalidad de
+              mejora</span></div>
+          <div class="soft-skill-item"><span class="si-icon"><i data-lucide="users"></i></span><span>Trabajo en
+              equipo</span></div>
+          <div class="soft-skill-item"><span class="si-icon"><i data-lucide="zap"></i></span><span>Adaptabilidad</span>
+          </div>
+          <div class="soft-skill-item"><span class="si-icon"><i data-lucide="target"></i></span><span>Orientación a
+              resultados</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== EXPERIENCE ========== -->
+  <section id="experience" style="background:linear-gradient(to bottom, var(--bg), var(--surface) 50%, var(--bg))">
+    <div class="container">
+      <div class="reveal" style="margin-bottom:3rem;">
+        <p class="section-label">— Experiencia</p>
+        <h2 class="section-title">Trayectoria <span>profesional</span></h2>
+        <p class="section-subtitle">+8 años construyendo productos digitales reales</p>
+      </div>
+
+      <div class="timeline reveal">
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <span class="timeline-company">BESA - Bernardo Ecenarro S.A.</span>
+              <span class="timeline-period">2026 — Presente</span>
+            </div>
+            <p class="timeline-role">Desarrollador Fullstack</p>
+            <p class="timeline-desc">
+              Desarrollo de soluciones web en un entorno empresarial consolidado, aplicando experiencia en
+              backend, infraestructura cloud y optimización de flujos de desarrollo.
+            </p>
+            <div class="timeline-tags">
+              <span class="tag">PHP</span>
+              <span class="tag">Vue.js</span>
+              <span class="tag">AWS</span>
+              <span class="tag">Symfony</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <span class="timeline-company">JAWOT CORP S.L.</span>
+              <span class="timeline-period">2024 — 2026</span>
+            </div>
+            <p class="timeline-role">Tech Lead · Desarrollador Fullstack</p>
+            <p class="timeline-desc">
+              Responsable del desarrollo de la plataforma <strong>Secretä</strong>. Gestión completa del proyecto,
+              formación de nuevos perfiles del equipo, coordinación mediante Jira y optimización del flujo de
+              desarrollo con IA generativa.
+            </p>
+            <div class="timeline-tags">
+              <span class="tag">PHP</span>
+              <span class="tag">Vue.js</span>
+              <span class="tag">Jira</span>
+              <span class="tag">IA generativa</span>
+              <span class="tag">Tech Lead</span>
+              <span class="tag">AWS</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <span class="timeline-company">Lex Program Online S.L.</span>
+              <span class="timeline-period">2021 — 2024</span>
+            </div>
+            <p class="timeline-role">Desarrollador Fullstack · DevOps</p>
+            <p class="timeline-desc">
+              Migración completa a <strong>Symfony 7</strong>, creación de APIs, widget y dashboard de cookies
+              multi-jurisdicción e idioma, Sistema Interno de Información, generación dinámica de textos legales
+              y deploy de infraestructura en <strong>AWS</strong>.
+            </p>
+            <div class="timeline-tags">
+              <span class="tag">Symfony 7</span>
+              <span class="tag">AWS</span>
+              <span class="tag">APIs</span>
+              <span class="tag">Elastic Beanstalk</span>
+              <span class="tag">RDS</span>
+              <span class="tag">PHP</span>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <span class="timeline-company">Hispatek Internet S.L.</span>
+              <span class="timeline-period">2018 — 2021</span>
+            </div>
+            <p class="timeline-role">Desarrollador Web</p>
+            <p class="timeline-desc">
+              Creación y adición de funcionalidades y contenido en páginas web. Adaptación al entorno existente,
+              corrección de errores y configuración de proyectos con <strong>Symfony 3</strong>.
+            </p>
+            <div class="timeline-tags">
+              <span class="tag">Symfony 3</span>
+              <span class="tag">PHP</span>
+              <span class="tag">HTML/CSS</span>
+              <span class="tag">JavaScript</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== EDUCATION ========== -->
+  <section id="education">
+    <div class="container">
+      <div class="reveal" style="margin-bottom:3rem;">
+        <p class="section-label">— Educación</p>
+        <h2 class="section-title">Formación <span>académica</span></h2>
+        <p class="section-subtitle">Base sólida en sistemas + especialización en ciberseguridad</p>
+      </div>
+
+      <div class="timeline reveal">
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <span class="timeline-company">Grado Superior ASIR</span>
+              <span class="timeline-period">2017 — 2020</span>
+            </div>
+            <p class="timeline-role">I.E.S. Xabier Zubiri Manteo BHI · Donostia, País Vasco</p>
+            <p class="timeline-desc">Administración de Sistemas Informáticos en Red</p>
+            <span class="edu-badge">Especialización en Ciberseguridad</span>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <span class="timeline-company">Bachillerato Científico</span>
+              <span class="timeline-period">2015 — 2017</span>
+            </div>
+            <p class="timeline-role">I.E.S. Pío Baroja B.H.I. · Irún, País Vasco</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <div class="timeline-header">
+              <span class="timeline-company">E.S.O.</span>
+              <span class="timeline-period">2011 — 2015</span>
+            </div>
+            <p class="timeline-role">I.E.S. Ramón María Aller Ulloa · Pontevedra, Galicia</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CV ========== -->
+  <section id="cv">
+    <div class="container">
+      <div class="reveal" style="text-align:center;margin-bottom:2rem;">
+        <p class="section-label">— Curriculum Vitae</p>
+        <h2 class="section-title">Mi <span>CV</span></h2>
+        <p class="section-subtitle">Versión web del curriculum — imprimible desde el navegador</p>
+      </div>
+
+      <div class="cv-actions reveal">
+        <button class="btn-primary" id="btn-print">
+          <svg width="17" height="17" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
+          </svg>
+          Imprimir / Descargar PDF
+        </button>
+        <a href="cv.png" download class="btn-secondary">
+          <svg width="17" height="17" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+          Descargar imagen original
+        </a>
+      </div>
+
+      <!-- CV HTML Replica -->
+      <div class="cv-scroll reveal">
+        <div class="cv-wrapper">
+
+          <!-- Sidebar izquierdo -->
+          <div class="cv-sidebar">
+            <!-- TODO: reemplazar con tu foto -->
+            <div class="cv-avatar">DO</div>
+
+            <div class="cv-name-block">
+              <h2>David<br>Otero Mato</h2>
+              <span class="cv-name-badge">Fullstack Developer</span>
+            </div>
+
+            <div>
+              <p class="cv-s-title">Sobre mí</p>
+              <p class="cv-about-text">
+                Tras completar mi formación en Administración de Sistemas, descubrí mi pasión por el
+                <strong>desarrollo web</strong>, área en la que he sido principalmente <strong>autodidacta</strong>.
+                <br><br>
+                Mi capacidad de aprendizaje autónomo, entusiasmo por resolver problemas y afán por mejorar
+                me han permitido optimizar mi entorno de trabajo y encontrar <strong>soluciones eficientes</strong>.
+                <br><br>
+                He liderado la incorporación de nuevos miembros en proyectos, desarrollando habilidades de
+                <strong>comunicación y enseñanza</strong> a través de ejemplos prácticos.
+              </p>
+            </div>
+
+            <div>
+              <p class="cv-s-title">Idiomas</p>
+              <div class="cv-lang-item">
+                <span class="cv-lang-name">Castellano</span>
+                <div class="cv-lang-dots">
+                  <div class="cv-dot filled"></div>
+                  <div class="cv-dot filled"></div>
+                  <div class="cv-dot filled"></div>
+                  <div class="cv-dot filled"></div>
+                  <div class="cv-dot filled"></div>
+                </div>
+              </div>
+              <div class="cv-lang-item">
+                <span class="cv-lang-name">Inglés</span>
+                <div class="cv-lang-dots">
+                  <div class="cv-dot filled"></div>
+                  <div class="cv-dot filled"></div>
+                  <div class="cv-dot filled"></div>
+                  <div class="cv-dot"></div>
+                  <div class="cv-dot"></div>
+                </div>
+              </div>
+              <div class="cv-lang-item">
+                <span class="cv-lang-name">Gallego</span>
+                <div class="cv-lang-dots">
+                  <div class="cv-dot filled"></div>
+                  <div class="cv-dot filled"></div>
+                  <div class="cv-dot filled"></div>
+                  <div class="cv-dot filled"></div>
+                  <div class="cv-dot filled"></div>
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <p class="cv-s-title">Contacto</p>
+              <a href="tel:+34661695846" class="cv-contact-link">
+                <div class="cv-contact-icon">
+                  <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                </div>
+                (+34) 661 695 846
+              </a>
+              <a href="mailto:itsdavid.otero@gmail.com" class="cv-contact-link">
+                <div class="cv-contact-icon">
+                  <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                itsdavid.otero@gmail.com
+              </a>
+              <a href="https://github.com/iamDavi" target="_blank" class="cv-contact-link">
+                <div class="cv-contact-icon">
+                  <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                  </svg>
+                </div>
+                github.com/iamDavi
+              </a>
+              <a href="https://www.linkedin.com/in/david-otero-mato-438610213/" target="_blank" rel="noopener"
+                class="cv-contact-link">
+                <div class="cv-contact-icon">
+                  <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                  </svg>
+                </div>
+                LinkedIn
+              </a>
+            </div>
+          </div>
+
+          <!-- Contenido principal -->
+          <div class="cv-main">
+
+            <!-- Educación -->
+            <div class="cv-main-sec">
+              <h3 class="cv-m-title">
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path d="M12 14l9-5-9-5-9 5 9 5z" />
+                  <path
+                    d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
+                </svg>
+                Educación
+              </h3>
+              <div class="cv-edu-item">
+                <div>
+                  <div class="cv-edu-name">Grado superior en administración de sistemas informáticos en red</div>
+                  <div class="cv-edu-school">I.E.S. Xabier Zubiri Manteo BHI · Donostia, País Vasco</div>
+                  <div class="cv-edu-special">Especialización en ciberseguridad</div>
+                </div>
+                <span class="cv-edu-period">2017 – 2020</span>
+              </div>
+              <div class="cv-edu-item">
+                <div>
+                  <div class="cv-edu-name">Bachillerato científico</div>
+                  <div class="cv-edu-school">I.E.S. Pío Baroja B.H.I. · Irún, País Vasco</div>
+                </div>
+                <span class="cv-edu-period">2015 – 2017</span>
+              </div>
+              <div class="cv-edu-item">
+                <div>
+                  <div class="cv-edu-name">Educación secundaria obligatoria (E.S.O.)</div>
+                  <div class="cv-edu-school">I.E.S. Ramón María Aller Ulloa · Pontevedra, Galicia</div>
+                </div>
+                <span class="cv-edu-period">2011 – 2015</span>
+              </div>
+            </div>
+
+            <!-- Habilidades -->
+            <div class="cv-main-sec">
+              <h3 class="cv-m-title">
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                </svg>
+                Habilidades
+              </h3>
+              <div class="cv-skill-group">
+                <div class="cv-skill-label">Front-end</div>
+                <div class="cv-skill-sub">Tecnologías base</div>
+                <div class="cv-skill-val">HTML, CSS, SASS, Vue, JavaScript</div>
+                <div class="cv-skill-sub">Frameworks</div>
+                <div class="cv-skill-val">Vuetify, Bootstrap, Bulma, jQuery, Tailwind, Materialize, ChartJS</div>
+              </div>
+              <div class="cv-skill-group">
+                <div class="cv-skill-label">Back-end</div>
+                <div class="cv-skill-sub">Tecnologías base</div>
+                <div class="cv-skill-val">PHP, Python, Node, Doctrine</div>
+                <div class="cv-skill-sub">Frameworks</div>
+                <div class="cv-skill-val">Symfony, Django, Beautiful Soup, Express</div>
+              </div>
+              <div class="cv-skill-group">
+                <div class="cv-skill-label">Scripting</div>
+                <div class="cv-skill-val">Parseo de archivos, generación y lectura de CSV, generación de gráficas,
+                  generación de PDF, creación y consumo de API</div>
+              </div>
+              <div class="cv-skill-group">
+                <div class="cv-skill-label">Servidores</div>
+                <div class="cv-skill-val">Configuración de servidores, Apache, Nginx, configuración de firewall,
+                  creación
+                  de hosts virtuales</div>
+                <div class="cv-skill-sub">Amazon Web Service (AWS)</div>
+                <div class="cv-skill-val">EC2, RDS, Route53, Balanceadores de carga, ECR, Grupos de destino, Grupos de
+                  seguridad, Elastic Beanstalk</div>
+              </div>
+              <div class="cv-skill-group">
+                <div class="cv-skill-label">Vibe coding</div>
+                <div class="cv-skill-val">Uso avanzado de IA generativa con optimización de ventana de contexto, diseño
+                  de
+                  prompts estructurados, documentación fragmentada, creación de agentes y skills dedicadas</div>
+              </div>
+              <div class="cv-skill-group">
+                <div class="cv-skill-label">Soft skills</div>
+                <div class="cv-skill-val">Capacidad de comunicación, voluntad continua de aprender y escalar, resolución
+                  de problemas, liderazgo técnico</div>
+              </div>
+            </div>
+
+            <!-- Experiencia -->
+            <div class="cv-main-sec">
+              <h3 class="cv-m-title">
+                <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round"
+                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                Experiencia
+              </h3>
+              <div class="cv-exp-item">
+                <div class="cv-exp-header">
+                  <span class="cv-exp-company">BESA - Bernardo Ecenarro S.A.</span>
+                  <span class="cv-exp-period">2026 – Presente</span>
+                </div>
+                <p class="cv-exp-desc">Desarrollo de soluciones web en entorno empresarial consolidado, aplicando
+                  experiencia en backend, infraestructura cloud y optimización de flujos de desarrollo.</p>
+              </div>
+              <div class="cv-exp-item">
+                <div class="cv-exp-header">
+                  <span class="cv-exp-company">JAWOT CORP S.L.</span>
+                  <span class="cv-exp-period">2024 – 2026</span>
+                </div>
+                <p class="cv-exp-desc">Responsable del desarrollo de la plataforma Secretä, gestión del proyecto,
+                  formador
+                  de los nuevos perfiles que se incorporan a la plataforma, gestión del proyecto a través de Jira,
+                  optimización del uso de IA generativa.</p>
+              </div>
+              <div class="cv-exp-item">
+                <div class="cv-exp-header">
+                  <span class="cv-exp-company">Lex Program Online S.L.</span>
+                  <span class="cv-exp-period">2021 – 2024</span>
+                </div>
+                <p class="cv-exp-desc">Refactorización a Symfony 7, creación de APIs, widget y dashboard cookies
+                  multi-jurisdicción/idioma, Sistema Interno de Info, generación dinámica textos legales, deploy en AWS.
+                </p>
+              </div>
+              <div class="cv-exp-item">
+                <div class="cv-exp-header">
+                  <span class="cv-exp-company">Hispatek Internet S.L.</span>
+                  <span class="cv-exp-period">2018 – 2021</span>
+                </div>
+                <p class="cv-exp-desc">Creación y añadido de funcionalidades/contenido en páginas. Adaptación al entorno
+                  existente, corrección de errores. Configuración de proyecto en Symfony 3.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section id="contact">
+    <div class="container">
+      <div class="reveal" style="text-align:center;margin-bottom:3rem;">
+        <p class="section-label">— Contacto</p>
+        <h2 class="section-title">¿Hablamos sobre tu <span>proyecto</span>?</h2>
+        <p class="section-subtitle">Disponible para proyectos freelance y nuevas oportunidades</p>
+      </div>
+
+      <div class="contact-cards reveal">
+        <a href="mailto:itsdavid.otero@gmail.com" class="contact-card">
+          <div class="cc-icon">
+            <svg width="26" height="26" fill="none" viewBox="0 0 24 24" stroke="#6ec4a0" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <span class="cc-label">Email</span>
+          <span class="cc-value">itsdavid.otero@gmail.com</span>
+        </a>
+        <a href="https://github.com/iamDavi" target="_blank" rel="noopener" class="contact-card">
+          <div class="cc-icon">
+            <svg width="26" height="26" fill="#6ec4a0" viewBox="0 0 24 24">
+              <path
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+            </svg>
+          </div>
+          <span class="cc-label">GitHub</span>
+          <span class="cc-value">github.com/iamDavi</span>
+        </a>
+        <a href="https://www.linkedin.com/in/david-otero-mato-438610213/" target="_blank" rel="noopener"
+          class="contact-card">
+          <div class="cc-icon">
+            <svg width="26" height="26" fill="#6ec4a0" viewBox="0 0 24 24">
+              <path
+                d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+            </svg>
+          </div>
+          <span class="cc-label">LinkedIn</span>
+          <span class="cc-value">david-otero-mato</span>
+        </a>
+      </div>
+
+      <div class="contact-form-wrap reveal">
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.2rem;margin-bottom:0.35rem;">Envíame un mensaje
+        </h3>
+        <p style="color:var(--text-muted);font-size:0.83rem;margin-bottom:1.5rem;">Te respondo en menos de 24 horas</p>
+        <form id="contact-form" action="https://formspree.io/f/xjgqraey" method="POST" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Nombre</label>
+              <input type="text" name="name" class="form-input" placeholder="Tu nombre" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email</label>
+              <input type="email" name="email" class="form-input" placeholder="tu@email.com" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Asunto</label>
+            <input type="text" name="subject" class="form-input" placeholder="¿En qué puedo ayudarte?">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Mensaje</label>
+            <textarea name="message" class="form-input" placeholder="Cuéntame sobre tu proyecto..." required></textarea>
+          </div>
+          <button type="submit" id="contact-submit" class="btn-primary"
+            style="width:100%;justify-content:center;margin-top:0.25rem;">
+            <span id="contact-btn-text">Enviar mensaje</span>
+            <svg width="17" height="17" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+            </svg>
+          </button>
+          <p id="contact-status" class="contact-status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <p>© 2026 <span>David Otero Mato</span> · Donostia, Gipuzkoa</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="https://unpkg.com/lucide@1.47.0/dist/umd/lucide.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>

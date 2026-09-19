@@ -163,6 +163,13 @@ const contactBtnTxt = document.getElementById('contact-btn-text');
 contactForm?.addEventListener('submit', async (e) => {
   e.preventDefault();
 
+  const privacyConsent = document.getElementById('privacy-consent');
+  if (privacyConsent && !privacyConsent.checked) {
+    contactStatus.textContent = 'Debes aceptar la Política de Privacidad para enviar el mensaje.';
+    contactStatus.className   = 'contact-status error';
+    return;
+  }
+
   contactBtn.disabled  = true;
   contactBtnTxt.textContent = 'Enviando…';
   contactStatus.textContent = '';

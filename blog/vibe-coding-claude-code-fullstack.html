@@ -1,0 +1,141 @@
+<!-- BORRADOR: contenido de ejemplo generado para dar estructura al blog. Revisa, edita y personaliza antes de compartir la URL o promocionarla. -->
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vibe coding con Claude Code en proyectos fullstack reales — David Otero Mato</title>
+  <meta name="description"
+    content="Cómo integro Claude Code en mi flujo de trabajo fullstack: gestión de la ventana de contexto, prompts estructurados, agentes y skills dedicadas.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://davidotero.es/blog/vibe-coding-claude-code-fullstack.html">
+  <meta name="theme-color" content="#0c0c0f">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://davidotero.es/blog/vibe-coding-claude-code-fullstack.html">
+  <meta property="og:title" content="Vibe coding con Claude Code en proyectos fullstack reales">
+  <meta property="og:description"
+    content="Cómo integro Claude Code en mi flujo de trabajo fullstack: gestión de la ventana de contexto, prompts estructurados, agentes y skills dedicadas.">
+  <meta property="og:image" content="https://davidotero.es/og-image.png">
+  <meta property="og:locale" content="es_ES">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Vibe coding con Claude Code en proyectos fullstack reales",
+    "description": "Cómo integro Claude Code en mi flujo de trabajo fullstack: gestión de la ventana de contexto, prompts estructurados, agentes y skills dedicadas.",
+    "author": { "@type": "Person", "name": "David Otero Mato", "url": "https://davidotero.es/" },
+    "datePublished": "2026-09-19",
+    "dateModified": "2026-09-19",
+    "image": "https://davidotero.es/og-image.png",
+    "mainEntityOfPage": "https://davidotero.es/blog/vibe-coding-claude-code-fullstack.html"
+  }
+  </script>
+</head>
+
+<body>
+
+  <section class="page-hero">
+    <a href="index.html" class="back-link">&larr; Volver al blog</a>
+    <h1 style="font-size: 1.9rem;">Vibe coding con Claude Code: cómo integro IA generativa en proyectos fullstack
+      reales</h1>
+  </section>
+
+  <article class="prose">
+    <p class="updated">19 de septiembre de 2026 · David Otero Mato</p>
+
+    <p>
+      "Vibe coding" se suele entender como dejar que la IA escriba código a partir de una descripción vaga y
+      confiar en que funcione. En mi día a día como desarrollador fullstack lo entiendo de otra forma: usar
+      <strong>Claude Code</strong> como un miembro más del equipo, con su propio contexto, sus propias
+      instrucciones y sus propias responsabilidades dentro del proyecto — no como un autocompletado glorificado.
+    </p>
+
+    <h2>El problema real: la ventana de contexto</h2>
+    <p>
+      El mayor error al trabajar con IA generativa en proyectos grandes no es la calidad del modelo, es la gestión
+      del contexto. Si le pasas a la IA todo el repositorio de golpe, pierdes precisión; si le pasas demasiado poco,
+      alucina decisiones de arquitectura que no existen. En mis proyectos fullstack (PHP/Vue en el backend y
+      frontend, desplegados en AWS) divido la documentación en fragmentos específicos por dominio — convenciones de
+      API, esquema de base de datos, decisiones de infraestructura — para que cada tarea cargue solo el contexto que
+      necesita, no el proyecto entero.
+    </p>
+
+    <h2>Prompts estructurados, no conversaciones sueltas</h2>
+    <p>
+      Un prompt suelto tipo "arréglame esto" produce resultados inconsistentes. Estructuro las instrucciones con:
+      qué se espera exactamente, qué restricciones tiene (convenciones del proyecto, patrones ya usados, qué no
+      tocar), y cómo se va a verificar el resultado (tests, lint, revisión manual). Esto reduce drásticamente las
+      iteraciones de ida y vuelta, que es donde realmente se pierde tiempo cuando se trabaja con IA sin disciplina.
+    </p>
+
+    <h2>Agentes y skills dedicadas</h2>
+    <p>
+      Para tareas que se repiten (revisión de código, despliegue, generación de documentación) no reescribo el
+      contexto cada vez: configuro <strong>skills</strong> dedicadas que encapsulan el procedimiento, y delego
+      tareas independientes a <strong>agentes</strong> que trabajan en paralelo sin interferir con el hilo principal
+      de desarrollo. El resultado práctico: puedo mantener el foco en decisiones de arquitectura mientras la IA se
+      encarga de trabajo mecánico bien delimitado — sin perder de vista qué está haciendo ni por qué.
+    </p>
+
+    <h2>Dónde encaja esto en un stack PHP + Vue + AWS</h2>
+    <p>
+      En proyectos reales esto se traduce en cosas concretas: documentación de la API fragmentada por endpoint para
+      que la IA no tenga que releer el backend entero en cada cambio del frontend; scripts de despliegue en AWS
+      (Elastic Beanstalk, RDS) descritos como skills reutilizables en vez de instrucciones ad-hoc cada vez; y
+      revisiones de código automatizadas antes de cada PR que detectan inconsistencias con las convenciones del
+      proyecto antes de que lleguen a revisión humana.
+    </p>
+
+    <h2>La conclusión que me llevo</h2>
+    <p>
+      La IA generativa no sustituye el criterio técnico, lo amplifica cuando se le da la estructura correcta. La
+      diferencia entre "vibe coding" como meme y como herramienta productiva real está en el diseño del flujo de
+      trabajo: contexto bien fragmentado, prompts con criterios de éxito explícitos, y automatización de lo
+      repetitivo para poder dedicar el tiempo humano a lo que de verdad requiere criterio.
+    </p>
+
+    <p>
+      ¿Quieres aplicar este enfoque a tu proyecto? <a href="../index.html#contact">Hablemos</a>.
+    </p>
+  </article>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <p>© 2026 <span>David Otero Mato</span> · Donostia, Gipuzkoa</p>
+    <p class="footer-legal">
+      <a href="../aviso-legal.html">Aviso legal</a> ·
+      <a href="../politica-privacidad.html">Privacidad</a> ·
+      <a href="../politica-cookies.html">Cookies</a> ·
+      <button type="button" data-cookie-settings>Configurar cookies</button>
+    </p>
+  </footer>
+
+  <div class="cookie-banner" id="cookie-banner" hidden role="dialog" aria-live="polite"
+    aria-label="Consentimiento de cookies">
+    <p>
+      Uso cookies analíticas (Google Analytics) para entender cómo se usa esta web. Solo se activan si las aceptas, y
+      puedes cambiar de opinión cuando quieras desde "Configurar cookies" en el pie de página. Más info en la
+      <a href="../politica-cookies.html">Política de Cookies</a>.
+    </p>
+    <div class="cookie-banner-actions">
+      <button type="button" class="btn-secondary" id="cookie-reject">Rechazar</button>
+      <button type="button" class="btn-primary" id="cookie-accept">Aceptar</button>
+    </div>
+  </div>
+
+  <script src="../js/cookie-consent.js"></script>
+</body>
+
+</html>

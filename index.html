@@ -85,6 +85,7 @@
       <li><a href="#skills">Habilidades</a></li>
       <li><a href="#experience">Experiencia</a></li>
       <li><a href="#cv">CV</a></li>
+      <li><a href="blog/">Blog</a></li>
       <li><a href="#contact" class="nav-cta">Contacto</a></li>
     </ul>
   </nav>
@@ -947,6 +948,11 @@
             <label class="form-label">Mensaje</label>
             <textarea name="message" class="form-input" placeholder="Cuéntame sobre tu proyecto..." required></textarea>
           </div>
+          <label class="form-checkbox">
+            <input type="checkbox" name="privacy_consent" id="privacy-consent" required>
+            <span>He leído y acepto la <a href="politica-privacidad.html" target="_blank" rel="noopener">Política de
+                Privacidad</a>. Tus datos se usan solo para responder a tu consulta.</span>
+          </label>
           <button type="submit" id="contact-submit" class="btn-primary"
             style="width:100%;justify-content:center;margin-top:0.25rem;">
             <span id="contact-btn-text">Enviar mensaje</span>
@@ -963,8 +969,29 @@
   <!-- ========== FOOTER ========== -->
   <footer>
     <p>© 2026 <span>David Otero Mato</span> · Donostia, Gipuzkoa</p>
+    <p class="footer-legal">
+      <a href="aviso-legal.html">Aviso legal</a> ·
+      <a href="politica-privacidad.html">Privacidad</a> ·
+      <a href="politica-cookies.html">Cookies</a> ·
+      <button type="button" data-cookie-settings>Configurar cookies</button>
+    </p>
   </footer>
 
+  <!-- ========== COOKIE CONSENT BANNER ========== -->
+  <div class="cookie-banner" id="cookie-banner" hidden role="dialog" aria-live="polite"
+    aria-label="Consentimiento de cookies">
+    <p>
+      Uso cookies analíticas (Google Analytics) para entender cómo se usa esta web. Solo se activan si las aceptas, y
+      puedes cambiar de opinión cuando quieras desde "Configurar cookies" en el pie de página. Más info en la
+      <a href="politica-cookies.html">Política de Cookies</a>.
+    </p>
+    <div class="cookie-banner-actions">
+      <button type="button" class="btn-secondary" id="cookie-reject">Rechazar</button>
+      <button type="button" class="btn-primary" id="cookie-accept">Aceptar</button>
+    </div>
+  </div>
+
+  <script src="js/cookie-consent.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="https://unpkg.com/lucide@1.47.0/dist/umd/lucide.min.js"></script>
   <script src="js/main.js"></script>

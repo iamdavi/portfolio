@@ -17,9 +17,9 @@
   <meta property="og:title" content="David Otero Mato — Fullstack Developer">
   <meta property="og:description"
     content="Portfolio de David Otero Mato — Desarrollador fullstack con experiencia en PHP, Vue.js, AWS, infraestructura cloud y IA generativa.">
-  <meta property="og:image" content="https://davidotero.es/photo_busto_paris_panteon.png">
-  <meta property="og:image:width" content="523">
-  <meta property="og:image:height" content="522">
+  <meta property="og:image" content="https://davidotero.es/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:locale" content="es_ES">
 
   <!-- Twitter Card -->
@@ -27,7 +27,7 @@
   <meta name="twitter:title" content="David Otero Mato — Fullstack Developer">
   <meta name="twitter:description"
     content="Portfolio de David Otero Mato — Desarrollador fullstack con experiencia en PHP, Vue.js, AWS, infraestructura cloud y IA generativa.">
-  <meta name="twitter:image" content="https://davidotero.es/photo_busto_paris_panteon.png">
+  <meta name="twitter:image" content="https://davidotero.es/og-image.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,6 +46,7 @@
     "@type": "Person",
     "name": "David Otero Mato",
     "url": "https://davidotero.es/",
+    "image": "https://davidotero.es/cv-avatar-photo.png",
     "jobTitle": "Fullstack Developer",
     "sameAs": [
       "https://github.com/iamDavi",
@@ -639,8 +640,13 @@
 
           <!-- Sidebar izquierdo -->
           <div class="cv-sidebar">
-            <!-- TODO: reemplazar con tu foto -->
-            <div class="cv-avatar">DO</div>
+            <div class="cv-avatar">
+              <picture>
+                <source srcset="cv-avatar-photo.webp" type="image/webp">
+                <img src="cv-avatar-photo.png" alt="David Otero Mato" width="110" height="110" loading="lazy"
+                  decoding="async">
+              </picture>
+            </div>
 
             <div class="cv-name-block">
               <h2>David<br>Otero Mato</h2>

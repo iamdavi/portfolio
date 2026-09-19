@@ -30,22 +30,33 @@
 
 <body>
 
+  <div id="particles-js"></div>
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
   <section class="page-hero">
     <a href="../index.html" class="back-link">&larr; Volver al portfolio</a>
-    <h1>Blog</h1>
+    <span class="page-badge">Blog</span>
+    <h1>Notas de desarrollo fullstack</h1>
+    <p class="page-subtitle">
+      Arquitectura, PHP, Vue.js, AWS e IA generativa aplicada a proyectos reales — sin relleno, con lo que
+      funciona en producción.
+    </p>
   </section>
 
   <div class="prose" style="max-width: 900px;">
-    <p>Notas técnicas sobre desarrollo fullstack, arquitectura cloud e IA generativa aplicada a proyectos reales.</p>
-
     <div class="blog-grid">
       <a href="vibe-coding-claude-code-fullstack.html" class="blog-card">
-        <span class="blog-card-date">19 sep 2026</span>
+        <div class="blog-card-top">
+          <span class="post-tag">IA & Desarrollo</span>
+          <span class="blog-card-date">19 sep 2026 · 4 min</span>
+        </div>
         <h2>Vibe coding con Claude Code: cómo integro IA generativa en proyectos fullstack reales</h2>
         <p>
           Ventana de contexto, prompts estructurados, agentes y skills dedicadas — cómo uso Claude Code como un
           miembro más del equipo de desarrollo, no solo como autocompletado.
         </p>
+        <span class="blog-card-cta">Leer artículo →</span>
       </a>
     </div>
   </div>
@@ -75,6 +86,8 @@
   </div>
 
   <script src="../js/cookie-consent.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="../js/site-fx.js"></script>
 </body>
 
 </html>

@@ -46,15 +46,24 @@
 
 <body>
 
+  <div id="particles-js"></div>
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
   <section class="page-hero">
     <a href="index.html" class="back-link">&larr; Volver al blog</a>
     <h1 style="font-size: 1.9rem;">Vibe coding con Claude Code: cómo integro IA generativa en proyectos fullstack
       reales</h1>
+    <div class="post-meta">
+      <span class="post-tag">IA & Desarrollo</span>
+      <span class="dot">·</span>
+      <span>19 sep 2026</span>
+      <span class="dot">·</span>
+      <span>4 min de lectura</span>
+    </div>
   </section>
 
   <article class="prose">
-    <p class="updated">19 de septiembre de 2026 · David Otero Mato</p>
-
     <p>
       "Vibe coding" se suele entender como dejar que la IA escriba código a partir de una descripción vaga y
       confiar en que funcione. En mi día a día como desarrollador fullstack lo entiendo de otra forma: usar
@@ -71,6 +80,12 @@
       API, esquema de base de datos, decisiones de infraestructura — para que cada tarea cargue solo el contexto que
       necesita, no el proyecto entero.
     </p>
+
+    <div class="callout">
+      <p><strong>La idea clave</strong>Documentación fragmentada por dominio, no un único archivo gigante. Cada
+        tarea carga solo lo que necesita para resolverse — igual que no le pasarías el código entero a un compañero
+        para revisar un solo endpoint.</p>
+    </div>
 
     <h2>Prompts estructurados, no conversaciones sueltas</h2>
     <p>
@@ -89,6 +104,11 @@
       encarga de trabajo mecánico bien delimitado — sin perder de vista qué está haciendo ni por qué.
     </p>
 
+    <blockquote>
+      La IA no sustituye el criterio técnico: lo amplifica cuando el flujo de trabajo tiene la estructura
+      correcta.
+    </blockquote>
+
     <h2>Dónde encaja esto en un stack PHP + Vue + AWS</h2>
     <p>
       En proyectos reales esto se traduce en cosas concretas: documentación de la API fragmentada por endpoint para
@@ -100,16 +120,25 @@
 
     <h2>La conclusión que me llevo</h2>
     <p>
-      La IA generativa no sustituye el criterio técnico, lo amplifica cuando se le da la estructura correcta. La
-      diferencia entre "vibe coding" como meme y como herramienta productiva real está en el diseño del flujo de
+      La diferencia entre "vibe coding" como meme y como herramienta productiva real está en el diseño del flujo de
       trabajo: contexto bien fragmentado, prompts con criterios de éxito explícitos, y automatización de lo
       repetitivo para poder dedicar el tiempo humano a lo que de verdad requiere criterio.
     </p>
-
-    <p>
-      ¿Quieres aplicar este enfoque a tu proyecto? <a href="../index.html#contact">Hablemos</a>.
-    </p>
   </article>
+
+  <div class="prose">
+    <div class="author-card">
+      <picture>
+        <source srcset="../cv-avatar-photo.webp" type="image/webp">
+        <img src="../cv-avatar-photo.png" alt="David Otero Mato" width="64" height="64" loading="lazy">
+      </picture>
+      <div>
+        <h3>David Otero Mato</h3>
+        <p>Desarrollador fullstack — PHP, Vue.js, AWS e IA generativa aplicada a proyectos reales.</p>
+        <a href="../index.html#contact">¿Hablamos de tu proyecto? →</a>
+      </div>
+    </div>
+  </div>
 
   <!-- ========== FOOTER ========== -->
   <footer>
@@ -136,6 +165,8 @@
   </div>
 
   <script src="../js/cookie-consent.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="../js/site-fx.js"></script>
 </body>
 
 </html>

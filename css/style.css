@@ -1098,12 +1098,6 @@ section {
   border-bottom-color: var(--accent);
 }
 
-.project-tab[data-project="munttarpe"],
-.project-tab[data-project="munttarpe"]:hover,
-.project-tab[data-project="munttarpe"].active {
-  color: #2fe070;
-}
-
 .project-tab-mark {
   flex-shrink: 0;
   width: 26px;

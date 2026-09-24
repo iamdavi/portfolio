@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Badge de autoría — David Otero</title>
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <style>
+    :root {
+      --bg: #0c0c0f;
+      --surface: #13131a;
+      --border: #1e1e2e;
+      --accent: #6ec4a0;
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+    }
+
+    * { box-sizing: border-box; margin: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      padding: 48px 16px;
+    }
+
+    main { max-width: 760px; margin: 0 auto; }
+    h1 { font-size: 1.6rem; margin-bottom: .4rem; }
+    h2 { font-size: 1rem; margin: 2.2rem 0 .8rem; color: var(--accent); }
+    p { color: var(--text-muted); }
+    code { color: var(--text); font-size: .9em; }
+
+    .preview {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding: 28px 16px;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: .75rem;
+      font-size: 14px;
+    }
+    .preview--dark { background: #111118; color: #cbd5e1; }
+    .preview--light { background: #f5f5f4; color: #334155; }
+    .preview small { opacity: .6; }
+
+    .code-wrap { position: relative; }
+    pre {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      overflow-x: auto;
+      font-size: 12px;
+      line-height: 1.5;
+      max-height: 320px;
+    }
+    .copy {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: var(--accent);
+      color: #0c0c0f;
+      border: 0;
+      border-radius: 8px;
+      padding: 6px 12px;
+      font: 600 13px system-ui, sans-serif;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <h1>Badge de autoría</h1>
+    <p>Pega este bloque en el footer de cualquier web. Es HTML y CSS puros, sin JavaScript, así que el enlace a
+      <code>davidotero.es</code> queda en el HTML y los buscadores lo pueden rastrear.</p>
+
+    <h2>Footer oscuro</h2>
+    <div class="preview preview--dark" data-badge><small>© 2026 Mi proyecto ·</small></div>
+
+    <h2>Footer claro (añade la clase <code>dom-badge--light</code>)</h2>
+    <div class="preview preview--light" data-badge data-light><small>© 2026 Mi proyecto ·</small></div>
+
+    <h2>Código</h2>
+    <div class="code-wrap">
+      <button class="copy" type="button">Copiar</button>
+      <pre><code id="code">Cargando…</code></pre>
+    </div>
+  </main>
+
+  <script>
+    fetch('snippet.html')
+      .then(r => r.text())
+      .then(html => {
+        document.getElementById('code').textContent = html;
+        document.querySelectorAll('[data-badge]').forEach(el => {
+          const variant = el.hasAttribute('data-light')
+            ? html.replace('class="dom-badge"', 'class="dom-badge dom-badge--light"')
+            : html;
+          el.insertAdjacentHTML('beforeend', variant);
+        });
+        document.querySelector('.copy').addEventListener('click', e => {
+          navigator.clipboard.writeText(html).then(() => {
+            e.target.textContent = '¡Copiado!';
+            setTimeout(() => { e.target.textContent = 'Copiar'; }, 1600);
+          });
+        });
+      });
+  </script>
+</body>
+
+</html>

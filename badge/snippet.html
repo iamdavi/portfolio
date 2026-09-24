@@ -1,0 +1,55 @@
+<!-- Badge de autoría · David Otero — https://davidotero.es/badge/ -->
+<a class="dom-badge" href="https://davidotero.es/" title="David Otero Mato — Desarrollador Fullstack y Tech Lead" target="_blank" rel="noopener">
+  <svg class="dom-badge__mark" viewBox="0 0 82 82" width="18" height="18" aria-hidden="true" focusable="false">
+    <defs>
+      <linearGradient id="dom-badge-grad" x1="5.5" y1="41" x2="76.39" y2="41" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#3a7a58"/>
+        <stop offset="1" stop-color="#6ec4a0"/>
+      </linearGradient>
+    </defs>
+    <path pathLength="1" fill="none" stroke="url(#dom-badge-grad)" stroke-linecap="round" stroke-width="7" transform="translate(5.5 0)" d="M2.5,64.9V10.04c0-4.16,3.38-7.54,7.54-7.54h27.25c17.18,0,31.1,13.93,31.1,31.1h0c0,17.18-13.93,31.1-31.11,31.1h-18.44c-3.81,0-6.9,3.09-6.9,6.9h0c0,3.81,3.09,6.9,6.9,6.9h37.55"/>
+  </svg>
+  <span class="dom-badge__text">Desarrollado por <strong>David Otero</strong></span>
+</a>
+<style>
+  .dom-badge {
+    --dom-accent: #6ec4a0;
+    display: inline-flex;
+    align-items: center;
+    gap: .5em;
+    padding: .45em .85em .45em .6em;
+    border: 1px solid rgba(110, 196, 160, .28);
+    border-radius: 999px;
+    font: inherit;
+    font-size: 13px;
+    line-height: 1;
+    color: inherit;
+    text-decoration: none;
+    opacity: .8;
+    transition: opacity .2s, border-color .2s, box-shadow .2s, transform .2s;
+  }
+  .dom-badge--light { --dom-accent: #2f6b4c; border-color: rgba(58, 122, 88, .3); }
+  .dom-badge:hover,
+  .dom-badge:focus-visible {
+    opacity: 1;
+    border-color: var(--dom-accent);
+    box-shadow: 0 0 0 3px rgba(110, 196, 160, .14);
+    transform: translateY(-1px);
+  }
+  .dom-badge:focus-visible { outline: 2px solid var(--dom-accent); outline-offset: 2px; }
+  .dom-badge__mark { flex: none; display: block; }
+  .dom-badge__text { white-space: nowrap; }
+  .dom-badge strong { font-weight: 700; letter-spacing: .01em; transition: color .2s; }
+  .dom-badge:hover strong,
+  .dom-badge:focus-visible strong { color: var(--dom-accent); }
+  .dom-badge:hover .dom-badge__mark path { animation: dom-badge-draw .9s ease-out; }
+  @keyframes dom-badge-draw {
+    from { stroke-dasharray: 1; stroke-dashoffset: 1; }
+    to   { stroke-dasharray: 1; stroke-dashoffset: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .dom-badge, .dom-badge strong { transition: none; }
+    .dom-badge:hover { transform: none; }
+    .dom-badge:hover .dom-badge__mark path { animation: none; }
+  }
+</style>

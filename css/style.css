@@ -1244,8 +1244,7 @@ section {
   height: 42px;
   width: auto;
   max-width: 100%;
-  object-fit: contain;
-  object-position: left;
+  display: block;
 }
 
 .project-details-desc {

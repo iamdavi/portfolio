@@ -143,11 +143,6 @@ document.querySelectorAll('.language-bar-fill').forEach(bar => {
 });
 
 /* ===========================
-   Print CV
-   =========================== */
-document.getElementById('btn-print')?.addEventListener('click', () => window.print());
-
-/* ===========================
    Contact Form (Formspree)
    =========================== */
 const contactForm   = document.getElementById('contact-form');
@@ -195,40 +190,3 @@ contactForm?.addEventListener('submit', async (e) => {
     contactBtnTxt.textContent = 'Enviar mensaje';
   }
 });
-
-/* ===========================
-   CV Scale
-   =========================== */
-function scaleCv() {
-  const wrapper = document.querySelector('.cv-wrapper');
-  const scroll  = document.querySelector('.cv-scroll');
-  if (!wrapper || !scroll) return;
-
-  const naturalWidth = 900;
-  const available = scroll.parentElement.offsetWidth;
-
-  if (available >= naturalWidth) {
-    wrapper.style.transform       = '';
-    wrapper.style.transformOrigin = '';
-    wrapper.style.marginLeft      = '';
-    scroll.style.height           = '';
-    return;
-  }
-
-  const scale = available / naturalWidth;
-
-  // Reset transform to measure natural height accurately
-  wrapper.style.transform = 'none';
-  const naturalHeight = wrapper.offsetHeight;
-
-  // transform-origin: top left + marginLeft: 0 ensures the scaled visual
-  // width (naturalWidth * scale = available) fills the container exactly,
-  // without the left-drift that top center causes on overflowing elements.
-  wrapper.style.transformOrigin = 'top left';
-  wrapper.style.marginLeft      = '0';
-  wrapper.style.transform       = `scale(${scale})`;
-  scroll.style.height           = (naturalHeight * scale) + 'px';
-}
-
-scaleCv();
-window.addEventListener('resize', scaleCv);

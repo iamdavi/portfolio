@@ -1225,11 +1225,12 @@ section {
   gap: 1.2rem;
 }
 
-.project-details-name {
-  font-family: 'Space Grotesk', sans-serif;
-  font-weight: 700;
-  font-size: 1.6rem;
-  color: var(--text);
+.project-details-logo {
+  height: 42px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: left;
 }
 
 .project-details-desc {
@@ -1866,8 +1867,8 @@ footer {
     padding: 0.5rem 0.9rem;
   }
 
-  .project-details-name {
-    font-size: 1.3rem;
+  .project-details-logo {
+    height: 34px;
   }
 }
 

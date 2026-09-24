@@ -571,127 +571,91 @@
 
       <div class="projects-showcase reveal">
         <div class="projects-tabs" role="tablist" aria-label="Proyectos">
-          <button class="project-tab active" data-project="tukomanda" role="tab" aria-selected="true"
+          <div class="project-tab active" data-project="tukomanda" role="tab" tabindex="0" aria-selected="true"
             aria-controls="project-tukomanda">
-            <span class="project-tab-mark">Tk</span>
-            <span class="project-tab-info">
+            <div class="project-tab-head">
+              <span class="project-tab-mark">Tk</span>
               <span class="project-tab-name">Tukomanda</span>
-              <span class="project-tab-url">tukomanda.vercel.app</span>
-            </span>
-            <i data-lucide="chevron-right" class="project-tab-arrow"></i>
-          </button>
-          <button class="project-tab" data-project="nika" role="tab" aria-selected="false"
+            </div>
+            <p class="project-tab-desc">
+              Añade aquí una breve descripción: qué es Tukomanda, qué problema resuelve y qué tecnologías usaste.
+            </p>
+            <a href="https://tukomanda.vercel.app/" target="_blank" rel="noopener" class="project-tab-link">
+              Ver proyecto
+              <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+          </div>
+          <div class="project-tab" data-project="nika" role="tab" tabindex="-1" aria-selected="false"
             aria-controls="project-nika">
-            <span class="project-tab-mark">No</span>
-            <span class="project-tab-info">
+            <div class="project-tab-head">
+              <span class="project-tab-mark">No</span>
               <span class="project-tab-name">Nika Osasun Zentroa</span>
-              <span class="project-tab-url">nika-osasun-zentroa.vercel.app</span>
-            </span>
-            <i data-lucide="chevron-right" class="project-tab-arrow"></i>
-          </button>
-          <button class="project-tab" data-project="munttarpe" role="tab" aria-selected="false"
+            </div>
+            <p class="project-tab-desc">
+              Añade aquí una breve descripción: qué es Nika Osasun Zentroa, qué problema resuelve y qué tecnologías
+              usaste.
+            </p>
+            <a href="https://nika-osasun-zentroa.vercel.app/" target="_blank" rel="noopener" class="project-tab-link">
+              Ver proyecto
+              <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+          </div>
+          <div class="project-tab" data-project="munttarpe" role="tab" tabindex="-1" aria-selected="false"
             aria-controls="project-munttarpe">
-            <span class="project-tab-mark">Mt</span>
-            <span class="project-tab-info">
+            <div class="project-tab-head">
+              <span class="project-tab-mark">Mt</span>
               <span class="project-tab-name">Munttarpe</span>
-              <span class="project-tab-url">munttarpe.vercel.app</span>
-            </span>
-            <i data-lucide="chevron-right" class="project-tab-arrow"></i>
-          </button>
+            </div>
+            <p class="project-tab-desc">
+              Añade aquí una breve descripción: qué es Munttarpe, qué problema resuelve y qué tecnologías usaste.
+            </p>
+            <a href="https://munttarpe.vercel.app/" target="_blank" rel="noopener" class="project-tab-link">
+              Ver proyecto
+              <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
+          </div>
         </div>
 
         <div class="projects-panels">
           <div class="project-panel active" id="project-tukomanda" role="tabpanel">
             <div class="project-preview">
-              <div class="browser-frame">
-                <div class="browser-bar">
-                  <span></span><span></span><span></span>
-                  <span class="browser-url">tukomanda.vercel.app</span>
-                </div>
-                <img class="project-screenshot"
-                  src="https://s0.wp.com/mshots/v1/https%3A%2F%2Ftukomanda.vercel.app%2F?w=1200&h=800"
-                  alt="Captura de la web de Tukomanda" loading="lazy" width="1200" height="800">
+              <img class="project-media"
+                src="https://s0.wp.com/mshots/v1/https%3A%2F%2Ftukomanda.vercel.app%2F?w=1200&h=1500"
+                alt="Vista previa de Tukomanda" loading="lazy">
+              <div class="project-logo-badge">
+                <div class="project-logo-mark" aria-hidden="true"></div>
+                <div class="project-logo-type">Tukomanda</div>
               </div>
-            </div>
-            <div class="project-info">
-              <p class="project-logotype"><span class="project-logotype-mark"></span>Tukomanda</p>
-              <p class="project-description">
-                Añade aquí una breve descripción: qué es Tukomanda, qué problema resuelve y qué tecnologías
-                usaste para construirlo.
-              </p>
-              <div class="project-tags">
-                <span class="tag">Vercel</span>
-                <span class="tag">Diseño responsive</span>
-              </div>
-              <a href="https://tukomanda.vercel.app/" target="_blank" rel="noopener" class="btn-primary project-link">
-                Ver proyecto
-                <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </a>
             </div>
           </div>
 
           <div class="project-panel" id="project-nika" role="tabpanel">
             <div class="project-preview">
-              <div class="browser-frame">
-                <div class="browser-bar">
-                  <span></span><span></span><span></span>
-                  <span class="browser-url">nika-osasun-zentroa.vercel.app</span>
-                </div>
-                <img class="project-screenshot"
-                  src="https://s0.wp.com/mshots/v1/https%3A%2F%2Fnika-osasun-zentroa.vercel.app%2F?w=1200&h=800"
-                  alt="Captura de la web de Nika Osasun Zentroa" loading="lazy" width="1200" height="800">
+              <img class="project-media"
+                src="https://s0.wp.com/mshots/v1/https%3A%2F%2Fnika-osasun-zentroa.vercel.app%2F?w=1200&h=1500"
+                alt="Vista previa de Nika Osasun Zentroa" loading="lazy">
+              <div class="project-logo-badge">
+                <div class="project-logo-mark" aria-hidden="true"></div>
+                <div class="project-logo-type">Nika Osasun Zentroa</div>
               </div>
-            </div>
-            <div class="project-info">
-              <p class="project-logotype"><span class="project-logotype-mark"></span>Nika Osasun Zentroa</p>
-              <p class="project-description">
-                Añade aquí una breve descripción: qué es Nika Osasun Zentroa, qué problema resuelve y qué
-                tecnologías usaste para construirlo.
-              </p>
-              <div class="project-tags">
-                <span class="tag">Vercel</span>
-                <span class="tag">Diseño responsive</span>
-              </div>
-              <a href="https://nika-osasun-zentroa.vercel.app/" target="_blank" rel="noopener"
-                class="btn-primary project-link">
-                Ver proyecto
-                <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </a>
             </div>
           </div>
 
           <div class="project-panel" id="project-munttarpe" role="tabpanel">
             <div class="project-preview">
-              <div class="browser-frame">
-                <div class="browser-bar">
-                  <span></span><span></span><span></span>
-                  <span class="browser-url">munttarpe.vercel.app</span>
-                </div>
-                <img class="project-screenshot"
-                  src="https://s0.wp.com/mshots/v1/https%3A%2F%2Fmunttarpe.vercel.app%2F?w=1200&h=800"
-                  alt="Captura de la web de Munttarpe" loading="lazy" width="1200" height="800">
+              <img class="project-media"
+                src="https://s0.wp.com/mshots/v1/https%3A%2F%2Fmunttarpe.vercel.app%2F?w=1200&h=1500"
+                alt="Vista previa de Munttarpe" loading="lazy">
+              <div class="project-logo-badge">
+                <div class="project-logo-mark" aria-hidden="true"></div>
+                <div class="project-logo-type">Munttarpe</div>
               </div>
-            </div>
-            <div class="project-info">
-              <p class="project-logotype"><span class="project-logotype-mark"></span>Munttarpe</p>
-              <p class="project-description">
-                Añade aquí una breve descripción: qué es Munttarpe, qué problema resuelve y qué tecnologías
-                usaste para construirlo.
-              </p>
-              <div class="project-tags">
-                <span class="tag">Vercel</span>
-                <span class="tag">Diseño responsive</span>
-              </div>
-              <a href="https://munttarpe.vercel.app/" target="_blank" rel="noopener" class="btn-primary project-link">
-                Ver proyecto
-                <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </a>
             </div>
           </div>
         </div>

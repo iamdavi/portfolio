@@ -92,14 +92,24 @@ function activateProject(name) {
     const isActive = b.dataset.project === name;
     b.classList.toggle('active', isActive);
     b.setAttribute('aria-selected', isActive);
+    b.setAttribute('tabindex', isActive ? '0' : '-1');
   });
   document.querySelectorAll('.project-panel').forEach(p => {
     p.classList.toggle('active', p.id === `project-${name}`);
   });
 }
 
-document.querySelectorAll('.project-tab').forEach(btn => {
-  btn.addEventListener('click', () => activateProject(btn.dataset.project));
+document.querySelectorAll('.project-tab').forEach(tab => {
+  tab.addEventListener('click', (e) => {
+    if (e.target.closest('.project-tab-link')) return;
+    activateProject(tab.dataset.project);
+  });
+  tab.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      activateProject(tab.dataset.project);
+    }
+  });
 });
 
 /* ===========================

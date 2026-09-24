@@ -85,6 +85,24 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
 activateTab('frontend');
 
 /* ===========================
+   Projects Tabs
+   =========================== */
+function activateProject(name) {
+  document.querySelectorAll('.project-tab').forEach(b => {
+    const isActive = b.dataset.project === name;
+    b.classList.toggle('active', isActive);
+    b.setAttribute('aria-selected', isActive);
+  });
+  document.querySelectorAll('.project-panel').forEach(p => {
+    p.classList.toggle('active', p.id === `project-${name}`);
+  });
+}
+
+document.querySelectorAll('.project-tab').forEach(btn => {
+  btn.addEventListener('click', () => activateProject(btn.dataset.project));
+});
+
+/* ===========================
    Intersection Observer — Reveal
    =========================== */
 const revealObserver = new IntersectionObserver((entries) => {

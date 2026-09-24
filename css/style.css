@@ -1241,7 +1241,7 @@ section {
 }
 
 .project-details-logo {
-  height: 42px;
+  height: 64px;
   width: auto;
   max-width: 100%;
   display: block;
@@ -1882,7 +1882,7 @@ footer {
   }
 
   .project-details-logo {
-    height: 34px;
+    height: 48px;
   }
 }
 

@@ -1208,9 +1208,338 @@ section {
 
 .cv-actions {
   display: flex;
+  gap: 1rem;
   justify-content: center;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
 }
 
+.cv-scroll {
+  overflow: hidden;
+}
+
+.cv-wrapper {
+  width: 900px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.5);
+  display: grid;
+  grid-template-columns: 270px 1fr;
+  font-size: 14px;
+}
+
+/* CV Sidebar */
+.cv-sidebar {
+  background: #1c3d2c;
+  color: white;
+  padding: 2.25rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.cv-avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 2.5px solid rgba(196, 162, 40, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.75);
+  font-family: 'Space Grotesk', sans-serif;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.cv-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cv-name-block {
+  text-align: center;
+}
+
+.cv-name-block h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+  font-family: 'Space Grotesk', sans-serif;
+  line-height: 1.2;
+}
+
+.cv-name-badge {
+  display: inline-block;
+  background: rgba(110, 196, 160, 0.15);
+  border: 1px solid rgba(110, 196, 160, 0.3);
+  color: #6ec4a0;
+  padding: 0.22rem 0.8rem;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-top: 0.5rem;
+}
+
+.cv-s-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 0.7rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cv-s-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.cv-about-text {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 0.78rem;
+  line-height: 1.72;
+}
+
+.cv-about-text strong {
+  color: #6ec4a0;
+}
+
+.cv-lang-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.55rem;
+  font-size: 0.82rem;
+}
+
+.cv-lang-name {
+  color: white;
+  font-weight: 500;
+}
+
+.cv-lang-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.cv-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.cv-dot.filled {
+  background: #6ec4a0;
+}
+
+.cv-contact-link {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.55rem;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.78rem;
+  text-decoration: none;
+  transition: color 0.2s;
+  word-break: break-all;
+}
+
+.cv-contact-link:hover {
+  color: #6ec4a0;
+}
+
+.cv-contact-icon {
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  opacity: 0.65;
+}
+
+/* CV Main */
+.cv-main {
+  background: #fafaf9;
+  padding: 2.25rem 1.9rem;
+  color: #1e1e2e;
+}
+
+.cv-main-sec {
+  margin-bottom: 1.75rem;
+}
+
+.cv-m-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #1c3d2c;
+  margin-bottom: 0.9rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 2px solid #d4e8da;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cv-edu-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.4rem;
+  margin-bottom: 0.9rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid #e8f0eb;
+  padding-left: 0.85rem;
+  position: relative;
+}
+
+.cv-edu-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 5px;
+  height: 5px;
+  background: #3a7a58;
+  border-radius: 50%;
+}
+
+.cv-edu-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.cv-edu-name {
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: #1e1e2e;
+}
+
+.cv-edu-school {
+  color: #6b7280;
+  font-size: 0.75rem;
+  margin-top: 0.15rem;
+}
+
+.cv-edu-special {
+  color: #3a7a58;
+  font-size: 0.7rem;
+  font-weight: 600;
+  margin-top: 0.2rem;
+}
+
+.cv-edu-period {
+  color: #3a7a58;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.cv-skill-group {
+  margin-bottom: 0.75rem;
+}
+
+.cv-skill-label {
+  font-weight: 700;
+  font-size: 0.78rem;
+  color: #1c3d2c;
+  margin-bottom: 0.18rem;
+  padding-left: 0.75rem;
+  position: relative;
+}
+
+.cv-skill-label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 5px;
+  height: 5px;
+  background: #3a7a58;
+  border-radius: 50%;
+}
+
+.cv-skill-sub {
+  font-weight: 600;
+  font-size: 0.72rem;
+  color: #3a7a58;
+  margin-bottom: 0.1rem;
+  margin-top: 0.25rem;
+}
+
+.cv-skill-val {
+  font-size: 0.77rem;
+  color: #4b5563;
+  line-height: 1.55;
+}
+
+.cv-exp-item {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #e8f0eb;
+  padding-left: 0.85rem;
+  position: relative;
+}
+
+.cv-exp-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 6px;
+  width: 5px;
+  height: 5px;
+  background: #3a7a58;
+  border-radius: 50%;
+}
+
+.cv-exp-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.cv-exp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.cv-exp-company {
+  font-weight: 700;
+  font-size: 0.82rem;
+  color: #1e1e2e;
+}
+
+.cv-exp-period {
+  color: #3a7a58;
+  font-size: 0.75rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.cv-exp-desc {
+  font-size: 0.77rem;
+  color: #4b5563;
+  line-height: 1.6;
+  margin-top: 0.2rem;
+}
 
 /* ===========================
    Contact Section
@@ -1850,5 +2179,42 @@ footer {
     right: 0.75rem;
     bottom: 0.75rem;
     padding: 1.1rem;
+  }
+}
+
+/* ===========================
+   Print (CV only)
+   =========================== */
+@media print {
+  body>*:not(#cv) {
+    display: none !important;
+  }
+
+  #cv {
+    padding: 0 !important;
+    background: white !important;
+  }
+
+  .cv-actions {
+    display: none !important;
+  }
+
+  .cv-scroll {
+    overflow: visible !important;
+  }
+
+  .cv-wrapper {
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    max-width: 100%;
+  }
+
+  .cursor,
+  .cursor-follower {
+    display: none !important;
+  }
+
+  #particles-js {
+    display: none !important;
   }
 }

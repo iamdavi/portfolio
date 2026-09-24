@@ -87,29 +87,28 @@ activateTab('frontend');
 /* ===========================
    Projects Tabs
    =========================== */
+const projectOrder = ['tukomanda', 'nika', 'munttarpe'];
+
 function activateProject(name) {
+  const index = projectOrder.indexOf(name);
+  if (index === -1) return;
+
   document.querySelectorAll('.project-tab').forEach(b => {
     const isActive = b.dataset.project === name;
     b.classList.toggle('active', isActive);
     b.setAttribute('aria-selected', isActive);
-    b.setAttribute('tabindex', isActive ? '0' : '-1');
   });
-  document.querySelectorAll('.project-panel').forEach(p => {
-    p.classList.toggle('active', p.id === `project-${name}`);
+
+  const track = document.querySelector('.projects-track');
+  if (track) track.style.transform = `translateX(-${index * (100 / projectOrder.length)}%)`;
+
+  document.querySelectorAll('.project-slide').forEach(slide => {
+    slide.classList.toggle('is-current', slide.id === `project-${name}`);
   });
 }
 
 document.querySelectorAll('.project-tab').forEach(tab => {
-  tab.addEventListener('click', (e) => {
-    if (e.target.closest('.project-tab-link')) return;
-    activateProject(tab.dataset.project);
-  });
-  tab.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      activateProject(tab.dataset.project);
-    }
-  });
+  tab.addEventListener('click', () => activateProject(tab.dataset.project));
 });
 
 /* ===========================

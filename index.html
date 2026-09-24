@@ -571,96 +571,106 @@
 
       <div class="projects-showcase reveal">
         <div class="projects-tabs" role="tablist" aria-label="Proyectos">
-          <div class="project-tab active" data-project="tukomanda" role="tab" tabindex="0" aria-selected="true"
+          <button class="project-tab active" data-project="tukomanda" role="tab" aria-selected="true"
             aria-controls="project-tukomanda">
-            <div class="project-tab-head">
-              <span class="project-tab-mark">Tk</span>
-              <span class="project-tab-name">Tukomanda</span>
-            </div>
-            <p class="project-tab-desc">
-              Añade aquí una breve descripción: qué es Tukomanda, qué problema resuelve y qué tecnologías usaste.
-            </p>
-            <a href="https://tukomanda.vercel.app/" target="_blank" rel="noopener" class="project-tab-link">
-              Ver proyecto
-              <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </a>
-          </div>
-          <div class="project-tab" data-project="nika" role="tab" tabindex="-1" aria-selected="false"
+            <span class="project-tab-mark">Tk</span>
+            Tukomanda
+          </button>
+          <button class="project-tab" data-project="nika" role="tab" aria-selected="false"
             aria-controls="project-nika">
-            <div class="project-tab-head">
-              <span class="project-tab-mark">No</span>
-              <span class="project-tab-name">Nika Osasun Zentroa</span>
-            </div>
-            <p class="project-tab-desc">
-              Añade aquí una breve descripción: qué es Nika Osasun Zentroa, qué problema resuelve y qué tecnologías
-              usaste.
-            </p>
-            <a href="https://nika-osasun-zentroa.vercel.app/" target="_blank" rel="noopener" class="project-tab-link">
-              Ver proyecto
-              <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </a>
-          </div>
-          <div class="project-tab" data-project="munttarpe" role="tab" tabindex="-1" aria-selected="false"
+            <span class="project-tab-mark">No</span>
+            Nika Osasun Zentroa
+          </button>
+          <button class="project-tab" data-project="munttarpe" role="tab" aria-selected="false"
             aria-controls="project-munttarpe">
-            <div class="project-tab-head">
-              <span class="project-tab-mark">Mt</span>
-              <span class="project-tab-name">Munttarpe</span>
-            </div>
-            <p class="project-tab-desc">
-              Añade aquí una breve descripción: qué es Munttarpe, qué problema resuelve y qué tecnologías usaste.
-            </p>
-            <a href="https://munttarpe.vercel.app/" target="_blank" rel="noopener" class="project-tab-link">
-              Ver proyecto
-              <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </a>
-          </div>
+            <span class="project-tab-mark">Mt</span>
+            Munttarpe
+          </button>
         </div>
 
-        <div class="projects-panels">
-          <div class="project-panel active" id="project-tukomanda" role="tabpanel">
-            <div class="project-preview">
-              <div class="project-media-frame">
-                <img class="project-media"
-                  src="https://s0.wp.com/mshots/v1/https%3A%2F%2Ftukomanda.vercel.app%2F?w=1200&h=675"
-                  alt="Vista previa de Tukomanda" loading="lazy">
+        <div class="projects-slider">
+          <div class="projects-track">
+            <div class="project-slide is-current" id="project-tukomanda" role="tabpanel">
+              <div class="project-preview">
+                <div class="project-media-frame">
+                  <img class="project-media"
+                    src="https://s0.wp.com/mshots/v1/https%3A%2F%2Ftukomanda.vercel.app%2F?w=1200&h=675"
+                    alt="Vista previa de Tukomanda" loading="lazy">
+                </div>
+                <div class="project-logo-badge">
+                  <div class="project-logo-mark" aria-hidden="true"></div>
+                  <div class="project-logo-type">Tukomanda</div>
+                </div>
               </div>
-              <div class="project-logo-badge">
-                <div class="project-logo-mark" aria-hidden="true"></div>
-                <div class="project-logo-type">Tukomanda</div>
+              <div class="project-details">
+                <p class="project-details-name">Tukomanda</p>
+                <p class="project-details-desc">
+                  Añade aquí una descripción algo más larga: qué es Tukomanda, a quién va dirigido, qué problema
+                  resuelve y qué tecnologías usaste para construirlo.
+                </p>
+                <a href="https://tukomanda.vercel.app/" target="_blank" rel="noopener"
+                  class="btn-primary project-details-link">
+                  Ver proyecto
+                  <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
               </div>
             </div>
-          </div>
 
-          <div class="project-panel" id="project-nika" role="tabpanel">
-            <div class="project-preview">
-              <div class="project-media-frame">
-                <img class="project-media"
-                  src="https://s0.wp.com/mshots/v1/https%3A%2F%2Fnika-osasun-zentroa.vercel.app%2F?w=1200&h=675"
-                  alt="Vista previa de Nika Osasun Zentroa" loading="lazy">
+            <div class="project-slide" id="project-nika" role="tabpanel">
+              <div class="project-preview">
+                <div class="project-media-frame">
+                  <img class="project-media"
+                    src="https://s0.wp.com/mshots/v1/https%3A%2F%2Fnika-osasun-zentroa.vercel.app%2F?w=1200&h=675"
+                    alt="Vista previa de Nika Osasun Zentroa" loading="lazy">
+                </div>
+                <div class="project-logo-badge">
+                  <div class="project-logo-mark" aria-hidden="true"></div>
+                  <div class="project-logo-type">Nika Osasun Zentroa</div>
+                </div>
               </div>
-              <div class="project-logo-badge">
-                <div class="project-logo-mark" aria-hidden="true"></div>
-                <div class="project-logo-type">Nika Osasun Zentroa</div>
+              <div class="project-details">
+                <p class="project-details-name">Nika Osasun Zentroa</p>
+                <p class="project-details-desc">
+                  Añade aquí una descripción algo más larga: qué es Nika Osasun Zentroa, a quién va dirigido, qué
+                  problema resuelve y qué tecnologías usaste para construirlo.
+                </p>
+                <a href="https://nika-osasun-zentroa.vercel.app/" target="_blank" rel="noopener"
+                  class="btn-primary project-details-link">
+                  Ver proyecto
+                  <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
               </div>
             </div>
-          </div>
 
-          <div class="project-panel" id="project-munttarpe" role="tabpanel">
-            <div class="project-preview">
-              <div class="project-media-frame">
-                <img class="project-media"
-                  src="https://s0.wp.com/mshots/v1/https%3A%2F%2Fmunttarpe.vercel.app%2F?w=1200&h=675"
-                  alt="Vista previa de Munttarpe" loading="lazy">
+            <div class="project-slide" id="project-munttarpe" role="tabpanel">
+              <div class="project-preview">
+                <div class="project-media-frame">
+                  <img class="project-media"
+                    src="https://s0.wp.com/mshots/v1/https%3A%2F%2Fmunttarpe.vercel.app%2F?w=1200&h=675"
+                    alt="Vista previa de Munttarpe" loading="lazy">
+                </div>
+                <div class="project-logo-badge">
+                  <div class="project-logo-mark" aria-hidden="true"></div>
+                  <div class="project-logo-type">Munttarpe</div>
+                </div>
               </div>
-              <div class="project-logo-badge">
-                <div class="project-logo-mark" aria-hidden="true"></div>
-                <div class="project-logo-type">Munttarpe</div>
+              <div class="project-details">
+                <p class="project-details-name">Munttarpe</p>
+                <p class="project-details-desc">
+                  Añade aquí una descripción algo más larga: qué es Munttarpe, a quién va dirigido, qué problema
+                  resuelve y qué tecnologías usaste para construirlo.
+                </p>
+                <a href="https://munttarpe.vercel.app/" target="_blank" rel="noopener"
+                  class="btn-primary project-details-link">
+                  Ver proyecto
+                  <svg width="15" height="15" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </a>
               </div>
             </div>
           </div>

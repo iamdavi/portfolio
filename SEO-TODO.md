@@ -1,45 +1,48 @@
-# SEO — lista de tareas
+# Roadmap SEO — davidotero.es
 
-Estado: `[x]` hecho · `[~]` parcial · `[ ]` pendiente. Última revisión: 2026-09-26.
+Estado: `[x]` hecho · `[~]` en curso · `[ ]` pendiente. Última revisión: 2026-09-26.
+Quién: **David** = paso externo (cuentas, terceros) · **Claude** = cambio de código/contenido en este repo.
 
-## 0. Antes de nada
-- [x] Cambios SEO llevados a `main` y desplegados en Netlify (2026-09-26).
+## Hecho
+- [x] Cambios SEO en `main` y desplegados (H1 con keyword, interlinking servicios↔blog, breadcrumb, sitemap sin `changefreq`/`priority`).
+- [x] Google Search Console (dominio, DNS), sitemap enviado e indexación solicitada, incluidos los 3 artículos nuevos.
+- [x] Bing Webmaster Tools (importado) + IndexNow (clave en la raíz, `scripts/indexnow.sh`, workflow `.github/workflows/indexnow.yml` que avisa tras cada push con cambios en `.html`/`sitemap.xml`).
+- [x] Google Business Profile creada y verificada: descripción, servicios, logo, portada y fotos (paquete en `~/gbp-fotos/`).
+- [x] GA4 (`G-H70S4NSV2Y`) tras consentimiento, verificado en Tiempo real. Botones Aceptar/Rechazar con el mismo peso (AEPD).
+- [x] LinkedIn: titular, URL `/in/david-otero-mato/`, extracto, 3 destacados.
+- [x] GitHub: README de perfil (`iamdavi/iamdavi`), descripción y homepage de `portfolio` y `munttarpe`.
+- [x] Archivos internos (`SEO-TODO.md`, `scripts/`, `prompts/`, `.github/`) ocultos con 404 en Netlify.
+- [x] 3 artículos nuevos publicados: cuánto cuesta una web a medida, n8n vs Make vs Zapier, desplegar PHP en AWS.
+- [x] Reseñas de la ficha de Google pedidas, footers de proyectos y directorios solicitados (David, 2026-09-26; a la espera de respuesta).
 
-## Esta semana (mayor impacto, poco esfuerzo)
-- [~] 1. Alta en **Google Search Console** (propiedad de dominio, DNS) y sitemap enviado: hecho (2026-09-26; el sitemap debería pasar a "Correcto" con 13 páginas en 1–2 días). **Bing Webmaster Tools** importado (alimenta a ChatGPT y Copilot). IndexNow: clave, `scripts/indexnow.sh` y workflow `.github/workflows/indexnow.yml` creados; pendiente desplegar y comprobar.
-- [x] 2. Solicitar indexación (Inspección de URL) de la home, los 6 servicios, `/servicios/`, `/blog/` y los 4 artículos.
-- [~] 3. **Google Business Profile** creada y verificada (2026-09-26). Hecho: descripción, servicios, logo, portada y fotos (paquete en `~/gbp-fotos/`). Pendiente: primeras reseñas, foto de perfil profesional de mayor resolución, y pasarme el teléfono público y la URL de Maps para `telephone`/`hasMap` en el JSON-LD. Original: crear **Google Business Profile** ("negocio de servicios", Donostia; área: Gipuzkoa/País Vasco/España; categoría, descripción, enlace a `/servicios/`, fotos).
-- [x] 4. **LinkedIn** completado (2026-09-26): titular, URL /in/david-otero-mato/, extracto, 3 destacados con enlace a la web. Pendiente opcional: Servicios, Proyectos, recomendaciones y publicar contenido. Original: completar **LinkedIn**: enlace a la web, mismo titular y palabras clave, publicar contenido.
-- [x] 5. H1 de la home con keyword (oculto visualmente con `.sr-only`; opcional: hacerlo visible como subtítulo).
-- [x] 6. **Analítica** GA4 (G-H70S4NSV2Y) activo y verificado en Tiempo real (2026-09-26). Pendiente en GA4: enlazar Search Console, definir tráfico interno, retención 14 meses, marcar conversión del formulario. Original: respetuosa (Plausible/Umami) o GA4 tras el consentimiento de cookies existente.
+## En curso (Claude)
+- [~] **Rendimiento** (Lighthouse en local): fuentes, `particles.js`, `lucide`, peso de la home, LCP < 2,5 s.
 
-## Este mes
-- [ ] 7. **Enlaces de calidad**
-  - [~] GitHub: hecho README de perfil (`iamdavi/iamdavi`), descripción/homepage de `portfolio` y `munttarpe`. Pendiente: nombre, bio, web y ubicación del perfil (`gh auth refresh -s user` o a mano en github.com/settings/profile), pin de repos
-  - [ ] Nika, Munttarpe, TuKomanda: enlace "Desarrollado por David Otero" en sus footers (usar `/badge/`)
-  - [ ] Directorios: Malt, Workana, Sortlist, Clutch, GoodFirms, cámaras de comercio y asociaciones de Gipuzkoa
-  - [ ] Perfiles: Dev.to, Hashnode, Medium, Stack Overflow
-- [~] 8. Primeros 3 artículos redactados (cuánto cuesta una web, n8n vs Make vs Zapier, desplegar PHP en AWS), pendientes de revisión de David antes de publicar. Siguientes ideas: "automatizar facturas con n8n", "migrar a Symfony". Original: **1–2 artículos al mes** con intención de búsqueda real: "cuánto cuesta una web a medida", "n8n vs Make vs Zapier", "automatizar facturas con n8n", "desplegar PHP en AWS", "migrar a Symfony". Enlazarlos entre sí y con su servicio. (Un artículo sobre AWS también rellenaría el hueco de `cloud-aws`.)
-- [~] 9. **Interlinking**: hecho — cada artículo tiene "Sigue leyendo" y 5 servicios tienen "Artículos relacionados". Pendiente: `cloud-aws` (no hay artículo) y texto ancla descriptivo dentro del cuerpo de los artículos.
-- [ ] 10. **Rendimiento**
-  - [ ] Auditar/quitar pesos de fuentes que no se usen (Fraunces y Karla sí se usan, en logos SVG inline de la home)
-  - [ ] Alojar fuentes en local con `font-display: swap`
-  - [ ] `particles.js` y `lucide`: `defer`, solo en desktop, o sustituir por SVG
-  - [ ] Medir con PageSpeed Insights (objetivo LCP < 2,5 s) — la home pesa ~82 KB de HTML
-- [~] 11. **`lastmod` real**: quitados `changefreq`/`priority`; `lastmod` coincide hoy con git. Pendiente: automatizarlo desde el último commit de cada archivo.
-- [x] 12. `BreadcrumbList` y `FAQPage` en servicios (ya estaban; añadido el breadcrumb que faltaba en el artículo de vibe coding).
-- [ ] 13. **Prueba social**: testimonios con nombre, casos de estudio con resultados; `Review`/`AggregateRating` solo con reseñas reales.
-- [ ] 14b. **`ProfessionalService`/`LocalBusiness`**: añadir `telephone`, `priceRange`, `hasMap` (URL de la ficha de Google) y `sameAs` al perfil de negocio cuando existan. Requiere datos tuyos.
-- [ ] 14d. **Correo profesional** `@davidotero.es` (Workspace, o reenvío gratis con Cloudflare/ImprovMX) + MX/SPF/DKIM/DMARC en Netlify DNS; luego sustituir `itsdavid.otero@gmail.com` en la web, JSON-LD y políticas.
-- [ ] 14c. **Cabeceras** en `netlify.toml`: `Content-Security-Policy` y `Permissions-Policy` (prioridad baja para SEO).
+## Siguiente (Claude)
+- [ ] **Datos locales en el JSON-LD:** `telephone`, `hasMap` y `sameAs` de la ficha. Necesita de David: teléfono público y URL de la ficha en Maps.
+- [ ] **Más artículos** (1–2 al mes): "automatizar facturas con n8n", "migrar a Symfony"; enlazarlos con su servicio.
+- [ ] **Enlaces desde los artículos antiguos** hacia los 3 nuevos (interlinking).
+- [ ] **`lastmod` automático** en el sitemap desde el último commit de cada archivo.
+- [ ] **Cabeceras de seguridad** en `netlify.toml` (CSP, Permissions-Policy). Prioridad baja para SEO.
+- [ ] **Prueba social** (`Review`/`AggregateRating`) cuando haya testimonios o reseñas reales.
+
+## Pendiente de David
+- [ ] **Perfil de GitHub:** nombre, bio, web y ubicación (`! gh auth refresh -h github.com -s user` o a mano en github.com/settings/profile); fijar (pin) repos.
+- [ ] **GA4:** enlazar Search Console, retención a 14 meses, definir tráfico interno, marcar conversión del formulario (pedírselo a Claude).
+- [ ] **Backlinks:** confirmar cuáles han respondido (footers Nika/Munttarpe/TuKomanda con el badge de `/badge/`; Malt, cámaras de comercio y asociaciones de Gipuzkoa); después Sortlist, Clutch, GoodFirms.
+- [ ] **Perfiles:** Dev.to, Hashnode, Medium (republicar artículos con enlace canónico a la web; Claude ayuda a adaptarlos).
+- [ ] **Foto de perfil profesional** de mayor resolución (la actual mide 400×400) para web y ficha.
+- [ ] **Correo profesional** `@davidotero.es` (Workspace o reenvío gratuito) + MX/SPF/DKIM/DMARC en Netlify DNS; después Claude sustituye `itsdavid.otero@gmail.com` en la web.
+- [ ] **Analítica (paso 6, aplazado por David):** GA4 ya funciona; los ajustes de GA4 de arriba siguen pendientes.
+- [ ] **LinkedIn (aparcado):** Servicios, Proyectos, recomendaciones y publicar contenido; compartir cada artículo nuevo.
 
 ## Continuo
-- [ ] 14. Revisión mensual de Search Console: consultas con impresiones y pocos clics (mejorar `title`), páginas no indexadas, Core Web Vitals.
-- [ ] 15. Actualizar artículos cuando cambie algo (MCP evoluciona rápido) y actualizar `dateModified` en el JSON-LD.
-- [ ] 16. Compartir cada artículo en LinkedIn y comunidades técnicas.
-- [ ] 17. (Opcional) Versión en inglés `/en/` con `hreflang`, solo si buscas clientes internacionales.
+- [ ] Revisión mensual en Search Console: consultas con impresiones y pocos clics (mejorar `title`), páginas no indexadas, Core Web Vitals.
+- [ ] Revisar reseñas y publicar en la ficha de Google una entrada al mes.
+- [ ] Actualizar artículos cuando cambie algo (MCP evoluciona rápido) y actualizar `dateModified` en el JSON-LD.
+- [ ] (Opcional) Versión en inglés `/en/` con `hreflang`, solo si se buscan clientes internacionales.
 
 ## Expectativas
 - Búsquedas de marca ("David Otero Mato"): semanas.
-- Servicio + ciudad ("desarrollador fullstack freelance Donostia"): 3–6 meses; dependen sobre todo de 3, 7 y 8.
+- Servicio + ciudad ("desarrollador fullstack freelance Donostia"): 3–6 meses; dependen sobre todo de reseñas, backlinks y contenido.
 - Genéricas ("desarrollador fullstack"): muy competidas, no perseguirlas al principio.

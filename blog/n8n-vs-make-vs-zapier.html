@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>n8n vs Make vs Zapier: cuál elegir para automatizar tu empresa</title>
+  <meta name="description" content="Comparativa práctica de n8n, Make y Zapier: modelo de precios, autoalojamiento, privacidad, IA y agentes, facilidad de uso y para qué tipo de empresa encaja cada una.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://davidotero.es/blog/n8n-vs-make-vs-zapier.html">
+  <meta name="theme-color" content="#0c0c0f">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://davidotero.es/blog/n8n-vs-make-vs-zapier.html">
+  <meta property="og:site_name" content="David Otero Mato">
+  <meta property="og:title" content="n8n vs Make vs Zapier: cuál elegir para automatizar tu empresa">
+  <meta property="og:description" content="Comparativa práctica de n8n, Make y Zapier: modelo de precios, autoalojamiento, privacidad, IA y agentes, facilidad de uso y para qué tipo de empresa encaja cada una.">
+  <meta property="og:image" content="https://davidotero.es/images/og/n8n-vs-make-vs-zapier.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="n8n vs Make vs Zapier: cuál elegir para automatizar tu empresa">
+  <meta property="og:locale" content="es_ES">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="n8n vs Make vs Zapier: cuál elegir para automatizar tu empresa">
+  <meta name="twitter:description" content="Comparativa práctica de n8n, Make y Zapier: modelo de precios, autoalojamiento, privacidad, IA y agentes, facilidad de uso y para qué tipo de empresa encaja cada una.">
+  <meta name="twitter:image" content="https://davidotero.es/images/og/n8n-vs-make-vs-zapier.png">
+  <meta name="twitter:image:alt" content="n8n vs Make vs Zapier: cuál elegir para automatizar tu empresa">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css?v=18">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="icon" type="image/png" sizes="48x48" href="../favicon-48.png">
+  <link rel="alternate icon" href="../favicon.ico">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "n8n vs Make vs Zapier: cuál elegir para automatizar tu empresa",
+  "description": "Comparativa práctica de n8n, Make y Zapier: modelo de precios, autoalojamiento, privacidad, IA y agentes, facilidad de uso y para qué tipo de empresa encaja cada una.",
+  "author": {
+    "@type": "Person",
+    "@id": "https://davidotero.es/#david-otero",
+    "name": "David Otero Mato",
+    "url": "https://davidotero.es/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "@id": "https://davidotero.es/#david-otero",
+    "name": "David Otero Mato"
+  },
+  "datePublished": "2026-09-26",
+  "dateModified": "2026-09-26",
+  "image": "https://davidotero.es/images/og/n8n-vs-make-vs-zapier.png",
+  "inLanguage": "es-ES",
+  "mainEntityOfPage": "https://davidotero.es/blog/n8n-vs-make-vs-zapier.html"
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://davidotero.es/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://davidotero.es/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "n8n vs Make vs Zapier: cuál elegir para automatizar tu empresa",
+      "item": "https://davidotero.es/blog/n8n-vs-make-vs-zapier.html"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuál es más barata: n8n, Make o Zapier?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende del volumen y de la longitud de tus flujos. Para poco volumen, las tres pueden salir a cuentas parecidas. Con muchos pasos por flujo y alto volumen, el modelo por ejecución de n8n o su autoalojamiento suele ser más económico. Revisa las tarifas actuales de cada una."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Necesito saber programar para usar n8n?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No para flujos habituales, que se construyen visualmente. Saber algo de JavaScript, de APIs y de JSON ayuda mucho para casos avanzados."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedo usar agentes de IA en estas herramientas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, las tres incorporan funciones de IA. n8n permite construir agentes con memoria y herramientas y conectarlos con servidores MCP."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Es seguro autoalojar n8n?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Lo es si se hace bien: servidor actualizado, acceso protegido, copias de seguridad y credenciales con permisos mínimos. Si no tienes quien lo mantenga, la versión en la nube de n8n es una alternativa."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedes montarme las automatizaciones?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Diseño y construyo automatizaciones con n8n, integraciones con APIs y agentes de IA a medida para empresas."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+
+<body>
+
+  <div id="particles-js"></div>
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav id="navbar" aria-label="Principal">
+    <a href="../index.html" class="nav-logo" aria-label="Inicio">
+      <svg viewBox="0 0 71 82" height="32" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+          <linearGradient id="nav-d-grad" x1="0" y1="40.5" x2="70.89" y2="40.5" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#3a7a58" />
+            <stop offset="1" stop-color="#6ec4a0" />
+          </linearGradient>
+        </defs>
+        <path fill="none" stroke="url(#nav-d-grad)" stroke-linecap="round" stroke-miterlimit="10" stroke-width="5"
+          d="M2.5,64.9V10.04c0-4.16,3.38-7.54,7.54-7.54h27.25c17.18,0,31.1,13.93,31.1,31.1h0c0,17.18-13.93,31.1-31.11,31.1h-18.44c-3.81,0-6.9,3.09-6.9,6.9h0c0,3.81,3.09,6.9,6.9,6.9h37.55" />
+      </svg>
+    </a>
+    <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#about"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 12a4 4 0 100-8 4 4 0 000 8z M4 21a8 8 0 0116 0"/></svg>Sobre mí</a></li>
+      <li><a href="../index.html#skills"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13 3L5 14h6l-1 7 8-11h-6z"/></svg>Habilidades</a></li>
+      <li><a href="../index.html#experience"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h16v11H4z M9 8V5h6v3 M4 13h16"/></svg>Experiencia</a></li>
+      <li class="has-sub">
+        <a href="../servicios/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l9 5-9 5-9-5z M3 13l9 5 9-5"/></svg>Servicios <svg class="nav-caret" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+        <button type="button" class="sub-toggle" aria-expanded="false" aria-controls="nav-sub" aria-label="Mostrar u ocultar los servicios">
+          <svg class="sub-caret" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <ul class="nav-sub" id="nav-sub">
+          <li><a href="../servicios/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l9 5-9 5-9-5z M3 13l9 5 9-5"/></svg>Todos los servicios</a></li>
+          <li><a href="../servicios/automatizaciones/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 5h6v4H4z M14 15h6v4h-6z M10 7h3a2 2 0 012 2v6"/></svg>Automatizaciones</a></li>
+          <li><a href="../servicios/desarrollo-web/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3a9 9 0 100 18 9 9 0 000-18z M3 12h18 M12 3c3 3 3 15 0 18 M12 3c-3 3-3 15 0 18"/></svg>Desarrollo web</a></li>
+          <li><a href="../servicios/ia-generativa-desarrollo/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 8l-4 4 4 4 M16 8l4 4-4 4 M14 5l-4 14"/></svg>IA generativa en desarrollo</a></li>
+          <li><a href="../servicios/ia-y-mcp-para-tu-negocio/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 3v5 M15 3v5 M6 8h12v3a6 6 0 01-12 0z M12 17v4"/></svg>IA y MCP para tu negocio</a></li>
+          <li><a href="../servicios/cloud-aws/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 18a4 4 0 010-8 5 5 0 019.6-1A4.5 4.5 0 0117 18z"/></svg>Cloud y AWS</a></li>
+          <li><a href="../servicios/consultoria-tech-lead/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 11a3 3 0 100-6 3 3 0 000 6z M3 20a6 6 0 0112 0 M17 11a3 3 0 100-6 M21 20a6 6 0 00-4-5.6"/></svg>Consultoría y Tech Lead</a></li>
+        </ul>
+      </li>
+      <li><a href="../index.html#projects"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 4h7v7H4z M13 4h7v7h-7z M4 13h7v7H4z M13 13h7v7h-7z"/></svg>Proyectos</a></li>
+      <li><a href="../index.html#cv"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 3h7l4 4v14H7z M14 3v4h4 M9 12h6 M9 16h6"/></svg>CV</a></li>
+      <li><a href="../blog/" aria-current="true"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 4h11a3 3 0 013 3v13H8a3 3 0 01-3-3z M5 17a3 3 0 013-3h11"/></svg>Blog</a></li>
+      <li><a href="../index.html#contact" class="nav-cta"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16v12H4z M4 7l8 6 8-6"/></svg>Contacto</a></li>
+    </ul>
+  </nav>
+
+    <section class="page-hero">
+    <a href="index.html" class="back-link">&larr; Volver al blog</a>
+    <h1 style="font-size: 1.9rem;">n8n vs Make vs Zapier: cuál elegir para automatizar tu empresa</h1>
+    <div class="post-meta">
+      <span class="post-tag">Automatización</span>
+      <span class="dot">·</span>
+      <span>26 sep 2026</span>
+      <span class="dot">·</span>
+      <span>5 min de lectura</span>
+    </div>
+  </section>
+
+  <article class="prose">
+<nav class="toc" aria-label="Contenido del artículo"><p class="toc-title">En este artículo</p><ol><li><a href="#resumen-rapido">Resumen rápido</a></li><li><a href="#como-se-calcula-el-coste-en-cada-herramienta">Cómo se calcula el coste en cada herramienta</a></li><li><a href="#cuando-elegir-zapier">Cuándo elegir Zapier</a></li><li><a href="#cuando-elegir-make">Cuándo elegir Make</a></li><li><a href="#cuando-elegir-n8n">Cuándo elegir n8n</a></li><li><a href="#privacidad-y-rgpd">Privacidad y RGPD</a></li><li><a href="#mi-recomendacion-segun-el-perfil">Mi recomendación según el perfil</a></li><li><a href="#migrar-de-una-herramienta-a-otra">Migrar de una herramienta a otra</a></li><li><a href="#preguntas-habituales">Preguntas habituales</a></li></ol></nav>
+<p>n8n, Make y Zapier resuelven el mismo problema: conectar aplicaciones y automatizar tareas sin programar cada integración desde cero. Pero se diferencian en <strong>cómo cobran, dónde se ejecutan, cuánto control te dan y cómo encajan con la IA</strong>. Esta comparativa te ayuda a elegir según tu caso, sin hablar de marcas sino de necesidades.</p>
+
+<h2 id="resumen-rapido">Resumen rápido</h2>
+<div class="table-scroll"><table>
+  <thead><tr><th>Criterio</th><th>n8n</th><th>Make</th><th>Zapier</th></tr></thead>
+  <tbody>
+    <tr><td>Enfoque</td><td>Flujos con mucho control, código opcional</td><td>Escenarios visuales con lógica avanzada</td><td>Automatizaciones sencillas y rápidas</td></tr>
+    <tr><td>Alojamiento</td><td>Nube propia de n8n o autoalojado</td><td>Solo en la nube de Make</td><td>Solo en la nube de Zapier</td></tr>
+    <tr><td>Cómo cobra</td><td>Por ejecuciones del flujo (nube); el autoalojado no cobra licencia por uso</td><td>Por operaciones o créditos</td><td>Por tareas</td></tr>
+    <tr><td>Curva de aprendizaje</td><td>Media</td><td>Media</td><td>Baja</td></tr>
+    <tr><td>Catálogo de integraciones</td><td>Amplio, ampliable con HTTP y código</td><td>Amplio</td><td>El más amplio</td></tr>
+    <tr><td>Agentes de IA y MCP</td><td>Nodos de agente, memoria y cliente/servidor MCP</td><td>Funciones de IA integradas</td><td>Funciones de IA integradas</td></tr>
+  </tbody>
+</table></div>
+<p>Los planes y los precios cambian con frecuencia, así que revisa siempre las tarifas actuales de cada herramienta antes de decidir.</p>
+
+<h2 id="como-se-calcula-el-coste-en-cada-herramienta">Cómo se calcula el coste en cada herramienta</h2>
+<p>El modelo de cobro importa más que el precio del plan base, porque determina cuánto pagarás cuando tus automatizaciones crezcan.</p>
+<ul>
+  <li><strong>Zapier</strong> cuenta <em>tareas</em>: cada acción que se ejecuta con éxito consume una. Un flujo de varios pasos con mucho volumen sube rápido.</li>
+  <li><strong>Make</strong> cuenta <em>operaciones</em> (o créditos): cada módulo que se ejecuta consume una. Es más barato por paso que Zapier, pero un escenario largo también acumula.</li>
+  <li><strong>n8n</strong> en su nube cuenta <em>ejecuciones</em> completas del flujo, sin importar cuántos pasos tenga. Autoalojado, no pagas licencia por uso, aunque sí el servidor y su mantenimiento.</li>
+</ul>
+<p>Si tus flujos son largos (muchos pasos por ejecución) o de alto volumen, un modelo por ejecución completa suele resultar más predecible.</p>
+
+<h2 id="cuando-elegir-zapier">Cuándo elegir Zapier</h2>
+<p>Zapier es la opción más sencilla. Encaja cuando:</p>
+<ul>
+  <li>Quieres automatizar algo pequeño en minutos, sin conocimientos técnicos.</li>
+  <li>Necesitas conectar una aplicación poco habitual, porque es la que suele tener más integraciones listas.</li>
+  <li>El volumen es bajo y la comodidad pesa más que el coste.</li>
+</ul>
+<p>Sus límites aparecen con flujos complejos, con muchas ramas o con volúmenes altos, donde el coste por tarea y la falta de control se notan.</p>
+
+<h2 id="cuando-elegir-make">Cuándo elegir Make</h2>
+<p>Make destaca por su editor visual y por la lógica que permite: ramas, iteraciones, agregadores y transformación de datos. Encaja cuando:</p>
+<ul>
+  <li>Quieres más potencia que Zapier sin salir de una herramienta totalmente visual.</li>
+  <li>Tu equipo no técnico va a mantener los escenarios.</li>
+  <li>No necesitas alojar la herramienta en tu propia infraestructura.</li>
+</ul>
+<p>Su reverso: los escenarios complejos pueden volverse difíciles de leer y el coste por operación acumula en procesos largos.</p>
+
+<h2 id="cuando-elegir-n8n">Cuándo elegir n8n</h2>
+<p>n8n es la opción con más control. Encaja cuando:</p>
+<ul>
+  <li><strong>Los datos son sensibles</strong> o quieres que no salgan de tu infraestructura: puedes alojarlo en un servidor propio en la Unión Europea.</li>
+  <li><strong>Necesitas lógica a medida:</strong> permite ejecutar código JavaScript o Python en los flujos y llamar a cualquier API con el nodo HTTP.</li>
+  <li><strong>Vas a trabajar con IA y agentes:</strong> incluye nodos de agente, memoria y herramientas, y permite conectarse a servidores MCP o exponer tus flujos como servidor MCP. Lo explico en <a href="n8n-mcp-agentes-ia-automatizacion.html">n8n, MCP y agentes de IA</a>.</li>
+  <li><strong>El volumen es alto</strong> y quieres un coste que no crezca por cada paso.</li>
+</ul>
+<p>Su contrapartida es que pide algo más de conocimiento técnico, y si lo autoalojas, alguien debe encargarse de actualizaciones, copias de seguridad y monitorización.</p>
+
+<h2 id="privacidad-y-rgpd">Privacidad y RGPD</h2>
+<p>Si tus automatizaciones mueven datos personales de clientes, revisa dónde se procesan y quién es el encargado del tratamiento. Las tres plataformas ofrecen contratos de tratamiento de datos en sus planes de empresa. Con <strong>n8n autoalojado</strong> tienes además la posibilidad de mantener los datos en tu propia infraestructura y en la ubicación que elijas, lo que simplifica algunos requisitos.</p>
+<p>En cualquier caso, aplica el principio de mínimo privilegio: cada credencial con los permisos justos y sin guardar datos personales más tiempo del necesario.</p>
+
+<h2 id="mi-recomendacion-segun-el-perfil">Mi recomendación según el perfil</h2>
+<ul>
+  <li><strong>Autónomo o pyme con necesidades sencillas y poco volumen:</strong> Zapier o Make, por rapidez de puesta en marcha.</li>
+  <li><strong>Equipo que quiere lógica avanzada sin programar:</strong> Make.</li>
+  <li><strong>Empresa con datos sensibles, procesos a medida, alto volumen o interés en IA y agentes:</strong> n8n, con una instalación bien planteada.</li>
+</ul>
+<p>Y una regla práctica: no elijas por la herramienta, elige por el proceso. Primero define qué quieres automatizar, con qué sistemas y con qué volumen; después escoge la plataforma que lo resuelva con menos fricción.</p>
+
+<h2 id="migrar-de-una-herramienta-a-otra">Migrar de una herramienta a otra</h2>
+<p>No existe una migración automática entre ellas: los flujos hay que reconstruirlos. Suele compensar cuando el coste por volumen se dispara, cuando necesitas más control o cuando quieres pasar a alojamiento propio. Un buen método es migrar de una en una las automatizaciones más caras o críticas, y probar en paralelo antes de apagar la antigua.</p>
+
+<h2 id="preguntas-habituales">Preguntas habituales</h2>
+<ul>
+  <li><strong>¿Cuál es más barata: n8n, Make o Zapier?</strong> Depende del volumen y de la longitud de tus flujos. Para poco volumen, las tres pueden salir a cuentas parecidas. Con muchos pasos por flujo y alto volumen, el modelo por ejecución de n8n o su autoalojamiento suele ser más económico. Revisa las tarifas actuales de cada una.</li>
+  <li><strong>¿Necesito saber programar para usar n8n?</strong> No para flujos habituales, que se construyen visualmente. Saber algo de JavaScript, de APIs y de JSON ayuda mucho para casos avanzados.</li>
+  <li><strong>¿Puedo usar agentes de IA en estas herramientas?</strong> Sí, las tres incorporan funciones de IA. n8n permite construir agentes con memoria y herramientas y conectarlos con servidores MCP.</li>
+  <li><strong>¿Es seguro autoalojar n8n?</strong> Lo es si se hace bien: servidor actualizado, acceso protegido, copias de seguridad y credenciales con permisos mínimos. Si no tienes quien lo mantenga, la versión en la nube de n8n es una alternativa.</li>
+  <li><strong>¿Puedes montarme las automatizaciones?</strong> Sí. Diseño y construyo automatizaciones con n8n, integraciones con APIs y agentes de IA a medida para empresas.</li>
+</ul>
+
+<div class="cta-band"><p>¿Quieres verlo aplicado a tu caso?<span>Cuéntame tu proyecto; respuesta en menos de 24 horas.</span></p><a href="../index.html#contact" class="btn-primary">Cuéntame tu caso</a></div>
+
+    <div class="callout">
+      <p><strong>¿Lo aplicamos en tu caso?</strong>Consulta el servicio de
+        <a href="../servicios/automatizaciones/">automatización con n8n, agentes de IA y MCP</a> o
+        <a href="../index.html#contact">escríbeme</a> y hablamos de tu proyecto.</p>
+    </div>
+  </article>
+
+  <div class="prose">
+    <h2>Sigue leyendo</h2>
+    <div class="blog-grid">
+      <a href="n8n-mcp-agentes-ia-automatizacion.html" class="blog-card">
+        <span class="post-tag">Automatización</span>
+        <h3>n8n, MCP y agentes de IA: guía de automatización</h3>
+        <p>Cómo combinar n8n, agentes de IA y MCP: MCP Client, MCP Server, herramientas, memoria y buenas prácticas de fiabilidad y seguridad.</p>
+        <span class="blog-card-cta">Leer artículo →</span>
+      </a>
+      <a href="que-es-mcp-y-para-que-sirve-a-una-empresa.html" class="blog-card">
+        <span class="post-tag">MCP</span>
+        <h3>Qué es MCP y para qué sirve a una empresa</h3>
+        <p>Qué es el Model Context Protocol (MCP), cómo funciona y qué puede hacer por tu empresa: chatbots con datos reales, asistentes y acciones controladas.</p>
+        <span class="blog-card-cta">Leer artículo →</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="prose">
+    <div class="author-card">
+      <picture>
+        <source srcset="../cv-avatar-photo.webp" type="image/webp">
+        <img src="../cv-avatar-photo.png" alt="David Otero Mato" width="64" height="64" loading="lazy">
+      </picture>
+      <div>
+        <h3>David Otero Mato</h3>
+        <p>Desarrollador fullstack freelance en Donostia — PHP, Vue.js, AWS e IA generativa aplicada a proyectos reales.</p>
+        <a href="../index.html#contact">¿Hablamos de tu proyecto? →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <p>© 2026 <span>David Otero Mato</span> · Donostia, Gipuzkoa</p>
+    <p class="footer-legal footer-services">
+      <a href="../servicios/">Servicios</a>:
+      <a href="../servicios/automatizaciones/">Automatizaciones</a> ·
+      <a href="../servicios/desarrollo-web/">Desarrollo web</a> ·
+      <a href="../servicios/ia-generativa-desarrollo/">IA generativa</a> ·
+      <a href="../servicios/ia-y-mcp-para-tu-negocio/">IA y MCP</a> ·
+      <a href="../servicios/cloud-aws/">Cloud y AWS</a> ·
+      <a href="../servicios/consultoria-tech-lead/">Consultoría</a>
+    </p>
+    <p class="footer-legal">
+      <a href="../aviso-legal.html">Aviso legal</a> ·
+      <a href="../politica-privacidad.html">Privacidad</a> ·
+      <a href="../politica-cookies.html">Cookies</a> ·
+      <button type="button" data-cookie-settings>Configurar cookies</button>
+    </p>
+  </footer>
+
+  <div class="cookie-banner" id="cookie-banner" hidden role="dialog" aria-live="polite"
+    aria-label="Consentimiento de cookies">
+    <p>
+      Uso cookies analíticas (Google Analytics) para entender cómo se usa esta web. Solo se activan si las aceptas, y
+      puedes cambiar de opinión cuando quieras desde "Configurar cookies" en el pie de página. Más info en la
+      <a href="../politica-cookies.html">Política de Cookies</a>.
+    </p>
+    <div class="cookie-banner-actions">
+      <button type="button" class="btn-secondary" id="cookie-reject">Rechazar</button>
+      <button type="button" class="btn-primary" id="cookie-accept">Aceptar</button>
+    </div>
+  </div>
+
+  <script src="../js/nav.js?v=3"></script>
+  <script src="../js/cookie-consent.js?v=2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="../js/site-fx.js"></script>
+</body>
+
+</html>

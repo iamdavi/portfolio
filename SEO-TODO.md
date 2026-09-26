@@ -19,7 +19,7 @@ Estado: `[x]` hecho · `[~]` parcial · `[ ]` pendiente. Última revisión: 2026
   - [ ] Nika, Munttarpe, TuKomanda: enlace "Desarrollado por David Otero" en sus footers (usar `/badge/`)
   - [ ] Directorios: Malt, Workana, Sortlist, Clutch, GoodFirms, cámaras de comercio y asociaciones de Gipuzkoa
   - [ ] Perfiles: Dev.to, Hashnode, Medium, Stack Overflow
-- [ ] 8. **1–2 artículos al mes** con intención de búsqueda real: "cuánto cuesta una web a medida", "n8n vs Make vs Zapier", "automatizar facturas con n8n", "desplegar PHP en AWS", "migrar a Symfony". Enlazarlos entre sí y con su servicio. (Un artículo sobre AWS también rellenaría el hueco de `cloud-aws`.)
+- [~] 8. Primeros 3 artículos redactados (cuánto cuesta una web, n8n vs Make vs Zapier, desplegar PHP en AWS), pendientes de revisión de David antes de publicar. Siguientes ideas: "automatizar facturas con n8n", "migrar a Symfony". Original: **1–2 artículos al mes** con intención de búsqueda real: "cuánto cuesta una web a medida", "n8n vs Make vs Zapier", "automatizar facturas con n8n", "desplegar PHP en AWS", "migrar a Symfony". Enlazarlos entre sí y con su servicio. (Un artículo sobre AWS también rellenaría el hueco de `cloud-aws`.)
 - [~] 9. **Interlinking**: hecho — cada artículo tiene "Sigue leyendo" y 5 servicios tienen "Artículos relacionados". Pendiente: `cloud-aws` (no hay artículo) y texto ancla descriptivo dentro del cuerpo de los artículos.
 - [ ] 10. **Rendimiento**
   - [ ] Auditar/quitar pesos de fuentes que no se usen (Fraunces y Karla sí se usan, en logos SVG inline de la home)

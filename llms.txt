@@ -19,3 +19,6 @@
 - [Qué es MCP (Model Context Protocol) y para qué sirve a una empresa](https://davidotero.es/blog/que-es-mcp-y-para-que-sirve-a-una-empresa.html)
 - [n8n, MCP y agentes de IA: guía práctica de automatización](https://davidotero.es/blog/n8n-mcp-agentes-ia-automatizacion.html)
 - [Chatbot con los datos de tu empresa: cómo se hace con tool calling](https://davidotero.es/blog/chatbot-con-datos-de-tu-empresa-tool-calling.html)
+- [Cuánto cuesta una web a medida: precios y qué influye](https://davidotero.es/blog/cuanto-cuesta-una-web-a-medida.html)
+- [n8n vs Make vs Zapier: cuál elegir para automatizar tu empresa](https://davidotero.es/blog/n8n-vs-make-vs-zapier.html)
+- [Desplegar una aplicación PHP en AWS: opciones y guía paso a paso](https://davidotero.es/blog/desplegar-php-en-aws.html)

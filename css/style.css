@@ -2136,6 +2136,30 @@ footer {
   color: var(--accent-light);
 }
 
+.prose pre {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem 1.1rem;
+  overflow-x: auto;
+  margin: 1.2rem 0;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.prose pre code {
+  background: none;
+  border: 0;
+  padding: 0;
+  font-size: inherit;
+  color: var(--text);
+}
+
+.table-scroll {
+  overflow-x: auto;
+  margin: 1.2rem 0;
+}
+
 .callout {
   background: var(--surface);
   border: 1px solid var(--border);

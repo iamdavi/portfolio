@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desplegar una aplicación PHP en AWS: opciones y guía paso a paso</title>
+  <meta name="description" content="Cómo desplegar una aplicación PHP (Symfony o Laravel) en AWS: comparativa de Lightsail, EC2, Elastic Beanstalk y contenedores, y guía paso a paso con EC2, Nginx, RDS y HTTPS.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://davidotero.es/blog/desplegar-php-en-aws.html">
+  <meta name="theme-color" content="#0c0c0f">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://davidotero.es/blog/desplegar-php-en-aws.html">
+  <meta property="og:site_name" content="David Otero Mato">
+  <meta property="og:title" content="Desplegar una aplicación PHP en AWS: opciones y guía paso a paso">
+  <meta property="og:description" content="Cómo desplegar una aplicación PHP (Symfony o Laravel) en AWS: comparativa de Lightsail, EC2, Elastic Beanstalk y contenedores, y guía paso a paso con EC2, Nginx, RDS y HTTPS.">
+  <meta property="og:image" content="https://davidotero.es/images/og/desplegar-php-en-aws.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Desplegar una aplicación PHP en AWS: opciones y guía paso a paso">
+  <meta property="og:locale" content="es_ES">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Desplegar una aplicación PHP en AWS: opciones y guía paso a paso">
+  <meta name="twitter:description" content="Cómo desplegar una aplicación PHP (Symfony o Laravel) en AWS: comparativa de Lightsail, EC2, Elastic Beanstalk y contenedores, y guía paso a paso con EC2, Nginx, RDS y HTTPS.">
+  <meta name="twitter:image" content="https://davidotero.es/images/og/desplegar-php-en-aws.png">
+  <meta name="twitter:image:alt" content="Desplegar una aplicación PHP en AWS: opciones y guía paso a paso">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css?v=18">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="icon" type="image/png" sizes="48x48" href="../favicon-48.png">
+  <link rel="alternate icon" href="../favicon.ico">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Desplegar una aplicación PHP en AWS: opciones y guía paso a paso",
+  "description": "Cómo desplegar una aplicación PHP (Symfony o Laravel) en AWS: comparativa de Lightsail, EC2, Elastic Beanstalk y contenedores, y guía paso a paso con EC2, Nginx, RDS y HTTPS.",
+  "author": {
+    "@type": "Person",
+    "@id": "https://davidotero.es/#david-otero",
+    "name": "David Otero Mato",
+    "url": "https://davidotero.es/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "@id": "https://davidotero.es/#david-otero",
+    "name": "David Otero Mato"
+  },
+  "datePublished": "2026-09-26",
+  "dateModified": "2026-09-26",
+  "image": "https://davidotero.es/images/og/desplegar-php-en-aws.png",
+  "inLanguage": "es-ES",
+  "mainEntityOfPage": "https://davidotero.es/blog/desplegar-php-en-aws.html"
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://davidotero.es/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://davidotero.es/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Desplegar una aplicación PHP en AWS: opciones y guía paso a paso",
+      "item": "https://davidotero.es/blog/desplegar-php-en-aws.html"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuánto cuesta alojar una aplicación PHP en AWS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende de la instancia, la base de datos y el tráfico. Una aplicación pequeña con EC2 y RDS básicos puede costar unas decenas de euros al mes, pero conviene calcularlo con la calculadora de precios de AWS y activar alertas de presupuesto."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Es mejor Lightsail o EC2?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Lightsail es más simple y de precio fijo, ideal para proyectos pequeños. EC2 ofrece más flexibilidad y se integra mejor con el resto de servicios de AWS cuando la aplicación crece."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Sirve esta guía para Laravel?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. El esquema con Nginx, PHP-FPM, RDS y HTTPS es el mismo. Cambian los comandos de la aplicación (por ejemplo, php artisan migrate --force y las cachés de Laravel)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Necesito un balanceador de carga?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No para empezar. Con una sola instancia basta. Un balanceador (ALB) tiene sentido cuando quieres varias instancias, despliegues sin cortes o certificados gestionados con ACM."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedes encargarte del despliegue por mí?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Diseño la infraestructura, configuro el servidor y dejo el despliegue automatizado, con copias de seguridad y monitorización."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+
+<body>
+
+  <div id="particles-js"></div>
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav id="navbar" aria-label="Principal">
+    <a href="../index.html" class="nav-logo" aria-label="Inicio">
+      <svg viewBox="0 0 71 82" height="32" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+          <linearGradient id="nav-d-grad" x1="0" y1="40.5" x2="70.89" y2="40.5" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#3a7a58" />
+            <stop offset="1" stop-color="#6ec4a0" />
+          </linearGradient>
+        </defs>
+        <path fill="none" stroke="url(#nav-d-grad)" stroke-linecap="round" stroke-miterlimit="10" stroke-width="5"
+          d="M2.5,64.9V10.04c0-4.16,3.38-7.54,7.54-7.54h27.25c17.18,0,31.1,13.93,31.1,31.1h0c0,17.18-13.93,31.1-31.11,31.1h-18.44c-3.81,0-6.9,3.09-6.9,6.9h0c0,3.81,3.09,6.9,6.9,6.9h37.55" />
+      </svg>
+    </a>
+    <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#about"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 12a4 4 0 100-8 4 4 0 000 8z M4 21a8 8 0 0116 0"/></svg>Sobre mí</a></li>
+      <li><a href="../index.html#skills"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13 3L5 14h6l-1 7 8-11h-6z"/></svg>Habilidades</a></li>
+      <li><a href="../index.html#experience"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h16v11H4z M9 8V5h6v3 M4 13h16"/></svg>Experiencia</a></li>
+      <li class="has-sub">
+        <a href="../servicios/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l9 5-9 5-9-5z M3 13l9 5 9-5"/></svg>Servicios <svg class="nav-caret" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+        <button type="button" class="sub-toggle" aria-expanded="false" aria-controls="nav-sub" aria-label="Mostrar u ocultar los servicios">
+          <svg class="sub-caret" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <ul class="nav-sub" id="nav-sub">
+          <li><a href="../servicios/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l9 5-9 5-9-5z M3 13l9 5 9-5"/></svg>Todos los servicios</a></li>
+          <li><a href="../servicios/automatizaciones/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 5h6v4H4z M14 15h6v4h-6z M10 7h3a2 2 0 012 2v6"/></svg>Automatizaciones</a></li>
+          <li><a href="../servicios/desarrollo-web/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3a9 9 0 100 18 9 9 0 000-18z M3 12h18 M12 3c3 3 3 15 0 18 M12 3c-3 3-3 15 0 18"/></svg>Desarrollo web</a></li>
+          <li><a href="../servicios/ia-generativa-desarrollo/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 8l-4 4 4 4 M16 8l4 4-4 4 M14 5l-4 14"/></svg>IA generativa en desarrollo</a></li>
+          <li><a href="../servicios/ia-y-mcp-para-tu-negocio/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 3v5 M15 3v5 M6 8h12v3a6 6 0 01-12 0z M12 17v4"/></svg>IA y MCP para tu negocio</a></li>
+          <li><a href="../servicios/cloud-aws/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 18a4 4 0 010-8 5 5 0 019.6-1A4.5 4.5 0 0117 18z"/></svg>Cloud y AWS</a></li>
+          <li><a href="../servicios/consultoria-tech-lead/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 11a3 3 0 100-6 3 3 0 000 6z M3 20a6 6 0 0112 0 M17 11a3 3 0 100-6 M21 20a6 6 0 00-4-5.6"/></svg>Consultoría y Tech Lead</a></li>
+        </ul>
+      </li>
+      <li><a href="../index.html#projects"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 4h7v7H4z M13 4h7v7h-7z M4 13h7v7H4z M13 13h7v7h-7z"/></svg>Proyectos</a></li>
+      <li><a href="../index.html#cv"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 3h7l4 4v14H7z M14 3v4h4 M9 12h6 M9 16h6"/></svg>CV</a></li>
+      <li><a href="../blog/" aria-current="true"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 4h11a3 3 0 013 3v13H8a3 3 0 01-3-3z M5 17a3 3 0 013-3h11"/></svg>Blog</a></li>
+      <li><a href="../index.html#contact" class="nav-cta"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16v12H4z M4 7l8 6 8-6"/></svg>Contacto</a></li>
+    </ul>
+  </nav>
+
+    <section class="page-hero">
+    <a href="index.html" class="back-link">&larr; Volver al blog</a>
+    <h1 style="font-size: 1.9rem;">Desplegar una aplicación PHP en AWS: opciones y guía paso a paso</h1>
+    <div class="post-meta">
+      <span class="post-tag">Cloud y AWS</span>
+      <span class="dot">·</span>
+      <span>26 sep 2026</span>
+      <span class="dot">·</span>
+      <span>6 min de lectura</span>
+    </div>
+  </section>
+
+  <article class="prose">
+<nav class="toc" aria-label="Contenido del artículo"><p class="toc-title">En este artículo</p><ol><li><a href="#que-opciones-tienes-para-ejecutar-php-en-aws">Qué opciones tienes para ejecutar PHP en AWS</a></li><li><a href="#arquitectura-minima-recomendada">Arquitectura mínima recomendada</a></li><li><a href="#paso-1-crear-la-instancia-y-proteger-el-acceso">Paso 1: crear la instancia y proteger el acceso</a></li><li><a href="#paso-2-instalar-nginx-y-php-fpm">Paso 2: instalar Nginx y PHP-FPM</a></li><li><a href="#paso-3-base-de-datos-en-rds">Paso 3: base de datos en RDS</a></li><li><a href="#paso-4-https-con-let-s-encrypt">Paso 4: HTTPS con Let's Encrypt</a></li><li><a href="#paso-5-desplegar-la-aplicacion">Paso 5: desplegar la aplicación</a></li><li><a href="#seguridad-y-buenas-practicas">Seguridad y buenas prácticas</a></li><li><a href="#como-controlar-los-costes">Cómo controlar los costes</a></li><li><a href="#cuando-pasar-a-contenedores-o-a-algo-mas-gestionado">Cuándo pasar a contenedores o a algo más gestionado</a></li><li><a href="#preguntas-habituales">Preguntas habituales</a></li></ol></nav>
+<p>AWS ofrece muchas formas de ejecutar una aplicación PHP, y elegir mal complica el mantenimiento o encarece la factura. Esta guía compara las opciones más habituales y recorre paso a paso <strong>un despliegue clásico y sólido: EC2 con Nginx, PHP-FPM, base de datos en RDS y HTTPS</strong>, válido para Symfony, Laravel o PHP a medida.</p>
+
+<h2 id="que-opciones-tienes-para-ejecutar-php-en-aws">Qué opciones tienes para ejecutar PHP en AWS</h2>
+<div class="table-scroll"><table>
+  <thead><tr><th>Opción</th><th>Para quién</th><th>Ventaja</th><th>Contrapartida</th></tr></thead>
+  <tbody>
+    <tr><td>Lightsail</td><td>Webs y proyectos pequeños</td><td>Precio fijo y panel sencillo</td><td>Menos flexibilidad y escalado limitado</td></tr>
+    <tr><td>EC2 (servidor virtual)</td><td>Aplicaciones a medida, control total</td><td>Flexible, predecible y muy documentado</td><td>Tú administras el sistema operativo</td></tr>
+    <tr><td>Elastic Beanstalk</td><td>Equipos que quieren despliegue gestionado</td><td>Automatiza balanceo y despliegue</td><td>Menos control y abstracciones propias</td></tr>
+    <tr><td>ECS con Fargate (contenedores)</td><td>Aplicaciones que ya usan Docker o necesitan escalar</td><td>Sin gestionar servidores, despliegues repetibles</td><td>Más piezas y más curva de aprendizaje</td></tr>
+  </tbody>
+</table></div>
+<p>Para la mayoría de aplicaciones de pymes, <strong>EC2 con una base de datos gestionada</strong> es el punto de equilibrio: es sencillo de entender, barato y permite crecer. Si ya trabajas con contenedores o esperas mucho tráfico, valora ECS con Fargate.</p>
+
+<h2 id="arquitectura-minima-recomendada">Arquitectura mínima recomendada</h2>
+<ul>
+  <li><strong>EC2</strong> con Ubuntu, Nginx y PHP-FPM ejecutando la aplicación.</li>
+  <li><strong>RDS</strong> (MySQL o PostgreSQL) para la base de datos, en una subred privada y accesible solo desde la instancia.</li>
+  <li><strong>S3</strong> para archivos subidos por los usuarios y copias de seguridad.</li>
+  <li><strong>Route 53</strong> para el DNS y una <strong>IP elástica</strong> asociada a la instancia.</li>
+  <li><strong>HTTPS</strong> con un certificado gratuito (Let's Encrypt en la instancia, o ACM si usas un balanceador).</li>
+  <li><strong>CloudFront</strong> delante, opcional, para cachear contenido estático y reducir carga.</li>
+</ul>
+
+<h2 id="paso-1-crear-la-instancia-y-proteger-el-acceso">Paso 1: crear la instancia y proteger el acceso</h2>
+<ol>
+  <li>Crea una instancia EC2 con <strong>Ubuntu Server LTS</strong>. Para empezar, un tipo pequeño de la familia <code>t</code> (por ejemplo <code>t3.small</code>) basta para una aplicación con tráfico moderado; se redimensiona después.</li>
+  <li>Configura el <strong>grupo de seguridad</strong>: puerto 80 y 443 abiertos al mundo, y el 22 (SSH) <strong>solo desde tu IP</strong>.</li>
+  <li>Asocia una <strong>IP elástica</strong> para que la dirección no cambie al reiniciar.</li>
+  <li>Accede por SSH con clave (no con contraseña) y no uses el usuario <code>root</code> para el día a día.</li>
+</ol>
+
+<h2 id="paso-2-instalar-nginx-y-php-fpm">Paso 2: instalar Nginx y PHP-FPM</h2>
+<p>En Ubuntu 24.04 la versión de PHP disponible es la 8.3. Instala el servidor web, PHP y las extensiones habituales:</p>
+<pre><code>sudo apt update
+sudo apt install -y nginx php8.3-fpm php8.3-cli php8.3-mysql php8.3-xml \
+  php8.3-mbstring php8.3-curl php8.3-zip php8.3-intl unzip git
+curl -sS https://getcomposer.org/installer | php
+sudo mv composer.phar /usr/local/bin/composer</code></pre>
+<p>Configura el sitio de Nginx. Este ejemplo sirve una aplicación Symfony cuyo punto de entrada está en <code>public/</code>:</p>
+<pre><code>server {
+    listen 80;
+    server_name ejemplo.com www.ejemplo.com;
+    root /var/www/app/public;
+
+    location / {
+        try_files $uri /index.php$is_args$args;
+    }
+
+    location ~ ^/index\.php(/|$) {
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/run/php/php8.3-fpm.sock;
+        internal;
+    }
+
+    location ~ \.php$ {
+        return 404;
+    }
+}</code></pre>
+<p>Guárdalo en <code>/etc/nginx/sites-available/app</code>, enlázalo en <code>sites-enabled</code> y recarga con <code>sudo nginx -t &amp;&amp; sudo systemctl reload nginx</code>. Para Laravel, el esquema es el mismo con <code>root</code> apuntando a <code>public/</code>.</p>
+
+<h2 id="paso-3-base-de-datos-en-rds">Paso 3: base de datos en RDS</h2>
+<ol>
+  <li>Crea una instancia <strong>RDS</strong> (MySQL o PostgreSQL) en la misma región y VPC que la instancia EC2.</li>
+  <li>Márcala como <strong>no accesible públicamente</strong> y permite el tráfico solo desde el grupo de seguridad de la EC2 (no desde IPs).</li>
+  <li>Activa las <strong>copias automáticas</strong> y define un periodo de retención.</li>
+  <li>Guarda las credenciales fuera del repositorio: en variables de entorno del servidor, en un fichero <code>.env.local</code> con permisos restringidos o en AWS Secrets Manager.</li>
+</ol>
+
+<h2 id="paso-4-https-con-let-s-encrypt">Paso 4: HTTPS con Let's Encrypt</h2>
+<p>Con el dominio ya apuntando a la IP elástica desde Route 53 (o desde tu proveedor de DNS), instala Certbot y solicita el certificado:</p>
+<pre><code>sudo apt install -y certbot python3-certbot-nginx
+sudo certbot --nginx -d ejemplo.com -d www.ejemplo.com</code></pre>
+<p>Certbot modifica Nginx para servir HTTPS y programa la renovación automática. Comprueba que funciona con <code>sudo certbot renew --dry-run</code>.</p>
+
+<h2 id="paso-5-desplegar-la-aplicacion">Paso 5: desplegar la aplicación</h2>
+<p>Clona el repositorio en <code>/var/www/app</code> con un usuario de despliegue y ejecuta este flujo en cada versión:</p>
+<pre><code>cd /var/www/app
+git pull origin main
+composer install --no-dev --optimize-autoloader
+php bin/console doctrine:migrations:migrate --no-interaction
+php bin/console cache:clear --env=prod
+sudo systemctl reload php8.3-fpm</code></pre>
+<p>Con el tiempo conviene automatizarlo: un flujo de <strong>GitHub Actions</strong> que, al hacer push a <code>main</code>, se conecte por SSH, ejecute estos comandos y avise si algo falla. Así los despliegues son repetibles y no dependen de que alguien recuerde los pasos.</p>
+
+<h2 id="seguridad-y-buenas-practicas">Seguridad y buenas prácticas</h2>
+<ul>
+  <li><strong>Mínimo privilegio:</strong> roles de IAM con solo los permisos necesarios y sin claves de acceso en el código.</li>
+  <li><strong>Actualizaciones:</strong> aplica parches del sistema y de PHP de forma regular.</li>
+  <li><strong>Firewall y accesos:</strong> SSH restringido y, si es posible, sin puerto 22 abierto (Systems Manager Session Manager como alternativa).</li>
+  <li><strong>Copias de seguridad probadas:</strong> RDS automático más un volcado periódico a S3. Una copia que nunca se ha restaurado no es una copia.</li>
+  <li><strong>Monitorización:</strong> CloudWatch para CPU, memoria, disco y errores, con alarmas que te avisen antes de que falle.</li>
+  <li><strong>Aplicación en producción:</strong> <code>APP_ENV=prod</code>, depuración desactivada y errores registrados en fichero, no mostrados al usuario.</li>
+</ul>
+
+<h2 id="como-controlar-los-costes">Cómo controlar los costes</h2>
+<ul>
+  <li>Empieza con instancias pequeñas y <strong>redimensiona con datos</strong> reales de uso.</li>
+  <li>Configura <strong>AWS Budgets</strong> con alertas para no llevarte sorpresas en la factura.</li>
+  <li>Apaga o elimina lo que no uses: volúmenes sueltos, instantáneas antiguas, IPs elásticas sin asociar.</li>
+  <li>Para cargas estables, estudia <strong>Savings Plans</strong> o instancias reservadas cuando ya conozcas el consumo.</li>
+</ul>
+
+<h2 id="cuando-pasar-a-contenedores-o-a-algo-mas-gestionado">Cuándo pasar a contenedores o a algo más gestionado</h2>
+<p>Este esquema funciona muy bien hasta cierto tamaño. Si necesitas <strong>escalar horizontalmente</strong>, desplegar sin cortes, tener entornos idénticos entre desarrollo y producción o gestionar varias aplicaciones, es el momento de dar el paso a contenedores con ECS/Fargate y a una base de datos con alta disponibilidad. No hace falta empezar ahí: migrar desde una EC2 bien montada es un paso natural.</p>
+
+<h2 id="preguntas-habituales">Preguntas habituales</h2>
+<ul>
+  <li><strong>¿Cuánto cuesta alojar una aplicación PHP en AWS?</strong> Depende de la instancia, la base de datos y el tráfico. Una aplicación pequeña con EC2 y RDS básicos puede costar unas decenas de euros al mes, pero conviene calcularlo con la calculadora de precios de AWS y activar alertas de presupuesto.</li>
+  <li><strong>¿Es mejor Lightsail o EC2?</strong> Lightsail es más simple y de precio fijo, ideal para proyectos pequeños. EC2 ofrece más flexibilidad y se integra mejor con el resto de servicios de AWS cuando la aplicación crece.</li>
+  <li><strong>¿Sirve esta guía para Laravel?</strong> Sí. El esquema con Nginx, PHP-FPM, RDS y HTTPS es el mismo. Cambian los comandos de la aplicación (por ejemplo, <code>php artisan migrate --force</code> y las cachés de Laravel).</li>
+  <li><strong>¿Necesito un balanceador de carga?</strong> No para empezar. Con una sola instancia basta. Un balanceador (ALB) tiene sentido cuando quieres varias instancias, despliegues sin cortes o certificados gestionados con ACM.</li>
+  <li><strong>¿Puedes encargarte del despliegue por mí?</strong> Sí. Diseño la infraestructura, configuro el servidor y dejo el despliegue automatizado, con copias de seguridad y monitorización.</li>
+</ul>
+
+<div class="cta-band"><p>¿Quieres verlo aplicado a tu caso?<span>Cuéntame tu proyecto; respuesta en menos de 24 horas.</span></p><a href="../index.html#contact" class="btn-primary">Cuéntame tu caso</a></div>
+
+    <div class="callout">
+      <p><strong>¿Lo aplicamos en tu caso?</strong>Consulta el servicio de
+        <a href="../servicios/cloud-aws/">despliegue e infraestructura en AWS</a> o
+        <a href="../index.html#contact">escríbeme</a> y hablamos de tu proyecto.</p>
+    </div>
+  </article>
+
+  <div class="prose">
+    <h2>Sigue leyendo</h2>
+    <div class="blog-grid">
+      <a href="vibe-coding-claude-code-fullstack.html" class="blog-card">
+        <span class="post-tag">IA generativa</span>
+        <h3>Vibe coding con Claude Code en proyectos fullstack reales</h3>
+        <p>Cómo integro Claude Code en mi flujo de trabajo fullstack: contexto, prompts estructurados, agentes y skills dedicadas.</p>
+        <span class="blog-card-cta">Leer artículo →</span>
+      </a>
+      <a href="cuanto-cuesta-una-web-a-medida.html" class="blog-card">
+        <span class="post-tag">Desarrollo web</span>
+        <h3>Cuánto cuesta una web a medida: precios y qué influye</h3>
+        <p>Cuánto cuesta una web a medida en España: rangos orientativos por tipo de proyecto, qué factores suben el precio, costes recurrentes y cómo comparar presupuestos.</p>
+        <span class="blog-card-cta">Leer artículo →</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="prose">
+    <div class="author-card">
+      <picture>
+        <source srcset="../cv-avatar-photo.webp" type="image/webp">
+        <img src="../cv-avatar-photo.png" alt="David Otero Mato" width="64" height="64" loading="lazy">
+      </picture>
+      <div>
+        <h3>David Otero Mato</h3>
+        <p>Desarrollador fullstack freelance en Donostia — PHP, Vue.js, AWS e IA generativa aplicada a proyectos reales.</p>
+        <a href="../index.html#contact">¿Hablamos de tu proyecto? →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <p>© 2026 <span>David Otero Mato</span> · Donostia, Gipuzkoa</p>
+    <p class="footer-legal footer-services">
+      <a href="../servicios/">Servicios</a>:
+      <a href="../servicios/automatizaciones/">Automatizaciones</a> ·
+      <a href="../servicios/desarrollo-web/">Desarrollo web</a> ·
+      <a href="../servicios/ia-generativa-desarrollo/">IA generativa</a> ·
+      <a href="../servicios/ia-y-mcp-para-tu-negocio/">IA y MCP</a> ·
+      <a href="../servicios/cloud-aws/">Cloud y AWS</a> ·
+      <a href="../servicios/consultoria-tech-lead/">Consultoría</a>
+    </p>
+    <p class="footer-legal">
+      <a href="../aviso-legal.html">Aviso legal</a> ·
+      <a href="../politica-privacidad.html">Privacidad</a> ·
+      <a href="../politica-cookies.html">Cookies</a> ·
+      <button type="button" data-cookie-settings>Configurar cookies</button>
+    </p>
+  </footer>
+
+  <div class="cookie-banner" id="cookie-banner" hidden role="dialog" aria-live="polite"
+    aria-label="Consentimiento de cookies">
+    <p>
+      Uso cookies analíticas (Google Analytics) para entender cómo se usa esta web. Solo se activan si las aceptas, y
+      puedes cambiar de opinión cuando quieras desde "Configurar cookies" en el pie de página. Más info en la
+      <a href="../politica-cookies.html">Política de Cookies</a>.
+    </p>
+    <div class="cookie-banner-actions">
+      <button type="button" class="btn-secondary" id="cookie-reject">Rechazar</button>
+      <button type="button" class="btn-primary" id="cookie-accept">Aceptar</button>
+    </div>
+  </div>
+
+  <script src="../js/nav.js?v=3"></script>
+  <script src="../js/cookie-consent.js?v=2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="../js/site-fx.js"></script>
+</body>
+
+</html>

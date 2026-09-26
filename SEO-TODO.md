@@ -6,7 +6,7 @@ Estado: `[x]` hecho · `[~]` parcial · `[ ]` pendiente. Última revisión: 2026
 - [x] Cambios SEO llevados a `main` y desplegados en Netlify (2026-09-26).
 
 ## Esta semana (mayor impacto, poco esfuerzo)
-- [~] 1. Alta en **Google Search Console** (propiedad de dominio, DNS) y sitemap enviado: hecho (2026-09-26; el sitemap debería pasar a "Correcto" con 13 páginas en 1–2 días). Pendiente: **Bing Webmaster Tools** (alimenta a ChatGPT y Copilot).
+- [~] 1. Alta en **Google Search Console** (propiedad de dominio, DNS) y sitemap enviado: hecho (2026-09-26; el sitemap debería pasar a "Correcto" con 13 páginas en 1–2 días). **Bing Webmaster Tools** importado (alimenta a ChatGPT y Copilot). IndexNow: clave, `scripts/indexnow.sh` y workflow `.github/workflows/indexnow.yml` creados; pendiente desplegar y comprobar.
 - [x] 2. Solicitar indexación (Inspección de URL) de la home, los 6 servicios, `/servicios/`, `/blog/` y los 4 artículos.
 - [ ] 3. Crear **Google Business Profile** ("negocio de servicios", Donostia; área: Gipuzkoa/País Vasco/España; categoría, descripción, enlace a `/servicios/`, fotos).
 - [ ] 4. Completar **LinkedIn**: enlace a la web, mismo titular y palabras clave, publicar contenido.

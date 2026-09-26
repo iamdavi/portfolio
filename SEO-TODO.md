@@ -17,15 +17,15 @@ Quién: **David** = paso externo (cuentas, terceros) · **Claude** = cambio de c
 
 ## En curso (Claude)
 - [x] **Rendimiento de la home** (2026-09-26, Lighthouse en producción): móvil 85→95, escritorio 98→100, CLS 0,237→0,001, peso 353→151 KiB. Fuentes propias en `/fonts` con preload, iconos `lucide` en SVG en línea, sin Google Fonts ni unpkg.
-- [ ] **Rendimiento del resto de páginas** (servicios y blog): medir con Lighthouse y decidir si merece la pena cargar `particles.js` solo en escritorio. Móvil: LCP 2,3 s, margen escaso frente al límite de 2,5 s.
+- [x] **Rendimiento de servicios y blog** medido (2026-09-26): 97–99 en móvil, CLS 0. Contraste del gris secundario corregido (`--text-muted` `#64748b`→`#7a8aa0`) para llegar a accesibilidad 100.
 
 ## Siguiente (Claude)
 - [ ] **Textos de relleno en Proyectos:** las 3 descripciones (TuKomanda, Nika, Munttarpe) siguen con "Añade aquí una descripción algo más larga…" en producción (`index.html`, sección Proyectos). Claude redacta borradores a partir de los repos y capturas; David los revisa antes de publicar.
 - [ ] **Datos locales en el JSON-LD:** `telephone`, `hasMap` y `sameAs` de la ficha. Necesita de David: teléfono público y URL de la ficha en Maps.
 - [ ] **Más artículos** (1–2 al mes): "automatizar facturas con n8n", "migrar a Symfony"; enlazarlos con su servicio.
-- [ ] **Enlaces desde los artículos antiguos** hacia los 3 nuevos (interlinking).
-- [ ] **`lastmod` automático** en el sitemap desde el último commit de cada archivo.
-- [ ] **Cabeceras de seguridad** en `netlify.toml` (CSP, Permissions-Policy). Prioridad baja para SEO.
+- [x] **Enlaces desde los artículos antiguos** hacia los 3 nuevos ("Sigue leyendo" y enlace contextual en el de n8n).
+- [x] **`lastmod`:** `python3 scripts/update-sitemap.py` lo actualiza desde el último commit de cada página (ejecutar antes de hacer push si se cambian páginas).
+- [~] **Cabeceras de seguridad:** añadida `Permissions-Policy`. Pendiente `Content-Security-Policy` (requiere revisar scripts en línea, GA, Formspree y CDNs; prioridad baja para SEO).
 - [ ] **Prueba social** (`Review`/`AggregateRating`) cuando haya testimonios o reseñas reales.
 
 ## Pendiente de David

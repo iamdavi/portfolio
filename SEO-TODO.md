@@ -16,9 +16,11 @@ Quién: **David** = paso externo (cuentas, terceros) · **Claude** = cambio de c
 - [x] Reseñas de la ficha de Google pedidas, footers de proyectos y directorios solicitados (David, 2026-09-26; a la espera de respuesta).
 
 ## En curso (Claude)
-- [~] **Rendimiento** (Lighthouse en local): fuentes, `particles.js`, `lucide`, peso de la home, LCP < 2,5 s.
+- [x] **Rendimiento de la home** (2026-09-26, Lighthouse en producción): móvil 85→95, escritorio 98→100, CLS 0,237→0,001, peso 353→151 KiB. Fuentes propias en `/fonts` con preload, iconos `lucide` en SVG en línea, sin Google Fonts ni unpkg.
+- [ ] **Rendimiento del resto de páginas** (servicios y blog): medir con Lighthouse y decidir si merece la pena cargar `particles.js` solo en escritorio. Móvil: LCP 2,3 s, margen escaso frente al límite de 2,5 s.
 
 ## Siguiente (Claude)
+- [ ] **Textos de relleno en Proyectos:** las 3 descripciones (TuKomanda, Nika, Munttarpe) siguen con "Añade aquí una descripción algo más larga…" en producción (`index.html`, sección Proyectos). Claude redacta borradores a partir de los repos y capturas; David los revisa antes de publicar.
 - [ ] **Datos locales en el JSON-LD:** `telephone`, `hasMap` y `sameAs` de la ficha. Necesita de David: teléfono público y URL de la ficha en Maps.
 - [ ] **Más artículos** (1–2 al mes): "automatizar facturas con n8n", "migrar a Symfony"; enlazarlos con su servicio.
 - [ ] **Enlaces desde los artículos antiguos** hacia los 3 nuevos (interlinking).

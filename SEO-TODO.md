@@ -23,7 +23,7 @@ Quién: **David** = paso externo (cuentas, terceros) · **Claude** = cambio de c
 - [x] **Rendimiento de servicios y blog** medido (2026-09-26): 97–99 en móvil, CLS 0. Contraste del gris secundario corregido (`--text-muted` `#64748b`→`#7a8aa0`) para llegar a accesibilidad 100.
 
 ## Siguiente (Claude)
-- [ ] **Textos de relleno en Proyectos:** las 3 descripciones (TuKomanda, Nika, Munttarpe) siguen con "Añade aquí una descripción algo más larga…" en producción (`index.html`, sección Proyectos). Claude redacta borradores a partir de los repos y capturas; David los revisa antes de publicar.
+- [x] **Textos de Proyectos** redactados con los datos de David (2026-09-26) y aplicados en local en `index.html`; se publican en el primer deploy del nuevo ciclo. Pendiente de David: cuando la web de Nika tenga la foto real del centro, hacer captura nueva (la actual de `images/projects/nika-*.webp` muestra el hueco "FOTO DEL CENTRO").
 - [~] **Datos locales en el JSON-LD:** hecho `telephone` (+34 661 695 846) y `sameAs` con el enlace `share.google` de la ficha (local, sin publicar). `hasMap` opcional: requiere el enlace `maps.app.goo.gl` de la ficha.
 - [ ] **Más artículos** (1–2 al mes): "automatizar facturas con n8n", "migrar a Symfony"; enlazarlos con su servicio.
 - [x] **Enlaces desde los artículos antiguos** hacia los 3 nuevos ("Sigue leyendo" y enlace contextual en el de n8n).

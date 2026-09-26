@@ -3,11 +3,11 @@
 Estado: `[x]` hecho · `[~]` parcial · `[ ]` pendiente. Última revisión: 2026-09-26.
 
 ## 0. Antes de nada
-- [ ] Llevar la rama `claude/tender-dirac-g3ydru` (commit `3d68c7c`) a `main` y desplegar en Netlify. Hasta entonces los cambios SEO no están en producción.
+- [x] Cambios SEO llevados a `main` y desplegados en Netlify (2026-09-26).
 
 ## Esta semana (mayor impacto, poco esfuerzo)
-- [ ] 1. Alta en **Google Search Console** (propiedad de dominio, verificación DNS) y envío de `sitemap.xml`. Lo mismo en **Bing Webmaster Tools** (alimenta a ChatGPT y Copilot).
-- [ ] 2. Solicitar indexación (Inspección de URL) de la home, los 6 servicios, `/servicios/`, `/blog/` y los 4 artículos.
+- [~] 1. Alta en **Google Search Console** (propiedad de dominio, DNS) y sitemap enviado: hecho (2026-09-26; el sitemap debería pasar a "Correcto" con 13 páginas en 1–2 días). Pendiente: **Bing Webmaster Tools** (alimenta a ChatGPT y Copilot).
+- [x] 2. Solicitar indexación (Inspección de URL) de la home, los 6 servicios, `/servicios/`, `/blog/` y los 4 artículos.
 - [ ] 3. Crear **Google Business Profile** ("negocio de servicios", Donostia; área: Gipuzkoa/País Vasco/España; categoría, descripción, enlace a `/servicios/`, fotos).
 - [ ] 4. Completar **LinkedIn**: enlace a la web, mismo titular y palabras clave, publicar contenido.
 - [x] 5. H1 de la home con keyword (oculto visualmente con `.sr-only`; opcional: hacerlo visible como subtítulo).

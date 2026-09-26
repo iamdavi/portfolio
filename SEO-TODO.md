@@ -15,7 +15,7 @@ Estado: `[x]` hecho · `[~]` parcial · `[ ]` pendiente. Última revisión: 2026
 
 ## Este mes
 - [ ] 7. **Enlaces de calidad**
-  - [ ] GitHub: README del perfil y repos enlazando a la web
+  - [~] GitHub: hecho README de perfil (`iamdavi/iamdavi`), descripción/homepage de `portfolio` y `munttarpe`. Pendiente: nombre, bio, web y ubicación del perfil (`gh auth refresh -s user` o a mano en github.com/settings/profile), pin de repos
   - [ ] Nika, Munttarpe, TuKomanda: enlace "Desarrollado por David Otero" en sus footers (usar `/badge/`)
   - [ ] Directorios: Malt, Workana, Sortlist, Clutch, GoodFirms, cámaras de comercio y asociaciones de Gipuzkoa
   - [ ] Perfiles: Dev.to, Hashnode, Medium, Stack Overflow

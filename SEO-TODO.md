@@ -3,6 +3,9 @@
 Estado: `[x]` hecho · `[~]` en curso · `[ ]` pendiente. Última revisión: 2026-09-26.
 Quién: **David** = paso externo (cuentas, terceros) · **Claude** = cambio de código/contenido en este repo.
 
+## Bloqueo actual
+- [ ] **Netlify sin créditos (2026-09-26):** los deploys de producción están pausados (el sitio sigue en línea con el commit `235a588`). Hasta resolverlo, **no hacer push a `main`**: cada push es un deploy. Opciones: esperar al siguiente ciclo de facturación, subir de plan o mover el hosting (p. ej. Cloudflare Pages). Cambios locales pendientes de publicar: regla `ignore` en `netlify.toml`, este roadmap.
+
 ## Hecho
 - [x] Cambios SEO en `main` y desplegados (H1 con keyword, interlinking servicios↔blog, breadcrumb, sitemap sin `changefreq`/`priority`).
 - [x] Google Search Console (dominio, DNS), sitemap enviado e indexación solicitada, incluidos los 3 artículos nuevos.
@@ -29,10 +32,10 @@ Quién: **David** = paso externo (cuentas, terceros) · **Claude** = cambio de c
 - [ ] **Prueba social** (`Review`/`AggregateRating`) cuando haya testimonios o reseñas reales.
 
 ## Pendiente de David
-- [ ] **Perfil de GitHub:** nombre, bio, web y ubicación (`! gh auth refresh -h github.com -s user` o a mano en github.com/settings/profile); fijar (pin) repos.
-- [ ] **GA4:** enlazar Search Console, retención a 14 meses, definir tráfico interno, marcar conversión del formulario (pedírselo a Claude).
-- [ ] **Backlinks:** confirmar cuáles han respondido (footers Nika/Munttarpe/TuKomanda con el badge de `/badge/`; Malt, cámaras de comercio y asociaciones de Gipuzkoa); después Sortlist, Clutch, GoodFirms.
-- [ ] **Perfiles:** Dev.to, Hashnode, Medium (republicar artículos con enlace canónico a la web; Claude ayuda a adaptarlos).
+- [x] **Perfil de GitHub** (hecho por David):  nombre, bio, web y ubicación (`! gh auth refresh -h github.com -s user` o a mano en github.com/settings/profile); fijar (pin) repos.
+- [x] **GA4** (hecho por David): enlazar Search Console, retención a 14 meses, definir tráfico interno, marcar conversión del formulario (pedírselo a Claude).
+- [x] **Backlinks** (David dice haber hecho todo lo indicado; seguir la respuesta de cada uno): confirmar cuáles han respondido (footers Nika/Munttarpe/TuKomanda con el badge de `/badge/`; Malt, cámaras de comercio y asociaciones de Gipuzkoa); después Sortlist, Clutch, GoodFirms.
+- [x] **Perfiles** (hecho por David): Dev.to, Hashnode, Medium (republicar artículos con enlace canónico a la web; Claude ayuda a adaptarlos).
 - [ ] **Foto de perfil profesional** de mayor resolución (la actual mide 400×400) para web y ficha.
 - [ ] **Correo profesional** `@davidotero.es` (Workspace o reenvío gratuito) + MX/SPF/DKIM/DMARC en Netlify DNS; después Claude sustituye `itsdavid.otero@gmail.com` en la web.
 - [ ] **Analítica (paso 6, aplazado por David):** GA4 ya funciona; los ajustes de GA4 de arriba siguen pendientes.

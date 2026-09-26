@@ -24,7 +24,7 @@ Quién: **David** = paso externo (cuentas, terceros) · **Claude** = cambio de c
 
 ## Siguiente (Claude)
 - [ ] **Textos de relleno en Proyectos:** las 3 descripciones (TuKomanda, Nika, Munttarpe) siguen con "Añade aquí una descripción algo más larga…" en producción (`index.html`, sección Proyectos). Claude redacta borradores a partir de los repos y capturas; David los revisa antes de publicar.
-- [ ] **Datos locales en el JSON-LD:** `telephone`, `hasMap` y `sameAs` de la ficha. Necesita de David: teléfono público y URL de la ficha en Maps.
+- [~] **Datos locales en el JSON-LD:** hecho `telephone` (+34 661 695 846) y `sameAs` con el enlace `share.google` de la ficha (local, sin publicar). `hasMap` opcional: requiere el enlace `maps.app.goo.gl` de la ficha.
 - [ ] **Más artículos** (1–2 al mes): "automatizar facturas con n8n", "migrar a Symfony"; enlazarlos con su servicio.
 - [x] **Enlaces desde los artículos antiguos** hacia los 3 nuevos ("Sigue leyendo" y enlace contextual en el de n8n).
 - [x] **`lastmod`:** `python3 scripts/update-sitemap.py` lo actualiza desde el último commit de cada página (ejecutar antes de hacer push si se cambian páginas).

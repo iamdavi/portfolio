@@ -1,0 +1,21 @@
+# David Otero Mato
+
+> Desarrollador fullstack freelance en Donostia-San Sebastián (Gipuzkoa), con más de 8 años de experiencia. Trabaja en remoto para toda España. Especializado en PHP/Symfony, Vue.js, AWS, automatización e IA generativa.
+
+## Servicios
+
+- [Servicios (índice)](https://davidotero.es/servicios/): resumen de todas las soluciones que ofrece.
+- [Automatizaciones](https://davidotero.es/servicios/automatizaciones/): n8n, agentes de IA, MCP Client y Server, integración de APIs, informes y scripts a medida.
+- [Desarrollo web](https://davidotero.es/servicios/desarrollo-web/): webs y aplicaciones a medida con PHP, Symfony y Vue.js.
+- [IA generativa en desarrollo](https://davidotero.es/servicios/ia-generativa-desarrollo/): Claude Code, agentes y flujos de trabajo con IA.
+- [IA y MCP para tu negocio](https://davidotero.es/servicios/ia-y-mcp-para-tu-negocio/): servidores MCP y tool calling para que la IA use los datos de la empresa: chatbots, respuestas automáticas y asistentes.
+- [Cloud y AWS](https://davidotero.es/servicios/cloud-aws/): despliegue e infraestructura en AWS y servidores Linux.
+- [Consultoría y Tech Lead](https://davidotero.es/servicios/consultoria-tech-lead/): liderazgo técnico y formación de equipos.
+
+## Otros
+
+- [Portfolio y proyectos](https://davidotero.es/)
+- [Blog](https://davidotero.es/blog/)
+- [Qué es MCP (Model Context Protocol) y para qué sirve a una empresa](https://davidotero.es/blog/que-es-mcp-y-para-que-sirve-a-una-empresa.html)
+- [n8n, MCP y agentes de IA: guía práctica de automatización](https://davidotero.es/blog/n8n-mcp-agentes-ia-automatizacion.html)
+- [Chatbot con los datos de tu empresa: cómo se hace con tool calling](https://davidotero.es/blog/chatbot-con-datos-de-tu-empresa-tool-calling.html)

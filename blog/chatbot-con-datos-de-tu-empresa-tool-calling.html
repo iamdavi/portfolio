@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatbot con datos de tu empresa: tool calling y MCP</title>
+  <meta name="description" content="Cómo crear un chatbot que responda con datos reales de tu empresa usando tool calling y MCP: arquitectura, herramientas, seguridad y errores a evitar.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://davidotero.es/blog/chatbot-con-datos-de-tu-empresa-tool-calling.html">
+  <meta name="theme-color" content="#0c0c0f">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://davidotero.es/blog/chatbot-con-datos-de-tu-empresa-tool-calling.html">
+  <meta property="og:site_name" content="David Otero Mato">
+  <meta property="og:title" content="Chatbot con datos de tu empresa: tool calling y MCP">
+  <meta property="og:description" content="Cómo crear un chatbot que responda con datos reales de tu empresa usando tool calling y MCP: arquitectura, herramientas, seguridad y errores a evitar.">
+  <meta property="og:image" content="https://davidotero.es/images/og/chatbot-con-datos-de-tu-empresa-tool-calling.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Chatbot con los datos de tu empresa: cómo se hace con tool calling y MCP">
+  <meta property="og:locale" content="es_ES">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Chatbot con datos de tu empresa: tool calling y MCP">
+  <meta name="twitter:description" content="Cómo crear un chatbot que responda con datos reales de tu empresa usando tool calling y MCP: arquitectura, herramientas, seguridad y errores a evitar.">
+  <meta name="twitter:image" content="https://davidotero.es/images/og/chatbot-con-datos-de-tu-empresa-tool-calling.png">
+  <meta name="twitter:image:alt" content="Chatbot con los datos de tu empresa: cómo se hace con tool calling y MCP">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css?v=8">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="icon" type="image/png" sizes="48x48" href="../favicon-48.png">
+  <link rel="alternate icon" href="../favicon.ico">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Chatbot con los datos de tu empresa: cómo se hace con tool calling",
+  "description": "Cómo crear un chatbot que responda con datos reales de tu empresa usando tool calling y MCP: arquitectura, herramientas, seguridad y errores a evitar.",
+  "author": {
+    "@type": "Person",
+    "@id": "https://davidotero.es/#david-otero",
+    "name": "David Otero Mato",
+    "url": "https://davidotero.es/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "@id": "https://davidotero.es/#david-otero",
+    "name": "David Otero Mato"
+  },
+  "datePublished": "2026-09-25",
+  "dateModified": "2026-09-25",
+  "image": "https://davidotero.es/images/og/chatbot-con-datos-de-tu-empresa-tool-calling.png",
+  "inLanguage": "es-ES",
+  "mainEntityOfPage": "https://davidotero.es/blog/chatbot-con-datos-de-tu-empresa-tool-calling.html"
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://davidotero.es/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://davidotero.es/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Chatbot con los datos de tu empresa: cómo se hace con tool calling",
+      "item": "https://davidotero.es/blog/chatbot-con-datos-de-tu-empresa-tool-calling.html"
+    }
+  ]
+}
+  </script>
+</head>
+
+<body>
+
+  <div id="particles-js"></div>
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav id="navbar" aria-label="Principal">
+    <a href="../index.html" class="nav-logo" aria-label="Inicio">
+      <svg viewBox="0 0 71 82" height="32" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+          <linearGradient id="nav-d-grad" x1="0" y1="40.5" x2="70.89" y2="40.5" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#3a7a58" />
+            <stop offset="1" stop-color="#6ec4a0" />
+          </linearGradient>
+        </defs>
+        <path fill="none" stroke="url(#nav-d-grad)" stroke-linecap="round" stroke-miterlimit="10" stroke-width="5"
+          d="M2.5,64.9V10.04c0-4.16,3.38-7.54,7.54-7.54h27.25c17.18,0,31.1,13.93,31.1,31.1h0c0,17.18-13.93,31.1-31.11,31.1h-18.44c-3.81,0-6.9,3.09-6.9,6.9h0c0,3.81,3.09,6.9,6.9,6.9h37.55" />
+      </svg>
+    </a>
+    <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#about">Sobre mí</a></li>
+      <li><a href="../index.html#skills">Habilidades</a></li>
+      <li><a href="../index.html#experience">Experiencia</a></li>
+      <li class="has-sub">
+        <a href="../servicios/">Servicios <svg class="nav-caret" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+        <ul class="nav-sub">
+          <li><a href="../servicios/">Todos los servicios</a></li>
+          <li><a href="../servicios/automatizaciones/">Automatizaciones</a></li>
+          <li><a href="../servicios/desarrollo-web/">Desarrollo web</a></li>
+          <li><a href="../servicios/ia-generativa-desarrollo/">IA generativa en desarrollo</a></li>
+          <li><a href="../servicios/ia-y-mcp-para-tu-negocio/">IA y MCP para tu negocio</a></li>
+          <li><a href="../servicios/cloud-aws/">Cloud y AWS</a></li>
+          <li><a href="../servicios/consultoria-tech-lead/">Consultoría y Tech Lead</a></li>
+        </ul>
+      </li>
+      <li><a href="../index.html#projects">Proyectos</a></li>
+      <li><a href="../index.html#cv">CV</a></li>
+      <li><a href="../blog/" aria-current="page">Blog</a></li>
+      <li><a href="../index.html#contact" class="nav-cta">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <section class="page-hero">
+    <a href="index.html" class="back-link">&larr; Volver al blog</a>
+    <h1 style="font-size: 1.9rem;">Chatbot con los datos de tu empresa: cómo se hace con tool calling y MCP</h1>
+    <div class="post-meta">
+      <span class="post-tag">IA &amp; Desarrollo</span>
+      <span class="dot">·</span>
+      <span>25 sep 2026</span>
+      <span class="dot">·</span>
+      <span>6 min de lectura</span>
+    </div>
+  </section>
+
+  <article class="prose">
+<nav class="toc" aria-label="Contenido del artículo"><p class="toc-title">En este artículo</p><ol><li><a href="#por-que-falla-un-chatbot-sin-datos">Por qué falla un chatbot sin datos</a></li><li><a href="#la-arquitectura-basica">La arquitectura básica</a></li><li><a href="#paso-a-paso">Paso a paso</a></li><li><a href="#ejemplo-ilustrativo-un-pedido-en-una-tienda-online">Ejemplo ilustrativo: un pedido en una tienda online</a></li><li><a href="#seguridad-y-privacidad">Seguridad y privacidad</a></li><li><a href="#errores-frecuentes">Errores frecuentes</a></li><li><a href="#como-saber-si-funciona">Cómo saber si funciona</a></li><li><a href="#conclusion">Conclusión</a></li></ol></nav>
+<p>Un chatbot que solo «charla» aporta poco. Uno que responde con <strong>datos reales</strong> de tu empresa —stock, pedidos, precios, documentación— resuelve consultas de verdad. Se consigue con tool calling y, si quieres reutilizar las herramientas, con MCP. Así se plantea.</p>
+
+<h2 id="por-que-falla-un-chatbot-sin-datos">Por qué falla un chatbot sin datos</h2>
+
+<p>Un modelo de lenguaje no conoce tu información. Si le preguntas por un pedido, o se inventa una respuesta plausible o admite que no lo sabe. Ninguna de las dos opciones sirve a un cliente. La solución es que el chatbot consulte tus sistemas en el momento de responder.</p>
+
+<h2 id="la-arquitectura-basica">La arquitectura básica</h2>
+
+<figure class="flow-figure"><div class="flow"><div class="flow-node"><strong>Usuario</strong>Pregunta en la web o en el chat</div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node"><strong>Chatbot y modelo</strong>Decide qué herramienta usar</div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node"><strong>Herramientas / MCP</strong>Consultas acotadas y validadas</div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node"><strong>Tus datos</strong>Pedidos, stock, documentos</div></div><figcaption>El modelo no accede directamente a tus datos: pasa por herramientas que tú controlas.</figcaption></figure>
+
+<h2 id="paso-a-paso">Paso a paso</h2>
+
+<ol class="steps">
+  <li><strong>Elegir el caso de uso.</strong> Por ejemplo: «¿dónde está mi pedido?» o «¿tenéis este producto?». Mejor uno claro que muchos difusos.</li>
+  <li><strong>Definir las herramientas.</strong> Una por acción: «consultar estado de pedido», «consultar stock». Cada una con un nombre claro y parámetros bien descritos.</li>
+  <li><strong>Implementarlas con validación.</strong> Se comprueban las entradas y se devuelve solo la información necesaria.</li>
+  <li><strong>Conectar el modelo.</strong> El modelo recibe las herramientas y decide cuándo llamarlas. Con MCP, esas herramientas se pueden reutilizar en otros modelos y aplicaciones.</li>
+  <li><strong>Definir límites.</strong> Qué puede responder, qué no y cuándo derivar a una persona.</li>
+  <li><strong>Evaluar.</strong> Se prueba con preguntas reales, incluidas las difíciles, antes de publicar.</li>
+</ol>
+
+<h2 id="ejemplo-ilustrativo-un-pedido-en-una-tienda-online">Ejemplo ilustrativo: un pedido en una tienda online</h2>
+
+<p>El cliente escribe: «¿Dónde está mi pedido 1234?». El modelo identifica que necesita la herramienta de estado de pedido y la llama con el número. La herramienta comprueba que el cliente puede ver ese pedido, consulta la base de datos y devuelve el estado y la fecha estimada. El chatbot redacta la respuesta. Si el pedido no existe o hay una incidencia, deriva a una persona con el contexto resumido.</p>
+
+<h2 id="seguridad-y-privacidad">Seguridad y privacidad</h2>
+
+<ul>
+  <li>El modelo <strong>nunca</strong> debe tener acceso directo a la base de datos: solo a herramientas acotadas.</li>
+  <li>Comprueba siempre en la herramienta <strong>quién pregunta</strong> y qué datos le corresponden.</li>
+  <li>Devuelve solo los campos necesarios, no registros completos.</li>
+  <li>Registra cada llamada para poder auditar.</li>
+  <li>Define qué datos personales llegan al modelo, con qué proveedor y bajo qué condiciones, conforme al RGPD.</li>
+</ul>
+
+<h2 id="errores-frecuentes">Errores frecuentes</h2>
+
+<ul>
+  <li>Dar al modelo una herramienta genérica de «ejecutar consulta» sobre toda la base de datos.</li>
+  <li>Herramientas con nombres y descripciones ambiguos, que el modelo usa mal.</li>
+  <li>No validar los parámetros en la herramienta y fiarse de lo que diga el modelo.</li>
+  <li>Publicar sin evaluar con preguntas reales.</li>
+  <li>No prever cuándo el chatbot debe pasar la conversación a una persona.</li>
+</ul>
+
+<h2 id="como-saber-si-funciona">Cómo saber si funciona</h2>
+
+<ul>
+  <li>Prepara un conjunto de <strong>preguntas reales</strong> de clientes, incluidas las difíciles y las que el chatbot no debería responder.</li>
+  <li>Comprueba que <strong>cada respuesta con datos</strong> coincide con lo que hay en tus sistemas.</li>
+  <li>Revisa el <strong>registro de herramientas usadas</strong> para detectar llamadas innecesarias o erróneas.</li>
+  <li>Mide cuántas conversaciones se <strong>derivan a una persona</strong> y por qué.</li>
+  <li>Repite la evaluación cada vez que cambies el modelo, las herramientas o las instrucciones.</li>
+</ul>
+
+<div class="cta-band"><p>¿Quieres verlo aplicado a tu empresa?<span>Cuéntame tu caso; respuesta en menos de 24 horas.</span></p><a href="../index.html#contact" class="btn-primary">Cuéntame tu caso</a></div>
+<h2 id="conclusion">Conclusión</h2>
+
+<p>Un chatbot útil es, sobre todo, un buen conjunto de herramientas bien diseñadas y seguras. El modelo es la parte que conversa; el valor está en lo que puede consultar y hacer, y en los límites que tú pones. Construyo este tipo de soluciones a medida; en la página de servicios tienes el detalle.</p>
+
+    <div class="callout">
+      <p><strong>¿Lo aplicamos en tu empresa?</strong>Consulta el servicio de
+        <a href="../servicios/ia-y-mcp-para-tu-negocio/">chatbots y asistentes con datos reales mediante MCP</a> o
+        <a href="../index.html#contact">escríbeme</a> y hablamos de tu caso.</p>
+    </div>
+  </article>
+
+  <div class="prose">
+    <div class="author-card">
+      <picture>
+        <source srcset="../cv-avatar-photo.webp" type="image/webp">
+        <img src="../cv-avatar-photo.png" alt="David Otero Mato" width="64" height="64" loading="lazy">
+      </picture>
+      <div>
+        <h3>David Otero Mato</h3>
+        <p>Desarrollador fullstack freelance en Donostia — PHP, Vue.js, AWS e IA generativa aplicada a proyectos reales.</p>
+        <a href="../index.html#contact">¿Hablamos de tu proyecto? →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <p>© 2026 <span>David Otero Mato</span> · Donostia, Gipuzkoa</p>
+    <p class="footer-legal footer-services">
+      <a href="../servicios/">Servicios</a>:
+      <a href="../servicios/automatizaciones/">Automatizaciones</a> ·
+      <a href="../servicios/desarrollo-web/">Desarrollo web</a> ·
+      <a href="../servicios/ia-generativa-desarrollo/">IA generativa</a> ·
+      <a href="../servicios/ia-y-mcp-para-tu-negocio/">IA y MCP</a> ·
+      <a href="../servicios/cloud-aws/">Cloud y AWS</a> ·
+      <a href="../servicios/consultoria-tech-lead/">Consultoría</a>
+    </p>
+    <p class="footer-legal">
+      <a href="../aviso-legal.html">Aviso legal</a> ·
+      <a href="../politica-privacidad.html">Privacidad</a> ·
+      <a href="../politica-cookies.html">Cookies</a> ·
+      <button type="button" data-cookie-settings>Configurar cookies</button>
+    </p>
+  </footer>
+
+  <div class="cookie-banner" id="cookie-banner" hidden role="dialog" aria-live="polite"
+    aria-label="Consentimiento de cookies">
+    <p>
+      Uso cookies analíticas (Google Analytics) para entender cómo se usa esta web. Solo se activan si las aceptas, y
+      puedes cambiar de opinión cuando quieras desde "Configurar cookies" en el pie de página. Más info en la
+      <a href="../politica-cookies.html">Política de Cookies</a>.
+    </p>
+    <div class="cookie-banner-actions">
+      <button type="button" class="btn-secondary" id="cookie-reject">Rechazar</button>
+      <button type="button" class="btn-primary" id="cookie-accept">Aceptar</button>
+    </div>
+  </div>
+
+  <script src="../js/nav.js"></script>
+  <script src="../js/cookie-consent.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="../js/site-fx.js"></script>
+</body>
+
+</html>

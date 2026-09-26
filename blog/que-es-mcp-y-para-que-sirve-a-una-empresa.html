@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qué es MCP y para qué sirve a una empresa | David Otero</title>
+  <meta name="description" content="Qué es el Model Context Protocol (MCP), cómo funciona y qué puede hacer por tu empresa: chatbots con datos reales, asistentes y acciones controladas.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://davidotero.es/blog/que-es-mcp-y-para-que-sirve-a-una-empresa.html">
+  <meta name="theme-color" content="#0c0c0f">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://davidotero.es/blog/que-es-mcp-y-para-que-sirve-a-una-empresa.html">
+  <meta property="og:site_name" content="David Otero Mato">
+  <meta property="og:title" content="Qué es MCP y para qué sirve a una empresa | David Otero">
+  <meta property="og:description" content="Qué es el Model Context Protocol (MCP), cómo funciona y qué puede hacer por tu empresa: chatbots con datos reales, asistentes y acciones controladas.">
+  <meta property="og:image" content="https://davidotero.es/images/og/que-es-mcp-y-para-que-sirve-a-una-empresa.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Qué es MCP y para qué sirve a una empresa: conecta la IA con tus datos">
+  <meta property="og:locale" content="es_ES">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Qué es MCP y para qué sirve a una empresa | David Otero">
+  <meta name="twitter:description" content="Qué es el Model Context Protocol (MCP), cómo funciona y qué puede hacer por tu empresa: chatbots con datos reales, asistentes y acciones controladas.">
+  <meta name="twitter:image" content="https://davidotero.es/images/og/que-es-mcp-y-para-que-sirve-a-una-empresa.png">
+  <meta name="twitter:image:alt" content="Qué es MCP y para qué sirve a una empresa: conecta la IA con tus datos">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css?v=8">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="icon" type="image/png" sizes="48x48" href="../favicon-48.png">
+  <link rel="alternate icon" href="../favicon.ico">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Qué es MCP (Model Context Protocol) y para qué sirve a una empresa",
+  "description": "Qué es el Model Context Protocol (MCP), cómo funciona y qué puede hacer por tu empresa: chatbots con datos reales, asistentes y acciones controladas.",
+  "author": {
+    "@type": "Person",
+    "@id": "https://davidotero.es/#david-otero",
+    "name": "David Otero Mato",
+    "url": "https://davidotero.es/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "@id": "https://davidotero.es/#david-otero",
+    "name": "David Otero Mato"
+  },
+  "datePublished": "2026-09-25",
+  "dateModified": "2026-09-25",
+  "image": "https://davidotero.es/images/og/que-es-mcp-y-para-que-sirve-a-una-empresa.png",
+  "inLanguage": "es-ES",
+  "mainEntityOfPage": "https://davidotero.es/blog/que-es-mcp-y-para-que-sirve-a-una-empresa.html"
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://davidotero.es/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://davidotero.es/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Qué es MCP (Model Context Protocol) y para qué sirve a una empresa",
+      "item": "https://davidotero.es/blog/que-es-mcp-y-para-que-sirve-a-una-empresa.html"
+    }
+  ]
+}
+  </script>
+</head>
+
+<body>
+
+  <div id="particles-js"></div>
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav id="navbar" aria-label="Principal">
+    <a href="../index.html" class="nav-logo" aria-label="Inicio">
+      <svg viewBox="0 0 71 82" height="32" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+          <linearGradient id="nav-d-grad" x1="0" y1="40.5" x2="70.89" y2="40.5" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#3a7a58" />
+            <stop offset="1" stop-color="#6ec4a0" />
+          </linearGradient>
+        </defs>
+        <path fill="none" stroke="url(#nav-d-grad)" stroke-linecap="round" stroke-miterlimit="10" stroke-width="5"
+          d="M2.5,64.9V10.04c0-4.16,3.38-7.54,7.54-7.54h27.25c17.18,0,31.1,13.93,31.1,31.1h0c0,17.18-13.93,31.1-31.11,31.1h-18.44c-3.81,0-6.9,3.09-6.9,6.9h0c0,3.81,3.09,6.9,6.9,6.9h37.55" />
+      </svg>
+    </a>
+    <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#about">Sobre mí</a></li>
+      <li><a href="../index.html#skills">Habilidades</a></li>
+      <li><a href="../index.html#experience">Experiencia</a></li>
+      <li class="has-sub">
+        <a href="../servicios/">Servicios <svg class="nav-caret" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+        <ul class="nav-sub">
+          <li><a href="../servicios/">Todos los servicios</a></li>
+          <li><a href="../servicios/automatizaciones/">Automatizaciones</a></li>
+          <li><a href="../servicios/desarrollo-web/">Desarrollo web</a></li>
+          <li><a href="../servicios/ia-generativa-desarrollo/">IA generativa en desarrollo</a></li>
+          <li><a href="../servicios/ia-y-mcp-para-tu-negocio/">IA y MCP para tu negocio</a></li>
+          <li><a href="../servicios/cloud-aws/">Cloud y AWS</a></li>
+          <li><a href="../servicios/consultoria-tech-lead/">Consultoría y Tech Lead</a></li>
+        </ul>
+      </li>
+      <li><a href="../index.html#projects">Proyectos</a></li>
+      <li><a href="../index.html#cv">CV</a></li>
+      <li><a href="../blog/" aria-current="page">Blog</a></li>
+      <li><a href="../index.html#contact" class="nav-cta">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <section class="page-hero">
+    <a href="index.html" class="back-link">&larr; Volver al blog</a>
+    <h1 style="font-size: 1.9rem;">Qué es MCP y para qué sirve a una empresa: conecta la IA con tus datos</h1>
+    <div class="post-meta">
+      <span class="post-tag">IA &amp; Desarrollo</span>
+      <span class="dot">·</span>
+      <span>25 sep 2026</span>
+      <span class="dot">·</span>
+      <span>6 min de lectura</span>
+    </div>
+  </section>
+
+  <article class="prose">
+<nav class="toc" aria-label="Contenido del artículo"><p class="toc-title">En este artículo</p><ol><li><a href="#el-problema-la-ia-no-conoce-tu-empresa">El problema: la IA no conoce tu empresa</a></li><li><a href="#que-es-tool-calling">Qué es tool calling</a></li><li><a href="#que-es-mcp">Qué es MCP</a></li><li><a href="#que-te-aporta-como-empresa">Qué te aporta como empresa</a></li><li><a href="#ejemplos-de-uso">Ejemplos de uso</a></li><li><a href="#que-hay-que-tener-en-cuenta">Qué hay que tener en cuenta</a></li><li><a href="#preguntas-habituales">Preguntas habituales</a></li><li><a href="#por-donde-empezar">Por dónde empezar</a></li></ol></nav>
+<p>Si has oído hablar de MCP y no tienes claro qué es ni para qué sirve a una empresa, esta es la explicación sin jerga. En resumen: <strong>MCP es la forma estándar de dar a un modelo de IA acceso a tus datos y herramientas de manera controlada</strong>.</p>
+
+<h2 id="el-problema-la-ia-no-conoce-tu-empresa">El problema: la IA no conoce tu empresa</h2>
+
+<p>Los modelos de lenguaje como Claude saben mucho, pero no saben nada de tu negocio: no conocen el stock de hoy, el estado de un pedido, tus precios ni tus documentos internos. Sin acceso a esa información, o se inventan la respuesta o no pueden ayudar.</p>
+<p>Se podría intentar «enseñarle» tus datos reentrenando el modelo, pero es caro, lento y queda desactualizado en cuanto algo cambia. La alternativa práctica es que el modelo <strong>consulte tus datos en el momento</strong>, mediante herramientas.</p>
+
+<h2 id="que-es-tool-calling">Qué es tool calling</h2>
+
+<p>El <strong>tool calling</strong> (o function calling) es la capacidad de un modelo de decidir que necesita una herramienta —por ejemplo «buscar un pedido por su número»—, llamarla con los parámetros adecuados y usar el resultado para responder. La herramienta es código tuyo, que decide qué datos se devuelven y qué no.</p>
+
+<h2 id="que-es-mcp">Qué es MCP</h2>
+
+<p>El <strong>Model Context Protocol</strong> es un estándar abierto que define cómo se publican esas herramientas (y otros recursos, como documentos) para que cualquier cliente compatible las pueda descubrir y usar. Un <strong>servidor MCP</strong> ofrece una lista de herramientas con su descripción y parámetros; un <strong>cliente MCP</strong> (un asistente, un editor de código, un agente, una plataforma como n8n) las utiliza.</p>
+
+<figure class="flow-figure"><div class="flow"><div class="flow-node"><strong>Cliente</strong>Asistente, agente o chatbot</div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node"><strong>Servidor MCP</strong>Herramientas y permisos</div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node"><strong>Tus sistemas</strong>Datos, APIs y documentos</div></div><figcaption>MCP estandariza la conexión entre los modelos y tus sistemas.</figcaption></figure>
+<figure class="flow-figure"><div class="compare"><div class="compare-col is-before"><h3>Sin MCP</h3><ul>
+  <li>Una integración a medida por cada modelo y sistema</li>
+  <li>Cambiar de modelo obliga a rehacer el trabajo</li>
+  <li>Permisos y registro dispersos</li>
+</ul></div><div class="compare-col is-after"><h3>Con MCP</h3><ul>
+  <li>Una capa común para todos los modelos</li>
+  <li>Cambias de modelo sin rehacer integraciones</li>
+  <li>Permisos y registro centralizados</li>
+</ul></div></div><figcaption>MCP evita multiplicar las integraciones.</figcaption></figure>
+
+<p>La analogía habitual es un puerto USB: construyes la conexión una vez y la usas con distintos modelos y aplicaciones.</p>
+
+<h2 id="que-te-aporta-como-empresa">Qué te aporta como empresa</h2>
+
+<ul>
+  <li><strong>Respuestas con datos actuales</strong>, no con información desactualizada.</li>
+  <li><strong>Independencia del proveedor</strong>: tus herramientas sirven para distintos modelos.</li>
+  <li><strong>Acciones controladas</strong>: además de responder, la IA puede crear un ticket o lanzar un proceso con los límites que definas.</li>
+  <li><strong>Control y trazabilidad</strong>: permisos por herramienta y registro de cada uso.</li>
+  <li><strong>Ahorro de tiempo</strong> en consultas repetitivas de clientes y empleados.</li>
+</ul>
+
+<h2 id="ejemplos-de-uso">Ejemplos de uso</h2>
+
+<ul>
+  <li><strong>Chatbot de tienda online</strong> que consulta el stock y el estado de los pedidos en tiempo real.</li>
+  <li><strong>Respuestas automáticas a correos</strong> con datos del CRM, revisadas por una persona.</li>
+  <li><strong>Asistente interno</strong> que responde sobre procedimientos y manuales de la empresa.</li>
+  <li><strong>Asistente comercial</strong> que prepara presupuestos con el catálogo y las tarifas reales.</li>
+</ul>
+
+<p>Son ejemplos ilustrativos del tipo de soluciones que se pueden construir.</p>
+
+<h2 id="que-hay-que-tener-en-cuenta">Qué hay que tener en cuenta</h2>
+
+<ul>
+  <li><strong>Seguridad y RGPD:</strong> qué datos llegan al modelo, con qué proveedor y bajo qué condiciones.</li>
+  <li><strong>Permisos mínimos:</strong> empezar con herramientas de solo lectura y dar acceso de escritura con cuidado.</li>
+  <li><strong>Evaluación:</strong> los modelos pueden equivocarse, así que se prueban con casos reales antes de publicar.</li>
+  <li><strong>Persona en el circuito:</strong> las decisiones críticas se aprueban antes de ejecutarse.</li>
+</ul>
+
+<h2 id="preguntas-habituales">Preguntas habituales</h2>
+
+<ul>
+  <li><strong>¿Necesito entrenar un modelo con mis datos?</strong> No. Los datos permanecen en tus sistemas y el modelo los consulta cuando hace falta.</li>
+  <li><strong>¿Solo funciona con un modelo concreto?</strong> No. Al ser un estándar abierto, las herramientas se pueden usar con distintos modelos y clientes compatibles.</li>
+  <li><strong>¿Es lo mismo que una API?</strong> No exactamente. Una API está pensada para programas; un servidor MCP describe sus herramientas de forma que un modelo pueda entender cuándo y cómo usarlas.</li>
+  <li><strong>¿Puede la IA modificar mis datos?</strong> Solo si tú expones herramientas que lo permitan. Lo prudente es empezar por herramientas de solo lectura.</li>
+</ul>
+
+<div class="cta-band"><p>¿Quieres verlo aplicado a tu empresa?<span>Cuéntame tu caso; respuesta en menos de 24 horas.</span></p><a href="../index.html#contact" class="btn-primary">Cuéntame tu caso</a></div>
+<h2 id="por-donde-empezar">Por dónde empezar</h2>
+
+<p>Lo recomendable es elegir un caso de uso concreto con valor claro (por ejemplo, responder consultas sobre pedidos), exponer solo los datos imprescindibles como herramientas de lectura y medir los resultados antes de ampliar. Diseño y construyo servidores MCP y herramientas de tool calling para empresas; puedes ver cómo trabajo en la página de servicios.</p>
+
+    <div class="callout">
+      <p><strong>¿Lo aplicamos en tu empresa?</strong>Consulta el servicio de
+        <a href="../servicios/ia-y-mcp-para-tu-negocio/">integración de IA y servidores MCP</a> o
+        <a href="../index.html#contact">escríbeme</a> y hablamos de tu caso.</p>
+    </div>
+  </article>
+
+  <div class="prose">
+    <div class="author-card">
+      <picture>
+        <source srcset="../cv-avatar-photo.webp" type="image/webp">
+        <img src="../cv-avatar-photo.png" alt="David Otero Mato" width="64" height="64" loading="lazy">
+      </picture>
+      <div>
+        <h3>David Otero Mato</h3>
+        <p>Desarrollador fullstack freelance en Donostia — PHP, Vue.js, AWS e IA generativa aplicada a proyectos reales.</p>
+        <a href="../index.html#contact">¿Hablamos de tu proyecto? →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <p>© 2026 <span>David Otero Mato</span> · Donostia, Gipuzkoa</p>
+    <p class="footer-legal footer-services">
+      <a href="../servicios/">Servicios</a>:
+      <a href="../servicios/automatizaciones/">Automatizaciones</a> ·
+      <a href="../servicios/desarrollo-web/">Desarrollo web</a> ·
+      <a href="../servicios/ia-generativa-desarrollo/">IA generativa</a> ·
+      <a href="../servicios/ia-y-mcp-para-tu-negocio/">IA y MCP</a> ·
+      <a href="../servicios/cloud-aws/">Cloud y AWS</a> ·
+      <a href="../servicios/consultoria-tech-lead/">Consultoría</a>
+    </p>
+    <p class="footer-legal">
+      <a href="../aviso-legal.html">Aviso legal</a> ·
+      <a href="../politica-privacidad.html">Privacidad</a> ·
+      <a href="../politica-cookies.html">Cookies</a> ·
+      <button type="button" data-cookie-settings>Configurar cookies</button>
+    </p>
+  </footer>
+
+  <div class="cookie-banner" id="cookie-banner" hidden role="dialog" aria-live="polite"
+    aria-label="Consentimiento de cookies">
+    <p>
+      Uso cookies analíticas (Google Analytics) para entender cómo se usa esta web. Solo se activan si las aceptas, y
+      puedes cambiar de opinión cuando quieras desde "Configurar cookies" en el pie de página. Más info en la
+      <a href="../politica-cookies.html">Política de Cookies</a>.
+    </p>
+    <div class="cookie-banner-actions">
+      <button type="button" class="btn-secondary" id="cookie-reject">Rechazar</button>
+      <button type="button" class="btn-primary" id="cookie-accept">Aceptar</button>
+    </div>
+  </div>
+
+  <script src="../js/nav.js"></script>
+  <script src="../js/cookie-consent.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="../js/site-fx.js"></script>
+</body>
+
+</html>

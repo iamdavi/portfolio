@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>n8n, MCP y agentes de IA: guía de automatización</title>
+  <meta name="description" content="Cómo combinar n8n, agentes de IA y MCP en automatizaciones: MCP Client, MCP Server, herramientas, memoria y buenas prácticas de fiabilidad y seguridad.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://davidotero.es/blog/n8n-mcp-agentes-ia-automatizacion.html">
+  <meta name="theme-color" content="#0c0c0f">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://davidotero.es/blog/n8n-mcp-agentes-ia-automatizacion.html">
+  <meta property="og:site_name" content="David Otero Mato">
+  <meta property="og:title" content="n8n, MCP y agentes de IA: guía de automatización">
+  <meta property="og:description" content="Cómo combinar n8n, agentes de IA y MCP en automatizaciones: MCP Client, MCP Server, herramientas, memoria y buenas prácticas de fiabilidad y seguridad.">
+  <meta property="og:image" content="https://davidotero.es/images/og/n8n-mcp-agentes-ia-automatizacion.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="n8n, MCP y agentes de IA: guía práctica para automatizar procesos">
+  <meta property="og:locale" content="es_ES">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="n8n, MCP y agentes de IA: guía de automatización">
+  <meta name="twitter:description" content="Cómo combinar n8n, agentes de IA y MCP en automatizaciones: MCP Client, MCP Server, herramientas, memoria y buenas prácticas de fiabilidad y seguridad.">
+  <meta name="twitter:image" content="https://davidotero.es/images/og/n8n-mcp-agentes-ia-automatizacion.png">
+  <meta name="twitter:image:alt" content="n8n, MCP y agentes de IA: guía práctica para automatizar procesos">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css?v=8">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="icon" type="image/png" sizes="48x48" href="../favicon-48.png">
+  <link rel="alternate icon" href="../favicon.ico">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "n8n, MCP y agentes de IA: guía práctica de automatización",
+  "description": "Cómo combinar n8n, agentes de IA y MCP en automatizaciones: MCP Client, MCP Server, herramientas, memoria y buenas prácticas de fiabilidad y seguridad.",
+  "author": {
+    "@type": "Person",
+    "@id": "https://davidotero.es/#david-otero",
+    "name": "David Otero Mato",
+    "url": "https://davidotero.es/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "@id": "https://davidotero.es/#david-otero",
+    "name": "David Otero Mato"
+  },
+  "datePublished": "2026-09-25",
+  "dateModified": "2026-09-25",
+  "image": "https://davidotero.es/images/og/n8n-mcp-agentes-ia-automatizacion.png",
+  "inLanguage": "es-ES",
+  "mainEntityOfPage": "https://davidotero.es/blog/n8n-mcp-agentes-ia-automatizacion.html"
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://davidotero.es/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://davidotero.es/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "n8n, MCP y agentes de IA: guía práctica de automatización",
+      "item": "https://davidotero.es/blog/n8n-mcp-agentes-ia-automatizacion.html"
+    }
+  ]
+}
+  </script>
+</head>
+
+<body>
+
+  <div id="particles-js"></div>
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav id="navbar" aria-label="Principal">
+    <a href="../index.html" class="nav-logo" aria-label="Inicio">
+      <svg viewBox="0 0 71 82" height="32" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+          <linearGradient id="nav-d-grad" x1="0" y1="40.5" x2="70.89" y2="40.5" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#3a7a58" />
+            <stop offset="1" stop-color="#6ec4a0" />
+          </linearGradient>
+        </defs>
+        <path fill="none" stroke="url(#nav-d-grad)" stroke-linecap="round" stroke-miterlimit="10" stroke-width="5"
+          d="M2.5,64.9V10.04c0-4.16,3.38-7.54,7.54-7.54h27.25c17.18,0,31.1,13.93,31.1,31.1h0c0,17.18-13.93,31.1-31.11,31.1h-18.44c-3.81,0-6.9,3.09-6.9,6.9h0c0,3.81,3.09,6.9,6.9,6.9h37.55" />
+      </svg>
+    </a>
+    <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#about">Sobre mí</a></li>
+      <li><a href="../index.html#skills">Habilidades</a></li>
+      <li><a href="../index.html#experience">Experiencia</a></li>
+      <li class="has-sub">
+        <a href="../servicios/">Servicios <svg class="nav-caret" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+        <ul class="nav-sub">
+          <li><a href="../servicios/">Todos los servicios</a></li>
+          <li><a href="../servicios/automatizaciones/">Automatizaciones</a></li>
+          <li><a href="../servicios/desarrollo-web/">Desarrollo web</a></li>
+          <li><a href="../servicios/ia-generativa-desarrollo/">IA generativa en desarrollo</a></li>
+          <li><a href="../servicios/ia-y-mcp-para-tu-negocio/">IA y MCP para tu negocio</a></li>
+          <li><a href="../servicios/cloud-aws/">Cloud y AWS</a></li>
+          <li><a href="../servicios/consultoria-tech-lead/">Consultoría y Tech Lead</a></li>
+        </ul>
+      </li>
+      <li><a href="../index.html#projects">Proyectos</a></li>
+      <li><a href="../index.html#cv">CV</a></li>
+      <li><a href="../blog/" aria-current="page">Blog</a></li>
+      <li><a href="../index.html#contact" class="nav-cta">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <section class="page-hero">
+    <a href="index.html" class="back-link">&larr; Volver al blog</a>
+    <h1 style="font-size: 1.9rem;">n8n, MCP y agentes de IA: guía práctica para automatizar procesos</h1>
+    <div class="post-meta">
+      <span class="post-tag">Automatización</span>
+      <span class="dot">·</span>
+      <span>25 sep 2026</span>
+      <span class="dot">·</span>
+      <span>6 min de lectura</span>
+    </div>
+  </section>
+
+  <article class="prose">
+<nav class="toc" aria-label="Contenido del artículo"><p class="toc-title">En este artículo</p><ol><li><a href="#el-flujo-clasico-frente-al-agente">El flujo clásico frente al agente</a></li><li><a href="#las-cuatro-piezas-de-un-agente-en-n8n">Las cuatro piezas de un agente en n8n</a></li><li><a href="#mcp-client-el-agente-usa-herramientas-externas">MCP Client: el agente usa herramientas externas</a></li><li><a href="#mcp-server-tus-flujos-como-herramientas-de-un-asistente">MCP Server: tus flujos como herramientas de un asistente</a></li><li><a href="#conectar-con-apis-que-generan-paginas">Conectar con APIs que generan páginas</a></li><li><a href="#buenas-practicas">Buenas prácticas</a></li><li><a href="#cuando-no-usar-un-agente">Cuándo no usar un agente</a></li><li><a href="#ejemplo-ilustrativo-gestion-de-consultas-por-correo">Ejemplo ilustrativo: gestión de consultas por correo</a></li><li><a href="#siguiente-paso">Siguiente paso</a></li></ol></nav>
+<p>n8n permite automatizar procesos conectando servicios con flujos visuales. Cuando le añades <strong>agentes de IA</strong> y <strong>MCP</strong>, las automatizaciones dejan de seguir un camino fijo y pueden interpretar, decidir y usar herramientas. Esta guía resume cómo encajan las piezas.</p>
+
+<h2 id="el-flujo-clasico-frente-al-agente">El flujo clásico frente al agente</h2>
+
+<p>Un flujo tradicional en n8n sigue siempre los mismos pasos: llega un disparador (un webhook, un correo, una hora), se transforman los datos y se ejecutan acciones. Es fiable y predecible, ideal cuando las reglas están claras.</p>
+<p>Un <strong>agente</strong> añade decisión. Se le da un objetivo y un conjunto de herramientas, y él elige qué usar y en qué orden. Es útil cuando la entrada es ambigua: un correo en lenguaje natural, una consulta de un cliente, un documento sin formato fijo.</p>
+
+<h2 id="las-cuatro-piezas-de-un-agente-en-n8n">Las cuatro piezas de un agente en n8n</h2>
+
+<ul>
+  <li><strong>Modelo:</strong> el modelo de lenguaje que razona (Claude u otros).</li>
+  <li><strong>Instrucciones:</strong> qué debe hacer, con qué tono y qué límites tiene.</li>
+  <li><strong>Memoria:</strong> el contexto del caso o la conversación.</li>
+  <li><strong>Herramientas:</strong> consultas a bases de datos, llamadas a APIs, otros flujos y servidores MCP.</li>
+</ul>
+<figure class="flow-figure"><div class="arch"><div class="arch-col"><span class="arch-title">Disparadores</span><div class="arch-node"><strong>Webhook</strong>Formulario o API</div><div class="arch-node"><strong>Programado</strong>Cron</div><div class="arch-node"><strong>Correo</strong>Lenguaje natural</div></div><span class="flow-arrow" aria-hidden="true">→</span><div class="arch-col is-core"><span class="arch-title">Agente en n8n</span><div class="arch-node"><strong>Modelo</strong>Razona</div><div class="arch-node"><strong>Instrucciones</strong>Objetivo y límites</div><div class="arch-node"><strong>Memoria</strong>Contexto</div><div class="arch-node"><strong>Herramientas</strong>APIs y MCP</div></div><span class="flow-arrow" aria-hidden="true">→</span><div class="arch-col"><span class="arch-title">Resultados</span><div class="arch-node"><strong>Sistemas</strong>CRM, datos, web</div><div class="arch-node"><strong>Personas</strong>Aprobación</div><div class="arch-node"><strong>Documentos</strong>PDF y CSV</div></div></div><figcaption>Las cuatro piezas de un agente y su entorno.</figcaption></figure>
+
+<h2 id="mcp-client-el-agente-usa-herramientas-externas">MCP Client: el agente usa herramientas externas</h2>
+
+<p>Con el nodo de cliente MCP, el agente se conecta a un servidor MCP y dispone de sus herramientas sin que tengas que reconstruir cada integración en el flujo. Si ya tienes un servidor MCP que expone tu CRM o tu base de datos, cualquier agente de n8n puede usarlo.</p>
+
+<h2 id="mcp-server-tus-flujos-como-herramientas-de-un-asistente">MCP Server: tus flujos como herramientas de un asistente</h2>
+
+<p>En sentido contrario, un flujo de n8n se puede exponer como servidor MCP. Así, un asistente de IA puede lanzar tus automatizaciones cuando se lo pides en una conversación: «genera el informe de este cliente» y el flujo se ejecuta.</p>
+
+<figure class="flow-figure"><div class="flow"><div class="flow-node"><strong>Asistente</strong>Recibe la petición</div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node"><strong>MCP Server de n8n</strong>Expone el flujo como herramienta</div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node"><strong>Flujo</strong>Ejecuta los pasos</div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node"><strong>Tus sistemas</strong>Datos y acciones</div></div><figcaption>Un asistente lanza una automatización a través de MCP.</figcaption></figure>
+
+<h2 id="conectar-con-apis-que-generan-paginas">Conectar con APIs que generan páginas</h2>
+
+<p>Un caso muy práctico es enlazar n8n con una API que crea o actualiza páginas web. El flujo recoge datos de un formulario o una hoja, los valida, puede pedir a un agente que redacte un borrador y, tras la aprobación de una persona, llama a la API para publicar.</p>
+
+<h2 id="buenas-practicas">Buenas prácticas</h2>
+
+<ul>
+  <li><strong>Pocas herramientas, bien definidas</strong>, con descripciones claras.</li>
+  <li><strong>Permisos mínimos</strong> en cada credencial y conexión.</li>
+  <li><strong>Aprobación humana</strong> antes de acciones críticas (pagos, borrados, mensajes importantes).</li>
+  <li><strong>Gestión de errores y reintentos</strong>, con avisos cuando algo falla.</li>
+  <li><strong>Registro de ejecuciones</strong> para auditar y depurar.</li>
+  <li><strong>Evaluar con casos reales</strong> antes de dejar el agente sin supervisión.</li>
+</ul>
+
+<h2 id="cuando-no-usar-un-agente">Cuándo no usar un agente</h2>
+
+<p>Si el proceso tiene reglas claras y siempre los mismos pasos, un flujo normal es más barato, rápido y predecible. El agente aporta valor cuando hay lenguaje natural, ambigüedad o decisiones sobre qué herramienta usar.</p>
+
+<h2 id="ejemplo-ilustrativo-gestion-de-consultas-por-correo">Ejemplo ilustrativo: gestión de consultas por correo</h2>
+
+<p>Un flujo se dispara cuando llega un correo a la bandeja de consultas. Un agente lee el mensaje, identifica al cliente, consulta su historial mediante una herramienta MCP y redacta una respuesta. El borrador se envía a una persona para su aprobación y, tras aprobarlo, el flujo lo envía y registra la actividad en el CRM. Si el agente no encuentra datos suficientes, no responde y avisa a un responsable.</p>
+
+<div class="cta-band"><p>¿Quieres verlo aplicado a tu empresa?<span>Cuéntame tu caso; respuesta en menos de 24 horas.</span></p><a href="../index.html#contact" class="btn-primary">Cuéntame tu caso</a></div>
+<h2 id="siguiente-paso">Siguiente paso</h2>
+
+<p>Diseño y construyo este tipo de automatizaciones. Si quieres ver el enfoque completo, con ejemplos, entra en la página de servicios.</p>
+
+    <div class="callout">
+      <p><strong>¿Lo aplicamos en tu empresa?</strong>Consulta el servicio de
+        <a href="../servicios/automatizaciones/">automatización con n8n, agentes de IA y MCP</a> o
+        <a href="../index.html#contact">escríbeme</a> y hablamos de tu caso.</p>
+    </div>
+  </article>
+
+  <div class="prose">
+    <div class="author-card">
+      <picture>
+        <source srcset="../cv-avatar-photo.webp" type="image/webp">
+        <img src="../cv-avatar-photo.png" alt="David Otero Mato" width="64" height="64" loading="lazy">
+      </picture>
+      <div>
+        <h3>David Otero Mato</h3>
+        <p>Desarrollador fullstack freelance en Donostia — PHP, Vue.js, AWS e IA generativa aplicada a proyectos reales.</p>
+        <a href="../index.html#contact">¿Hablamos de tu proyecto? →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <p>© 2026 <span>David Otero Mato</span> · Donostia, Gipuzkoa</p>
+    <p class="footer-legal footer-services">
+      <a href="../servicios/">Servicios</a>:
+      <a href="../servicios/automatizaciones/">Automatizaciones</a> ·
+      <a href="../servicios/desarrollo-web/">Desarrollo web</a> ·
+      <a href="../servicios/ia-generativa-desarrollo/">IA generativa</a> ·
+      <a href="../servicios/ia-y-mcp-para-tu-negocio/">IA y MCP</a> ·
+      <a href="../servicios/cloud-aws/">Cloud y AWS</a> ·
+      <a href="../servicios/consultoria-tech-lead/">Consultoría</a>
+    </p>
+    <p class="footer-legal">
+      <a href="../aviso-legal.html">Aviso legal</a> ·
+      <a href="../politica-privacidad.html">Privacidad</a> ·
+      <a href="../politica-cookies.html">Cookies</a> ·
+      <button type="button" data-cookie-settings>Configurar cookies</button>
+    </p>
+  </footer>
+
+  <div class="cookie-banner" id="cookie-banner" hidden role="dialog" aria-live="polite"
+    aria-label="Consentimiento de cookies">
+    <p>
+      Uso cookies analíticas (Google Analytics) para entender cómo se usa esta web. Solo se activan si las aceptas, y
+      puedes cambiar de opinión cuando quieras desde "Configurar cookies" en el pie de página. Más info en la
+      <a href="../politica-cookies.html">Política de Cookies</a>.
+    </p>
+    <div class="cookie-banner-actions">
+      <button type="button" class="btn-secondary" id="cookie-reject">Rechazar</button>
+      <button type="button" class="btn-primary" id="cookie-accept">Aceptar</button>
+    </div>
+  </div>
+
+  <script src="../js/nav.js"></script>
+  <script src="../js/cookie-consent.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="../js/site-fx.js"></script>
+</body>
+
+</html>

@@ -5,7 +5,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vibe coding con Claude Code en proyectos fullstack reales — David Otero Mato</title>
+  <title>Vibe coding con Claude Code en proyectos fullstack reales</title>
   <meta name="description"
     content="Cómo integro Claude Code en mi flujo de trabajo fullstack: gestión de la ventana de contexto, prompts estructurados, agentes y skills dedicadas.">
   <meta name="robots" content="index, follow">
@@ -17,17 +17,28 @@
   <meta property="og:title" content="Vibe coding con Claude Code en proyectos fullstack reales">
   <meta property="og:description"
     content="Cómo integro Claude Code en mi flujo de trabajo fullstack: gestión de la ventana de contexto, prompts estructurados, agentes y skills dedicadas.">
-  <meta property="og:image" content="https://davidotero.es/og-image.png">
+  <meta property="og:image" content="https://davidotero.es/images/og/vibe-coding-claude-code-fullstack.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Vibe coding con Claude Code en proyectos fullstack reales">
+  <meta property="og:site_name" content="David Otero Mato">
   <meta property="og:locale" content="es_ES">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Vibe coding con Claude Code en proyectos fullstack reales">
+  <meta name="twitter:description" content="Cómo integro Claude Code en mi flujo de trabajo fullstack: gestión de la ventana de contexto, prompts estructurados, agentes y skills dedicadas.">
+  <meta name="twitter:image" content="https://davidotero.es/images/og/vibe-coding-claude-code-fullstack.png">
+  <meta name="twitter:image:alt" content="Vibe coding con Claude Code en proyectos fullstack reales">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/style.css?v=8">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="icon" type="image/png" sizes="48x48" href="../favicon-48.png">
+  <link rel="alternate icon" href="../favicon.ico">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 
   <script type="application/ld+json">
   {
@@ -35,10 +46,12 @@
     "@type": "BlogPosting",
     "headline": "Vibe coding con Claude Code en proyectos fullstack reales",
     "description": "Cómo integro Claude Code en mi flujo de trabajo fullstack: gestión de la ventana de contexto, prompts estructurados, agentes y skills dedicadas.",
-    "author": { "@type": "Person", "name": "David Otero Mato", "url": "https://davidotero.es/" },
+    "author": { "@type": "Person", "@id": "https://davidotero.es/#david-otero", "name": "David Otero Mato", "url": "https://davidotero.es/" },
+    "publisher": { "@type": "Person", "@id": "https://davidotero.es/#david-otero", "name": "David Otero Mato" },
+    "inLanguage": "es-ES",
     "datePublished": "2026-09-19",
     "dateModified": "2026-09-19",
-    "image": "https://davidotero.es/og-image.png",
+    "image": "https://davidotero.es/images/og/vibe-coding-claude-code-fullstack.png",
     "mainEntityOfPage": "https://davidotero.es/blog/vibe-coding-claude-code-fullstack.html"
   }
   </script>
@@ -49,6 +62,47 @@
   <div id="particles-js"></div>
   <div class="cursor"></div>
   <div class="cursor-follower"></div>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav id="navbar" aria-label="Principal">
+    <a href="../index.html" class="nav-logo" aria-label="Inicio">
+      <svg viewBox="0 0 71 82" height="32" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+          <linearGradient id="nav-d-grad" x1="0" y1="40.5" x2="70.89" y2="40.5" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#3a7a58" />
+            <stop offset="1" stop-color="#6ec4a0" />
+          </linearGradient>
+        </defs>
+        <path fill="none" stroke="url(#nav-d-grad)" stroke-linecap="round" stroke-miterlimit="10" stroke-width="5"
+          d="M2.5,64.9V10.04c0-4.16,3.38-7.54,7.54-7.54h27.25c17.18,0,31.1,13.93,31.1,31.1h0c0,17.18-13.93,31.1-31.11,31.1h-18.44c-3.81,0-6.9,3.09-6.9,6.9h0c0,3.81,3.09,6.9,6.9,6.9h37.55" />
+      </svg>
+    </a>
+    <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#about">Sobre mí</a></li>
+      <li><a href="../index.html#skills">Habilidades</a></li>
+      <li><a href="../index.html#experience">Experiencia</a></li>
+      <li class="has-sub">
+        <a href="../servicios/">Servicios <svg class="nav-caret" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+        <ul class="nav-sub">
+          <li><a href="../servicios/">Todos los servicios</a></li>
+          <li><a href="../servicios/automatizaciones/">Automatizaciones</a></li>
+          <li><a href="../servicios/desarrollo-web/">Desarrollo web</a></li>
+          <li><a href="../servicios/ia-generativa-desarrollo/">IA generativa en desarrollo</a></li>
+          <li><a href="../servicios/ia-y-mcp-para-tu-negocio/">IA y MCP para tu negocio</a></li>
+          <li><a href="../servicios/cloud-aws/">Cloud y AWS</a></li>
+          <li><a href="../servicios/consultoria-tech-lead/">Consultoría y Tech Lead</a></li>
+        </ul>
+      </li>
+      <li><a href="../index.html#projects">Proyectos</a></li>
+      <li><a href="../index.html#cv">CV</a></li>
+      <li><a href="../blog/" aria-current="page">Blog</a></li>
+      <li><a href="../index.html#contact" class="nav-cta">Contacto</a></li>
+    </ul>
+  </nav>
 
   <section class="page-hero">
     <a href="index.html" class="back-link">&larr; Volver al blog</a>
@@ -124,6 +178,11 @@
       trabajo: contexto bien fragmentado, prompts con criterios de éxito explícitos, y automatización de lo
       repetitivo para poder dedicar el tiempo humano a lo que de verdad requiere criterio.
     </p>
+    <div class="callout">
+      <p><strong>¿Quieres aplicarlo en tu proyecto?</strong>Consulta mis servicios de
+        <a href="../servicios/ia-generativa-desarrollo/">desarrollo con IA generativa</a> y de
+        <a href="../servicios/ia-y-mcp-para-tu-negocio/">integración de IA y MCP en tu negocio</a>.</p>
+    </div>
   </article>
 
   <div class="prose">
@@ -143,6 +202,15 @@
   <!-- ========== FOOTER ========== -->
   <footer>
     <p>© 2026 <span>David Otero Mato</span> · Donostia, Gipuzkoa</p>
+    <p class="footer-legal footer-services">
+      <a href="../servicios/">Servicios</a>:
+      <a href="../servicios/automatizaciones/">Automatizaciones</a> ·
+      <a href="../servicios/desarrollo-web/">Desarrollo web</a> ·
+      <a href="../servicios/ia-generativa-desarrollo/">IA generativa</a> ·
+      <a href="../servicios/ia-y-mcp-para-tu-negocio/">IA y MCP</a> ·
+      <a href="../servicios/cloud-aws/">Cloud y AWS</a> ·
+      <a href="../servicios/consultoria-tech-lead/">Consultoría</a>
+    </p>
     <p class="footer-legal">
       <a href="../aviso-legal.html">Aviso legal</a> ·
       <a href="../politica-privacidad.html">Privacidad</a> ·
@@ -164,6 +232,7 @@
     </div>
   </div>
 
+  <script src="../js/nav.js"></script>
   <script src="../js/cookie-consent.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="../js/site-fx.js"></script>

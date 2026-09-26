@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consultor AWS freelance: despliegue en la nube</title>
+  <meta name="description" content="Freelance AWS en Donostia: despliegue de aplicaciones con Elastic Beanstalk, RDS y Route 53, servidores Linux con Nginx y migración a la nube segura.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://davidotero.es/servicios/cloud-aws/">
+  <meta name="theme-color" content="#0c0c0f">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://davidotero.es/servicios/cloud-aws/">
+  <meta property="og:site_name" content="David Otero Mato">
+  <meta property="og:title" content="Consultor AWS freelance: despliegue en la nube">
+  <meta property="og:description" content="Freelance AWS en Donostia: despliegue de aplicaciones con Elastic Beanstalk, RDS y Route 53, servidores Linux con Nginx y migración a la nube segura.">
+  <meta property="og:image" content="https://davidotero.es/images/og/cloud-aws.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Consultor AWS freelance: despliegue e infraestructura cloud">
+  <meta property="og:locale" content="es_ES">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Consultor AWS freelance: despliegue en la nube">
+  <meta name="twitter:description" content="Freelance AWS en Donostia: despliegue de aplicaciones con Elastic Beanstalk, RDS y Route 53, servidores Linux con Nginx y migración a la nube segura.">
+  <meta name="twitter:image" content="https://davidotero.es/images/og/cloud-aws.png">
+  <meta name="twitter:image:alt" content="Consultor AWS freelance: despliegue e infraestructura cloud">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css?v=8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="icon" type="image/png" sizes="48x48" href="../../favicon-48.png">
+  <link rel="alternate icon" href="../../favicon.ico">
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Consultor AWS freelance: despliegue e infraestructura cloud",
+  "serviceType": "Cloud y AWS",
+  "description": "Freelance AWS en Donostia: despliegue de aplicaciones con Elastic Beanstalk, RDS y Route 53, servidores Linux con Nginx y migración a la nube segura.",
+  "url": "https://davidotero.es/servicios/cloud-aws/",
+  "provider": {
+    "@type": "Person",
+    "@id": "https://davidotero.es/#david-otero",
+    "name": "David Otero Mato",
+    "url": "https://davidotero.es/"
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Donostia-San Sebastián"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Gipuzkoa"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "País Vasco"
+    },
+    {
+      "@type": "Country",
+      "name": "España"
+    }
+  ],
+  "availableLanguage": [
+    "es",
+    "gl"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Cloud y AWS",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Despliegue de aplicaciones en AWS"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Bases de datos gestionadas con RDS"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "DNS y balanceo con Route 53 y ELB"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Servidores Linux con Nginx o Apache"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Seguridad e IAM"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Migración a la nube"
+        }
+      }
+    ]
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuándo compensa AWS frente a un hosting tradicional?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Cuando necesitas escalar, alta disponibilidad, servicios gestionados o control de red. Para una web sencilla, un hosting o Vercel puede ser más barato y suficiente."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Puedes migrar mi aplicación a AWS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Se planifica por fases, con pruebas previas y un plan de vuelta atrás para minimizar el riesgo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué es Elastic Beanstalk?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Es un servicio de AWS que despliega y gestiona aplicaciones web por ti (servidores, balanceo, escalado), de modo que te centras en el código."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Te encargas del mantenimiento?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Puedo acompañarte tras la migración con ajustes y resolución de incidencias. Lo acordamos según lo que necesites."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué medidas de seguridad aplicas?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Permisos mínimos en IAM, grupos de seguridad restrictivos, bases de datos no expuestas, HTTPS, actualizaciones y acceso por SSH con claves."
+      }
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://davidotero.es/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Servicios",
+      "item": "https://davidotero.es/servicios/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Cloud y AWS",
+      "item": "https://davidotero.es/servicios/cloud-aws/"
+    }
+  ]
+}
+  </script>
+</head>
+
+<body>
+
+  <div id="particles-js"></div>
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav id="navbar" aria-label="Principal">
+    <a href="../../index.html" class="nav-logo" aria-label="Inicio">
+      <svg viewBox="0 0 71 82" height="32" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+          <linearGradient id="nav-d-grad" x1="0" y1="40.5" x2="70.89" y2="40.5" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#3a7a58" />
+            <stop offset="1" stop-color="#6ec4a0" />
+          </linearGradient>
+        </defs>
+        <path fill="none" stroke="url(#nav-d-grad)" stroke-linecap="round" stroke-miterlimit="10" stroke-width="5"
+          d="M2.5,64.9V10.04c0-4.16,3.38-7.54,7.54-7.54h27.25c17.18,0,31.1,13.93,31.1,31.1h0c0,17.18-13.93,31.1-31.11,31.1h-18.44c-3.81,0-6.9,3.09-6.9,6.9h0c0,3.81,3.09,6.9,6.9,6.9h37.55" />
+      </svg>
+    </a>
+    <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../../index.html#about">Sobre mí</a></li>
+      <li><a href="../../index.html#skills">Habilidades</a></li>
+      <li><a href="../../index.html#experience">Experiencia</a></li>
+      <li class="has-sub">
+        <a href="../../servicios/" aria-current="page">Servicios <svg class="nav-caret" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+        <ul class="nav-sub">
+          <li><a href="../../servicios/">Todos los servicios</a></li>
+          <li><a href="../../servicios/automatizaciones/">Automatizaciones</a></li>
+          <li><a href="../../servicios/desarrollo-web/">Desarrollo web</a></li>
+          <li><a href="../../servicios/ia-generativa-desarrollo/">IA generativa en desarrollo</a></li>
+          <li><a href="../../servicios/ia-y-mcp-para-tu-negocio/">IA y MCP para tu negocio</a></li>
+          <li><a href="../../servicios/cloud-aws/">Cloud y AWS</a></li>
+          <li><a href="../../servicios/consultoria-tech-lead/">Consultoría y Tech Lead</a></li>
+        </ul>
+      </li>
+      <li><a href="../../index.html#projects">Proyectos</a></li>
+      <li><a href="../../index.html#cv">CV</a></li>
+      <li><a href="../../blog/">Blog</a></li>
+      <li><a href="../../index.html#contact" class="nav-cta">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <section class="page-hero">
+    <nav class="breadcrumbs" aria-label="Migas de pan">
+      <a href="../../index.html">Inicio</a><span>/</span><a href="../">Servicios</a><span>/</span><span aria-current="page">Cloud y AWS</span>
+    </nav>
+    <span class="page-badge">Cloud &amp; AWS</span>
+    <h1 style="font-size: 2rem;">Consultor AWS freelance: despliegue e infraestructura cloud</h1>
+    <p class="page-subtitle">Aplicaciones desplegadas de forma fiable y segura en AWS o en tu propio servidor Linux, sin complicaciones innecesarias.</p>
+    <div class="hero-cta" style="justify-content:center;margin-top:1.75rem;">
+      <a href="../../index.html#contact" class="btn-primary">Pide presupuesto sin compromiso</a>
+    </div>
+    <div class="stats"><div class="stat"><strong>AWS</strong><span>EC2 · RDS · Beanstalk</span></div><div class="stat"><strong>Linux</strong><span>Nginx · Apache · SSL</span></div><div class="stat"><strong>ASIR</strong><span>+ ciberseguridad</span></div></div>
+  </section>
+  <main class="guide">
+    <article class="prose">
+      <div class="summary">
+        <h2>En resumen</h2>
+        <ul><li><strong>Qué es:</strong> despliegue e infraestructura de aplicaciones en AWS (EC2, Elastic Beanstalk, RDS, Route 53) y en servidores Linux con Nginx o Apache.</li><li><strong>Para quién:</strong> empresas con una aplicación que necesita un entorno fiable, seguro y fácil de mantener, o que quieren migrar a la nube.</li><li><strong>Qué obtienes:</strong> despliegues repetibles, bases de datos con copias probadas, permisos mínimos y todo documentado.</li><li><strong>Cómo empezar:</strong> revisamos lo que tienes hoy y diseñamos una arquitectura sencilla, sin sobredimensionar.</li></ul>
+      </div>
+
+      <details class="toc-inline">
+        <summary>Contenido de esta guía</summary>
+        <ol>
+          <li><a href="#que-ofrezco">Infraestructura fiable para tu aplicación</a></li>
+          <li><a href="#servicios-aws">Servicios de AWS con los que trabajo</a></li>
+          <li><a href="#linux">Servidores Linux, Nginx y Apache</a></li>
+          <li><a href="#arquitectura">Una arquitectura típica</a></li>
+          <li><a href="#entornos">Entornos y despliegues</a></li>
+          <li><a href="#bbdd">Bases de datos y copias de seguridad</a></li>
+          <li><a href="#costes">Costes bajo control</a></li>
+          <li><a href="#checklist">Checklist antes de publicar una aplicación</a></li>
+          <li><a href="#ejemplos">Ejemplos de situaciones</a></li>
+          <li><a href="#seguridad">Seguridad</a></li>
+          <li><a href="#migracion">Migración a la nube</a></li>
+          <li><a href="#cuando">¿AWS o algo más sencillo?</a></li>
+          <li><a href="#experiencia">Experiencia relacionada</a></li>
+          <li><a href="#faq">Preguntas frecuentes</a></li>
+          <li><a href="#contacto">Hablemos</a></li>
+        </ol>
+      </details>
+
+    <h2 id="que-ofrezco">Infraestructura fiable para tu aplicación</h2>
+<p>Una buena aplicación necesita una infraestructura sólida detrás: un servidor bien configurado, una base de datos con copias de seguridad, un dominio con certificado y una red con los accesos justos. Despliego y configuro todo eso, tanto en <strong>AWS</strong> como en servidores Linux propios.</p>
+<p>Vengo del mundo del desarrollo y de la administración de sistemas (Grado Superior en Administración de Sistemas Informáticos en Red, con especialización en ciberseguridad), así que entiendo tanto el código como el servidor donde se ejecuta. Eso evita el típico problema de «en mi máquina funciona».</p>
+
+    
+    <h2 id="servicios-aws">Servicios de AWS con los que trabajo</h2>
+<div class="table-wrap"><table><thead><tr><th>Servicio</th><th>Para qué lo uso</th></tr></thead><tbody><tr><td>EC2</td><td>Servidores virtuales para aplicaciones y servicios</td></tr><tr><td>Elastic Beanstalk</td><td>Desplegar aplicaciones web sin gestionar cada detalle de la infraestructura</td></tr><tr><td>RDS</td><td>Bases de datos gestionadas, con copias de seguridad y acceso restringido</td></tr><tr><td>Route 53</td><td>Dominios y DNS</td></tr><tr><td>Elastic Load Balancing y Target Groups</td><td>Repartir el tráfico y comprobar la salud de las instancias</td></tr><tr><td>ECR</td><td>Almacenar imágenes de contenedores</td></tr><tr><td>Security Groups</td><td>Controlar qué puertos y orígenes pueden acceder a cada recurso</td></tr><tr><td>IAM</td><td>Usuarios, roles y políticas con permisos mínimos</td></tr></tbody></table></div>
+
+    
+    <h2 id="linux">Servidores Linux, Nginx y Apache</h2>
+<p>No todo proyecto necesita AWS. A veces un servidor Linux bien configurado es más sencillo y económico. Me encargo de:</p><ul>
+  <li>Instalación y configuración de <strong>Nginx</strong> o <strong>Apache</strong>, con virtual hosts para servir varios dominios desde un mismo servidor.</li>
+  <li><strong>Certificados SSL</strong> y HTTPS en todos los dominios.</li>
+  <li><strong>Acceso por SSH</strong> con claves y cortafuegos.</li>
+  <li>Puesta a punto de PHP, bases de datos y tareas programadas.</li>
+</ul>
+
+    
+    <h2 id="arquitectura">Una arquitectura típica</h2>
+<figure class="flow-figure"><div class="arch"><div class="arch-col"><span class="arch-title">Entrada</span><div class="arch-node"><strong>Route 53</strong>Dominio y DNS</div><div class="arch-node"><strong>HTTPS</strong>Certificado SSL</div></div><span class="flow-arrow" aria-hidden="true">→</span><div class="arch-col is-core"><span class="arch-title">Aplicación</span><div class="arch-node"><strong>Load Balancer</strong>Reparto de tráfico</div><div class="arch-node"><strong>Target Group</strong>Comprobación de salud</div><div class="arch-node"><strong>Beanstalk / EC2</strong>Tu aplicación</div></div><span class="flow-arrow" aria-hidden="true">→</span><div class="arch-col"><span class="arch-title">Datos</span><div class="arch-node"><strong>RDS</strong>Base de datos privada</div><div class="arch-node"><strong>Copias</strong>Backups y restauración probada</div></div></div><figcaption>Esquema habitual para una aplicación web: cada capa con sus propios accesos y permisos.</figcaption></figure><p>Es un esquema orientativo. Lo adapto a lo que necesites: a veces basta con una instancia, y otras conviene separar entornos de pruebas y producción.</p>
+
+    <div class="cols2"><div><h3>Entorno de pruebas</h3><ul>
+  <li>Réplica de producción con datos de prueba.</li>
+  <li>Aquí se validan los cambios y las migraciones.</li>
+  <li>Coste reducido: se puede apagar cuando no se usa.</li>
+</ul></div><div><h3>Producción</h3><ul>
+  <li>Solo recibe versiones ya validadas.</li>
+  <li>Acceso restringido y datos reales protegidos.</li>
+  <li>Copias de seguridad y plan de vuelta atrás.</li>
+</ul></div></div>
+    <h2 id="entornos">Entornos y despliegues</h2>
+<p>Un despliegue fiable no depende de subir ficheros a mano. Trabajo con entornos separados y un proceso repetible:</p><ul>
+  <li><strong>Entorno de pruebas y de producción</strong> separados, para probar sin riesgo antes de publicar.</li>
+  <li><strong>Configuración por entorno</strong>: variables y credenciales fuera del código, distintas en cada entorno.</li>
+  <li><strong>Despliegue repetible</strong>, sin pasos manuales frágiles, para que publicar una versión sea un proceso conocido.</li>
+  <li><strong>Plan de vuelta atrás</strong>: poder recuperar la versión anterior si algo sale mal.</li>
+  <li><strong>Comprobación de salud</strong> con los Target Groups y el balanceador antes de enviar tráfico a una instancia nueva.</li>
+</ul>
+
+    
+    <h2 id="bbdd">Bases de datos y copias de seguridad</h2>
+<p>Los datos son lo más valioso de tu aplicación. Con RDS o con una base de datos propia me ocupo de que estén protegidos:</p><ul>
+  <li>Base de datos en una red privada, <strong>sin exposición directa a internet</strong>.</li>
+  <li><strong>Copias de seguridad</strong> automáticas y una restauración probada, no solo programada.</li>
+  <li>Usuarios de base de datos con <strong>permisos mínimos</strong> para la aplicación.</li>
+  <li>Separación entre datos de pruebas y de producción.</li>
+</ul><p>Una copia que nunca se ha restaurado es una hipótesis. Por eso incluyo probar la recuperación como parte de la puesta a punto.</p>
+
+    
+    <h2 id="costes">Costes bajo control</h2>
+<p>La nube permite pagar por lo que usas, pero también permite pagar de más sin darte cuenta. Mi criterio es no sobredimensionar:</p><ul>
+  <li>Elegir el tamaño de instancia según el uso real, y ajustarlo con datos.</li>
+  <li>Apagar o eliminar lo que no se usa, como entornos de pruebas olvidados.</li>
+  <li>Comparar con alternativas más simples (un servidor propio, Vercel) cuando el proyecto no necesita AWS.</li>
+  <li>Explicarte de dónde viene cada coste para que no haya sorpresas en la factura.</li>
+</ul>
+
+    
+    <h2 id="checklist">Checklist antes de publicar una aplicación</h2>
+<ol>
+  <li>Dominio y DNS apuntando correctamente, con HTTPS y certificado válido.</li>
+  <li>Base de datos privada, con copias de seguridad y restauración probada.</li>
+  <li>Grupos de seguridad con solo los puertos necesarios.</li>
+  <li>Credenciales y variables fuera del código y distintas por entorno.</li>
+  <li>Usuarios de IAM con permisos mínimos y sin claves compartidas.</li>
+  <li>Registros (logs) accesibles para diagnosticar incidencias.</li>
+  <li>Plan de vuelta atrás y documentación del despliegue.</li>
+</ol>
+
+    
+    <h2 id="ejemplos">Ejemplos de situaciones</h2>
+<p>Escenarios <strong>ilustrativos</strong>, no clientes concretos.</p><div class="ex-grid"><div class="example"><span class="example-label">Ejemplo ilustrativo</span><h3>Aplicación PHP en un servidor antiguo</h3><p>Una aplicación corre en un servidor sin actualizar y con acceso poco controlado. Se migra a Elastic Beanstalk con RDS, se separan pruebas y producción y se documenta el despliegue.</p></div><div class="example"><span class="example-label">Ejemplo ilustrativo</span><h3>Varios sitios web en un mismo servidor</h3><p>Una empresa tiene varias webs pequeñas. Se configura un servidor Linux con Nginx, virtual hosts por dominio y certificados SSL, con copias de seguridad.</p></div>
+
+    </div>
+    <h2 id="seguridad">Seguridad</h2>
+<ul>
+  <li><strong>Permisos mínimos</strong> en IAM: cada usuario y servicio accede solo a lo que necesita.</li>
+  <li><strong>Grupos de seguridad restrictivos</strong>: solo los puertos imprescindibles y desde los orígenes necesarios.</li>
+  <li><strong>Bases de datos no expuestas</strong> a internet.</li>
+  <li><strong>HTTPS</strong> en todas partes y certificados renovados.</li>
+  <li><strong>Actualizaciones</strong> y acceso por SSH con claves.</li>
+</ul><p>La formación en ciberseguridad se nota en los detalles: prefiero cerrar de más y abrir lo necesario, y no al revés.</p>
+
+    
+    <h2 id="migracion">Migración a la nube</h2>
+<p>Si tu aplicación vive hoy en un hosting antiguo o en un servidor difícil de mantener, la migración se planifica para reducir riesgos:</p><ol>
+  <li><strong>Inventario</strong> de lo que tienes: aplicación, base de datos, dominios y dependencias.</li>
+  <li><strong>Diseño</strong> de la arquitectura de destino, sin sobredimensionar.</li>
+  <li><strong>Entorno de pruebas</strong> para validar antes de tocar producción.</li>
+  <li><strong>Migración por fases</strong> con plan de vuelta atrás.</li>
+  <li><strong>Documentación</strong> para que no dependas de una sola persona.</li>
+</ol>
+
+    
+<div class="cta-band"><p>¿Tu aplicación necesita una infraestructura mejor?<span>Revisamos lo que tienes y diseñamos algo sencillo y seguro.</span></p><a href="../../index.html#contact" class="btn-primary">Cuéntame tu caso</a></div>
+    <h2 id="cuando">¿AWS o algo más sencillo?</h2>
+<p>AWS compensa cuando necesitas escalar, alta disponibilidad, servicios gestionados o control fino de la red. Para una web sencilla, un hosting o una plataforma como Vercel pueden ser más baratos y suficientes, y te lo diré con franqueza. Mis propios proyectos publicados (Tukomanda, Nika Osasun Zentroa y Munttarpe) están desplegados en Vercel.</p>
+
+    
+    <h2 id="experiencia">Experiencia relacionada</h2>
+<ul>
+  <li>En <strong>Lex Program Online</strong> gestioné el despliegue en AWS con Elastic Beanstalk y RDS, junto con el desarrollo y la migración de la plataforma.</li>
+  <li>En <strong>BESA</strong> trabajo con PHP, Vue.js, AWS y Symfony.</li>
+  <li>Formación en administración de sistemas y ciberseguridad (ASIR).</li>
+</ul>
+
+    
+
+    <h2 id="faq">Preguntas frecuentes</h2>
+<details class="faq-item">
+      <summary>¿Cuándo compensa AWS frente a un hosting tradicional?</summary>
+      <p>Cuando necesitas escalar, alta disponibilidad, servicios gestionados o control de red. Para una web sencilla, un hosting o Vercel puede ser más barato y suficiente.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Puedes migrar mi aplicación a AWS?</summary>
+      <p>Sí. Se planifica por fases, con pruebas previas y un plan de vuelta atrás para minimizar el riesgo.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Qué es Elastic Beanstalk?</summary>
+      <p>Es un servicio de AWS que despliega y gestiona aplicaciones web por ti (servidores, balanceo, escalado), de modo que te centras en el código.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Te encargas del mantenimiento?</summary>
+      <p>Puedo acompañarte tras la migración con ajustes y resolución de incidencias. Lo acordamos según lo que necesites.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Qué medidas de seguridad aplicas?</summary>
+      <p>Permisos mínimos en IAM, grupos de seguridad restrictivos, bases de datos no expuestas, HTTPS, actualizaciones y acceso por SSH con claves.</p>
+    </details>
+
+    <h2 id="contacto">Hablemos</h2>
+<div class="callout">
+      <p><strong>¿Tienes un proyecto en mente?</strong>Cuéntame qué necesitas y te respondo en menos de 24 horas con
+        una propuesta clara. Trabajo desde Donostia-San Sebastián con clientes de todo el País Vasco y de España, en
+        remoto. <a href="../../index.html#contact">Escríbeme aquí</a>.</p>
+    </div>
+
+    <h2>Otros servicios</h2>
+<div class="blog-grid">
+      <a href="../desarrollo-web/" class="blog-card">
+        <span class="post-tag">Desarrollo web</span>
+        <h3>Desarrollo web</h3>
+        <p>Webs y aplicaciones a medida con PHP, Symfony y Vue.js, rápidas y preparadas para SEO.</p>
+        <span class="blog-card-cta">Ver servicio →</span>
+      </a>
+      <a href="../consultoria-tech-lead/" class="blog-card">
+        <span class="post-tag">Consultoría</span>
+        <h3>Consultoría y Tech Lead</h3>
+        <p>Liderazgo técnico, revisión de arquitectura, formación de equipos y adopción de IA.</p>
+        <span class="blog-card-cta">Ver servicio →</span>
+      </a>
+      <a href="../automatizaciones/" class="blog-card">
+        <span class="post-tag">Automatización</span>
+        <h3>Automatizaciones</h3>
+        <p>n8n, agentes de IA, MCP, integración de APIs e informes automáticos que eliminan trabajo manual.</p>
+        <span class="blog-card-cta">Ver servicio →</span>
+      </a>
+    </div>
+    </article>
+
+    <aside class="guide-aside" aria-label="Índice y contacto">
+      <nav class="aside-card aside-toc" aria-label="Contenido de la guía">
+        <p class="aside-title">Contenido</p>
+        <ol>
+          <li><a href="#que-ofrezco">Infraestructura fiable para tu aplicación</a></li>
+          <li><a href="#servicios-aws">Servicios de AWS con los que trabajo</a></li>
+          <li><a href="#linux">Servidores Linux, Nginx y Apache</a></li>
+          <li><a href="#arquitectura">Una arquitectura típica</a></li>
+          <li><a href="#entornos">Entornos y despliegues</a></li>
+          <li><a href="#bbdd">Bases de datos y copias de seguridad</a></li>
+          <li><a href="#costes">Costes bajo control</a></li>
+          <li><a href="#checklist">Checklist antes de publicar una aplicación</a></li>
+          <li><a href="#ejemplos">Ejemplos de situaciones</a></li>
+          <li><a href="#seguridad">Seguridad</a></li>
+          <li><a href="#migracion">Migración a la nube</a></li>
+          <li><a href="#cuando">¿AWS o algo más sencillo?</a></li>
+          <li><a href="#experiencia">Experiencia relacionada</a></li>
+          <li><a href="#faq">Preguntas frecuentes</a></li>
+          <li><a href="#contacto">Hablemos</a></li>
+        </ol>
+      </nav>
+      <div class="aside-card">
+        <p class="aside-title">¿Hablamos?</p>
+        <p>Cuéntame qué necesitas y te respondo en menos de 24 horas.</p>
+        <a href="../../index.html#contact" class="btn-primary">Pide presupuesto</a>
+      </div>
+    </aside>
+  </main>
+
+  <div class="prose">
+    <div class="author-card">
+      <picture>
+        <source srcset="../../cv-avatar-photo.webp" type="image/webp">
+        <img src="../../cv-avatar-photo.png" alt="David Otero Mato" width="64" height="64" loading="lazy">
+      </picture>
+      <div>
+        <h3>David Otero Mato</h3>
+        <p>Desarrollador fullstack freelance en Donostia — PHP, Vue.js, AWS e IA generativa aplicada a proyectos reales.</p>
+        <a href="../../index.html#contact">¿Hablamos de tu proyecto? →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <p>© 2026 <span>David Otero Mato</span> · Donostia, Gipuzkoa</p>
+    <p class="footer-legal footer-services">
+      <a href="../../servicios/">Servicios</a>:
+      <a href="../../servicios/automatizaciones/">Automatizaciones</a> ·
+      <a href="../../servicios/desarrollo-web/">Desarrollo web</a> ·
+      <a href="../../servicios/ia-generativa-desarrollo/">IA generativa</a> ·
+      <a href="../../servicios/ia-y-mcp-para-tu-negocio/">IA y MCP</a> ·
+      <a href="../../servicios/cloud-aws/">Cloud y AWS</a> ·
+      <a href="../../servicios/consultoria-tech-lead/">Consultoría</a>
+    </p>
+    <p class="footer-legal">
+      <a href="../../aviso-legal.html">Aviso legal</a> ·
+      <a href="../../politica-privacidad.html">Privacidad</a> ·
+      <a href="../../politica-cookies.html">Cookies</a> ·
+      <button type="button" data-cookie-settings>Configurar cookies</button>
+    </p>
+  </footer>
+
+  <div class="cookie-banner" id="cookie-banner" hidden role="dialog" aria-live="polite"
+    aria-label="Consentimiento de cookies">
+    <p>
+      Uso cookies analíticas (Google Analytics) para entender cómo se usa esta web. Solo se activan si las aceptas, y
+      puedes cambiar de opinión cuando quieras desde "Configurar cookies" en el pie de página. Más info en la
+      <a href="../../politica-cookies.html">Política de Cookies</a>.
+    </p>
+    <div class="cookie-banner-actions">
+      <button type="button" class="btn-secondary" id="cookie-reject">Rechazar</button>
+      <button type="button" class="btn-primary" id="cookie-accept">Aceptar</button>
+    </div>
+  </div>
+
+  <script src="../../js/nav.js"></script>
+  <script src="../../js/cookie-consent.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="../../js/site-fx.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automatización con n8n, agentes IA y MCP | David Otero</title>
+  <meta name="description" content="Automatizo procesos con n8n, agentes de IA y MCP: integración de APIs, informes y flujos a medida. Freelance en Donostia, remoto para toda España.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://davidotero.es/servicios/automatizaciones/">
+  <meta name="theme-color" content="#0c0c0f">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://davidotero.es/servicios/automatizaciones/">
+  <meta property="og:site_name" content="David Otero Mato">
+  <meta property="og:title" content="Automatización con n8n, agentes IA y MCP | David Otero">
+  <meta property="og:description" content="Automatizo procesos con n8n, agentes de IA y MCP: integración de APIs, informes y flujos a medida. Freelance en Donostia, remoto para toda España.">
+  <meta property="og:image" content="https://davidotero.es/images/og/automatizaciones.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Automatización de procesos con n8n, agentes de IA y MCP">
+  <meta property="og:locale" content="es_ES">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Automatización con n8n, agentes IA y MCP | David Otero">
+  <meta name="twitter:description" content="Automatizo procesos con n8n, agentes de IA y MCP: integración de APIs, informes y flujos a medida. Freelance en Donostia, remoto para toda España.">
+  <meta name="twitter:image" content="https://davidotero.es/images/og/automatizaciones.png">
+  <meta name="twitter:image:alt" content="Automatización de procesos con n8n, agentes de IA y MCP">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css?v=8">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="icon" type="image/png" sizes="48x48" href="../../favicon-48.png">
+  <link rel="alternate icon" href="../../favicon.ico">
+  <link rel="apple-touch-icon" href="../../apple-touch-icon.png">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Automatización de procesos con n8n, agentes de IA y MCP",
+  "serviceType": "Automatizaciones",
+  "description": "Automatizo procesos con n8n, agentes de IA y MCP: integración de APIs, informes y flujos a medida. Freelance en Donostia, remoto para toda España.",
+  "url": "https://davidotero.es/servicios/automatizaciones/",
+  "provider": {
+    "@type": "Person",
+    "@id": "https://davidotero.es/#david-otero",
+    "name": "David Otero Mato",
+    "url": "https://davidotero.es/"
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Donostia-San Sebastián"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "Gipuzkoa"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "País Vasco"
+    },
+    {
+      "@type": "Country",
+      "name": "España"
+    }
+  ],
+  "availableLanguage": [
+    "es",
+    "gl"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Automatizaciones",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Flujos de automatización con n8n"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Agentes de IA dentro de n8n"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Integración de MCP Client y MCP Server en flujos"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Integración de APIs y generación automática de páginas"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Informes PDF y CSV automáticos"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Scripts y tareas programadas a medida"
+        }
+      }
+    ]
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Qué tareas se pueden automatizar con n8n?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Casi cualquier tarea repetitiva basada en reglas: mover datos entre sistemas, generar informes, enviar avisos, procesar formularios o correos, sincronizar catálogos y publicar contenido en la web. Si sigues siempre los mismos pasos, se puede automatizar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué es un agente de IA en n8n?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Es un nodo que combina un modelo de lenguaje, instrucciones, memoria y herramientas. A diferencia de un flujo fijo, el agente decide qué herramientas usar para lograr un objetivo, por ejemplo consultar un pedido o clasificar un mensaje."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué aporta MCP a una automatización?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Permite reutilizar herramientas: un servidor MCP expone tus datos y acciones una vez y cualquier agente compatible puede usarlas. Además, un flujo de n8n puede exponerse como servidor MCP para que un asistente lo lance con una orden."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Necesito cambiar las herramientas que uso?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. La automatización se conecta a tus herramientas actuales mediante API, webhooks o ficheros. Solo recomiendo cambiar algo si de verdad bloquea el proceso."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿n8n o código a medida?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Para conectar servicios y flujos que tu equipo quiera ver y modificar, n8n. Para volúmenes altos, lógica compleja o requisitos estrictos de rendimiento, código a medida. Con frecuencia se combinan."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Es seguro dar acceso a la IA a mis datos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende de cómo se diseñe: permisos mínimos, herramientas de solo lectura cuando basta, registro de acciones, aprobación humana en pasos críticos y elección del modelo y de la ubicación de los datos conforme al RGPD."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto cuesta automatizar un proceso?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende de la complejidad y del número de sistemas implicados. Tras una primera conversación te preparo una propuesta cerrada, sin sorpresas."
+      }
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://davidotero.es/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Servicios",
+      "item": "https://davidotero.es/servicios/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Automatizaciones",
+      "item": "https://davidotero.es/servicios/automatizaciones/"
+    }
+  ]
+}
+  </script>
+</head>
+
+<body>
+
+  <div id="particles-js"></div>
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav id="navbar" aria-label="Principal">
+    <a href="../../index.html" class="nav-logo" aria-label="Inicio">
+      <svg viewBox="0 0 71 82" height="32" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+          <linearGradient id="nav-d-grad" x1="0" y1="40.5" x2="70.89" y2="40.5" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#3a7a58" />
+            <stop offset="1" stop-color="#6ec4a0" />
+          </linearGradient>
+        </defs>
+        <path fill="none" stroke="url(#nav-d-grad)" stroke-linecap="round" stroke-miterlimit="10" stroke-width="5"
+          d="M2.5,64.9V10.04c0-4.16,3.38-7.54,7.54-7.54h27.25c17.18,0,31.1,13.93,31.1,31.1h0c0,17.18-13.93,31.1-31.11,31.1h-18.44c-3.81,0-6.9,3.09-6.9,6.9h0c0,3.81,3.09,6.9,6.9,6.9h37.55" />
+      </svg>
+    </a>
+    <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../../index.html#about">Sobre mí</a></li>
+      <li><a href="../../index.html#skills">Habilidades</a></li>
+      <li><a href="../../index.html#experience">Experiencia</a></li>
+      <li class="has-sub">
+        <a href="../../servicios/" aria-current="page">Servicios <svg class="nav-caret" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+        <ul class="nav-sub">
+          <li><a href="../../servicios/">Todos los servicios</a></li>
+          <li><a href="../../servicios/automatizaciones/">Automatizaciones</a></li>
+          <li><a href="../../servicios/desarrollo-web/">Desarrollo web</a></li>
+          <li><a href="../../servicios/ia-generativa-desarrollo/">IA generativa en desarrollo</a></li>
+          <li><a href="../../servicios/ia-y-mcp-para-tu-negocio/">IA y MCP para tu negocio</a></li>
+          <li><a href="../../servicios/cloud-aws/">Cloud y AWS</a></li>
+          <li><a href="../../servicios/consultoria-tech-lead/">Consultoría y Tech Lead</a></li>
+        </ul>
+      </li>
+      <li><a href="../../index.html#projects">Proyectos</a></li>
+      <li><a href="../../index.html#cv">CV</a></li>
+      <li><a href="../../blog/">Blog</a></li>
+      <li><a href="../../index.html#contact" class="nav-cta">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <section class="page-hero">
+    <nav class="breadcrumbs" aria-label="Migas de pan">
+      <a href="../../index.html">Inicio</a><span>/</span><a href="../">Servicios</a><span>/</span><span aria-current="page">Automatizaciones</span>
+    </nav>
+    <span class="page-badge">Automatización</span>
+    <h1 style="font-size: 2rem;">Automatización de procesos con n8n, agentes de IA y MCP</h1>
+    <p class="page-subtitle">Flujos que conectan tus herramientas, generan informes y páginas, y dejan que un agente de IA decida y actúe con las herramientas adecuadas.</p>
+    <div class="hero-cta" style="justify-content:center;margin-top:1.75rem;">
+      <a href="../../index.html#contact" class="btn-primary">Pide presupuesto sin compromiso</a>
+    </div>
+    <div class="stats"><div class="stat"><strong>8+ años</strong><span>de desarrollo fullstack</span></div><div class="stat"><strong>n8n · MCP · IA</strong><span>agentes y herramientas</span></div><div class="stat"><strong>< 24 h</strong><span>respuesta a tu consulta</span></div></div>
+  </section>
+  <main class="guide">
+    <article class="prose">
+      <div class="summary">
+        <h2>En resumen</h2>
+        <ul><li><strong>Qué es:</strong> flujos que conectan tus herramientas y ejecutan tareas repetitivas sin intervención manual, con n8n, código a medida y agentes de IA.</li><li><strong>Para quién:</strong> empresas y equipos que copian datos entre sistemas, preparan informes a mano o quieren que la IA use sus herramientas.</li><li><strong>Qué obtienes:</strong> procesos fiables, con registro y avisos de fallos, y aprobación humana en los pasos críticos.</li><li><strong>Cómo empezar:</strong> me cuentas el proceso actual y te propongo un prototipo con datos reales.</li></ul>
+      </div>
+
+      <details class="toc-inline">
+        <summary>Contenido de esta guía</summary>
+        <ol>
+          <li><a href="#que-es">Qué es automatizar un proceso (y qué no)</a></li>
+          <li><a href="#tipos">Tipos de automatización que construyo</a></li>
+          <li><a href="#n8n">Automatización con n8n: cuándo elegirlo</a></li>
+          <li><a href="#agentes-ia">Agentes de IA dentro de los flujos</a></li>
+          <li><a href="#mcp-en-n8n">MCP en n8n: cliente y servidor</a></li>
+          <li><a href="#apis-paginas">Integración de APIs y generación automática de páginas</a></li>
+          <li><a href="#informes-scripts">Informes automáticos, ficheros y scripts a medida</a></li>
+          <li><a href="#ejemplos">Ejemplos de automatizaciones</a></li>
+          <li><a href="#proceso">Cómo trabajo</a></li>
+          <li><a href="#buenas-practicas">Fiabilidad, seguridad y control</a></li>
+          <li><a href="#tecnologias">Tecnologías</a></li>
+          <li><a href="#experiencia">Experiencia relacionada</a></li>
+          <li><a href="#faq">Preguntas frecuentes</a></li>
+          <li><a href="#contacto">Hablemos</a></li>
+        </ol>
+      </details>
+
+    <h2 id="que-es">Qué es automatizar un proceso (y qué no)</h2>
+<p>Automatizar es dejar que un sistema ejecute por ti, siempre igual y sin olvidos, una secuencia de pasos que hoy haces a mano: copiar datos de un correo a una hoja de cálculo, generar el informe del lunes, dar de alta a un cliente en tres herramientas distintas o publicar contenido en la web. Si los pasos son repetitivos y siguen reglas, se puede automatizar.</p>
+<p>Y automatizar <strong>no</strong> es sustituir a las personas ni meter tecnología por meterla. Es quitar del día a día el trabajo mecánico para que el equipo dedique su tiempo a lo que requiere criterio. Por eso cada proyecto empieza entendiendo el proceso actual: si automatizas un proceso mal diseñado, solo consigues equivocarte más rápido.</p>
+<p>Trabajo con dos enfoques que se combinan según el caso: <strong>n8n</strong> como orquestador visual de flujos, y <strong>código a medida</strong> (Python, PHP o Node.js) cuando hace falta lógica propia, volumen o máxima fiabilidad. Desde hace tiempo añado una tercera capa: <strong>agentes de IA</strong> y <strong>MCP</strong> dentro de los flujos, para que las automatizaciones sean capaces de interpretar, decidir y usar herramientas.</p>
+
+    
+    <h2 id="tipos">Tipos de automatización que construyo</h2>
+<div class="cards"><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 20V4 M4 20h16 M8 16v-5 M12 16V8 M16 16v-3"/></svg><h3>Informes automáticos</h3><p>PDF y gráficas a partir de tus datos, con la periodicidad que necesites.</p></div><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 3v5 M15 3v5 M6 8h12v3a6 6 0 01-12 0z M12 17v4"/></svg><h3>Integración de APIs</h3><p>CRM, tienda, facturación o cualquier servicio con API conectados entre sí.</p></div><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v3 M6 8h12a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2v-6a2 2 0 012-2z M9 13h.01 M15 13h.01"/></svg><h3>Agentes de IA</h3><p>Flujos que interpretan, deciden y usan herramientas con límites claros.</p></div><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3a9 9 0 100 18 9 9 0 000-18z M3 12h18 M12 3c3 3 3 15 0 18 M12 3c-3 3-3 15 0 18"/></svg><h3>Contenido hacia la web</h3><p>Publicación y actualización de páginas mediante APIs, con aprobación previa.</p></div><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16v12H4z M4 7l8 6 8-6"/></svg><h3>Atención de correos y formularios</h3><p>Clasificación, consulta de datos y borradores de respuesta.</p></div><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3a9 9 0 100 18 9 9 0 000-18z M12 7v5l3 2"/></svg><h3>Tareas programadas</h3><p>Copias, sincronizaciones y mantenimiento en servidor con avisos de fallo.</p></div></div>
+    <h2 id="n8n">Automatización con n8n: cuándo elegirlo</h2>
+<p>n8n es una plataforma de automatización de flujos de trabajo, visual y muy flexible, que se puede alojar en tu propio servidor. Cada flujo es una cadena de nodos: un disparador (un webhook, una hora concreta, un correo nuevo, un formulario) seguido de acciones (consultar una API, transformar datos, escribir en una base de datos, enviar un mensaje).</p>
+<p>Lo elijo cuando el proceso se puede describir como un flujo de pasos entre servicios, cuando quieres que tu equipo pueda <em>ver</em> qué hace cada automatización y cuando conviene tener el control de los datos, porque puede instalarse en tu propio servidor. Es más rápido de construir y de modificar que un desarrollo desde cero.</p><div class="table-wrap"><table><thead><tr><th>Situación</th><th>Enfoque que suelo recomendar</th></tr></thead><tbody><tr><td>Conectar servicios con API, mover y transformar datos, avisos</td><td>n8n</td></tr><tr><td>Flujos que necesita entender y modificar alguien del equipo</td><td>n8n</td></tr><tr><td>Procesos con IA: clasificar, resumir, responder con datos</td><td>n8n con agentes de IA y MCP</td></tr><tr><td>Volúmenes muy altos, lógica de negocio compleja o requisitos estrictos de rendimiento</td><td>Código a medida (Python, PHP o Node.js)</td></tr><tr><td>Una tarea programada muy simple en un servidor</td><td>Script con cron</td></tr></tbody></table></div><p>No hay una herramienta universal. Te diré con franqueza si tu caso se resuelve mejor con un script de veinte líneas que con un flujo visual.</p>
+
+    
+    <h2 id="agentes-ia">Agentes de IA dentro de los flujos</h2>
+<p>Un flujo clásico sigue siempre el mismo camino. Un <strong>agente de IA</strong> añade capacidad de decisión: recibe un objetivo (por ejemplo, «responde a este cliente») y decide qué herramientas usar, en qué orden y con qué información. En n8n se construye con los nodos de agente, que combinan cuatro piezas:</p><ul>
+  <li><strong>El modelo</strong>: el cerebro del agente (Claude u otros modelos), elegido según el coste, la calidad y la privacidad que necesites.</li>
+  <li><strong>Las instrucciones</strong>: qué debe hacer, con qué tono, qué límites tiene y qué no puede hacer nunca.</li>
+  <li><strong>La memoria</strong>: el contexto de la conversación o del caso, para que no empiece de cero en cada paso.</li>
+  <li><strong>Las herramientas</strong>: consultas a bases de datos, llamadas a APIs, búsquedas, otros flujos y servidores MCP.</li>
+</ul><p>La parte más importante es diseñar bien las herramientas y los límites. Un agente con acceso a todo es un riesgo; un agente con tres herramientas bien definidas, permisos mínimos y un registro de lo que hace es una automatización fiable. Los pasos críticos (enviar un pago, borrar datos, contestar a un cliente importante) se dejan con <strong>aprobación humana</strong>.</p>
+
+    <figure class="flow-figure"><div class="compare"><div class="compare-col is-before"><h3>Flujo clásico</h3><ul>
+  <li>Sigue siempre los mismos pasos</li>
+  <li>Ideal con reglas claras y datos estructurados</li>
+  <li>Predecible, barato y fácil de auditar</li>
+  <li>No entiende lenguaje natural</li>
+</ul></div><div class="compare-col is-after"><h3>Agente de IA</h3><ul>
+  <li>Decide qué herramientas usar para un objetivo</li>
+  <li>Interpreta correos, consultas y documentos</li>
+  <li>Combina consultas, cálculos y acciones</li>
+  <li>Necesita límites, registro y aprobación humana</li>
+</ul></div></div><figcaption>Un flujo ejecuta un camino; un agente elige el camino. Se combinan según el caso.</figcaption></figure><figure class="flow-figure"><div class="arch"><div class="arch-col"><span class="arch-title">Disparadores</span><div class="arch-node"><strong>Webhook</strong>Formulario, web o API</div><div class="arch-node"><strong>Programado</strong>Cada hora, día o semana</div><div class="arch-node"><strong>Correo o mensaje</strong>Entrada en lenguaje natural</div></div><span class="flow-arrow" aria-hidden="true">→</span><div class="arch-col is-core"><span class="arch-title">Agente de IA en n8n</span><div class="arch-node"><strong>Modelo</strong>Claude u otros</div><div class="arch-node"><strong>Instrucciones</strong>Objetivo y límites</div><div class="arch-node"><strong>Memoria</strong>Contexto del caso</div><div class="arch-node"><strong>Herramientas</strong>APIs, datos y MCP</div></div><span class="flow-arrow" aria-hidden="true">→</span><div class="arch-col"><span class="arch-title">Resultados</span><div class="arch-node"><strong>Sistemas</strong>CRM, base de datos, web</div><div class="arch-node"><strong>Personas</strong>Aviso o aprobación</div><div class="arch-node"><strong>Documentos</strong>Informes PDF y CSV</div></div></div><figcaption>Un agente en n8n: qué lo activa, qué lo compone y qué produce.</figcaption></figure>
+    <h2 id="mcp-en-n8n">MCP en n8n: cliente y servidor</h2>
+<p>El <strong>Model Context Protocol (MCP)</strong> es el estándar abierto para que los modelos de IA usen herramientas y datos externos. En n8n se puede usar en las dos direcciones, y ambas las utilizo:</p><ul>
+  <li><strong>MCP Client (usar herramientas)</strong>: el agente del flujo se conecta a uno o varios servidores MCP y dispone de sus herramientas sin que tengas que reconstruir cada integración: consultar tu CRM, leer documentación interna, crear un ticket, etc.</li>
+  <li><strong>MCP Server (ofrecer flujos como herramientas)</strong>: un flujo de n8n se expone como servidor MCP, de modo que un asistente de IA (por ejemplo Claude) puede lanzar tus automatizaciones cuando se lo pides en una conversación.</li>
+</ul><figure class="flow-figure"><div class="flow"><div class="flow-node"><strong>Asistente o agente</strong>Claude u otro modelo</div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node"><strong>Servidor MCP</strong>Herramientas con permisos definidos</div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node"><strong>Flujo de n8n</strong>Lógica, APIs y datos</div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node"><strong>Tus sistemas</strong>CRM, base de datos, web, correo</div></div><figcaption>Un asistente de IA lanza automatizaciones a través de MCP, con permisos y registro.</figcaption></figure><p>La ventaja es la reutilización: una vez montada la herramienta, la puede usar cualquier agente o cliente compatible con MCP. Si quieres profundizar en el lado de negocio, tienes la página de <a href="../ia-y-mcp-para-tu-negocio/">integración de IA y servidores MCP</a> y el artículo <a href="../../blog/n8n-mcp-agentes-ia-automatizacion.html">n8n, MCP y agentes de IA: guía práctica</a>.</p>
+
+    
+    <h2 id="apis-paginas">Integración de APIs y generación automática de páginas</h2>
+<p>Una de las automatizaciones que más valor da es conectar n8n con APIs propias o de terceros que <strong>generan y actualizan páginas web</strong>. El flujo recoge la información (de un formulario, una hoja de cálculo, una base de datos o un agente de IA), la valida, la transforma y la envía a una API que crea o modifica la página correspondiente.</p><ul>
+  <li>Publicar fichas de producto, servicios o entradas de blog a partir de una fuente de datos estructurada.</li>
+  <li>Actualizar precios, disponibilidad o textos en la web cuando cambian en tu sistema de gestión.</li>
+  <li>Generar borradores con IA que una persona revisa antes de publicarse.</li>
+  <li>Notificar al equipo y pedir aprobación antes de que un cambio llegue a producción.</li>
+</ul><p>Aquí se juntan mis dos perfiles: el de desarrollador web, que construye la API y la página, y el de automatización, que orquesta el flujo. Es un servicio que conecta con el de <a href="../desarrollo-web/">desarrollo web a medida</a>.</p>
+
+    
+    <h2 id="informes-scripts">Informes automáticos, ficheros y scripts a medida</h2>
+<p>No todo necesita IA ni una plataforma visual. Muchas automatizaciones valiosas son scripts sencillos y robustos:</p><ul>
+  <li><strong>Informes periódicos</strong> en PDF con gráficas, generados a partir de tus datos y enviados por correo o guardados donde los necesites.</li>
+  <li><strong>Importación y exportación de CSV y Excel</strong> con validación, limpieza y avisos de errores en lugar de fallos silenciosos.</li>
+  <li><strong>Extracción de datos web</strong> (scraping) cuando la fuente no ofrece API y su uso está permitido.</li>
+  <li><strong>Tareas programadas en servidor</strong> (cron) para copias, sincronizaciones y mantenimiento.</li>
+</ul><p>Los escribo en Python, PHP o Node.js, con registros de ejecución y control de errores, y los despliego en tu servidor o en la nube.</p>
+
+    
+    <h2 id="ejemplos">Ejemplos de automatizaciones</h2>
+<p>Estos escenarios son <strong>ejemplos ilustrativos</strong> de lo que se puede construir, pensados para que veas el tipo de problemas que resuelvo. No corresponden a clientes concretos.</p><div class="ex-grid"><div class="example"><span class="example-label">Ejemplo ilustrativo</span><h3>Alta de leads con clasificación por IA</h3><p>Un formulario web dispara un flujo que guarda el contacto en el CRM, un agente lee el mensaje, lo clasifica (presupuesto, soporte, otro) y avisa al responsable adecuado con un resumen de dos líneas.</p></div><div class="example"><span class="example-label">Ejemplo ilustrativo</span><h3>Informe semanal automático</h3><p>Cada lunes un flujo consulta las ventas y la actividad de la semana, genera un PDF con gráficas y lo envía al equipo, avisando si algún dato parece anómalo.</p></div><div class="example"><span class="example-label">Ejemplo ilustrativo</span><h3>Contenido hacia la web</h3><p>Una hoja de cálculo con productos nuevos genera borradores de fichas con ayuda de IA; tras la aprobación de una persona, una API crea las páginas en la web.</p></div><div class="example"><span class="example-label">Ejemplo ilustrativo</span><h3>Atención de correos con datos reales</h3><p>Un agente lee los correos de consulta, busca el estado del pedido en tu base de datos mediante una herramienta MCP y prepara una respuesta para que alguien la revise y la envíe.</p></div><div class="example"><span class="example-label">Ejemplo ilustrativo</span><h3>Asistente que lanza automatizaciones</h3><p>Un flujo de n8n expuesto como servidor MCP permite pedir a un asistente «genera el informe de este cliente» y que se ejecute el proceso completo.</p></div>
+
+    </div>
+<div class="cta-band"><p>¿Te suena alguno de estos procesos?<span>Cuéntame el tuyo y te propongo un prototipo con datos reales.</span></p><a href="../../index.html#contact" class="btn-primary">Cuéntame tu caso</a></div>
+    <h2 id="proceso">Cómo trabajo</h2>
+<ol>
+  <li><strong>Entender el proceso actual.</strong> Me cuentas cómo lo haces hoy a mano y dónde se pierde el tiempo. Sin esto se automatiza lo equivocado.</li>
+  <li><strong>Diseñar el flujo.</strong> Definimos disparadores, pasos, datos, excepciones y qué decisiones quedan en manos de una persona.</li>
+  <li><strong>Prototipo con datos reales.</strong> Una primera versión funcional para validar el resultado antes de invertir más.</li>
+  <li><strong>Puesta en producción.</strong> Despliegue con registro de ejecuciones, avisos de fallos y gestión de reintentos.</li>
+  <li><strong>Documentación y mantenimiento.</strong> Todo queda documentado y disponible para ajustes cuando cambien tus herramientas.</li>
+</ol>
+
+    
+    <h2 id="buenas-practicas">Fiabilidad, seguridad y control</h2>
+<p>Una automatización que falla en silencio es peor que no tener ninguna. Por eso cuido siempre estos puntos:</p><ul>
+  <li><strong>Gestión de errores y reintentos</strong>, con avisos cuando algo no se puede completar.</li>
+  <li><strong>Credenciales protegidas</strong> y permisos mínimos en cada conexión.</li>
+  <li><strong>Registro de lo ejecutado</strong>, para poder auditar y depurar.</li>
+  <li><strong>Aprobación humana</strong> en los pasos sensibles.</li>
+  <li><strong>Cumplimiento del RGPD</strong> en el tratamiento de datos personales, incluidos los que pasan por un modelo de IA.</li>
+</ul>
+
+    
+    <h2 id="tecnologias">Tecnologías</h2>
+<p>n8n, nodos de agente de IA, MCP Client y MCP Server, Claude y otros modelos, APIs REST y webhooks, Python, PHP, Node.js, cron y tareas programadas en Linux, generación de PDF y gráficas, CSV, Beautiful Soup y AWS.</p>
+
+    
+    <h2 id="experiencia">Experiencia relacionada</h2>
+<ul>
+  <li>En <strong>Lex Program Online</strong> desarrollé APIs, dashboards y textos legales dinámicos que se generan automáticamente según el cliente.</li>
+  <li>En proyectos propios y de empresa he automatizado la generación de informes PDF, la importación y exportación de CSV y la integración con servicios externos.</li>
+  <li>En <strong>JAWOT CORP</strong>, como Tech Lead, definí un flujo de trabajo con IA generativa para el desarrollo de la plataforma Secretä.</li>
+</ul>
+
+    
+
+    <h2 id="faq">Preguntas frecuentes</h2>
+<details class="faq-item">
+      <summary>¿Qué tareas se pueden automatizar con n8n?</summary>
+      <p>Casi cualquier tarea repetitiva basada en reglas: mover datos entre sistemas, generar informes, enviar avisos, procesar formularios o correos, sincronizar catálogos y publicar contenido en la web. Si sigues siempre los mismos pasos, se puede automatizar.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Qué es un agente de IA en n8n?</summary>
+      <p>Es un nodo que combina un modelo de lenguaje, instrucciones, memoria y herramientas. A diferencia de un flujo fijo, el agente decide qué herramientas usar para lograr un objetivo, por ejemplo consultar un pedido o clasificar un mensaje.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Qué aporta MCP a una automatización?</summary>
+      <p>Permite reutilizar herramientas: un servidor MCP expone tus datos y acciones una vez y cualquier agente compatible puede usarlas. Además, un flujo de n8n puede exponerse como servidor MCP para que un asistente lo lance con una orden.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Necesito cambiar las herramientas que uso?</summary>
+      <p>No. La automatización se conecta a tus herramientas actuales mediante API, webhooks o ficheros. Solo recomiendo cambiar algo si de verdad bloquea el proceso.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿n8n o código a medida?</summary>
+      <p>Para conectar servicios y flujos que tu equipo quiera ver y modificar, n8n. Para volúmenes altos, lógica compleja o requisitos estrictos de rendimiento, código a medida. Con frecuencia se combinan.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Es seguro dar acceso a la IA a mis datos?</summary>
+      <p>Depende de cómo se diseñe: permisos mínimos, herramientas de solo lectura cuando basta, registro de acciones, aprobación humana en pasos críticos y elección del modelo y de la ubicación de los datos conforme al RGPD.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Cuánto cuesta automatizar un proceso?</summary>
+      <p>Depende de la complejidad y del número de sistemas implicados. Tras una primera conversación te preparo una propuesta cerrada, sin sorpresas.</p>
+    </details>
+
+    <h2 id="contacto">Hablemos</h2>
+<div class="callout">
+      <p><strong>¿Tienes un proyecto en mente?</strong>Cuéntame qué necesitas y te respondo en menos de 24 horas con
+        una propuesta clara. Trabajo desde Donostia-San Sebastián con clientes de todo el País Vasco y de España, en
+        remoto. <a href="../../index.html#contact">Escríbeme aquí</a>.</p>
+    </div>
+
+    <h2>Otros servicios</h2>
+<div class="blog-grid">
+      <a href="../ia-y-mcp-para-tu-negocio/" class="blog-card">
+        <span class="post-tag">IA aplicada</span>
+        <h3>IA y MCP para tu negocio</h3>
+        <p>Servidores MCP y tool calling: chatbots, respuestas automáticas y asistentes con datos reales de tu empresa.</p>
+        <span class="blog-card-cta">Ver servicio →</span>
+      </a>
+      <a href="../desarrollo-web/" class="blog-card">
+        <span class="post-tag">Desarrollo web</span>
+        <h3>Desarrollo web</h3>
+        <p>Webs y aplicaciones a medida con PHP, Symfony y Vue.js, rápidas y preparadas para SEO.</p>
+        <span class="blog-card-cta">Ver servicio →</span>
+      </a>
+      <a href="../ia-generativa-desarrollo/" class="blog-card">
+        <span class="post-tag">IA generativa</span>
+        <h3>IA generativa en desarrollo</h3>
+        <p>Claude Code, agentes y skills para entregar más rápido sin perder calidad.</p>
+        <span class="blog-card-cta">Ver servicio →</span>
+      </a>
+    </div>
+    </article>
+
+    <aside class="guide-aside" aria-label="Índice y contacto">
+      <nav class="aside-card aside-toc" aria-label="Contenido de la guía">
+        <p class="aside-title">Contenido</p>
+        <ol>
+          <li><a href="#que-es">Qué es automatizar un proceso (y qué no)</a></li>
+          <li><a href="#tipos">Tipos de automatización que construyo</a></li>
+          <li><a href="#n8n">Automatización con n8n: cuándo elegirlo</a></li>
+          <li><a href="#agentes-ia">Agentes de IA dentro de los flujos</a></li>
+          <li><a href="#mcp-en-n8n">MCP en n8n: cliente y servidor</a></li>
+          <li><a href="#apis-paginas">Integración de APIs y generación automática de páginas</a></li>
+          <li><a href="#informes-scripts">Informes automáticos, ficheros y scripts a medida</a></li>
+          <li><a href="#ejemplos">Ejemplos de automatizaciones</a></li>
+          <li><a href="#proceso">Cómo trabajo</a></li>
+          <li><a href="#buenas-practicas">Fiabilidad, seguridad y control</a></li>
+          <li><a href="#tecnologias">Tecnologías</a></li>
+          <li><a href="#experiencia">Experiencia relacionada</a></li>
+          <li><a href="#faq">Preguntas frecuentes</a></li>
+          <li><a href="#contacto">Hablemos</a></li>
+        </ol>
+      </nav>
+      <div class="aside-card">
+        <p class="aside-title">¿Hablamos?</p>
+        <p>Cuéntame qué necesitas y te respondo en menos de 24 horas.</p>
+        <a href="../../index.html#contact" class="btn-primary">Pide presupuesto</a>
+      </div>
+    </aside>
+  </main>
+
+  <div class="prose">
+    <div class="author-card">
+      <picture>
+        <source srcset="../../cv-avatar-photo.webp" type="image/webp">
+        <img src="../../cv-avatar-photo.png" alt="David Otero Mato" width="64" height="64" loading="lazy">
+      </picture>
+      <div>
+        <h3>David Otero Mato</h3>
+        <p>Desarrollador fullstack freelance en Donostia — PHP, Vue.js, AWS e IA generativa aplicada a proyectos reales.</p>
+        <a href="../../index.html#contact">¿Hablamos de tu proyecto? →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <p>© 2026 <span>David Otero Mato</span> · Donostia, Gipuzkoa</p>
+    <p class="footer-legal footer-services">
+      <a href="../../servicios/">Servicios</a>:
+      <a href="../../servicios/automatizaciones/">Automatizaciones</a> ·
+      <a href="../../servicios/desarrollo-web/">Desarrollo web</a> ·
+      <a href="../../servicios/ia-generativa-desarrollo/">IA generativa</a> ·
+      <a href="../../servicios/ia-y-mcp-para-tu-negocio/">IA y MCP</a> ·
+      <a href="../../servicios/cloud-aws/">Cloud y AWS</a> ·
+      <a href="../../servicios/consultoria-tech-lead/">Consultoría</a>
+    </p>
+    <p class="footer-legal">
+      <a href="../../aviso-legal.html">Aviso legal</a> ·
+      <a href="../../politica-privacidad.html">Privacidad</a> ·
+      <a href="../../politica-cookies.html">Cookies</a> ·
+      <button type="button" data-cookie-settings>Configurar cookies</button>
+    </p>
+  </footer>
+
+  <div class="cookie-banner" id="cookie-banner" hidden role="dialog" aria-live="polite"
+    aria-label="Consentimiento de cookies">
+    <p>
+      Uso cookies analíticas (Google Analytics) para entender cómo se usa esta web. Solo se activan si las aceptas, y
+      puedes cambiar de opinión cuando quieras desde "Configurar cookies" en el pie de página. Más info en la
+      <a href="../../politica-cookies.html">Política de Cookies</a>.
+    </p>
+    <div class="cookie-banner-actions">
+      <button type="button" class="btn-secondary" id="cookie-reject">Rechazar</button>
+      <button type="button" class="btn-primary" id="cookie-accept">Aceptar</button>
+    </div>
+  </div>
+
+  <script src="../../js/nav.js"></script>
+  <script src="../../js/cookie-consent.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="../../js/site-fx.js"></script>
+</body>
+
+</html>

@@ -18,6 +18,7 @@
     hamburger.classList.toggle('open', open);
     links.classList.toggle('open', open);
     hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    document.body.classList.toggle('menu-open', open);
   }
 
   hamburger.addEventListener('click', function () {
@@ -25,6 +26,9 @@
   });
   links.addEventListener('click', function (e) {
     if (e.target.closest('a')) setOpen(false);
+  });
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 768) setOpen(false);
   });
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') setOpen(false);

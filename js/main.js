@@ -16,6 +16,27 @@ hamburger.addEventListener('click', () => {
   hamburger.classList.toggle('open');
   const open = navLinks.classList.toggle('open');
   hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  document.body.classList.toggle('menu-open', open);
+});
+
+function closeMenu() {
+  hamburger.classList.remove('open');
+  navLinks.classList.remove('open');
+  hamburger.setAttribute('aria-expanded', 'false');
+  document.body.classList.remove('menu-open');
+}
+
+// Cierra el menú al pulsar cualquier enlace (también los de otras páginas) o con Escape
+navLinks.addEventListener('click', e => { if (e.target.closest('a')) closeMenu(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768) {
+    hamburger.classList.remove('open');
+    navLinks.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('menu-open');
+  }
 });
 
 /* ===========================
@@ -30,6 +51,7 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     hamburger.classList.remove('open');
     navLinks.classList.remove('open');
     hamburger.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('menu-open');
   });
 });
 

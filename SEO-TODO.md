@@ -11,7 +11,7 @@ Estado: `[x]` hecho · `[~]` parcial · `[ ]` pendiente. Última revisión: 2026
 - [~] 3. **Google Business Profile** creada y verificada (2026-09-26). Hecho: descripción, servicios, logo, portada y fotos (paquete en `~/gbp-fotos/`). Pendiente: primeras reseñas, foto de perfil profesional de mayor resolución, y pasarme el teléfono público y la URL de Maps para `telephone`/`hasMap` en el JSON-LD. Original: crear **Google Business Profile** ("negocio de servicios", Donostia; área: Gipuzkoa/País Vasco/España; categoría, descripción, enlace a `/servicios/`, fotos).
 - [ ] 4. Completar **LinkedIn**: enlace a la web, mismo titular y palabras clave, publicar contenido.
 - [x] 5. H1 de la home con keyword (oculto visualmente con `.sr-only`; opcional: hacerlo visible como subtítulo).
-- [ ] 6. **Analítica** respetuosa (Plausible/Umami) o GA4 tras el consentimiento de cookies existente.
+- [x] 6. **Analítica** GA4 (G-H70S4NSV2Y) activo y verificado en Tiempo real (2026-09-26). Pendiente en GA4: enlazar Search Console, definir tráfico interno, retención 14 meses, marcar conversión del formulario. Original: respetuosa (Plausible/Umami) o GA4 tras el consentimiento de cookies existente.
 
 ## Este mes
 - [ ] 7. **Enlaces de calidad**

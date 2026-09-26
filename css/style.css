@@ -3011,6 +3011,22 @@ footer {
   font-size: 0.82rem;
 }
 
+/* Aceptar y Rechazar con el mismo peso visual (criterio AEPD) */
+.cookie-banner .btn-primary,
+.cookie-banner .btn-secondary {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--accent-light);
+}
+
+.cookie-banner .btn-primary:hover,
+.cookie-banner .btn-secondary:hover {
+  background: rgba(110, 196, 160, 0.12);
+  color: var(--accent-light);
+  border-color: var(--accent-light);
+  transform: none;
+}
+
 @media (max-width: 640px) {
   .cookie-banner {
     left: 0.75rem;

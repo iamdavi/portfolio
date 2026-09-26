@@ -2,8 +2,7 @@
    Cookie Consent + Google Analytics (GA4)
    =========================== */
 
-// TODO: sustituye por tu ID real de GA4 (Admin > Flujos de datos > Flujo web > ID de medición)
-const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX';
+const GA_MEASUREMENT_ID = 'G-H70S4NSV2Y';
 
 (function () {
   const STORAGE_KEY = 'cookie_consent';

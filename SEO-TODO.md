@@ -8,7 +8,7 @@ Estado: `[x]` hecho · `[~]` parcial · `[ ]` pendiente. Última revisión: 2026
 ## Esta semana (mayor impacto, poco esfuerzo)
 - [~] 1. Alta en **Google Search Console** (propiedad de dominio, DNS) y sitemap enviado: hecho (2026-09-26; el sitemap debería pasar a "Correcto" con 13 páginas en 1–2 días). **Bing Webmaster Tools** importado (alimenta a ChatGPT y Copilot). IndexNow: clave, `scripts/indexnow.sh` y workflow `.github/workflows/indexnow.yml` creados; pendiente desplegar y comprobar.
 - [x] 2. Solicitar indexación (Inspección de URL) de la home, los 6 servicios, `/servicios/`, `/blog/` y los 4 artículos.
-- [ ] 3. Crear **Google Business Profile** ("negocio de servicios", Donostia; área: Gipuzkoa/País Vasco/España; categoría, descripción, enlace a `/servicios/`, fotos).
+- [~] 3. **Google Business Profile** creada y verificada (2026-09-26). Pendiente completar: descripción, servicios, categorías secundarias, horario real, área de servicio ampliada, logo/fotos, primeras reseñas. Original: crear **Google Business Profile** ("negocio de servicios", Donostia; área: Gipuzkoa/País Vasco/España; categoría, descripción, enlace a `/servicios/`, fotos).
 - [ ] 4. Completar **LinkedIn**: enlace a la web, mismo titular y palabras clave, publicar contenido.
 - [x] 5. H1 de la home con keyword (oculto visualmente con `.sr-only`; opcional: hacerlo visible como subtítulo).
 - [ ] 6. **Analítica** respetuosa (Plausible/Umami) o GA4 tras el consentimiento de cookies existente.
@@ -30,6 +30,7 @@ Estado: `[x]` hecho · `[~]` parcial · `[ ]` pendiente. Última revisión: 2026
 - [x] 12. `BreadcrumbList` y `FAQPage` en servicios (ya estaban; añadido el breadcrumb que faltaba en el artículo de vibe coding).
 - [ ] 13. **Prueba social**: testimonios con nombre, casos de estudio con resultados; `Review`/`AggregateRating` solo con reseñas reales.
 - [ ] 14b. **`ProfessionalService`/`LocalBusiness`**: añadir `telephone`, `priceRange`, `hasMap` (URL de la ficha de Google) y `sameAs` al perfil de negocio cuando existan. Requiere datos tuyos.
+- [ ] 14d. **Correo profesional** `@davidotero.es` (Workspace, o reenvío gratis con Cloudflare/ImprovMX) + MX/SPF/DKIM/DMARC en Netlify DNS; luego sustituir `itsdavid.otero@gmail.com` en la web, JSON-LD y políticas.
 - [ ] 14c. **Cabeceras** en `netlify.toml`: `Content-Security-Policy` y `Permissions-Policy` (prioridad baja para SEO).
 
 ## Continuo

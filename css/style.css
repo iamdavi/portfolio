@@ -2573,6 +2573,12 @@ footer {
 .guide .prose {
   max-width: none;
   padding: 0;
+  /* Un elemento de grid no se encoge por debajo del ancho de su contenido
+     por defecto (min-width:auto): sin esto, un hijo ancho (p. ej. un
+     diagrama) empuja .prose fuera de su columna en vez de encogerse.
+     width:100% lo fuerza de forma explícita a su columna real. */
+  width: 100%;
+  min-width: 0;
 }
 
 .guide-aside {
@@ -2910,63 +2916,8 @@ footer {
   align-self: center;
 }
 
-/* ===========================
-   Infra Stepper (diagrama interactivo)
-   =========================== */
-.infra-scroll {
-  display: block;
-}
-
-.infra-scroll-diagram,
-.infra-scroll-text {
-  min-width: 0;
-}
-
-@media (min-width: 1024px) {
-  .infra-scroll {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    max-width: 1280px;
-    padding: 0 2rem;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 440px;
-    gap: 3rem;
-    align-items: start;
-  }
-
-  .infra-scroll-text {
-    order: 1;
-  }
-
-  .infra-scroll-diagram {
-    order: 2;
-    position: sticky;
-    top: 5.5rem;
-    align-self: start;
-  }
-}
-
-.infra-scene {
-  scroll-margin-top: 5.5rem;
-}
-
-.infra-step-link {
-  display: block;
-  margin-top: 0.5rem;
-  font-size: 0.85rem;
-  color: var(--accent-light);
-  text-align: center;
-  text-decoration: none;
-}
-
-.infra-step-link:hover {
-  text-decoration: underline;
-}
-
-/* Barra de tabs con scroll horizontal + flechas prev/siguiente,
-   reutilizada aquí y en los tabs de Proyectos de la home. */
+/* Barra de tabs con scroll horizontal + flechas prev/siguiente
+   (usada en los tabs de Proyectos de la home). */
 .tabs-scroller {
   display: flex;
   align-items: center;
@@ -2976,7 +2927,6 @@ footer {
   margin-bottom: 1.5rem;
 }
 
-.tabs-scroller > .infra-stepper-nav,
 .tabs-scroller > .projects-tabs {
   flex: 1 1 auto;
   min-width: 0;
@@ -3015,89 +2965,19 @@ footer {
   display: none;
 }
 
-.infra-stepper {
-  margin: 2rem 0 2.5rem;
-}
-
-.infra-stepper-heading {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.05rem;
-  margin-bottom: 1rem;
-}
-
-.infra-stepper-nav {
-  display: flex;
-  gap: 0.4rem;
-  overflow-x: auto;
-  scrollbar-width: none;
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 0.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.infra-stepper-nav::-webkit-scrollbar {
-  display: none;
-}
-
-.infra-step-btn {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: none;
-  border: 1px solid transparent;
-  border-radius: 8px;
-  padding: 0.5rem 0.8rem;
-  color: var(--text-muted);
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.8rem;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-}
-
-.infra-step-btn:hover {
-  color: var(--text);
-}
-
-.infra-step-btn.active {
-  color: var(--text);
-  border-color: var(--accent);
-  background: var(--accent-glow);
-}
-
-.infra-step-num {
-  width: 1.6rem;
-  height: 1.6rem;
-  flex-shrink: 0;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  background: var(--surface-2);
-  border: 1px solid var(--border);
-  font-weight: 700;
-  font-size: 0.78rem;
-}
-
-.infra-step-btn.active .infra-step-num {
-  border-color: var(--accent-light);
-  color: var(--accent-light);
-}
-
-.infra-step-btn:focus-visible {
-  outline: 2px solid var(--accent-light);
-  outline-offset: 2px;
-}
-
-.infra-diagram {
+/* ===========================
+   Diagramas estáticos de arquitectura (uno por apartado, sin JS)
+   =========================== */
+.infra-diagram-static {
   position: relative;
-  padding: 1.75rem 1.5rem;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 14px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
 }
 
-.infra-connectors {
+.infra-static-connectors {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -3107,64 +2987,66 @@ footer {
   overflow: visible;
 }
 
-.infra-connectors path {
+.infra-static-connectors path {
   fill: none;
   stroke: var(--accent-light);
   stroke-width: 1.5;
   stroke-linecap: round;
   stroke-linejoin: round;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.infra-connectors path.is-present {
   opacity: 0.85;
 }
 
-.infra-grid {
+.infra-static-rows {
   position: relative;
   z-index: 2;
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.infra-static-row {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
   gap: 1rem;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-areas:
-    "monitor monitor monitor monitor"
-    "users cdn . ."
-    ". lb lb ."
-    "apptier apptier apptier apptier"
-    "redis queue datatier datatier";
+  /* nowrap a propósito: si una fila envolviera a una segunda línea, el punto
+     medio de un conector que fuera a la fila siguiente caería encima de esa
+     línea añadida, cruzando cajas que no le corresponden. En pantallas
+     estrechas los elementos se encogen (flex-shrink) en vez de envolver. */
+  flex-wrap: nowrap;
+  width: 100%;
 }
 
-.infra-node {
-  /* Sin transform en el estado de reposo (oculto): así su geometría medida
-     por getBoundingClientRect() coincide con la que tendrá al mostrarse, y
-     los conectores no quedan calculados con una posición desplazada. El
-     "vuelo de entrada" lo aporta @keyframes infra-node-in, no este estado. */
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.35s ease, visibility 0s linear 0.35s;
+.infra-static-row > .arch-node,
+.infra-static-group > .arch-node {
+  flex: 0 1 160px;
+  min-width: 130px;
 }
 
-.infra-node.is-present {
-  visibility: visible;
-  opacity: 1;
-  transition-delay: 0s;
+.infra-static-group {
+  border: 1px dashed var(--border);
+  border-radius: 12px;
+  padding: 1.5rem 0.8rem 0.8rem;
+  position: relative;
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 100%;
 }
 
-.infra-node.infra-appear {
-  animation: infra-node-in 0.45s ease;
-}
-
-@keyframes infra-node-in {
-  from {
-    opacity: 0;
-    transform: translateY(10px) scale(0.96);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+.infra-group-label {
+  position: absolute;
+  top: -0.65rem;
+  left: 0.8rem;
+  white-space: nowrap;
+  background: var(--surface);
+  padding: 0 0.5rem;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
 }
 
 .infra-node--ghost {
@@ -3177,115 +3059,23 @@ footer {
   background: var(--surface-2);
 }
 
-.infra-group {
-  grid-column: 1 / -1;
-  border: 1px dashed var(--border);
-  border-radius: 12px;
-  padding: 1.5rem 0.8rem 0.8rem;
-  position: relative;
-  display: grid;
-  gap: 0.6rem;
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.35s ease, visibility 0s linear 0.35s;
-}
-
-.infra-group.is-present {
-  visibility: visible;
-  opacity: 1;
-  transition-delay: 0s;
-}
-
-.infra-group-label {
-  position: absolute;
-  top: -0.65rem;
-  left: 0.8rem;
-  background: var(--surface);
-  padding: 0 0.5rem;
-  font-size: 0.68rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--text-muted);
-}
-
-.infra-group[data-group="monolith"] {
-  grid-area: apptier;
-  grid-template-columns: 1fr;
-  max-width: 220px;
-  margin: 0 auto;
-}
-
-.infra-group[data-group="app-tier"] {
-  grid-area: apptier;
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.infra-group[data-group="data-tier"] {
-  grid-area: datatier;
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.infra-group[data-group="data-tier"] .infra-node[data-node="backup"] {
-  grid-column: 1 / -1;
-}
-
-.infra-node[data-node="users"] { grid-area: users; }
-.infra-node[data-node="cdn"] { grid-area: cdn; }
-.infra-node[data-node="lb"] { grid-area: lb; }
-.infra-node[data-node="redis"] { grid-area: redis; }
-.infra-node[data-node="queue"] { grid-area: queue; }
-.infra-node[data-node="monitor"] { grid-area: monitor; }
-
-.infra-step-caption {
-  margin-top: 1.25rem;
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  text-align: center;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .infra-node,
-  .infra-group,
-  .infra-connectors path {
-    transition-duration: 0.01ms !important;
-    animation: none !important;
-  }
-}
-
 @media (max-width: 640px) {
-  .infra-diagram {
-    padding: 1.25rem 1rem;
-  }
-
-  /* En columna única casi todas las cajas ocupan el ancho completo: las líneas
-     conectoras se solapan en una sola vertical y no aportan nada que el
-     propio orden de aparición no transmita ya. */
-  .infra-connectors {
+  .infra-static-connectors {
     display: none;
   }
 
-  .infra-grid {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "monitor"
-      "users"
-      "cdn"
-      "lb"
-      "apptier"
-      "redis"
-      "queue"
-      "datatier";
+  .infra-diagram-static {
+    padding: 1.25rem 1rem;
   }
 
-  .infra-group[data-group="app-tier"],
-  .infra-group[data-group="data-tier"] {
-    grid-template-columns: 1fr;
-  }
-
-  .infra-group[data-group="data-tier"] .infra-node[data-node="backup"] {
-    grid-column: auto;
+  /* Sin líneas visibles a este ancho, las filas ya pueden envolver sin que
+     ningún conector quede cruzando una caja: evita el desbordamiento
+     horizontal de filas con 3 cajas. */
+  .infra-static-row {
+    flex-wrap: wrap;
   }
 }
+
 
 /* CTA band */
 .cta-band {

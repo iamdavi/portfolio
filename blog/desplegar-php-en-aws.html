@@ -28,7 +28,7 @@
 
   <link rel="preload" href="../fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../css/style.css?v=23">
+  <link rel="stylesheet" href="../css/style.css?v=26">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="icon" type="image/png" sizes="48x48" href="../favicon-48.png">
   <link rel="alternate icon" href="../favicon.ico">
@@ -195,8 +195,13 @@
     </div>
   </section>
 
-  <article class="prose">
-<nav class="toc" aria-label="Contenido del artículo"><p class="toc-title">En este artículo</p><ol><li><a href="#que-opciones-tienes-para-ejecutar-php-en-aws">Qué opciones tienes para ejecutar PHP en AWS</a></li><li><a href="#arquitectura-minima-recomendada">Arquitectura mínima recomendada</a></li><li><a href="#paso-1-crear-la-instancia-y-proteger-el-acceso">Paso 1: crear la instancia y proteger el acceso</a></li><li><a href="#paso-2-instalar-nginx-y-php-fpm">Paso 2: instalar Nginx y PHP-FPM</a></li><li><a href="#paso-3-base-de-datos-en-rds">Paso 3: base de datos en RDS</a></li><li><a href="#paso-4-https-con-let-s-encrypt">Paso 4: HTTPS con Let's Encrypt</a></li><li><a href="#paso-5-desplegar-la-aplicacion">Paso 5: desplegar la aplicación</a></li><li><a href="#seguridad-y-buenas-practicas">Seguridad y buenas prácticas</a></li><li><a href="#como-controlar-los-costes">Cómo controlar los costes</a></li><li><a href="#cuando-pasar-a-contenedores-o-a-algo-mas-gestionado">Cuándo pasar a contenedores o a algo más gestionado</a></li><li><a href="#preguntas-habituales">Preguntas habituales</a></li></ol></nav>
+    <main class="guide">
+    <article class="prose">
+<details class="toc-inline">
+<summary>Contenido de este artículo</summary>
+<ol><li><a href="#que-opciones-tienes-para-ejecutar-php-en-aws">Qué opciones tienes para ejecutar PHP en AWS</a></li><li><a href="#arquitectura-minima-recomendada">Arquitectura mínima recomendada</a></li><li><a href="#paso-1-crear-la-instancia-y-proteger-el-acceso">Paso 1: crear la instancia y proteger el acceso</a></li><li><a href="#paso-2-instalar-nginx-y-php-fpm">Paso 2: instalar Nginx y PHP-FPM</a></li><li><a href="#paso-3-base-de-datos-en-rds">Paso 3: base de datos en RDS</a></li><li><a href="#paso-4-https-con-let-s-encrypt">Paso 4: HTTPS con Let's Encrypt</a></li><li><a href="#paso-5-desplegar-la-aplicacion">Paso 5: desplegar la aplicación</a></li><li><a href="#seguridad-y-buenas-practicas">Seguridad y buenas prácticas</a></li><li><a href="#como-controlar-los-costes">Cómo controlar los costes</a></li><li><a href="#cuando-pasar-a-contenedores-o-a-algo-mas-gestionado">Cuándo pasar a contenedores o a algo más gestionado</a></li><li><a href="#preguntas-habituales">Preguntas habituales</a></li></ol>
+</details>
+
 <p>AWS ofrece muchas formas de ejecutar una aplicación PHP, y elegir mal complica el mantenimiento o encarece la factura. Esta guía compara las opciones más habituales y recorre paso a paso <strong>un despliegue clásico y sólido: EC2 con Nginx, PHP-FPM, base de datos en RDS y HTTPS</strong>, válido para Symfony, Laravel o PHP a medida.</p>
 
 <h2 id="que-opciones-tienes-para-ejecutar-php-en-aws">Qué opciones tienes para ejecutar PHP en AWS</h2>
@@ -320,6 +325,19 @@ sudo systemctl reload php8.3-fpm</code></pre>
         <a href="../index.html#contact">escríbeme</a> y hablamos de tu proyecto.</p>
     </div>
   </article>
+
+    <aside class="guide-aside" aria-label="Índice y contacto">
+      <nav class="aside-card aside-toc" aria-label="Contenido del artículo">
+        <p class="aside-title">Contenido</p>
+        <ol><li><a href="#que-opciones-tienes-para-ejecutar-php-en-aws">Qué opciones tienes para ejecutar PHP en AWS</a></li><li><a href="#arquitectura-minima-recomendada">Arquitectura mínima recomendada</a></li><li><a href="#paso-1-crear-la-instancia-y-proteger-el-acceso">Paso 1: crear la instancia y proteger el acceso</a></li><li><a href="#paso-2-instalar-nginx-y-php-fpm">Paso 2: instalar Nginx y PHP-FPM</a></li><li><a href="#paso-3-base-de-datos-en-rds">Paso 3: base de datos en RDS</a></li><li><a href="#paso-4-https-con-let-s-encrypt">Paso 4: HTTPS con Let's Encrypt</a></li><li><a href="#paso-5-desplegar-la-aplicacion">Paso 5: desplegar la aplicación</a></li><li><a href="#seguridad-y-buenas-practicas">Seguridad y buenas prácticas</a></li><li><a href="#como-controlar-los-costes">Cómo controlar los costes</a></li><li><a href="#cuando-pasar-a-contenedores-o-a-algo-mas-gestionado">Cuándo pasar a contenedores o a algo más gestionado</a></li><li><a href="#preguntas-habituales">Preguntas habituales</a></li></ol>
+      </nav>
+      <div class="aside-card">
+        <p class="aside-title">¿Hablamos?</p>
+        <p>Cuéntame qué necesitas y te respondo en menos de 24 horas.</p>
+        <a href="../index.html#contact" class="btn-primary">Escríbeme</a>
+      </div>
+    </aside>
+  </main>
 
   <div class="prose">
     <h2>Sigue leyendo</h2>

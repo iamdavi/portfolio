@@ -28,7 +28,7 @@
 
   <link rel="preload" href="../fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../css/style.css?v=23">
+  <link rel="stylesheet" href="../css/style.css?v=26">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="icon" type="image/png" sizes="48x48" href="../favicon-48.png">
   <link rel="alternate icon" href="../favicon.ico">
@@ -195,159 +195,73 @@
     </div>
   </section>
 
-  <article class="prose">
-<nav class="toc" aria-label="Contenido del artículo"><p class="toc-title">En este artículo</p><ol><li><a href="#la-evolucion-en-10-pasos">La evolución en 10 pasos</a></li><li><a href="#todo-en-un-servidor">1. Todo en un servidor</a></li><li><a href="#separar-la-base-de-datos">2. Separar la base de datos</a></li><li><a href="#escalado-vertical-y-horizontal">3-4. Escalado vertical y horizontal</a></li><li><a href="#load-balancer-y-autoescalado">5-6. Load balancer y autoescalado</a></li><li><a href="#cache-con-redis">7. Caché con Redis</a></li><li><a href="#cola-de-mensajes">8. Cola de mensajes</a></li><li><a href="#cdn-y-replica-de-lectura">9. CDN y réplica de lectura</a></li><li><a href="#observabilidad-y-resiliencia">10. Observabilidad y resiliencia</a></li><li><a href="#que-paso-dar-primero">Qué paso dar primero</a></li><li><a href="#preguntas-habituales">Preguntas habituales</a></li></ol></nav>
+  <main class="guide">
+    <article class="prose">
+      <details class="toc-inline">
+        <summary>Contenido de este artículo</summary>
+        <ol><li><a href="#todo-en-un-servidor">1. Todo en un servidor</a></li><li><a href="#separar-la-base-de-datos">2. Separar la base de datos</a></li><li><a href="#escalado-vertical-y-horizontal">3-4. Escalado vertical y horizontal</a></li><li><a href="#load-balancer-y-autoescalado">5-6. Load balancer y autoescalado</a></li><li><a href="#cache-con-redis">7. Caché con Redis</a></li><li><a href="#cola-de-mensajes">8. Cola de mensajes</a></li><li><a href="#cdn-y-replica-de-lectura">9. CDN y réplica de lectura</a></li><li><a href="#observabilidad-y-resiliencia">10. Observabilidad y resiliencia</a></li><li><a href="#que-paso-dar-primero">Qué paso dar primero</a></li><li><a href="#preguntas-habituales">Preguntas habituales</a></li></ol>
+      </details>
 
-<p>Ninguna aplicación nace con balanceadores, colas y caché: nace en un único servidor, y así debería ser. La infraestructura madura poco a poco, y cada pieza nueva resuelve un síntoma concreto (lentitud, caídas, un pico de tráfico, una factura que no cuadra), no una moda. Este artículo recorre esa evolución en <strong>10 pasos</strong>, con un diagrama interactivo que va creciendo pieza a pieza y, debajo, la explicación de por qué se da cada paso y qué problema resuelve.</p>
+<p>Ninguna aplicación nace con balanceadores, colas y caché: nace en un único servidor, y así debería ser. La infraestructura madura poco a poco, y cada pieza nueva resuelve un síntoma concreto (lentitud, caídas, un pico de tráfico, una factura que no cuadra), no una moda. Este artículo recorre esa evolución en <strong>10 pasos</strong>, con un dibujo del esquema completo después de cada apartado, para ver claramente cómo va quedando la arquitectura en cada uno.</p>
 
-<div class="infra-scroll">
-  <div class="infra-scroll-diagram">
-<section class="infra-stepper" aria-labelledby="infra-stepper-title">
-  <h2 id="la-evolucion-en-10-pasos" class="infra-stepper-heading">La evolución en 10 pasos</h2>
-
-  <div class="tabs-scroller">
-    <button type="button" class="tabs-arrow tabs-arrow--prev" aria-label="Paso anterior" hidden>&lsaquo;</button>
-    <div class="infra-stepper-nav" role="tablist" aria-label="Pasos de la evolución de la infraestructura">
-    <button class="infra-step-btn" role="tab" id="infra-tab-1" aria-controls="infra-panel" aria-selected="true" tabindex="0" data-step="1"><span class="infra-step-num">1</span><span class="infra-step-label">Un servidor</span></button>
-    <button class="infra-step-btn" role="tab" id="infra-tab-2" aria-controls="infra-panel" aria-selected="false" tabindex="-1" data-step="2"><span class="infra-step-num">2</span><span class="infra-step-label">Separar BD</span></button>
-    <button class="infra-step-btn" role="tab" id="infra-tab-3" aria-controls="infra-panel" aria-selected="false" tabindex="-1" data-step="3"><span class="infra-step-num">3</span><span class="infra-step-label">Escalado vertical</span></button>
-    <button class="infra-step-btn" role="tab" id="infra-tab-4" aria-controls="infra-panel" aria-selected="false" tabindex="-1" data-step="4"><span class="infra-step-num">4</span><span class="infra-step-label">Escalado horizontal</span></button>
-    <button class="infra-step-btn" role="tab" id="infra-tab-5" aria-controls="infra-panel" aria-selected="false" tabindex="-1" data-step="5"><span class="infra-step-num">5</span><span class="infra-step-label">Load balancer</span></button>
-    <button class="infra-step-btn" role="tab" id="infra-tab-6" aria-controls="infra-panel" aria-selected="false" tabindex="-1" data-step="6"><span class="infra-step-num">6</span><span class="infra-step-label">Autoescalado</span></button>
-    <button class="infra-step-btn" role="tab" id="infra-tab-7" aria-controls="infra-panel" aria-selected="false" tabindex="-1" data-step="7"><span class="infra-step-num">7</span><span class="infra-step-label">Caché (Redis)</span></button>
-    <button class="infra-step-btn" role="tab" id="infra-tab-8" aria-controls="infra-panel" aria-selected="false" tabindex="-1" data-step="8"><span class="infra-step-num">8</span><span class="infra-step-label">Cola de mensajes</span></button>
-    <button class="infra-step-btn" role="tab" id="infra-tab-9" aria-controls="infra-panel" aria-selected="false" tabindex="-1" data-step="9"><span class="infra-step-num">9</span><span class="infra-step-label">CDN + réplica</span></button>
-    <button class="infra-step-btn" role="tab" id="infra-tab-10" aria-controls="infra-panel" aria-selected="false" tabindex="-1" data-step="10"><span class="infra-step-num">10</span><span class="infra-step-label">Observabilidad</span></button>
-    </div>
-    <button type="button" class="tabs-arrow tabs-arrow--next" aria-label="Paso siguiente" hidden>&rsaquo;</button>
-  </div>
-
-  <div class="infra-diagram" id="infra-panel" role="tabpanel" aria-labelledby="infra-tab-1">
-    <svg class="infra-connectors" aria-hidden="true" focusable="false"></svg>
-
-    <div class="infra-grid">
-      <div class="infra-node arch-node" data-node="monitor" data-step-add="10" style="grid-area: monitor;"><strong>Observabilidad</strong>Monitorización y alertas</div>
-
-      <div class="infra-node arch-node" data-node="users" data-step-add="1" style="grid-area: users;"><strong>Usuarios</strong></div>
-      <div class="infra-node arch-node" data-node="cdn" data-step-add="9" style="grid-area: cdn;"><strong>CDN</strong>Estáticos</div>
-
-      <div class="infra-node arch-node infra-node--core" data-node="lb" data-step-add="5" style="grid-area: lb;"><strong>Load Balancer</strong>Reparte el tráfico</div>
-
-      <div class="infra-group" data-group="monolith" data-step-add="1" data-step-remove="2">
-        <span class="infra-group-label">Un servidor</span>
-        <div class="infra-node arch-node" data-node="appdb" data-step-add="1" data-step-remove="2"><strong>App + BD</strong>Todo junto</div>
-      </div>
-
-      <div class="infra-group" data-group="app-tier" data-step-add="2">
-        <span class="infra-group-label">Servidor de aplicación</span>
-        <div class="infra-node arch-node" data-node="app1" data-step-add="2"><strong>App</strong>Réplica 1</div>
-        <div class="infra-node arch-node" data-node="app2" data-step-add="4"><strong>App</strong>Réplica 2</div>
-        <div class="infra-node arch-node infra-node--ghost" data-node="app3" data-step-add="6"><strong>App</strong>+N según demanda</div>
-      </div>
-
-      <div class="infra-node arch-node" data-node="redis" data-step-add="7" style="grid-area: redis;"><strong>Redis</strong>Caché</div>
-      <div class="infra-node arch-node" data-node="queue" data-step-add="8" style="grid-area: queue;"><strong>Cola</strong>Tareas async</div>
-
-      <div class="infra-group" data-group="data-tier" data-step-add="2">
-        <span class="infra-group-label">Base de datos</span>
-        <div class="infra-node arch-node" data-node="db" data-step-add="2"><strong>BD</strong>Primaria</div>
-        <div class="infra-node arch-node" data-node="dbreplica" data-step-add="9"><strong>BD</strong>Réplica lectura</div>
-        <div class="infra-node arch-node" data-node="backup" data-step-add="10"><strong>Backups</strong>Automatizados</div>
-      </div>
-    </div>
-
-    <i class="infra-conn" data-from="users" data-to="appdb" data-step-add="1" data-step-remove="2" hidden></i>
-    <i class="infra-conn" data-from="users" data-to="app1" data-step-add="2" data-step-remove="5" hidden></i>
-    <i class="infra-conn" data-from="app1" data-to="db" data-step-add="2" hidden></i>
-    <i class="infra-conn" data-from="app2" data-to="db" data-step-add="4" hidden></i>
-    <i class="infra-conn" data-from="users" data-to="lb" data-step-add="5" hidden></i>
-    <i class="infra-conn" data-from="lb" data-to="app1" data-step-add="5" hidden></i>
-    <i class="infra-conn" data-from="lb" data-to="app2" data-step-add="5" hidden></i>
-    <i class="infra-conn" data-from="lb" data-to="app3" data-step-add="6" hidden></i>
-    <i class="infra-conn" data-from="app1" data-to="redis" data-step-add="7" hidden></i>
-    <i class="infra-conn" data-from="app1" data-to="queue" data-step-add="8" hidden></i>
-    <i class="infra-conn" data-from="users" data-to="cdn" data-step-add="9" hidden></i>
-    <i class="infra-conn" data-from="app1" data-to="dbreplica" data-step-add="9" hidden></i>
-    <i class="infra-conn" data-from="db" data-to="dbreplica" data-step-add="9" hidden></i>
-    <i class="infra-conn" data-from="db" data-to="backup" data-step-add="10" hidden></i>
-    <i class="infra-conn" data-from="monitor" data-to="lb" data-step-add="10" hidden></i>
-    <i class="infra-conn" data-from="monitor" data-to="db" data-step-add="10" hidden></i>
-
-    <ul hidden>
-      <li data-step="1" data-step-href="#paso-1" data-step-title="Todo en un servidor">Un único servidor aloja la aplicación y la base de datos juntas: el punto de partida más simple.</li>
-      <li data-step="2" data-step-href="#paso-2" data-step-title="Separar la base de datos">La base de datos pasa a su propio servidor: cada pieza escala y falla por separado.</li>
-      <li data-step="3" data-step-href="#paso-3" data-step-title="Escalado vertical">Antes de añadir servidores, se le da más CPU y RAM al que ya existe. No se ve en el diagrama: es el mismo servidor, más grande.</li>
-      <li data-step="4" data-step-href="#paso-4" data-step-title="Escalado horizontal">Se añade una segunda réplica de la aplicación para repartir la carga y ganar tolerancia a fallos.</li>
-      <li data-step="5" data-step-href="#paso-5" data-step-title="Load balancer">Un balanceador reparte cada petición entre las réplicas disponibles: los usuarios ya no hablan directamente con ningún servidor.</li>
-      <li data-step="6" data-step-href="#paso-6" data-step-title="Autoescalado">El número de réplicas detrás del balanceador sube o baja solo, según el tráfico real.</li>
-      <li data-step="7" data-step-href="#paso-7" data-step-title="Caché con Redis">Las consultas que se repiten mucho se sirven desde memoria, sin llegar a la base de datos.</li>
-      <li data-step="8" data-step-href="#paso-8" data-step-title="Cola de mensajes">Las tareas lentas se desacoplan de la respuesta al usuario y se procesan aparte.</li>
-      <li data-step="9" data-step-href="#paso-9" data-step-title="CDN y réplica de lectura">Los archivos estáticos se sirven cerca del usuario, y las lecturas se reparten con una réplica de la base de datos.</li>
-      <li data-step="10" data-step-href="#paso-10" data-step-title="Observabilidad y resiliencia">Monitorización con alertas y copias de seguridad automatizadas: nada falla en silencio y todo se puede recuperar.</li>
-    </ul>
-  </div>
-
-  <p class="infra-step-caption" id="infra-caption" aria-live="polite"></p>
-  <a class="infra-step-link" id="infra-step-link" href="#paso-1">Ver explicación completa del paso 1 &rarr;</a>
-</section>
-  </div>
-  <div class="infra-scroll-text">
 <h2 id="todo-en-un-servidor">1. Todo en un servidor</h2>
-<div class="infra-scene" id="paso-1" data-scroll-step="1">
 <p>Toda infraestructura empieza igual: un servidor, la aplicación y la base de datos conviviendo en la misma máquina. Es la opción más barata y la más simple de entender, y es la correcta mientras el tráfico es bajo y el proyecto está validando si tiene sentido. El error habitual no es empezar así: es quedarse ahí por miedo a tocarlo cuando ya no basta.</p>
-<figure class="flow-figure"><div class="flow"><div class="flow-node"><strong>Usuarios</strong>Peticiones HTTP</div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node"><strong>Servidor único</strong>App + base de datos juntas</div></div><figcaption>El punto de partida: todo en la misma máquina.</figcaption></figure>
-</div>
+<figure class="flow-figure"><div class="infra-diagram-static" id="diagram-1">
+  <svg class="infra-static-connectors" aria-hidden="true" focusable="false" viewBox="0 0 726 204.421875"><path d="M 363 63.859375 L 363 108.859375"></path></svg>
+  <div class="infra-static-rows"><div class="infra-static-row"><div class="arch-node" data-node="users"><strong>Usuarios</strong></div></div><div class="infra-static-row"><div class="infra-static-group" style="width:187.6px"><span class="infra-group-label">Un servidor</span><div class="arch-node" data-node="appdb"><strong>App + BD</strong>Todo junto</div></div></div></div>
+</div><figcaption>Todo en un servidor: la app y la base de datos juntas.</figcaption></figure>
 
 <h2 id="separar-la-base-de-datos">2. Separar la base de datos</h2>
-<div class="infra-scene" id="paso-2" data-scroll-step="2">
 <p>El primer síntoma suele ser este: la base de datos y la aplicación compiten por la misma CPU y la misma memoria, y un pico de una afecta a la otra. La solución es mover la base de datos a su propio servidor (en AWS, normalmente una instancia RDS gestionada). A partir de aquí cada pieza escala, se actualiza y falla de forma independiente, y puedes dar copias de seguridad y parches a la base de datos sin tocar la aplicación.</p>
-<figure class="flow-figure"><div class="flow"><div class="flow-node"><strong>Servidor de aplicación</strong>Solo ejecuta el código</div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node"><strong>Base de datos</strong>En su propio servidor</div></div><figcaption>Cada pieza en su propia máquina.</figcaption></figure>
-</div>
+<figure class="flow-figure"><div class="infra-diagram-static" id="diagram-2">
+  <svg class="infra-static-connectors" aria-hidden="true" focusable="false" viewBox="0 0 726 319.984375"><path d="M 363 63.859375 L 363 108.859375"></path><path d="M 363 165.625 L 363 224.421875"></path></svg>
+  <div class="infra-static-rows"><div class="infra-static-row"><div class="arch-node" data-node="users"><strong>Usuarios</strong></div></div><div class="infra-static-row"><div class="infra-static-group" style="width:187.6px"><span class="infra-group-label">Servidor de aplicación</span><div class="arch-node" data-node="app1"><strong>App</strong>Réplica 1</div></div></div><div class="infra-static-row"><div class="infra-static-group" style="width:187.6px"><span class="infra-group-label">Base de datos</span><div class="arch-node" data-node="db"><strong>BD</strong>Primaria</div></div></div></div>
+</div><figcaption>La base de datos ya vive en su propio servidor.</figcaption></figure>
 
 <h2 id="escalado-vertical-y-horizontal">3-4. Escalado vertical y horizontal</h2>
-<div class="infra-scene" id="paso-3" data-scroll-step="3">
 <p>Cuando un servidor empieza a ir justo, hay dos formas de darle más capacidad. La primera y más simple es el <strong>escalado vertical</strong>: subir de tipo de instancia, con más CPU y RAM en la misma máquina. No añade nada al diagrama de arquitectura, solo cambia el tamaño de una caja que ya existía, y tiene un límite: llega un punto en el que no hay una instancia más grande, o deja de compensar el coste.</p>
-</div>
-<div class="infra-scene" id="paso-4" data-scroll-step="4">
 <p>El <strong>escalado horizontal</strong> es distinto: en vez de una máquina más grande, se añaden más máquinas iguales ejecutando la misma aplicación. Cuesta un poco más de disciplina (la aplicación no puede guardar estado solo en memoria local, por ejemplo), pero no tiene techo y de paso gana tolerancia a fallos: si una réplica cae, las demás siguen respondiendo.</p>
-<figure class="flow-figure"><div class="arch"><div class="arch-col"><span class="arch-title">Entrada</span><div class="arch-node"><strong>Usuarios</strong></div></div><span class="flow-arrow" aria-hidden="true">→</span><div class="arch-col is-core"><span class="arch-title">Servidor de aplicación</span><div class="arch-node"><strong>App</strong>Réplica 1</div><div class="arch-node"><strong>App</strong>Réplica 2</div></div><span class="flow-arrow" aria-hidden="true">→</span><div class="arch-col"><span class="arch-title">Datos</span><div class="arch-node"><strong>BD</strong></div></div></div><figcaption>Dos réplicas de la aplicación, todavía sin nada que reparta el tráfico entre ellas.</figcaption></figure>
-<p>Este último punto es importante: con dos réplicas y sin nada más, alguien tiene que decidir a cuál de las dos llega cada petición. Ahí es donde entra el siguiente paso.</p>
-</div>
+<p>Con dos réplicas y sin nada más, alguien tiene que decidir a cuál de las dos llega cada petición. Ahí es donde entra el siguiente paso.</p>
+<figure class="flow-figure"><div class="infra-diagram-static" id="diagram-4">
+  <svg class="infra-static-connectors" aria-hidden="true" focusable="false" viewBox="0 0 726 319.984375"><path d="M 363 63.859375 L 363 76.359375 Q 363 86.359375 353 86.359375 L 288.203125 86.359375 Q 278.203125 86.359375 278.203125 96.359375 L 278.203125 108.859375"></path><path d="M 278.203125 165.625 L 278.203125 185.0234375 Q 278.203125 195.0234375 288.203125 195.0234375 L 353 195.0234375 Q 363 195.0234375 363 205.0234375 L 363 224.421875"></path><path d="M 447.796875 165.625 L 447.796875 185.0234375 Q 447.796875 195.0234375 437.796875 195.0234375 L 373 195.0234375 Q 363 195.0234375 363 205.0234375 L 363 224.421875"></path></svg>
+  <div class="infra-static-rows"><div class="infra-static-row"><div class="arch-node" data-node="users"><strong>Usuarios</strong></div></div><div class="infra-static-row"><div class="infra-static-group" style="width:357.20000000000005px"><span class="infra-group-label">Servidor de aplicación</span><div class="arch-node" data-node="app1"><strong>App</strong>Réplica 1</div><div class="arch-node" data-node="app2"><strong>App</strong>Réplica 2</div></div></div><div class="infra-static-row"><div class="infra-static-group" style="width:187.6px"><span class="infra-group-label">Base de datos</span><div class="arch-node" data-node="db"><strong>BD</strong>Primaria</div></div></div></div>
+</div><figcaption>Dos réplicas de la aplicación, todavía sin nada que reparta el tráfico entre ellas.</figcaption></figure>
 
 <h2 id="load-balancer-y-autoescalado">5-6. Load balancer y autoescalado</h2>
-<div class="infra-scene" id="paso-5" data-scroll-step="5">
 <p>El <strong>load balancer</strong> (en AWS, un Application Load Balancer) recibe todo el tráfico y lo reparte entre las réplicas sanas de la aplicación. A partir de aquí los usuarios ya no hablan con un servidor concreto, hablan con el balanceador, y eso también permite sacar una réplica de la circulación para actualizarla sin que nadie note un corte.</p>
-</div>
-<div class="infra-scene" id="paso-6" data-scroll-step="6">
 <p>El <strong>autoescalado</strong> añade la pieza que faltaba: en vez de decidir a mano cuántas réplicas hay detrás del balanceador, un grupo de autoescalado las añade o las quita según métricas reales (CPU, número de peticiones, hora del día). Se paga por lo que se usa, y el sistema aguanta un pico sin que nadie tenga que levantarse a las 3 de la madrugada a lanzar un servidor más.</p>
-<figure class="flow-figure"><div class="arch"><div class="arch-col"><span class="arch-title">Entrada</span><div class="arch-node"><strong>Usuarios</strong></div></div><span class="flow-arrow" aria-hidden="true">→</span><div class="arch-col is-core"><span class="arch-title">Load Balancer</span><div class="arch-node"><strong>Reparte</strong>el tráfico</div></div><span class="flow-arrow" aria-hidden="true">→</span><div class="arch-col"><span class="arch-title">Réplicas de app</span><div class="arch-node"><strong>2 a N</strong>según demanda</div></div></div><figcaption>El balanceador decide, el autoescalado ajusta cuántas réplicas hay.</figcaption></figure>
-</div>
+<figure class="flow-figure"><div class="infra-diagram-static" id="diagram-6">
+  <svg class="infra-static-connectors" aria-hidden="true" focusable="false" viewBox="0 0 726 396.75"><path d="M 363 63.859375 L 363 83.859375"></path><path d="M 283 112.2421875 L 280.59765625 112.2421875 Q 278.1953125 112.2421875 278.1953125 114.64453125 L 278.1953125 211.60546875 Q 278.1953125 214.0078125 275.79296875 214.0078125 L 273.390625 214.0078125"></path><path d="M 363 140.625 L 363 185.625"></path><path d="M 443 112.2421875 L 445.39453125 112.2421875 Q 447.7890625 112.2421875 447.7890625 114.63671875 L 447.7890625 211.61328125 Q 447.7890625 214.0078125 450.18359375 214.0078125 L 452.578125 214.0078125"></path><path d="M 273.390625 214.0078125 L 275.79296875 214.0078125 Q 278.1953125 214.0078125 278.1953125 216.41015625 L 278.1953125 327.16796875 Q 278.1953125 329.5703125 280.59765625 329.5703125 L 283 329.5703125"></path><path d="M 362.984375 242.390625 L 362.984375 301.1875"></path></svg>
+  <div class="infra-static-rows"><div class="infra-static-row"><div class="arch-node" data-node="users"><strong>Usuarios</strong></div></div><div class="infra-static-row"><div class="arch-node infra-node--core" data-node="lb"><strong>Load Balancer</strong>Reparte el tráfico</div></div><div class="infra-static-row"><div class="infra-static-group" style="width:526.8px"><span class="infra-group-label">Servidor de aplicación</span><div class="arch-node" data-node="app1"><strong>App</strong>Réplica 1</div><div class="arch-node" data-node="app2"><strong>App</strong>Réplica 2</div><div class="arch-node infra-node--ghost" data-node="app3"><strong>App</strong>+N según demanda</div></div></div><div class="infra-static-row"><div class="infra-static-group" style="width:187.6px"><span class="infra-group-label">Base de datos</span><div class="arch-node" data-node="db"><strong>BD</strong>Primaria</div></div></div></div>
+</div><figcaption>Load balancer y autoescalado: el sistema ya no depende de un único servidor.</figcaption></figure>
 
 <h2 id="cache-con-redis">7. Caché con Redis</h2>
-<div class="infra-scene" id="paso-7" data-scroll-step="7">
 <p>Con más tráfico, muchas consultas a la base de datos son siempre las mismas (un listado de productos, la configuración de la cuenta, un contador de visitas). Guardarlas en una caché en memoria como <strong>Redis</strong> evita repetir esa consulta cada vez: la aplicación pregunta primero a la caché, y solo si no está ahí va a la base de datos. Es una de las mejoras de rendimiento más baratas de implementar y de las que más se nota, sobre todo bajo carga.</p>
-<figure class="flow-figure"><div class="flow"><div class="flow-node"><strong>App</strong>Consulta un dato</div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node"><strong>Redis</strong>¿Está en caché?</div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node"><strong>Base de datos</strong>Solo si no estaba</div></div><figcaption>La base de datos solo recibe lo que la caché no puede resolver.</figcaption></figure>
-</div>
+<figure class="flow-figure"><div class="infra-diagram-static" id="diagram-7">
+  <svg class="infra-static-connectors" aria-hidden="true" focusable="false" viewBox="0 0 726 396.75"><path d="M 363 63.859375 L 363 83.859375"></path><path d="M 283 112.2421875 L 280.59765625 112.2421875 Q 278.1953125 112.2421875 278.1953125 114.64453125 L 278.1953125 211.60546875 Q 278.1953125 214.0078125 275.79296875 214.0078125 L 273.390625 214.0078125"></path><path d="M 363 140.625 L 363 185.625"></path><path d="M 443 112.2421875 L 445.39453125 112.2421875 Q 447.7890625 112.2421875 447.7890625 114.63671875 L 447.7890625 211.61328125 Q 447.7890625 214.0078125 450.18359375 214.0078125 L 452.578125 214.0078125"></path><path d="M 273.390625 214.0078125 L 312.1953125 214.0078125 Q 322.1953125 214.0078125 322.1953125 224.0078125 L 322.1953125 319.5703125 Q 322.1953125 329.5703125 332.1953125 329.5703125 L 371 329.5703125"></path><path d="M 362.984375 242.390625 L 362.984375 261.7890625 Q 362.984375 271.7890625 372.984375 271.7890625 L 441 271.7890625 Q 451 271.7890625 451 281.7890625 L 451 301.1875"></path><path d="M 193.390625 242.390625 L 193.390625 250.83984375 Q 193.390625 259.2890625 201.83984375 259.2890625 L 252.75390625 259.2890625 Q 261.203125 259.2890625 261.203125 267.73828125 L 261.203125 276.1875"></path></svg>
+  <div class="infra-static-rows"><div class="infra-static-row"><div class="arch-node" data-node="users"><strong>Usuarios</strong></div></div><div class="infra-static-row"><div class="arch-node infra-node--core" data-node="lb"><strong>Load Balancer</strong>Reparte el tráfico</div></div><div class="infra-static-row"><div class="infra-static-group" style="width:526.8px"><span class="infra-group-label">Servidor de aplicación</span><div class="arch-node" data-node="app1"><strong>App</strong>Réplica 1</div><div class="arch-node" data-node="app2"><strong>App</strong>Réplica 2</div><div class="arch-node infra-node--ghost" data-node="app3"><strong>App</strong>+N según demanda</div></div></div><div class="infra-static-row"><div class="arch-node" data-node="redis"><strong>Redis</strong>Caché</div><div class="infra-static-group" style="width:187.6px"><span class="infra-group-label">Base de datos</span><div class="arch-node" data-node="db"><strong>BD</strong>Primaria</div></div></div></div>
+</div><figcaption>Redis absorbe las consultas repetidas antes de que lleguen a la base de datos.</figcaption></figure>
 
 <h2 id="cola-de-mensajes">8. Cola de mensajes</h2>
-<div class="infra-scene" id="paso-8" data-scroll-step="8">
 <p>No todo lo que hace una aplicación tiene que pasar mientras el usuario espera la respuesta. Enviar un correo de confirmación, generar un PDF, llamar a una API externa lenta: son tareas que se pueden encolar y procesar aparte, con una <strong>cola de mensajes</strong> (en AWS, SQS) y un proceso (worker) que la va vaciando. El usuario recibe respuesta al instante, y si la tarea falla se puede reintentar sin que nadie se entere.</p>
-<figure class="flow-figure"><div class="flow"><div class="flow-node"><strong>App</strong>Responde ya al usuario</div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node"><strong>Cola</strong>Guarda la tarea</div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node"><strong>Worker</strong>La procesa aparte</div></div><figcaption>Lo lento se desacopla de la respuesta al usuario.</figcaption></figure>
-</div>
+<figure class="flow-figure"><div class="infra-diagram-static" id="diagram-8">
+  <svg class="infra-static-connectors" aria-hidden="true" focusable="false" viewBox="0 0 726 396.75"><path d="M 363 63.859375 L 363 83.859375"></path><path d="M 283 112.2421875 L 280.59765625 112.2421875 Q 278.1953125 112.2421875 278.1953125 114.64453125 L 278.1953125 211.60546875 Q 278.1953125 214.0078125 275.79296875 214.0078125 L 273.390625 214.0078125"></path><path d="M 363 140.625 L 363 185.625"></path><path d="M 443 112.2421875 L 445.39453125 112.2421875 Q 447.7890625 112.2421875 447.7890625 114.63671875 L 447.7890625 211.61328125 Q 447.7890625 214.0078125 450.18359375 214.0078125 L 452.578125 214.0078125"></path><path d="M 273.390625 214.0078125 L 356.1953125 214.0078125 Q 366.1953125 214.0078125 366.1953125 224.0078125 L 366.1953125 319.5703125 Q 366.1953125 329.5703125 376.1953125 329.5703125 L 459 329.5703125"></path><path d="M 442.984375 214.0078125 L 446.98828125 214.0078125 Q 450.9921875 214.0078125 450.9921875 218.01171875 L 450.9921875 325.56640625 Q 450.9921875 329.5703125 454.99609375 329.5703125 L 459 329.5703125"></path><path d="M 193.390625 242.390625 L 193.390625 250.83984375 Q 193.390625 259.2890625 184.94140625 259.2890625 L 181.65234375 259.2890625 Q 173.203125 259.2890625 173.203125 267.73828125 L 173.203125 276.1875"></path><path d="M 273.390625 214.0078125 L 272.34375 214.0078125 Q 271.296875 214.0078125 271.296875 215.0546875 L 271.296875 322.921875 Q 271.296875 323.96875 270.25 323.96875 L 269.203125 323.96875"></path></svg>
+  <div class="infra-static-rows"><div class="infra-static-row"><div class="arch-node" data-node="users"><strong>Usuarios</strong></div></div><div class="infra-static-row"><div class="arch-node infra-node--core" data-node="lb"><strong>Load Balancer</strong>Reparte el tráfico</div></div><div class="infra-static-row"><div class="infra-static-group" style="width:526.8px"><span class="infra-group-label">Servidor de aplicación</span><div class="arch-node" data-node="app1"><strong>App</strong>Réplica 1</div><div class="arch-node" data-node="app2"><strong>App</strong>Réplica 2</div><div class="arch-node infra-node--ghost" data-node="app3"><strong>App</strong>+N según demanda</div></div></div><div class="infra-static-row"><div class="arch-node" data-node="redis"><strong>Redis</strong>Caché</div><div class="arch-node" data-node="queue"><strong>Cola</strong>Tareas async</div><div class="infra-static-group" style="width:187.6px"><span class="infra-group-label">Base de datos</span><div class="arch-node" data-node="db"><strong>BD</strong>Primaria</div></div></div></div>
+</div><figcaption>Las tareas lentas se procesan aparte, en una cola, sin bloquear la respuesta.</figcaption></figure>
 
 <h2 id="cdn-y-replica-de-lectura">9. CDN y réplica de lectura</h2>
-<div class="infra-scene" id="paso-9" data-scroll-step="9">
 <p>Dos mejoras que suelen llegar juntas cuando el tráfico ya es serio. Una <strong>CDN</strong> (CloudFront) sirve imágenes, CSS y JS desde un punto cercano al usuario, en vez de desde tu servidor cada vez, lo que además le quita carga al load balancer y a la aplicación. Y una <strong>réplica de lectura</strong> de la base de datos absorbe las consultas de solo lectura (listados, búsquedas, informes), dejando a la instancia primaria libre para las escrituras, que son las que de verdad no se pueden repartir.</p>
-<figure class="flow-figure"><div class="arch"><div class="arch-col"><span class="arch-title">Entrada</span><div class="arch-node"><strong>Usuarios</strong></div><div class="arch-node"><strong>CDN</strong>Estáticos</div></div><span class="flow-arrow" aria-hidden="true">→</span><div class="arch-col is-core"><span class="arch-title">App</span><div class="arch-node"><strong>Réplicas</strong></div></div><span class="flow-arrow" aria-hidden="true">→</span><div class="arch-col"><span class="arch-title">Datos</span><div class="arch-node"><strong>BD primaria</strong>Escrituras</div><div class="arch-node"><strong>BD réplica</strong>Lecturas</div></div></div><figcaption>Lo estático se aleja del servidor; las lecturas se alejan de la primaria.</figcaption></figure>
-</div>
+<figure class="flow-figure"><div class="infra-diagram-static" id="diagram-9">
+  <svg class="infra-static-connectors" aria-hidden="true" focusable="false" viewBox="0 0 726 481.015625"><path d="M 355 53.3828125 L 329 53.3828125 Q 319 53.3828125 319 63.3828125 L 319 120.1484375 Q 319 130.1484375 309 130.1484375 L 283 130.1484375"></path><path d="M 283 130.1484375 L 280.59765625 130.1484375 Q 278.1953125 130.1484375 278.1953125 132.55078125 L 278.1953125 229.51171875 Q 278.1953125 231.9140625 275.79296875 231.9140625 L 273.390625 231.9140625"></path><path d="M 363 158.53125 L 363 203.53125"></path><path d="M 443 130.1484375 L 445.39453125 130.1484375 Q 447.7890625 130.1484375 447.7890625 132.54296875 L 447.7890625 229.51953125 Q 447.7890625 231.9140625 450.18359375 231.9140625 L 452.578125 231.9140625"></path><path d="M 273.390625 231.9140625 L 352.3984375 231.9140625 Q 362.3984375 231.9140625 362.3984375 241.9140625 L 362.3984375 337.4765625 Q 362.3984375 347.4765625 372.3984375 347.4765625 L 451.40625 347.4765625"></path><path d="M 442.984375 231.9140625 L 445.08984375 231.9140625 Q 447.1953125 231.9140625 447.1953125 234.01953125 L 447.1953125 345.37109375 Q 447.1953125 347.4765625 449.30078125 347.4765625 L 451.40625 347.4765625"></path><path d="M 193.390625 260.296875 L 193.390625 268.74609375 Q 193.390625 277.1953125 184.94140625 277.1953125 L 109.66015625 277.1953125 Q 101.2109375 277.1953125 101.2109375 285.64453125 L 101.2109375 294.09375"></path><path d="M 193.390625 260.296875 L 193.390625 268.74609375 Q 193.390625 277.1953125 201.83984375 277.1953125 L 261.17578125 277.1953125 Q 269.625 277.1953125 269.625 285.64453125 L 269.625 294.09375"></path><path d="M 355 53.3828125 L 371 53.3828125"></path><path d="M 273.390625 231.9140625 L 352.3984375 231.9140625 Q 362.3984375 231.9140625 362.3984375 241.9140625 L 362.3984375 403.8359375 Q 362.3984375 413.8359375 372.3984375 413.8359375 L 451.40625 413.8359375"></path><path d="M 531.40625 375.859375 L 531.40625 385.453125"></path></svg>
+  <div class="infra-static-rows"><div class="infra-static-row"><div class="arch-node" data-node="users"><strong>Usuarios</strong></div><div class="arch-node" data-node="cdn"><strong>CDN</strong>Estáticos</div></div><div class="infra-static-row"><div class="arch-node infra-node--core" data-node="lb"><strong>Load Balancer</strong>Reparte el tráfico</div></div><div class="infra-static-row"><div class="infra-static-group" style="width:526.8px"><span class="infra-group-label">Servidor de aplicación</span><div class="arch-node" data-node="app1"><strong>App</strong>Réplica 1</div><div class="arch-node" data-node="app2"><strong>App</strong>Réplica 2</div><div class="arch-node infra-node--ghost" data-node="app3"><strong>App</strong>+N según demanda</div></div></div><div class="infra-static-row"><div class="arch-node" data-node="redis"><strong>Redis</strong>Caché</div><div class="arch-node" data-node="queue"><strong>Cola</strong>Tareas async</div><div class="infra-static-group" style="width:357.20000000000005px"><span class="infra-group-label">Base de datos</span><div class="arch-node" data-node="db"><strong>BD</strong>Primaria</div><div class="arch-node" data-node="dbreplica"><strong>BD</strong>Réplica lectura</div></div></div></div>
+</div><figcaption>Una CDN para lo estático y una réplica de lectura para la base de datos.</figcaption></figure>
 
 <h2 id="observabilidad-y-resiliencia">10. Observabilidad y resiliencia</h2>
-<div class="infra-scene" id="paso-10" data-scroll-step="10">
 <p>Un sistema con todas las piezas anteriores puede seguir fallando en silencio si nadie lo vigila. La <strong>observabilidad</strong> (métricas, registros y alarmas, en AWS con CloudWatch) avisa antes de que un problema llegue al usuario: CPU al límite, cola creciendo, tasa de errores subiendo. Y las <strong>copias de seguridad automatizadas</strong>, probadas de verdad restaurándolas alguna vez, son lo que convierte un fallo grave en un incidente controlado en vez de una pérdida de datos. Con esto, el sistema ya se puede llamar maduro: cada pieza tiene un motivo, y hay alguien (o algo) vigilando cada una.</p>
-<p>En el diagrama de arriba, el paso 10 muestra el conjunto completo: 13 piezas, cada una añadida porque un síntoma real lo pidió.</p>
-</div>
-  </div>
-</div>
+<figure class="flow-figure"><div class="infra-diagram-static" id="diagram-10">
+  <svg class="infra-static-connectors" aria-hidden="true" focusable="false" viewBox="0 0 726 481.015625"><path d="M 267 53.3828125 L 271 53.3828125 Q 275 53.3828125 275 57.3828125 L 275 126.1484375 Q 275 130.1484375 279 130.1484375 L 283 130.1484375"></path><path d="M 283 130.1484375 L 280.59765625 130.1484375 Q 278.1953125 130.1484375 278.1953125 132.55078125 L 278.1953125 229.51171875 Q 278.1953125 231.9140625 275.79296875 231.9140625 L 273.390625 231.9140625"></path><path d="M 363 158.53125 L 363 203.53125"></path><path d="M 443 130.1484375 L 445.39453125 130.1484375 Q 447.7890625 130.1484375 447.7890625 132.54296875 L 447.7890625 229.51953125 Q 447.7890625 231.9140625 450.18359375 231.9140625 L 452.578125 231.9140625"></path><path d="M 273.390625 231.9140625 L 298.796875 231.9140625 Q 308.796875 231.9140625 308.796875 241.9140625 L 308.796875 337.4765625 Q 308.796875 347.4765625 318.796875 347.4765625 L 344.203125 347.4765625"></path><path d="M 362.984375 260.296875 L 362.984375 279.6953125 Q 362.984375 289.6953125 372.984375 289.6953125 L 414.203125 289.6953125 Q 424.203125 289.6953125 424.203125 299.6953125 L 424.203125 319.09375"></path><path d="M 193.390625 260.296875 L 193.390625 268.74609375 Q 193.390625 277.1953125 184.94140625 277.1953125 L 98.44921875 277.1953125 Q 90 277.1953125 90 285.64453125 L 90 294.09375"></path><path d="M 193.390625 260.296875 L 193.390625 268.74609375 Q 193.390625 277.1953125 201.83984375 277.1953125 L 227.55078125 277.1953125 Q 236 277.1953125 236 285.64453125 L 236 294.09375"></path><path d="M 267 53.3828125 L 283 53.3828125"></path><path d="M 273.390625 231.9140625 L 383.59375 231.9140625 Q 393.59375 231.9140625 393.59375 241.9140625 L 393.59375 337.4765625 Q 393.59375 347.4765625 403.59375 347.4765625 L 513.796875 347.4765625"></path><path d="M 504.203125 347.4765625 L 513.796875 347.4765625"></path><path d="M 504.203125 347.4765625 L 476.6015625 347.4765625 Q 466.6015625 347.4765625 466.6015625 357.4765625 L 466.6015625 403.8359375 Q 466.6015625 413.8359375 456.6015625 413.8359375 L 429 413.8359375"></path><path d="M 459 53.3828125 L 455 53.3828125 Q 451 53.3828125 451 57.3828125 L 451 126.1484375 Q 451 130.1484375 447 130.1484375 L 443 130.1484375"></path></svg>
+  <div class="infra-static-rows"><div class="infra-static-row"><div class="arch-node" data-node="users"><strong>Usuarios</strong></div><div class="arch-node" data-node="cdn"><strong>CDN</strong>Estáticos</div><div class="arch-node" data-node="monitor"><strong>Observabilidad</strong>Monitorización y alertas</div></div><div class="infra-static-row"><div class="arch-node infra-node--core" data-node="lb"><strong>Load Balancer</strong>Reparte el tráfico</div></div><div class="infra-static-row"><div class="infra-static-group" style="width:526.8px"><span class="infra-group-label">Servidor de aplicación</span><div class="arch-node" data-node="app1"><strong>App</strong>Réplica 1</div><div class="arch-node" data-node="app2"><strong>App</strong>Réplica 2</div><div class="arch-node infra-node--ghost" data-node="app3"><strong>App</strong>+N según demanda</div></div></div><div class="infra-static-row"><div class="arch-node" data-node="redis"><strong>Redis</strong>Caché</div><div class="arch-node" data-node="queue"><strong>Cola</strong>Tareas async</div><div class="infra-static-group" style="width:526.8px"><span class="infra-group-label">Base de datos</span><div class="arch-node" data-node="db"><strong>BD</strong>Primaria</div><div class="arch-node" data-node="dbreplica"><strong>BD</strong>Réplica lectura</div><div class="arch-node" data-node="backup"><strong>Backups</strong>Automatizados</div></div></div></div>
+</div><figcaption>El sistema completo: 13 piezas, cada una añadida porque un síntoma real lo pidió.</figcaption></figure>
 
 <h2 id="que-paso-dar-primero">Qué paso dar primero</h2>
 <p>No hay una respuesta única, pero sí un criterio: <strong>da el paso que resuelve el síntoma que ya tienes</strong>, no el que crees que vas a tener. Antes de añadir una pieza, hazte estas preguntas:</p>
@@ -376,7 +290,20 @@
         <a href="../servicios/consultoria-tech-lead/#liderazgo">consultoría y Tech Lead</a> para decidir cuándo dar cada paso, y
         <a href="../index.html#contact">escríbeme</a> si quieres hablar de tu proyecto.</p>
     </div>
-  </article>
+    </article>
+
+    <aside class="guide-aside" aria-label="Índice y contacto">
+      <nav class="aside-card aside-toc" aria-label="Contenido del artículo">
+        <p class="aside-title">Contenido</p>
+        <ol><li><a href="#todo-en-un-servidor">1. Todo en un servidor</a></li><li><a href="#separar-la-base-de-datos">2. Separar la base de datos</a></li><li><a href="#escalado-vertical-y-horizontal">3-4. Escalado vertical y horizontal</a></li><li><a href="#load-balancer-y-autoescalado">5-6. Load balancer y autoescalado</a></li><li><a href="#cache-con-redis">7. Caché con Redis</a></li><li><a href="#cola-de-mensajes">8. Cola de mensajes</a></li><li><a href="#cdn-y-replica-de-lectura">9. CDN y réplica de lectura</a></li><li><a href="#observabilidad-y-resiliencia">10. Observabilidad y resiliencia</a></li><li><a href="#que-paso-dar-primero">Qué paso dar primero</a></li><li><a href="#preguntas-habituales">Preguntas habituales</a></li></ol>
+      </nav>
+      <div class="aside-card">
+        <p class="aside-title">¿Hablamos?</p>
+        <p>Cuéntame qué necesitas y te respondo en menos de 24 horas.</p>
+        <a href="../index.html#contact" class="btn-primary">Escríbeme</a>
+      </div>
+    </aside>
+  </main>
 
   <div class="prose">
     <h2>Sigue leyendo</h2>
@@ -447,7 +374,6 @@
   <script src="../js/cookie-consent.js?v=2"></script>
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="../js/site-fx.js"></script>
-  <script src="../js/infra-stepper.js?v=2" defer></script>
 </body>
 
 </html>

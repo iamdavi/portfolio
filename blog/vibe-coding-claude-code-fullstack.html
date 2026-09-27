@@ -31,7 +31,7 @@
 
   <link rel="preload" href="../fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../css/style.css?v=23">
+  <link rel="stylesheet" href="../css/style.css?v=26">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="icon" type="image/png" sizes="48x48" href="../favicon-48.png">
   <link rel="alternate icon" href="../favicon.ico">
@@ -128,7 +128,13 @@
     </div>
   </section>
 
-  <article class="prose">
+    <main class="guide">
+    <article class="prose">
+    <details class="toc-inline">
+<summary>Contenido de este artículo</summary>
+<ol><li><a href="#el-problema-real-la-ventana-de-contexto">El problema real: la ventana de contexto</a></li><li><a href="#prompts-estructurados-no-conversaciones-sueltas">Prompts estructurados, no conversaciones sueltas</a></li><li><a href="#agentes-y-skills-dedicadas">Agentes y skills dedicadas</a></li><li><a href="#donde-encaja-esto-en-un-stack-php-vue-aws">Dónde encaja esto en un stack PHP + Vue + AWS</a></li><li><a href="#la-conclusion-que-me-llevo">La conclusión que me llevo</a></li></ol>
+</details>
+
     <p>
       "Vibe coding" se suele entender como dejar que la IA escriba código a partir de una descripción vaga y
       confiar en que funcione. En mi día a día como desarrollador fullstack lo entiendo de otra forma: usar
@@ -136,7 +142,7 @@
       instrucciones y sus propias responsabilidades dentro del proyecto — no como un autocompletado glorificado.
     </p>
 
-    <h2>El problema real: la ventana de contexto</h2>
+    <h2 id="el-problema-real-la-ventana-de-contexto">El problema real: la ventana de contexto</h2>
     <p>
       El mayor error al trabajar con IA generativa en proyectos grandes no es la calidad del modelo, es la gestión
       del contexto. Si le pasas a la IA todo el repositorio de golpe, pierdes precisión; si le pasas demasiado poco,
@@ -152,7 +158,7 @@
         para revisar un solo endpoint.</p>
     </div>
 
-    <h2>Prompts estructurados, no conversaciones sueltas</h2>
+    <h2 id="prompts-estructurados-no-conversaciones-sueltas">Prompts estructurados, no conversaciones sueltas</h2>
     <p>
       Un prompt suelto tipo "arréglame esto" produce resultados inconsistentes. Estructuro las instrucciones con:
       qué se espera exactamente, qué restricciones tiene (convenciones del proyecto, patrones ya usados, qué no
@@ -160,7 +166,7 @@
       iteraciones de ida y vuelta, que es donde realmente se pierde tiempo cuando se trabaja con IA sin disciplina.
     </p>
 
-    <h2>Agentes y skills dedicadas</h2>
+    <h2 id="agentes-y-skills-dedicadas">Agentes y skills dedicadas</h2>
     <p>
       Para tareas que se repiten (revisión de código, despliegue, generación de documentación) no reescribo el
       contexto cada vez: configuro <strong>skills</strong> dedicadas que encapsulan el procedimiento, y delego
@@ -174,7 +180,7 @@
       correcta.
     </blockquote>
 
-    <h2>Dónde encaja esto en un stack PHP + Vue + AWS</h2>
+    <h2 id="donde-encaja-esto-en-un-stack-php-vue-aws">Dónde encaja esto en un stack PHP + Vue + AWS</h2>
     <p>
       En proyectos reales esto se traduce en cosas concretas: documentación de la API fragmentada por endpoint para
       que la IA no tenga que releer el backend entero en cada cambio del frontend; scripts de despliegue en AWS
@@ -183,7 +189,7 @@
       proyecto antes de que lleguen a revisión humana.
     </p>
 
-    <h2>La conclusión que me llevo</h2>
+    <h2 id="la-conclusion-que-me-llevo">La conclusión que me llevo</h2>
     <p>
       La diferencia entre "vibe coding" como meme y como herramienta productiva real está en el diseño del flujo de
       trabajo: contexto bien fragmentado, prompts con criterios de éxito explícitos, y automatización de lo
@@ -195,6 +201,19 @@
         <a href="../servicios/ia-y-mcp-para-tu-negocio/">integración de IA y MCP en tu negocio</a>.</p>
     </div>
   </article>
+
+    <aside class="guide-aside" aria-label="Índice y contacto">
+      <nav class="aside-card aside-toc" aria-label="Contenido del artículo">
+        <p class="aside-title">Contenido</p>
+        <ol><li><a href="#el-problema-real-la-ventana-de-contexto">El problema real: la ventana de contexto</a></li><li><a href="#prompts-estructurados-no-conversaciones-sueltas">Prompts estructurados, no conversaciones sueltas</a></li><li><a href="#agentes-y-skills-dedicadas">Agentes y skills dedicadas</a></li><li><a href="#donde-encaja-esto-en-un-stack-php-vue-aws">Dónde encaja esto en un stack PHP + Vue + AWS</a></li><li><a href="#la-conclusion-que-me-llevo">La conclusión que me llevo</a></li></ol>
+      </nav>
+      <div class="aside-card">
+        <p class="aside-title">¿Hablamos?</p>
+        <p>Cuéntame qué necesitas y te respondo en menos de 24 horas.</p>
+        <a href="../index.html#contact" class="btn-primary">Escríbeme</a>
+      </div>
+    </aside>
+  </main>
 
   <div class="prose">
     <h2>Sigue leyendo</h2>

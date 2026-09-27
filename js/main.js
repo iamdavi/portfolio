@@ -71,8 +71,7 @@ const projectOrder = ['tukomanda', 'nika', 'munttarpe'];
 const projectsReduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 const projectsReduceMotion = () => projectsReduceMotionQuery.matches;
 
-// Centra el tab activo y actualiza las flechas prev/siguiente (mismo patrón
-// que en js/infra-stepper.js; se duplica porque no hay módulos compartidos).
+// Centra el tab activo y actualiza las flechas prev/siguiente.
 function centerTabInScroller(scroller, tab, smooth) {
   if (!scroller || !tab) return;
   const target = tab.offsetLeft - (scroller.clientWidth / 2) + (tab.offsetWidth / 2);

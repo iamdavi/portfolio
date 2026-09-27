@@ -22,3 +22,4 @@
 - [Cuánto cuesta una web a medida: precios y qué influye](https://davidotero.es/blog/cuanto-cuesta-una-web-a-medida.html)
 - [n8n vs Make vs Zapier: cuál elegir para automatizar tu empresa](https://davidotero.es/blog/n8n-vs-make-vs-zapier.html)
 - [Desplegar una aplicación PHP en AWS: opciones y guía paso a paso](https://davidotero.es/blog/desplegar-php-en-aws.html)
+- [De un servidor a una arquitectura escalable en AWS](https://davidotero.es/blog/arquitectura-web-escalable-en-aws.html)

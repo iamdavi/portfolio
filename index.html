@@ -36,7 +36,7 @@
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
   <link rel="preload" href="fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="css/style.css?v=21">
+  <link rel="stylesheet" href="css/style.css?v=22">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" sizes="48x48" href="favicon-48.png">
   <link rel="alternate icon" href="favicon.ico">
@@ -679,6 +679,8 @@
       </div>
 
       <div class="projects-showcase reveal">
+        <div class="tabs-scroller">
+        <button type="button" class="tabs-arrow tabs-arrow--prev" aria-label="Proyecto anterior" hidden>&lsaquo;</button>
         <div class="projects-tabs" role="tablist" aria-label="Proyectos">
           <button class="project-tab active" data-project="tukomanda" role="tab" aria-selected="true"
             aria-controls="project-tukomanda">
@@ -697,6 +699,8 @@
                 class="project-tab-mark-icon"></span>
             Munttarpe
           </button>
+        </div>
+        <button type="button" class="tabs-arrow tabs-arrow--next" aria-label="Siguiente proyecto" hidden>&rsaquo;</button>
         </div>
 
         <div class="projects-slider">
@@ -1290,7 +1294,7 @@
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="js/site-fx.js"></script>
   <script src="js/nav.js?v=3"></script>
-  <script src="js/main.js?v=5"></script>
+  <script src="js/main.js?v=6"></script>
 </body>
 
 </html>

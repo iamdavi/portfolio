@@ -28,7 +28,7 @@
 
   <link rel="preload" href="../fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../css/style.css?v=21">
+  <link rel="stylesheet" href="../css/style.css?v=22">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="icon" type="image/png" sizes="48x48" href="../favicon-48.png">
   <link rel="alternate icon" href="../favicon.ico">
@@ -200,10 +200,14 @@
 
 <p>Ninguna aplicación nace con balanceadores, colas y caché: nace en un único servidor, y así debería ser. La infraestructura madura poco a poco, y cada pieza nueva resuelve un síntoma concreto (lentitud, caídas, un pico de tráfico, una factura que no cuadra), no una moda. Este artículo recorre esa evolución en <strong>10 pasos</strong>, con un diagrama interactivo que va creciendo pieza a pieza y, debajo, la explicación de por qué se da cada paso y qué problema resuelve.</p>
 
+<div class="infra-scroll">
+  <div class="infra-scroll-diagram">
 <section class="infra-stepper" aria-labelledby="infra-stepper-title">
   <h2 id="la-evolucion-en-10-pasos" class="infra-stepper-heading">La evolución en 10 pasos</h2>
 
-  <div class="infra-stepper-nav" role="tablist" aria-label="Pasos de la evolución de la infraestructura">
+  <div class="tabs-scroller">
+    <button type="button" class="tabs-arrow tabs-arrow--prev" aria-label="Paso anterior" hidden>&lsaquo;</button>
+    <div class="infra-stepper-nav" role="tablist" aria-label="Pasos de la evolución de la infraestructura">
     <button class="infra-step-btn" role="tab" id="infra-tab-1" aria-controls="infra-panel" aria-selected="true" tabindex="0" data-step="1"><span class="infra-step-num">1</span><span class="infra-step-label">Un servidor</span></button>
     <button class="infra-step-btn" role="tab" id="infra-tab-2" aria-controls="infra-panel" aria-selected="false" tabindex="-1" data-step="2"><span class="infra-step-num">2</span><span class="infra-step-label">Separar BD</span></button>
     <button class="infra-step-btn" role="tab" id="infra-tab-3" aria-controls="infra-panel" aria-selected="false" tabindex="-1" data-step="3"><span class="infra-step-num">3</span><span class="infra-step-label">Escalado vertical</span></button>
@@ -214,6 +218,8 @@
     <button class="infra-step-btn" role="tab" id="infra-tab-8" aria-controls="infra-panel" aria-selected="false" tabindex="-1" data-step="8"><span class="infra-step-num">8</span><span class="infra-step-label">Cola de mensajes</span></button>
     <button class="infra-step-btn" role="tab" id="infra-tab-9" aria-controls="infra-panel" aria-selected="false" tabindex="-1" data-step="9"><span class="infra-step-num">9</span><span class="infra-step-label">CDN + réplica</span></button>
     <button class="infra-step-btn" role="tab" id="infra-tab-10" aria-controls="infra-panel" aria-selected="false" tabindex="-1" data-step="10"><span class="infra-step-num">10</span><span class="infra-step-label">Observabilidad</span></button>
+    </div>
+    <button type="button" class="tabs-arrow tabs-arrow--next" aria-label="Paso siguiente" hidden>&rsaquo;</button>
   </div>
 
   <div class="infra-diagram" id="infra-panel" role="tabpanel" aria-labelledby="infra-tab-1">
@@ -268,56 +274,80 @@
     <i class="infra-conn" data-from="monitor" data-to="db" data-step-add="10" hidden></i>
 
     <ul hidden>
-      <li data-step="1" data-step-title="Todo en un servidor">Un único servidor aloja la aplicación y la base de datos juntas: el punto de partida más simple.</li>
-      <li data-step="2" data-step-title="Separar la base de datos">La base de datos pasa a su propio servidor: cada pieza escala y falla por separado.</li>
-      <li data-step="3" data-step-title="Escalado vertical">Antes de añadir servidores, se le da más CPU y RAM al que ya existe. No se ve en el diagrama: es el mismo servidor, más grande.</li>
-      <li data-step="4" data-step-title="Escalado horizontal">Se añade una segunda réplica de la aplicación para repartir la carga y ganar tolerancia a fallos.</li>
-      <li data-step="5" data-step-title="Load balancer">Un balanceador reparte cada petición entre las réplicas disponibles: los usuarios ya no hablan directamente con ningún servidor.</li>
-      <li data-step="6" data-step-title="Autoescalado">El número de réplicas detrás del balanceador sube o baja solo, según el tráfico real.</li>
-      <li data-step="7" data-step-title="Caché con Redis">Las consultas que se repiten mucho se sirven desde memoria, sin llegar a la base de datos.</li>
-      <li data-step="8" data-step-title="Cola de mensajes">Las tareas lentas se desacoplan de la respuesta al usuario y se procesan aparte.</li>
-      <li data-step="9" data-step-title="CDN y réplica de lectura">Los archivos estáticos se sirven cerca del usuario, y las lecturas se reparten con una réplica de la base de datos.</li>
-      <li data-step="10" data-step-title="Observabilidad y resiliencia">Monitorización con alertas y copias de seguridad automatizadas: nada falla en silencio y todo se puede recuperar.</li>
+      <li data-step="1" data-step-href="#paso-1" data-step-title="Todo en un servidor">Un único servidor aloja la aplicación y la base de datos juntas: el punto de partida más simple.</li>
+      <li data-step="2" data-step-href="#paso-2" data-step-title="Separar la base de datos">La base de datos pasa a su propio servidor: cada pieza escala y falla por separado.</li>
+      <li data-step="3" data-step-href="#paso-3" data-step-title="Escalado vertical">Antes de añadir servidores, se le da más CPU y RAM al que ya existe. No se ve en el diagrama: es el mismo servidor, más grande.</li>
+      <li data-step="4" data-step-href="#paso-4" data-step-title="Escalado horizontal">Se añade una segunda réplica de la aplicación para repartir la carga y ganar tolerancia a fallos.</li>
+      <li data-step="5" data-step-href="#paso-5" data-step-title="Load balancer">Un balanceador reparte cada petición entre las réplicas disponibles: los usuarios ya no hablan directamente con ningún servidor.</li>
+      <li data-step="6" data-step-href="#paso-6" data-step-title="Autoescalado">El número de réplicas detrás del balanceador sube o baja solo, según el tráfico real.</li>
+      <li data-step="7" data-step-href="#paso-7" data-step-title="Caché con Redis">Las consultas que se repiten mucho se sirven desde memoria, sin llegar a la base de datos.</li>
+      <li data-step="8" data-step-href="#paso-8" data-step-title="Cola de mensajes">Las tareas lentas se desacoplan de la respuesta al usuario y se procesan aparte.</li>
+      <li data-step="9" data-step-href="#paso-9" data-step-title="CDN y réplica de lectura">Los archivos estáticos se sirven cerca del usuario, y las lecturas se reparten con una réplica de la base de datos.</li>
+      <li data-step="10" data-step-href="#paso-10" data-step-title="Observabilidad y resiliencia">Monitorización con alertas y copias de seguridad automatizadas: nada falla en silencio y todo se puede recuperar.</li>
     </ul>
   </div>
 
   <p class="infra-step-caption" id="infra-caption" aria-live="polite"></p>
+  <a class="infra-step-link" id="infra-step-link" href="#paso-1">Ver explicación completa del paso 1 &rarr;</a>
 </section>
-
+  </div>
+  <div class="infra-scroll-text">
 <h2 id="todo-en-un-servidor">1. Todo en un servidor</h2>
+<div class="infra-scene" id="paso-1" data-scroll-step="1">
 <p>Toda infraestructura empieza igual: un servidor, la aplicación y la base de datos conviviendo en la misma máquina. Es la opción más barata y la más simple de entender, y es la correcta mientras el tráfico es bajo y el proyecto está validando si tiene sentido. El error habitual no es empezar así: es quedarse ahí por miedo a tocarlo cuando ya no basta.</p>
 <figure class="flow-figure"><div class="flow"><div class="flow-node"><strong>Usuarios</strong>Peticiones HTTP</div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node"><strong>Servidor único</strong>App + base de datos juntas</div></div><figcaption>El punto de partida: todo en la misma máquina.</figcaption></figure>
+</div>
 
 <h2 id="separar-la-base-de-datos">2. Separar la base de datos</h2>
+<div class="infra-scene" id="paso-2" data-scroll-step="2">
 <p>El primer síntoma suele ser este: la base de datos y la aplicación compiten por la misma CPU y la misma memoria, y un pico de una afecta a la otra. La solución es mover la base de datos a su propio servidor (en AWS, normalmente una instancia RDS gestionada). A partir de aquí cada pieza escala, se actualiza y falla de forma independiente, y puedes dar copias de seguridad y parches a la base de datos sin tocar la aplicación.</p>
 <figure class="flow-figure"><div class="flow"><div class="flow-node"><strong>Servidor de aplicación</strong>Solo ejecuta el código</div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node"><strong>Base de datos</strong>En su propio servidor</div></div><figcaption>Cada pieza en su propia máquina.</figcaption></figure>
+</div>
 
 <h2 id="escalado-vertical-y-horizontal">3-4. Escalado vertical y horizontal</h2>
+<div class="infra-scene" id="paso-3" data-scroll-step="3">
 <p>Cuando un servidor empieza a ir justo, hay dos formas de darle más capacidad. La primera y más simple es el <strong>escalado vertical</strong>: subir de tipo de instancia, con más CPU y RAM en la misma máquina. No añade nada al diagrama de arquitectura, solo cambia el tamaño de una caja que ya existía, y tiene un límite: llega un punto en el que no hay una instancia más grande, o deja de compensar el coste.</p>
+</div>
+<div class="infra-scene" id="paso-4" data-scroll-step="4">
 <p>El <strong>escalado horizontal</strong> es distinto: en vez de una máquina más grande, se añaden más máquinas iguales ejecutando la misma aplicación. Cuesta un poco más de disciplina (la aplicación no puede guardar estado solo en memoria local, por ejemplo), pero no tiene techo y de paso gana tolerancia a fallos: si una réplica cae, las demás siguen respondiendo.</p>
 <figure class="flow-figure"><div class="arch"><div class="arch-col"><span class="arch-title">Entrada</span><div class="arch-node"><strong>Usuarios</strong></div></div><span class="flow-arrow" aria-hidden="true">→</span><div class="arch-col is-core"><span class="arch-title">Servidor de aplicación</span><div class="arch-node"><strong>App</strong>Réplica 1</div><div class="arch-node"><strong>App</strong>Réplica 2</div></div><span class="flow-arrow" aria-hidden="true">→</span><div class="arch-col"><span class="arch-title">Datos</span><div class="arch-node"><strong>BD</strong></div></div></div><figcaption>Dos réplicas de la aplicación, todavía sin nada que reparta el tráfico entre ellas.</figcaption></figure>
 <p>Este último punto es importante: con dos réplicas y sin nada más, alguien tiene que decidir a cuál de las dos llega cada petición. Ahí es donde entra el siguiente paso.</p>
+</div>
 
 <h2 id="load-balancer-y-autoescalado">5-6. Load balancer y autoescalado</h2>
+<div class="infra-scene" id="paso-5" data-scroll-step="5">
 <p>El <strong>load balancer</strong> (en AWS, un Application Load Balancer) recibe todo el tráfico y lo reparte entre las réplicas sanas de la aplicación. A partir de aquí los usuarios ya no hablan con un servidor concreto, hablan con el balanceador, y eso también permite sacar una réplica de la circulación para actualizarla sin que nadie note un corte.</p>
+</div>
+<div class="infra-scene" id="paso-6" data-scroll-step="6">
 <p>El <strong>autoescalado</strong> añade la pieza que faltaba: en vez de decidir a mano cuántas réplicas hay detrás del balanceador, un grupo de autoescalado las añade o las quita según métricas reales (CPU, número de peticiones, hora del día). Se paga por lo que se usa, y el sistema aguanta un pico sin que nadie tenga que levantarse a las 3 de la madrugada a lanzar un servidor más.</p>
 <figure class="flow-figure"><div class="arch"><div class="arch-col"><span class="arch-title">Entrada</span><div class="arch-node"><strong>Usuarios</strong></div></div><span class="flow-arrow" aria-hidden="true">→</span><div class="arch-col is-core"><span class="arch-title">Load Balancer</span><div class="arch-node"><strong>Reparte</strong>el tráfico</div></div><span class="flow-arrow" aria-hidden="true">→</span><div class="arch-col"><span class="arch-title">Réplicas de app</span><div class="arch-node"><strong>2 a N</strong>según demanda</div></div></div><figcaption>El balanceador decide, el autoescalado ajusta cuántas réplicas hay.</figcaption></figure>
+</div>
 
 <h2 id="cache-con-redis">7. Caché con Redis</h2>
+<div class="infra-scene" id="paso-7" data-scroll-step="7">
 <p>Con más tráfico, muchas consultas a la base de datos son siempre las mismas (un listado de productos, la configuración de la cuenta, un contador de visitas). Guardarlas en una caché en memoria como <strong>Redis</strong> evita repetir esa consulta cada vez: la aplicación pregunta primero a la caché, y solo si no está ahí va a la base de datos. Es una de las mejoras de rendimiento más baratas de implementar y de las que más se nota, sobre todo bajo carga.</p>
 <figure class="flow-figure"><div class="flow"><div class="flow-node"><strong>App</strong>Consulta un dato</div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node"><strong>Redis</strong>¿Está en caché?</div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node"><strong>Base de datos</strong>Solo si no estaba</div></div><figcaption>La base de datos solo recibe lo que la caché no puede resolver.</figcaption></figure>
+</div>
 
 <h2 id="cola-de-mensajes">8. Cola de mensajes</h2>
+<div class="infra-scene" id="paso-8" data-scroll-step="8">
 <p>No todo lo que hace una aplicación tiene que pasar mientras el usuario espera la respuesta. Enviar un correo de confirmación, generar un PDF, llamar a una API externa lenta: son tareas que se pueden encolar y procesar aparte, con una <strong>cola de mensajes</strong> (en AWS, SQS) y un proceso (worker) que la va vaciando. El usuario recibe respuesta al instante, y si la tarea falla se puede reintentar sin que nadie se entere.</p>
 <figure class="flow-figure"><div class="flow"><div class="flow-node"><strong>App</strong>Responde ya al usuario</div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node"><strong>Cola</strong>Guarda la tarea</div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node"><strong>Worker</strong>La procesa aparte</div></div><figcaption>Lo lento se desacopla de la respuesta al usuario.</figcaption></figure>
+</div>
 
 <h2 id="cdn-y-replica-de-lectura">9. CDN y réplica de lectura</h2>
+<div class="infra-scene" id="paso-9" data-scroll-step="9">
 <p>Dos mejoras que suelen llegar juntas cuando el tráfico ya es serio. Una <strong>CDN</strong> (CloudFront) sirve imágenes, CSS y JS desde un punto cercano al usuario, en vez de desde tu servidor cada vez, lo que además le quita carga al load balancer y a la aplicación. Y una <strong>réplica de lectura</strong> de la base de datos absorbe las consultas de solo lectura (listados, búsquedas, informes), dejando a la instancia primaria libre para las escrituras, que son las que de verdad no se pueden repartir.</p>
 <figure class="flow-figure"><div class="arch"><div class="arch-col"><span class="arch-title">Entrada</span><div class="arch-node"><strong>Usuarios</strong></div><div class="arch-node"><strong>CDN</strong>Estáticos</div></div><span class="flow-arrow" aria-hidden="true">→</span><div class="arch-col is-core"><span class="arch-title">App</span><div class="arch-node"><strong>Réplicas</strong></div></div><span class="flow-arrow" aria-hidden="true">→</span><div class="arch-col"><span class="arch-title">Datos</span><div class="arch-node"><strong>BD primaria</strong>Escrituras</div><div class="arch-node"><strong>BD réplica</strong>Lecturas</div></div></div><figcaption>Lo estático se aleja del servidor; las lecturas se alejan de la primaria.</figcaption></figure>
+</div>
 
 <h2 id="observabilidad-y-resiliencia">10. Observabilidad y resiliencia</h2>
+<div class="infra-scene" id="paso-10" data-scroll-step="10">
 <p>Un sistema con todas las piezas anteriores puede seguir fallando en silencio si nadie lo vigila. La <strong>observabilidad</strong> (métricas, registros y alarmas, en AWS con CloudWatch) avisa antes de que un problema llegue al usuario: CPU al límite, cola creciendo, tasa de errores subiendo. Y las <strong>copias de seguridad automatizadas</strong>, probadas de verdad restaurándolas alguna vez, son lo que convierte un fallo grave en un incidente controlado en vez de una pérdida de datos. Con esto, el sistema ya se puede llamar maduro: cada pieza tiene un motivo, y hay alguien (o algo) vigilando cada una.</p>
 <p>En el diagrama de arriba, el paso 10 muestra el conjunto completo: 13 piezas, cada una añadida porque un síntoma real lo pidió.</p>
+</div>
+  </div>
+</div>
 
 <h2 id="que-paso-dar-primero">Qué paso dar primero</h2>
 <p>No hay una respuesta única, pero sí un criterio: <strong>da el paso que resuelve el síntoma que ya tienes</strong>, no el que crees que vas a tener. Antes de añadir una pieza, hazte estas preguntas:</p>
@@ -417,7 +447,7 @@
   <script src="../js/cookie-consent.js?v=2"></script>
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="../js/site-fx.js"></script>
-  <script src="../js/infra-stepper.js?v=1" defer></script>
+  <script src="../js/infra-stepper.js?v=2" defer></script>
 </body>
 
 </html>

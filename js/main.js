@@ -68,6 +68,34 @@ activateTab('frontend');
    =========================== */
 const projectOrder = ['tukomanda', 'nika', 'munttarpe'];
 
+const projectsReduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+const projectsReduceMotion = () => projectsReduceMotionQuery.matches;
+
+// Centra el tab activo y actualiza las flechas prev/siguiente (mismo patrón
+// que en js/infra-stepper.js; se duplica porque no hay módulos compartidos).
+function centerTabInScroller(scroller, tab, smooth) {
+  if (!scroller || !tab) return;
+  const target = tab.offsetLeft - (scroller.clientWidth / 2) + (tab.offsetWidth / 2);
+  const max = scroller.scrollWidth - scroller.clientWidth;
+  const clamped = Math.max(0, Math.min(target, max));
+  scroller.scrollTo({ left: clamped, behavior: smooth ? 'smooth' : 'auto' });
+}
+
+function updateTabArrows(scroller, prevBtn, nextBtn) {
+  if (!scroller || !prevBtn || !nextBtn) return;
+  const hasOverflow = scroller.scrollWidth > scroller.clientWidth + 1;
+  prevBtn.hidden = nextBtn.hidden = !hasOverflow;
+  if (!hasOverflow) return;
+  prevBtn.disabled = scroller.scrollLeft <= 0;
+  nextBtn.disabled = scroller.scrollLeft >= scroller.scrollWidth - scroller.clientWidth - 1;
+}
+
+const projectsTabsEl = document.querySelector('.projects-tabs');
+const projectsScroller = projectsTabsEl?.closest('.tabs-scroller');
+const projectsPrevArrow = projectsScroller?.querySelector('.tabs-arrow--prev');
+const projectsNextArrow = projectsScroller?.querySelector('.tabs-arrow--next');
+updateTabArrows(projectsTabsEl, projectsPrevArrow, projectsNextArrow);
+
 function activateProject(name) {
   const index = projectOrder.indexOf(name);
   if (index === -1) return;
@@ -84,11 +112,27 @@ function activateProject(name) {
   document.querySelectorAll('.project-slide').forEach(slide => {
     slide.classList.toggle('is-current', slide.id === `project-${name}`);
   });
+
+  const activeTab = document.querySelector(`.project-tab[data-project="${name}"]`);
+  centerTabInScroller(projectsTabsEl, activeTab, !projectsReduceMotion());
+  updateTabArrows(projectsTabsEl, projectsPrevArrow, projectsNextArrow);
 }
 
 document.querySelectorAll('.project-tab').forEach(tab => {
   tab.addEventListener('click', () => activateProject(tab.dataset.project));
 });
+
+projectsPrevArrow?.addEventListener('click', () => {
+  const current = document.querySelector('.project-tab.active')?.dataset.project;
+  const idx = projectOrder.indexOf(current);
+  activateProject(projectOrder[Math.max(0, idx - 1)]);
+});
+projectsNextArrow?.addEventListener('click', () => {
+  const current = document.querySelector('.project-tab.active')?.dataset.project;
+  const idx = projectOrder.indexOf(current);
+  activateProject(projectOrder[Math.min(projectOrder.length - 1, idx + 1)]);
+});
+window.addEventListener('resize', () => updateTabArrows(projectsTabsEl, projectsPrevArrow, projectsNextArrow));
 
 /* ===========================
    Intersection Observer — Reveal

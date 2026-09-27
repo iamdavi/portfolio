@@ -3136,16 +3136,18 @@ footer {
 }
 
 .infra-node {
+  /* Sin transform en el estado de reposo (oculto): así su geometría medida
+     por getBoundingClientRect() coincide con la que tendrá al mostrarse, y
+     los conectores no quedan calculados con una posición desplazada. El
+     "vuelo de entrada" lo aporta @keyframes infra-node-in, no este estado. */
   visibility: hidden;
   opacity: 0;
-  transform: translateY(6px);
-  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0s linear 0.35s;
+  transition: opacity 0.35s ease, visibility 0s linear 0.35s;
 }
 
 .infra-node.is-present {
   visibility: visible;
   opacity: 1;
-  transform: translateY(0);
   transition-delay: 0s;
 }
 

@@ -1,6 +1,6 @@
 # Roadmap SEO — davidotero.es
 
-Estado: `[x]` hecho · `[~]` en curso · `[ ]` pendiente. Última revisión: 2026-09-27.
+Estado: `[x]` hecho · `[~]` en curso · `[ ]` pendiente. Última revisión: 2026-09-27 (tarde).
 Quién: **David** = paso externo (cuentas, terceros) · **Claude** = cambio de código/contenido en este repo.
 
 ## Bloqueo actual
@@ -26,6 +26,7 @@ Quién: **David** = paso externo (cuentas, terceros) · **Claude** = cambio de c
 - [x] **Textos de Proyectos** redactados con los datos de David (2026-09-26) y aplicados en local en `index.html`; se publican en el primer deploy del nuevo ciclo. Pendiente de David: cuando la web de Nika tenga la foto real del centro, hacer captura nueva (la actual de `images/projects/nika-*.webp` muestra el hueco "FOTO DEL CENTRO").
 - [~] **Datos locales en el JSON-LD:** hecho `telephone` (+34 661 695 846) y `sameAs` con el enlace `share.google` de la ficha (local, sin publicar). `hasMap` opcional: requiere el enlace `maps.app.goo.gl` de la ficha.
 - [x] **4º artículo nuevo** (2026-09-27, local sin publicar): "De un servidor a una arquitectura escalable en AWS" (`blog/arquitectura-web-escalable-en-aws.html`), con un stepper interactivo de 10 pasos (`js/infra-stepper.js`, genérico, dirigido por `data-*`) que anima un diagrama de arquitectura al estilo AWS. Primer `prefers-reduced-motion` del sitio y ARIA más completo que los tabs existentes. Lighthouse 99–100/100/100/100, CLS 0. Enlazado desde `servicios/cloud-aws/`, `servicios/consultoria-tech-lead/`, `blog/index.html`, `sitemap.xml` y `llms.txt`.
+- [x] **Rediseño del mismo artículo** (2026-09-27 tarde, local sin publicar): conectores del diagrama pasados de diagonales a rutas ortogonales con esquinas redondeadas; en escritorio ≥1024px el bloque de los 10 pasos pasa a 2 columnas (texto + diagrama sticky a la derecha) con scroll-sync (cambia de paso según la sección leída, sin mover el scroll); móvil sin cambios; botones de paso con scroll a su sección y enlace "ver explicación completa"; tabs con flechas prev/siguiente y activo centrado, reutilizado también en Proyectos de la home (`js/main.js`). CSS `?v=22`, `main.js` `?v=6`, `infra-stepper.js` `?v=2`. Lighthouse sin regresión (artículo 99-100/100/100/100, home 96/100/100/100).
 - [ ] **Más artículos** (1–2 al mes): "automatizar facturas con n8n", "migrar a Symfony"; enlazarlos con su servicio.
 - [x] **Enlaces desde los artículos antiguos** hacia los 3 nuevos ("Sigue leyendo" y enlace contextual en el de n8n).
 - [x] **`lastmod`:** `python3 scripts/update-sitemap.py` lo actualiza desde el último commit de cada página (ejecutar antes de hacer push si se cambian páginas).

@@ -4,6 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
   <title>De un servidor a una arquitectura escalable en AWS</title>
   <meta name="description" content="Cómo evoluciona la infraestructura web: de un servidor a un sistema con balanceo, autoescalado, caché, colas y observabilidad. Guía interactiva en 10 pasos.">
   <meta name="robots" content="index, follow">
@@ -28,7 +29,7 @@
 
   <link rel="preload" href="../fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="../fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="../css/style.css?v=27">
+  <link rel="stylesheet" href="../css/style.css?v=28">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <link rel="icon" type="image/png" sizes="48x48" href="../favicon-48.png">
   <link rel="alternate icon" href="../favicon.ico">
@@ -181,6 +182,10 @@
       <li><a href="../blog/" aria-current="true"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 4h11a3 3 0 013 3v13H8a3 3 0 01-3-3z M5 17a3 3 0 013-3h11"/></svg>Blog</a></li>
       <li><a href="../index.html#contact" class="nav-cta"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16v12H4z M4 7l8 6 8-6"/></svg>Contacto</a></li>
     </ul>
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Cambiar a modo claro" aria-pressed="false">
+      <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2 M12 20v2 M4.9 4.9l1.4 1.4 M17.7 17.7l1.4 1.4 M2 12h2 M20 12h2 M4.9 19.1l1.4-1.4 M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+    </button>
   </nav>
 
   <section class="page-hero">
@@ -206,45 +211,45 @@
 
 <h2 id="todo-en-un-servidor">1. Todo en un servidor</h2>
 <p>Toda infraestructura empieza igual: un servidor, la aplicación y la base de datos conviviendo en la misma máquina. Es la opción más barata y la más simple de entender, y es la correcta mientras el tráfico es bajo y el proyecto está validando si tiene sentido. El error habitual no es empezar así: es quedarse ahí por miedo a tocarlo cuando ya no basta.</p>
-<figure class="flow-figure"><img src="../images/diagrams/paso-1.png" width="1520" height="480" loading="lazy" decoding="async" alt="Diagrama: los usuarios conectan directamente con un único servidor que contiene la app y la base de datos juntas.">
+<figure class="flow-figure"><img src="../images/diagrams/paso-1.png" width="1452" height="410" loading="lazy" decoding="async" alt="Diagrama: los usuarios conectan directamente con un único servidor que contiene la app y la base de datos juntas.">
 <figcaption>Todo en un servidor: la app y la base de datos juntas.</figcaption></figure>
 
 <h2 id="separar-la-base-de-datos">2. Separar la base de datos</h2>
 <p>El primer síntoma suele ser este: la base de datos y la aplicación compiten por la misma CPU y la misma memoria, y un pico de una afecta a la otra. La solución es mover la base de datos a su propio servidor (en AWS, normalmente una instancia RDS gestionada). A partir de aquí cada pieza escala, se actualiza y falla de forma independiente, y puedes dar copias de seguridad y parches a la base de datos sin tocar la aplicación.</p>
-<figure class="flow-figure"><img src="../images/diagrams/paso-2.png" width="1520" height="724" loading="lazy" decoding="async" alt="Diagrama: usuarios conectan con el servidor de aplicación, que ahora habla con una base de datos en su propio servidor separado.">
+<figure class="flow-figure"><img src="../images/diagrams/paso-2.png" width="1452" height="642" loading="lazy" decoding="async" alt="Diagrama: usuarios conectan con el servidor de aplicación, que ahora habla con una base de datos en su propio servidor separado.">
 <figcaption>La base de datos ya vive en su propio servidor.</figcaption></figure>
 
 <h2 id="escalado-vertical-y-horizontal">3-4. Escalado vertical y horizontal</h2>
 <p>Cuando un servidor empieza a ir justo, hay dos formas de darle más capacidad. La primera y más simple es el <strong>escalado vertical</strong>: subir de tipo de instancia, con más CPU y RAM en la misma máquina. No añade nada al diagrama de arquitectura, solo cambia el tamaño de una caja que ya existía, y tiene un límite: llega un punto en el que no hay una instancia más grande, o deja de compensar el coste.</p>
 <p>El <strong>escalado horizontal</strong> es distinto: en vez de una máquina más grande, se añaden más máquinas iguales ejecutando la misma aplicación. Cuesta un poco más de disciplina (la aplicación no puede guardar estado solo en memoria local, por ejemplo), pero no tiene techo y de paso gana tolerancia a fallos: si una réplica cae, las demás siguen respondiendo.</p>
 <p>Con dos réplicas y sin nada más, alguien tiene que decidir a cuál de las dos llega cada petición. Ahí es donde entra el siguiente paso.</p>
-<figure class="flow-figure"><img src="../images/diagrams/paso-4.png" width="1520" height="724" loading="lazy" decoding="async" alt="Diagrama: usuarios conectan con dos réplicas de la aplicación, ambas conectadas a la base de datos, todavía sin balanceador.">
+<figure class="flow-figure"><img src="../images/diagrams/paso-4.png" width="1452" height="642" loading="lazy" decoding="async" alt="Diagrama: usuarios conectan con dos réplicas de la aplicación, ambas conectadas a la base de datos, todavía sin balanceador.">
 <figcaption>Dos réplicas de la aplicación, todavía sin nada que reparta el tráfico entre ellas.</figcaption></figure>
 
 <h2 id="load-balancer-y-autoescalado">5-6. Load balancer y autoescalado</h2>
 <p>El <strong>load balancer</strong> (en AWS, un Application Load Balancer) recibe todo el tráfico y lo reparte entre las réplicas sanas de la aplicación. A partir de aquí los usuarios ya no hablan con un servidor concreto, hablan con el balanceador, y eso también permite sacar una réplica de la circulación para actualizarla sin que nadie note un corte.</p>
 <p>El <strong>autoescalado</strong> añade la pieza que faltaba: en vez de decidir a mano cuántas réplicas hay detrás del balanceador, un grupo de autoescalado las añade o las quita según métricas reales (CPU, número de peticiones, hora del día). Se paga por lo que se usa, y el sistema aguanta un pico sin que nadie tenga que levantarse a las 3 de la madrugada a lanzar un servidor más.</p>
-<figure class="flow-figure"><img src="../images/diagrams/paso-6.png" width="1520" height="897" loading="lazy" decoding="async" alt="Diagrama: usuarios conectan con un Load Balancer que reparte tráfico entre tres réplicas de aplicación (autoescalado) conectadas a la base de datos.">
+<figure class="flow-figure"><img src="../images/diagrams/paso-6.png" width="1452" height="796" loading="lazy" decoding="async" alt="Diagrama: usuarios conectan con un Load Balancer que reparte tráfico entre tres réplicas de aplicación (autoescalado) conectadas a la base de datos.">
 <figcaption>Load balancer y autoescalado: el sistema ya no depende de un único servidor.</figcaption></figure>
 
 <h2 id="cache-con-redis">7. Caché con Redis</h2>
 <p>Con más tráfico, muchas consultas a la base de datos son siempre las mismas (un listado de productos, la configuración de la cuenta, un contador de visitas). Guardarlas en una caché en memoria como <strong>Redis</strong> evita repetir esa consulta cada vez: la aplicación pregunta primero a la caché, y solo si no está ahí va a la base de datos. Es una de las mejoras de rendimiento más baratas de implementar y de las que más se nota, sobre todo bajo carga.</p>
-<figure class="flow-figure"><img src="../images/diagrams/paso-7.png" width="1520" height="897" loading="lazy" decoding="async" alt="Diagrama: igual que el load balancer con autoescalado, con Redis como caché conectada a la aplicación junto a la base de datos.">
+<figure class="flow-figure"><img src="../images/diagrams/paso-7.png" width="1452" height="794" loading="lazy" decoding="async" alt="Diagrama: igual que el load balancer con autoescalado, con Redis como caché conectada a la aplicación junto a la base de datos.">
 <figcaption>Redis absorbe las consultas repetidas antes de que lleguen a la base de datos.</figcaption></figure>
 
 <h2 id="cola-de-mensajes">8. Cola de mensajes</h2>
 <p>No todo lo que hace una aplicación tiene que pasar mientras el usuario espera la respuesta. Enviar un correo de confirmación, generar un PDF, llamar a una API externa lenta: son tareas que se pueden encolar y procesar aparte, con una <strong>cola de mensajes</strong> (en AWS, SQS) y un proceso (worker) que la va vaciando. El usuario recibe respuesta al instante, y si la tarea falla se puede reintentar sin que nadie se entere.</p>
-<figure class="flow-figure"><img src="../images/diagrams/paso-8.png" width="1520" height="897" loading="lazy" decoding="async" alt="Diagrama: se añade una cola de mensajes junto a Redis, conectada a la aplicación, además de la base de datos.">
+<figure class="flow-figure"><img src="../images/diagrams/paso-8.png" width="1452" height="796" loading="lazy" decoding="async" alt="Diagrama: se añade una cola de mensajes junto a Redis, conectada a la aplicación, además de la base de datos.">
 <figcaption>Las tareas lentas se procesan aparte, en una cola, sin bloquear la respuesta.</figcaption></figure>
 
 <h2 id="cdn-y-replica-de-lectura">9. CDN y réplica de lectura</h2>
 <p>Dos mejoras que suelen llegar juntas cuando el tráfico ya es serio. Una <strong>CDN</strong> (CloudFront) sirve imágenes, CSS y JS desde un punto cercano al usuario, en vez de desde tu servidor cada vez, lo que además le quita carga al load balancer y a la aplicación. Y una <strong>réplica de lectura</strong> de la base de datos absorbe las consultas de solo lectura (listados, búsquedas, informes), dejando a la instancia primaria libre para las escrituras, que son las que de verdad no se pueden repartir.</p>
-<figure class="flow-figure"><img src="../images/diagrams/paso-9.png" width="1520" height="897" loading="lazy" decoding="async" alt="Diagrama: se añaden una CDN conectada a los usuarios y una réplica de lectura de la base de datos conectada a la aplicación y a la base de datos primaria.">
+<figure class="flow-figure"><img src="../images/diagrams/paso-9.png" width="1452" height="964" loading="lazy" decoding="async" alt="Diagrama: se añaden una CDN conectada a los usuarios y una réplica de lectura de la base de datos conectada a la aplicación y a la base de datos primaria.">
 <figcaption>Una CDN para lo estático y una réplica de lectura para la base de datos.</figcaption></figure>
 
 <h2 id="observabilidad-y-resiliencia">10. Observabilidad y resiliencia</h2>
 <p>Un sistema con todas las piezas anteriores puede seguir fallando en silencio si nadie lo vigila. La <strong>observabilidad</strong> (métricas, registros y alarmas, en AWS con CloudWatch) avisa antes de que un problema llegue al usuario: CPU al límite, cola creciendo, tasa de errores subiendo. Y las <strong>copias de seguridad automatizadas</strong>, probadas de verdad restaurándolas alguna vez, son lo que convierte un fallo grave en un incidente controlado en vez de una pérdida de datos. Con esto, el sistema ya se puede llamar maduro: cada pieza tiene un motivo, y hay alguien (o algo) vigilando cada una.</p>
-<figure class="flow-figure"><img src="../images/diagrams/paso-10.png" width="1520" height="897" loading="lazy" decoding="async" alt="Diagrama completo: usuarios, CDN y observabilidad conectados al load balancer, que reparte tráfico a tres réplicas de aplicación; estas usan Redis, una cola de mensajes y una base de datos con réplica de lectura y copias de seguridad automatizadas.">
+<figure class="flow-figure"><img src="../images/diagrams/paso-10.png" width="1452" height="1000" loading="lazy" decoding="async" alt="Diagrama completo: usuarios, CDN y observabilidad conectados al load balancer, que reparte tráfico a tres réplicas de aplicación; estas usan Redis, una cola de mensajes y una base de datos con réplica de lectura y copias de seguridad automatizadas.">
 <figcaption>El sistema completo: 13 piezas, cada una añadida porque un síntoma real lo pidió.</figcaption></figure>
 
 <h2 id="que-paso-dar-primero">Qué paso dar primero</h2>
@@ -355,6 +360,7 @@
   </div>
 
   <script src="../js/nav.js?v=3"></script>
+  <script src="../js/theme.js?v=1"></script>
   <script src="../js/cookie-consent.js?v=2"></script>
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script src="../js/site-fx.js"></script>

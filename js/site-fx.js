@@ -43,13 +43,17 @@ if (typeof lucide !== 'undefined') {
 
 /* ---- Particles background ---- */
 if (typeof particlesJS !== 'undefined' && document.getElementById('particles-js')) {
+  var particlesTheme = document.documentElement.getAttribute('data-theme') ||
+    (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+  var particlesColor = particlesTheme === 'light' ? '#2d6044' : '#6ec4a0';
+
   particlesJS('particles-js', {
     particles: {
       number: { value: 55, density: { enable: true, value_area: 900 } },
-      color: { value: '#6ec4a0' },
+      color: { value: particlesColor },
       opacity: { value: 0.5, random: true, anim: { enable: true, speed: 0.6, opacity_min: 0.2, sync: false } },
       size: { value: 2.5, random: true },
-      line_linked: { enable: true, distance: 140, color: '#6ec4a0', opacity: 0.2, width: 1 },
+      line_linked: { enable: true, distance: 140, color: particlesColor, opacity: 0.2, width: 1 },
       move: { enable: true, speed: 0.7, random: true, out_mode: 'out' }
     },
     interactivity: {

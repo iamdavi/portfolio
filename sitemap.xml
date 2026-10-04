@@ -10,11 +10,11 @@
   </url>
   <url>
     <loc>https://davidotero.es/servicios/automatizaciones/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-10-04</lastmod>
   </url>
   <url>
     <loc>https://davidotero.es/servicios/desarrollo-web/</loc>
-    <lastmod>2026-09-26</lastmod>
+    <lastmod>2026-10-04</lastmod>
   </url>
   <url>
     <loc>https://davidotero.es/servicios/ia-generativa-desarrollo/</loc>
@@ -67,5 +67,21 @@
   <url>
     <loc>https://davidotero.es/blog/arquitectura-web-escalable-en-aws.html</loc>
     <lastmod>2026-09-27</lastmod>
+  </url>
+  <url>
+    <loc>https://davidotero.es/blog/auditoria-costes-aws.html</loc>
+    <lastmod>2026-10-04</lastmod>
+  </url>
+  <url>
+    <loc>https://davidotero.es/blog/cto-fraccional-startups.html</loc>
+    <lastmod>2026-10-04</lastmod>
+  </url>
+  <url>
+    <loc>https://davidotero.es/blog/modernizar-aplicacion-php-antigua.html</loc>
+    <lastmod>2026-10-04</lastmod>
+  </url>
+  <url>
+    <loc>https://davidotero.es/blog/auditoria-deuda-tecnica.html</loc>
+    <lastmod>2026-10-04</lastmod>
   </url>
 </urlset>

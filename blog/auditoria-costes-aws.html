@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+  <title>Auditoría de costes en AWS: cómo encontrar qué infla tu factura</title>
+  <meta name="description" content="Qué se revisa en una auditoría de costes de AWS, qué acceso hace falta dar y qué plan de acción se obtiene al terminar. Guía práctica, sin acceso de escritura.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://davidotero.es/blog/auditoria-costes-aws.html">
+  <meta name="theme-color" content="#0c0c0f">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://davidotero.es/blog/auditoria-costes-aws.html">
+  <meta property="og:site_name" content="David Otero Mato">
+  <meta property="og:title" content="Auditoría de costes en AWS: cómo encontrar qué infla tu factura">
+  <meta property="og:description" content="Qué se revisa en una auditoría de costes de AWS, qué acceso hace falta dar y qué plan de acción se obtiene al terminar. Guía práctica, sin acceso de escritura.">
+  <meta property="og:image" content="https://davidotero.es/images/og/auditoria-costes-aws.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Auditoría de costes en AWS">
+  <meta property="og:locale" content="es_ES">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Auditoría de costes en AWS: cómo encontrar qué infla tu factura">
+  <meta name="twitter:description" content="Qué se revisa en una auditoría de costes de AWS, qué acceso hace falta dar y qué plan de acción se obtiene al terminar.">
+  <meta name="twitter:image" content="https://davidotero.es/images/og/auditoria-costes-aws.png">
+  <meta name="twitter:image:alt" content="Auditoría de costes en AWS">
+
+  <link rel="preload" href="../fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../css/style.css?v=28">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="icon" type="image/png" sizes="48x48" href="../favicon-48.png">
+  <link rel="alternate icon" href="../favicon.ico">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Auditoría de costes en AWS: cómo encontrar qué infla tu factura",
+  "description": "Qué se revisa en una auditoría de costes de AWS, qué acceso hace falta dar y qué plan de acción se obtiene al terminar.",
+  "author": {
+    "@type": "Person",
+    "@id": "https://davidotero.es/#david-otero",
+    "name": "David Otero Mato",
+    "url": "https://davidotero.es/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "@id": "https://davidotero.es/#david-otero",
+    "name": "David Otero Mato"
+  },
+  "datePublished": "2026-10-04",
+  "dateModified": "2026-10-04",
+  "image": "https://davidotero.es/images/og/auditoria-costes-aws.png",
+  "inLanguage": "es-ES",
+  "mainEntityOfPage": "https://davidotero.es/blog/auditoria-costes-aws.html"
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://davidotero.es/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://davidotero.es/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Auditoría de costes en AWS: cómo encontrar qué infla tu factura",
+      "item": "https://davidotero.es/blog/auditoria-costes-aws.html"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Hace falta dar acceso total a la cuenta de AWS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Para esta revisión basta con un usuario o rol de IAM con permisos de lectura (ReadOnlyAccess) y acceso a los datos de facturación (Cost Explorer). No hace falta ni se usa ningún permiso de escritura."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto dinero se puede llegar a ahorrar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No hay un porcentaje genérico válido para cualquier cuenta: depende por completo de su estado. Lo que sí se puede hacer es cuantificar cada hallazgo con cifras reales de la factura, para decidir con datos y no con una promesa vacía."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿La optimización afecta al rendimiento de los servicios?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "El objetivo es eliminar desperdicio, no recortar a ciegas. Si una recomendación implica redimensionar un recurso crítico, conviene revisarla antes de aplicarla para no poner en riesgo la estabilidad ni la velocidad de la aplicación."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto tiempo lleva una auditoría de costes de AWS?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende del tamaño y la complejidad de la cuenta, pero una auditoría estándar suele completarse en una o dos semanas, desde que se tiene acceso de lectura hasta la entrega del informe."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+
+<body>
+
+  <div id="particles-js"></div>
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav id="navbar" aria-label="Principal">
+    <a href="../index.html" class="nav-logo" aria-label="Inicio">
+      <svg viewBox="0 0 71 82" height="32" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+          <linearGradient id="nav-d-grad" x1="0" y1="40.5" x2="70.89" y2="40.5" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#3a7a58" />
+            <stop offset="1" stop-color="#6ec4a0" />
+          </linearGradient>
+        </defs>
+        <path fill="none" stroke="url(#nav-d-grad)" stroke-linecap="round" stroke-miterlimit="10" stroke-width="5"
+          d="M2.5,64.9V10.04c0-4.16,3.38-7.54,7.54-7.54h27.25c17.18,0,31.1,13.93,31.1,31.1h0c0,17.18-13.93,31.1-31.11,31.1h-18.44c-3.81,0-6.9,3.09-6.9,6.9h0c0,3.81,3.09,6.9,6.9,6.9h37.55" />
+      </svg>
+    </a>
+    <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#about"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 12a4 4 0 100-8 4 4 0 000 8z M4 21a8 8 0 0116 0"/></svg>Sobre mí</a></li>
+      <li><a href="../index.html#skills"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13 3L5 14h6l-1 7 8-11h-6z"/></svg>Habilidades</a></li>
+      <li><a href="../index.html#experience"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h16v11H4z M9 8V5h6v3 M4 13h16"/></svg>Experiencia</a></li>
+      <li class="has-sub">
+        <a href="../servicios/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l9 5-9 5-9-5z M3 13l9 5 9-5"/></svg>Servicios <svg class="nav-caret" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+        <button type="button" class="sub-toggle" aria-expanded="false" aria-controls="nav-sub" aria-label="Mostrar u ocultar los servicios">
+          <svg class="sub-caret" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <ul class="nav-sub" id="nav-sub">
+          <li><a href="../servicios/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l9 5-9 5-9-5z M3 13l9 5 9-5"/></svg>Todos los servicios</a></li>
+          <li><a href="../servicios/automatizaciones/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 5h6v4H4z M14 15h6v4h-6z M10 7h3a2 2 0 012 2v6"/></svg>Automatizaciones</a></li>
+          <li><a href="../servicios/desarrollo-web/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3a9 9 0 100 18 9 9 0 000-18z M3 12h18 M12 3c3 3 3 15 0 18 M12 3c-3 3-3 15 0 18"/></svg>Desarrollo web</a></li>
+          <li><a href="../servicios/ia-generativa-desarrollo/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 8l-4 4 4 4 M16 8l4 4-4 4 M14 5l-4 14"/></svg>IA generativa en desarrollo</a></li>
+          <li><a href="../servicios/ia-y-mcp-para-tu-negocio/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 3v5 M15 3v5 M6 8h12v3a6 6 0 01-12 0z M12 17v4"/></svg>IA y MCP para tu negocio</a></li>
+          <li><a href="../servicios/cloud-aws/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 18a4 4 0 010-8 5 5 0 019.6-1A4.5 4.5 0 0117 18z"/></svg>Cloud y AWS</a></li>
+          <li><a href="../servicios/consultoria-tech-lead/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 11a3 3 0 100-6 3 3 0 000 6z M3 20a6 6 0 0112 0 M17 11a3 3 0 100-6 M21 20a6 6 0 00-4-5.6"/></svg>Consultoría y Tech Lead</a></li>
+        </ul>
+      </li>
+      <li><a href="../index.html#projects"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 4h7v7H4z M13 4h7v7h-7z M4 13h7v7H4z M13 13h7v7h-7z"/></svg>Proyectos</a></li>
+      <li><a href="../index.html#cv"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 3h7l4 4v14H7z M14 3v4h4 M9 12h6 M9 16h6"/></svg>CV</a></li>
+      <li><a href="../blog/" aria-current="true"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 4h11a3 3 0 013 3v13H8a3 3 0 01-3-3z M5 17a3 3 0 013-3h11"/></svg>Blog</a></li>
+      <li><a href="../index.html#contact" class="nav-cta"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16v12H4z M4 7l8 6 8-6"/></svg>Contacto</a></li>
+    </ul>
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Cambiar a modo claro" aria-pressed="false">
+      <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2 M12 20v2 M4.9 4.9l1.4 1.4 M17.7 17.7l1.4 1.4 M2 12h2 M20 12h2 M4.9 19.1l1.4-1.4 M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+    </button>
+  </nav>
+
+  <section class="page-hero">
+    <a href="index.html" class="back-link">&larr; Volver al blog</a>
+    <h1 style="font-size: 1.9rem;">Auditoría de costes en AWS: cómo encontrar qué infla tu factura</h1>
+    <div class="post-meta">
+      <span class="post-tag">Cloud y AWS</span>
+      <span class="dot">·</span>
+      <span>4 oct 2026</span>
+      <span class="dot">·</span>
+      <span>6 min de lectura</span>
+    </div>
+  </section>
+
+  <main class="guide">
+    <article class="prose">
+      <details class="toc-inline">
+        <summary>Contenido de este artículo</summary>
+        <ol>
+          <li><a href="#que-es">Qué es una auditoría de costes en AWS</a></li>
+          <li><a href="#que-reviso">Qué se revisa para reducir la factura</a></li>
+          <li><a href="#acceso">Qué acceso hace falta (y qué no)</a></li>
+          <li><a href="#senales">Señales de que conviene hacer esta revisión</a></li>
+          <li><a href="#proceso">Cómo es el proceso</a></li>
+          <li><a href="#entrega">Qué se obtiene al terminar</a></li>
+          <li><a href="#vs-cloud-aws">Diagnóstico puntual o servicio cloud continuado</a></li>
+          <li><a href="#faq">Preguntas frecuentes</a></li>
+        </ol>
+      </details>
+
+<h2 id="que-es">Qué es una auditoría de costes en AWS</h2>
+<p>Si la última factura de AWS ha dado un susto, no es un caso raro: la nube es flexible y potente, pero también es fácil dejar recursos encendidos, sobredimensionar instancias o acumular almacenamiento que ya nadie usa. Una <strong>auditoría de costes</strong> es una revisión puntual de una cuenta de AWS para encontrar, de forma concreta, en qué se está yendo ese dinero.</p>
+<p>El objetivo no es recortar recursos a ciegas ni generar un informe automático genérico. Se analiza la arquitectura con el mismo criterio de buenas prácticas de AWS que se aplica al desplegar infraestructura propia, y cada recomendación se explica en términos entendibles, no solo en la jerga de AWS.</p>
+
+<h2 id="que-reviso">Qué se revisa para reducir la factura</h2>
+<div class="cards"><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 18a4 4 0 010-8 5 5 0 019.6-1A4.5 4.5 0 0117 18z"/></svg><h3>Recursos huérfanos y sobredimensionados</h3><p>Instancias EC2 o bases de datos RDS infrautilizadas, volúmenes EBS sin usar y entornos de desarrollo que no se apagan fuera de horario.</p></div><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 1v22 M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg><h3>Estrategia de contratación</h3><p>Si se aprovechan Savings Plans, Instancias Reservadas o Spot según el patrón de uso real, en vez de pagar siempre precio de bajo demanda.</p></div><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 20V4 M4 20h16 M8 16v-5 M12 16V8 M16 16v-3"/></svg><h3>Almacenamiento y transferencia de datos</h3><p>Políticas de ciclo de vida en S3 para mover datos fríos a clases más baratas, y revisión de costes de NAT Gateway, que suelen inflar la factura en silencio.</p></div></div>
+<p>El resultado no es un listado técnico sin más: es un <strong>plan de acción priorizado</strong> por impacto económico y dificultad técnica, para saber qué cambiar primero y qué puede esperar.</p>
+
+<h2 id="acceso">Qué acceso hace falta (y qué no)</h2>
+<p>Dar acceso a una cuenta de AWS genera reparos razonables, así que conviene dejarlo claro desde el principio: para esta auditoría solo hace falta un usuario o rol de <strong>IAM con permisos de lectura (ReadOnlyAccess)</strong> y acceso a los datos de <strong>Cost Explorer</strong>. En ningún momento se necesitan permisos de escritura ni se modifica nada directamente; cada cambio se aplica bajo supervisión o lo aplica el propio equipo con el plan en la mano.</p>
+
+<h2 id="senales">Señales de que conviene hacer esta revisión</h2>
+<p>Situaciones <strong>ilustrativas</strong>, no casos concretos.</p><div class="ex-grid"><div class="example"><span class="example-label">Ejemplo ilustrativo</span><h3>La factura sube cada mes sin motivo claro</h3><p>Nadie en el equipo sabe exactamente qué recurso ha disparado el coste, y revisar la consola de AWS no aclara nada.</p></div><div class="example"><span class="example-label">Ejemplo ilustrativo</span><h3>Nunca se ha optimizado el gasto</h3><p>La cuenta se montó para lanzar rápido y desde entonces nadie ha vuelto a revisar el dimensionamiento ni la contratación.</p></div><div class="example"><span class="example-label">Ejemplo ilustrativo</span><h3>Entornos de pruebas que nadie apaga</h3><p>Hay instancias de desarrollo o staging corriendo 24/7 que solo se usan en horario laboral.</p></div></div>
+
+<h2 id="proceso">Cómo es el proceso</h2>
+<ol>
+  <li><strong>Acceso de solo lectura.</strong> Se entrega un usuario o rol IAM con permisos de lectura y acceso a Cost Explorer.</li>
+  <li><strong>Análisis de la cuenta.</strong> Se revisan recursos, dimensionamiento, contratación y almacenamiento con las herramientas nativas de AWS y de forma manual.</li>
+  <li><strong>Cuantificación.</strong> Cada hallazgo se traduce a una cifra real de la factura, no a una estimación genérica.</li>
+  <li><strong>Plan de acción.</strong> Se redacta un informe con los cambios priorizados por ahorro y por dificultad de aplicarlos.</li>
+</ol>
+
+<div class="cta-band"><p>¿Sospechas que tu cuenta de AWS tiene margen de ahorro?<span>Cuéntame tu caso; respuesta en menos de 24 horas.</span></p><a href="../index.html#contact" class="btn-primary">Cuéntame tu caso</a></div>
+
+<h2 id="entrega">Qué se obtiene al terminar</h2>
+<div class="cards"><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 3h7l4 4v14H7z M14 3v4h4 M9 12h6 M9 16h6"/></svg><h3>Informe con cada hallazgo</h3><p>Qué recurso cuesta de más, por qué y cuánto, explicado sin jerga innecesaria.</p></div><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 11l2 2 4-4 M5 5h14v14H5z"/></svg><h3>Plan priorizado</h3><p>Acciones ordenadas por impacto económico y dificultad técnica, listas para ejecutar.</p></div><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 11a3 3 0 100-6 3 3 0 000 6z M3 20a6 6 0 0112 0 M17 11a3 3 0 100-6 M21 20a6 6 0 00-4-5.6"/></svg><h3>Sesión de revisión</h3><p>Una videollamada para repasar el informe y resolver dudas.</p></div></div>
+
+<h2 id="vs-cloud-aws">Diagnóstico puntual o servicio cloud continuado</h2>
+<p>Esta auditoría es un <strong>diagnóstico cerrado</strong> centrado en el gasto: entra, analiza la cuenta y sale con un informe y un plan, normalmente en una o dos semanas. Si lo que hace falta es algo más amplio —despliegue, migración y mantenimiento continuado de la infraestructura—, eso ya es terreno del servicio de <a href="../servicios/cloud-aws/">Cloud y AWS</a>. Muchos proyectos empiezan por esta auditoría para saber exactamente dónde se pierde el dinero, y después deciden si quieren que se apliquen los cambios como parte de ese servicio.</p>
+
+<h2 id="faq">Preguntas frecuentes</h2>
+<details class="faq-item">
+      <summary>¿Hace falta dar acceso total a la cuenta de AWS?</summary>
+      <p>No. Para esta revisión basta con un usuario o rol de IAM con permisos de lectura (ReadOnlyAccess) y acceso a los datos de facturación (Cost Explorer). No hace falta ni se usa ningún permiso de escritura.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Cuánto dinero se puede llegar a ahorrar?</summary>
+      <p>No hay un porcentaje genérico válido para cualquier cuenta: depende por completo de su estado. Lo que sí se puede hacer es cuantificar cada hallazgo con cifras reales de la factura, para decidir con datos y no con una promesa vacía.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿La optimización afecta al rendimiento de los servicios?</summary>
+      <p>El objetivo es eliminar desperdicio, no recortar a ciegas. Si una recomendación implica redimensionar un recurso crítico, conviene revisarla antes de aplicarla para no poner en riesgo la estabilidad ni la velocidad de la aplicación.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Cuánto tiempo lleva una auditoría de costes de AWS?</summary>
+      <p>Depende del tamaño y la complejidad de la cuenta, pero una auditoría estándar suele completarse en una o dos semanas, desde que se tiene acceso de lectura hasta la entrega del informe.</p>
+    </details>
+
+    <div class="callout">
+      <p><strong>¿Lo aplicamos en tu cuenta?</strong>Consulta el servicio de
+        <a href="../servicios/cloud-aws/">Cloud y AWS: despliegue, migración y mantenimiento en la nube</a> o
+        <a href="../index.html#contact">escríbeme</a> y hablamos de tu caso.</p>
+    </div>
+  </article>
+
+    <aside class="guide-aside" aria-label="Índice y contacto">
+      <nav class="aside-card aside-toc" aria-label="Contenido del artículo">
+        <p class="aside-title">Contenido</p>
+        <ol>
+          <li><a href="#que-es">Qué es una auditoría de costes en AWS</a></li>
+          <li><a href="#que-reviso">Qué se revisa para reducir la factura</a></li>
+          <li><a href="#acceso">Qué acceso hace falta (y qué no)</a></li>
+          <li><a href="#senales">Señales de que conviene hacer esta revisión</a></li>
+          <li><a href="#proceso">Cómo es el proceso</a></li>
+          <li><a href="#entrega">Qué se obtiene al terminar</a></li>
+          <li><a href="#vs-cloud-aws">Diagnóstico puntual o servicio cloud continuado</a></li>
+          <li><a href="#faq">Preguntas frecuentes</a></li>
+        </ol>
+      </nav>
+      <div class="aside-card">
+        <p class="aside-title">¿Hablamos?</p>
+        <p>Cuéntame qué necesitas y te respondo en menos de 24 horas.</p>
+        <a href="../index.html#contact" class="btn-primary">Escríbeme</a>
+      </div>
+    </aside>
+  </main>
+
+  <div class="prose">
+    <h2>Sigue leyendo</h2>
+    <div class="blog-grid">
+      <a href="arquitectura-web-escalable-en-aws.html" class="blog-card">
+        <span class="post-tag">Cloud y AWS</span>
+        <h3>De un servidor a una arquitectura escalable en AWS</h3>
+        <p>Cómo evoluciona la infraestructura web: de un servidor a un sistema con balanceo, autoescalado, caché, colas y observabilidad. Guía interactiva en 10 pasos.</p>
+        <span class="blog-card-cta">Leer artículo →</span>
+      </a>
+      <a href="desplegar-php-en-aws.html" class="blog-card">
+        <span class="post-tag">Cloud y AWS</span>
+        <h3>Desplegar una aplicación PHP en AWS: opciones y guía paso a paso</h3>
+        <p>Comparativa de Lightsail, EC2, Elastic Beanstalk y contenedores, y guía paso a paso con EC2, Nginx, RDS y HTTPS.</p>
+        <span class="blog-card-cta">Leer artículo →</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="prose">
+    <div class="author-card">
+      <picture>
+        <source srcset="../cv-avatar-photo.webp" type="image/webp">
+        <img src="../cv-avatar-photo.png" alt="David Otero Mato" width="64" height="64" loading="lazy">
+      </picture>
+      <div>
+        <h3>David Otero Mato</h3>
+        <p>Desarrollador fullstack freelance en Donostia — PHP, Vue.js, AWS e IA generativa aplicada a proyectos reales.</p>
+        <a href="../index.html#contact">¿Hablamos de tu proyecto? →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <p>© 2026 <span>David Otero Mato</span> · Donostia, Gipuzkoa</p>
+    <p class="footer-legal footer-services">
+      <a href="../servicios/">Servicios</a>:
+      <a href="../servicios/automatizaciones/">Automatizaciones</a> ·
+      <a href="../servicios/desarrollo-web/">Desarrollo web</a> ·
+      <a href="../servicios/ia-generativa-desarrollo/">IA generativa</a> ·
+      <a href="../servicios/ia-y-mcp-para-tu-negocio/">IA y MCP</a> ·
+      <a href="../servicios/cloud-aws/">Cloud y AWS</a> ·
+      <a href="../servicios/consultoria-tech-lead/">Consultoría</a>
+    </p>
+    <p class="footer-legal">
+      <a href="../aviso-legal.html">Aviso legal</a> ·
+      <a href="../politica-privacidad.html">Privacidad</a> ·
+      <a href="../politica-cookies.html">Cookies</a> ·
+      <button type="button" data-cookie-settings>Configurar cookies</button>
+    </p>
+  </footer>
+
+  <div class="cookie-banner" id="cookie-banner" hidden role="dialog" aria-live="polite"
+    aria-label="Consentimiento de cookies">
+    <p>
+      Uso cookies analíticas (Google Analytics) para entender cómo se usa esta web. Solo se activan si las aceptas, y
+      puedes cambiar de opinión cuando quieras desde "Configurar cookies" en el pie de página. Más info en la
+      <a href="../politica-cookies.html">Política de Cookies</a>.
+    </p>
+    <div class="cookie-banner-actions">
+      <button type="button" class="btn-secondary" id="cookie-reject">Rechazar</button>
+      <button type="button" class="btn-primary" id="cookie-accept">Aceptar</button>
+    </div>
+  </div>
+
+  <script src="../js/nav.js?v=3"></script>
+  <script src="../js/theme.js?v=1"></script>
+  <script src="../js/cookie-consent.js?v=2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="../js/site-fx.js"></script>
+</body>
+
+</html>

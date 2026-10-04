@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+  <title>CTO fraccional para startups: qué es y cuándo tiene sentido</title>
+  <meta name="description" content="Qué es un CTO fraccional, en qué se diferencia de una consultoría puntual y cuándo tiene sentido para una startup en fase MVP, pre-seed o de crecimiento.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://davidotero.es/blog/cto-fraccional-startups.html">
+  <meta name="theme-color" content="#0c0c0f">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://davidotero.es/blog/cto-fraccional-startups.html">
+  <meta property="og:site_name" content="David Otero Mato">
+  <meta property="og:title" content="CTO fraccional para startups: qué es y cuándo tiene sentido">
+  <meta property="og:description" content="Qué es un CTO fraccional, en qué se diferencia de una consultoría puntual y cuándo tiene sentido para una startup en fase MVP, pre-seed o de crecimiento.">
+  <meta property="og:image" content="https://davidotero.es/images/og/cto-fraccional-startups.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="CTO fraccional para startups">
+  <meta property="og:locale" content="es_ES">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CTO fraccional para startups: qué es y cuándo tiene sentido">
+  <meta name="twitter:description" content="Qué es un CTO fraccional, en qué se diferencia de una consultoría puntual y cuándo tiene sentido para una startup.">
+  <meta name="twitter:image" content="https://davidotero.es/images/og/cto-fraccional-startups.png">
+  <meta name="twitter:image:alt" content="CTO fraccional para startups">
+
+  <link rel="preload" href="../fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../css/style.css?v=28">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="icon" type="image/png" sizes="48x48" href="../favicon-48.png">
+  <link rel="alternate icon" href="../favicon.ico">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "CTO fraccional para startups: qué es y cuándo tiene sentido",
+  "description": "Qué es un CTO fraccional, en qué se diferencia de una consultoría puntual y cuándo tiene sentido para una startup en fase MVP, pre-seed o de crecimiento.",
+  "author": {
+    "@type": "Person",
+    "@id": "https://davidotero.es/#david-otero",
+    "name": "David Otero Mato",
+    "url": "https://davidotero.es/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "@id": "https://davidotero.es/#david-otero",
+    "name": "David Otero Mato"
+  },
+  "datePublished": "2026-10-04",
+  "dateModified": "2026-10-04",
+  "image": "https://davidotero.es/images/og/cto-fraccional-startups.png",
+  "inLanguage": "es-ES",
+  "mainEntityOfPage": "https://davidotero.es/blog/cto-fraccional-startups.html"
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://davidotero.es/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://davidotero.es/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "CTO fraccional para startups: qué es y cuándo tiene sentido",
+      "item": "https://davidotero.es/blog/cto-fraccional-startups.html"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿En qué se diferencia de un consultor de software tradicional?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Un consultor analiza el problema y entrega una lista de recomendaciones para que el equipo las ejecute. Un CTO fraccional se implica en el día a día, toma la responsabilidad de las decisiones técnicas y actúa como parte del equipo de liderazgo, no como alguien externo que opina y se va."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuántas horas a la semana dedica un CTO fraccional?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende del tamaño del equipo y de la complejidad del producto. Como referencia orientativa, suele moverse entre 8 y 20 horas semanales. Lo importante es la disponibilidad real para las decisiones críticas, no el número de horas frente a la pantalla."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Se puede empezar sin tener aún un equipo de desarrolladores?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. En fase de MVP o pre-seed es habitual que el fundador esté solo o con un equipo muy pequeño; ahí el trabajo es sentar una base técnica sólida y, si hace falta, ayudar a construir el equipo cuando llegue el momento."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pasa cuando la startup necesita un CTO a tiempo completo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Es la evolución natural cuando la startup crece lo bastante. El CTO fraccional puede ayudar a redactar la oferta, participar en las entrevistas técnicas y preparar una transición de conocimiento ordenada para que el nuevo CTO asuma el control sin fricciones."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+
+<body>
+
+  <div id="particles-js"></div>
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav id="navbar" aria-label="Principal">
+    <a href="../index.html" class="nav-logo" aria-label="Inicio">
+      <svg viewBox="0 0 71 82" height="32" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+          <linearGradient id="nav-d-grad" x1="0" y1="40.5" x2="70.89" y2="40.5" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#3a7a58" />
+            <stop offset="1" stop-color="#6ec4a0" />
+          </linearGradient>
+        </defs>
+        <path fill="none" stroke="url(#nav-d-grad)" stroke-linecap="round" stroke-miterlimit="10" stroke-width="5"
+          d="M2.5,64.9V10.04c0-4.16,3.38-7.54,7.54-7.54h27.25c17.18,0,31.1,13.93,31.1,31.1h0c0,17.18-13.93,31.1-31.11,31.1h-18.44c-3.81,0-6.9,3.09-6.9,6.9h0c0,3.81,3.09,6.9,6.9,6.9h37.55" />
+      </svg>
+    </a>
+    <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#about"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 12a4 4 0 100-8 4 4 0 000 8z M4 21a8 8 0 0116 0"/></svg>Sobre mí</a></li>
+      <li><a href="../index.html#skills"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13 3L5 14h6l-1 7 8-11h-6z"/></svg>Habilidades</a></li>
+      <li><a href="../index.html#experience"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h16v11H4z M9 8V5h6v3 M4 13h16"/></svg>Experiencia</a></li>
+      <li class="has-sub">
+        <a href="../servicios/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l9 5-9 5-9-5z M3 13l9 5 9-5"/></svg>Servicios <svg class="nav-caret" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+        <button type="button" class="sub-toggle" aria-expanded="false" aria-controls="nav-sub" aria-label="Mostrar u ocultar los servicios">
+          <svg class="sub-caret" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <ul class="nav-sub" id="nav-sub">
+          <li><a href="../servicios/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l9 5-9 5-9-5z M3 13l9 5 9-5"/></svg>Todos los servicios</a></li>
+          <li><a href="../servicios/automatizaciones/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 5h6v4H4z M14 15h6v4h-6z M10 7h3a2 2 0 012 2v6"/></svg>Automatizaciones</a></li>
+          <li><a href="../servicios/desarrollo-web/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3a9 9 0 100 18 9 9 0 000-18z M3 12h18 M12 3c3 3 3 15 0 18 M12 3c-3 3-3 15 0 18"/></svg>Desarrollo web</a></li>
+          <li><a href="../servicios/ia-generativa-desarrollo/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 8l-4 4 4 4 M16 8l4 4-4 4 M14 5l-4 14"/></svg>IA generativa en desarrollo</a></li>
+          <li><a href="../servicios/ia-y-mcp-para-tu-negocio/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 3v5 M15 3v5 M6 8h12v3a6 6 0 01-12 0z M12 17v4"/></svg>IA y MCP para tu negocio</a></li>
+          <li><a href="../servicios/cloud-aws/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 18a4 4 0 010-8 5 5 0 019.6-1A4.5 4.5 0 0117 18z"/></svg>Cloud y AWS</a></li>
+          <li><a href="../servicios/consultoria-tech-lead/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 11a3 3 0 100-6 3 3 0 000 6z M3 20a6 6 0 0112 0 M17 11a3 3 0 100-6 M21 20a6 6 0 00-4-5.6"/></svg>Consultoría y Tech Lead</a></li>
+        </ul>
+      </li>
+      <li><a href="../index.html#projects"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 4h7v7H4z M13 4h7v7h-7z M4 13h7v7H4z M13 13h7v7h-7z"/></svg>Proyectos</a></li>
+      <li><a href="../index.html#cv"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 3h7l4 4v14H7z M14 3v4h4 M9 12h6 M9 16h6"/></svg>CV</a></li>
+      <li><a href="../blog/" aria-current="true"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 4h11a3 3 0 013 3v13H8a3 3 0 01-3-3z M5 17a3 3 0 013-3h11"/></svg>Blog</a></li>
+      <li><a href="../index.html#contact" class="nav-cta"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16v12H4z M4 7l8 6 8-6"/></svg>Contacto</a></li>
+    </ul>
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Cambiar a modo claro" aria-pressed="false">
+      <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2 M12 20v2 M4.9 4.9l1.4 1.4 M17.7 17.7l1.4 1.4 M2 12h2 M20 12h2 M4.9 19.1l1.4-1.4 M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+    </button>
+  </nav>
+
+  <section class="page-hero">
+    <a href="index.html" class="back-link">&larr; Volver al blog</a>
+    <h1 style="font-size: 1.9rem;">CTO fraccional para startups: qué es y cuándo tiene sentido</h1>
+    <div class="post-meta">
+      <span class="post-tag">Consultoría</span>
+      <span class="dot">·</span>
+      <span>4 oct 2026</span>
+      <span class="dot">·</span>
+      <span>6 min de lectura</span>
+    </div>
+  </section>
+
+  <main class="guide">
+    <article class="prose">
+      <details class="toc-inline">
+        <summary>Contenido de este artículo</summary>
+        <ol>
+          <li><a href="#que-es">Qué es un CTO fraccional</a></li>
+          <li><a href="#como-ayuda">En qué puede ayudar a una startup</a></li>
+          <li><a href="#cuando">Cuándo tiene sentido</a></li>
+          <li><a href="#vs-consultoria">CTO fraccional o consultoría puntual</a></li>
+          <li><a href="#como-trabaja">Cómo suele trabajar</a></li>
+          <li><a href="#faq">Preguntas frecuentes</a></li>
+        </ol>
+      </details>
+
+<h2 id="que-es">Qué es un CTO fraccional</h2>
+<p>Cuando una startup empieza a crecer, la tecnología se vuelve compleja muy rápido: hay que decidir arquitectura, liderar al equipo técnico y definir el roadmap de producto. Pero contratar a un CTO a tiempo completo tiene un coste que muchas startups todavía no pueden o no necesitan asumir. Un <strong>CTO fraccional</strong> cubre ese hueco: se integra en el equipo de liderazgo las horas que de verdad se necesitan, no las que llenan una jornada completa.</p>
+<p>No es un consultor que entra, analiza y se va con un informe. Es un rol de responsabilidad: alguien que toma decisiones técnicas, responde por ellas y las adapta al ritmo y al presupuesto de la startup, como lo haría un CTO interno con menos horas disponibles.</p>
+
+<h2 id="como-ayuda">En qué puede ayudar a una startup</h2>
+<p>El objetivo no es escribir código todo el día, sino estructurar el área tecnológica para que el negocio pueda escalar de forma segura y ágil:</p>
+<div class="cards"><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 18a4 4 0 010-8 5 5 0 019.6-1A4.5 4.5 0 0117 18z"/></svg><h3>Dirección técnica estratégica</h3><p>Stack tecnológico, arquitectura de software e infraestructura, pensados para no tener que reconstruir todo en seis meses.</p></div><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 11a3 3 0 100-6 3 3 0 000 6z M3 20a6 6 0 0112 0 M17 11a3 3 0 100-6 M21 20a6 6 0 00-4-5.6"/></svg><h3>Mentoring y liderazgo</h3><p>Acompañamiento a los desarrolladores actuales en buenas prácticas, metodología de entrega y organización del trabajo.</p></div><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 11l2 2 4-4 M5 5h14v14H5z"/></svg><h3>Procesos de selección</h3><p>Evaluar, entrevistar y contratar talento técnico que encaje de verdad en la cultura y las necesidades del equipo.</p></div><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 3h7l4 4v14H7z M14 3v4h4 M9 12h6 M9 16h6"/></svg><h3>Alineación con negocio</h3><p>Traducir las metas comerciales a un roadmap técnico viable y medible, para que la tecnología no sea el cuello de botella.</p></div></div>
+
+<h2 id="cuando">Cuándo tiene sentido</h2>
+<p>No todas las startups están en el mismo momento. Situaciones <strong>ilustrativas</strong> en las que este rol suele encajar, no casos concretos.</p><div class="ex-grid"><div class="example"><span class="example-label">Ejemplo ilustrativo</span><h3>Fase MVP o pre-seed</h3><p>Validar la idea de negocio con unos cimientos técnicos lo bastante sólidos para convencer a un inversor.</p></div><div class="example"><span class="example-label">Ejemplo ilustrativo</span><h3>Equipo junior sin referente</h3><p>Hay desarrolladores con ganas pero sin una figura experimentada que les guíe en las decisiones complejas.</p></div><div class="example"><span class="example-label">Ejemplo ilustrativo</span><h3>Crecimiento y reorganización</h3><p>El producto empieza a traccionar y hay que poner orden en despliegue, seguridad y rendimiento antes de que el código se vuelva inmanejable.</p></div></div>
+
+<div class="cta-band"><p>¿Tu startup necesita criterio técnico sin un CTO a tiempo completo?<span>Cuéntame tu caso; respuesta en menos de 24 horas.</span></p><a href="../index.html#contact" class="btn-primary">Cuéntame tu caso</a></div>
+
+<h2 id="vs-consultoria">CTO fraccional o consultoría puntual</h2>
+<p>Una <a href="../servicios/consultoria-tech-lead/">consultoría y Tech Lead</a> puntual cubre revisiones concretas: entra, analiza y entrega un informe o un plan de migración con recomendaciones. El CTO fraccional es distinto: es una <strong>dedicación recurrente</strong> en la que se forma parte del equipo de liderazgo mes a mes, con responsabilidad continuada sobre las decisiones técnicas, no solo sobre el diagnóstico inicial. Muchas startups empiezan con una revisión puntual para ver cómo se trabaja, y después deciden si quieren esa dedicación continuada.</p>
+
+<h2 id="como-trabaja">Cómo suele trabajar</h2>
+<p>Nada de informes infinitos ni jerga teórica de consultoría. El enfoque práctico suele seguir este orden:</p>
+<ol>
+  <li><strong>Análisis inicial.</strong> Evaluar el estado actual del código, la infraestructura y el equipo durante los primeros días.</li>
+  <li><strong>Foco y prioridad.</strong> Identificar juntos los bloqueos más urgentes y trazar un plan de acción concreto.</li>
+  <li><strong>Ejecución ágil.</strong> Trabajo asíncrono con reuniones clave a la semana para revisar avances, tomar decisiones críticas y mantener el rumbo técnico alineado con el negocio.</li>
+</ol>
+
+<h2 id="faq">Preguntas frecuentes</h2>
+<details class="faq-item">
+      <summary>¿En qué se diferencia de un consultor de software tradicional?</summary>
+      <p>Un consultor analiza el problema y entrega una lista de recomendaciones para que el equipo las ejecute. Un CTO fraccional se implica en el día a día, toma la responsabilidad de las decisiones técnicas y actúa como parte del equipo de liderazgo, no como alguien externo que opina y se va.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Cuántas horas a la semana dedica un CTO fraccional?</summary>
+      <p>Depende del tamaño del equipo y de la complejidad del producto. Como referencia orientativa, suele moverse entre 8 y 20 horas semanales. Lo importante es la disponibilidad real para las decisiones críticas, no el número de horas frente a la pantalla.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Se puede empezar sin tener aún un equipo de desarrolladores?</summary>
+      <p>Sí. En fase de MVP o pre-seed es habitual que el fundador esté solo o con un equipo muy pequeño; ahí el trabajo es sentar una base técnica sólida y, si hace falta, ayudar a construir el equipo cuando llegue el momento.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Qué pasa cuando la startup necesita un CTO a tiempo completo?</summary>
+      <p>Es la evolución natural cuando la startup crece lo bastante. El CTO fraccional puede ayudar a redactar la oferta, participar en las entrevistas técnicas y preparar una transición de conocimiento ordenada para que el nuevo CTO asuma el control sin fricciones.</p>
+    </details>
+
+    <div class="callout">
+      <p><strong>¿Tu startup necesita este tipo de liderazgo técnico?</strong>Consulta el servicio de
+        <a href="../servicios/consultoria-tech-lead/">Consultoría y Tech Lead</a> o
+        <a href="../index.html#contact">escríbeme</a> y hablamos de tu caso.</p>
+    </div>
+  </article>
+
+    <aside class="guide-aside" aria-label="Índice y contacto">
+      <nav class="aside-card aside-toc" aria-label="Contenido del artículo">
+        <p class="aside-title">Contenido</p>
+        <ol>
+          <li><a href="#que-es">Qué es un CTO fraccional</a></li>
+          <li><a href="#como-ayuda">En qué puede ayudar a una startup</a></li>
+          <li><a href="#cuando">Cuándo tiene sentido</a></li>
+          <li><a href="#vs-consultoria">CTO fraccional o consultoría puntual</a></li>
+          <li><a href="#como-trabaja">Cómo suele trabajar</a></li>
+          <li><a href="#faq">Preguntas frecuentes</a></li>
+        </ol>
+      </nav>
+      <div class="aside-card">
+        <p class="aside-title">¿Hablamos?</p>
+        <p>Cuéntame qué necesitas y te respondo en menos de 24 horas.</p>
+        <a href="../index.html#contact" class="btn-primary">Escríbeme</a>
+      </div>
+    </aside>
+  </main>
+
+  <div class="prose">
+    <h2>Sigue leyendo</h2>
+    <div class="blog-grid">
+      <a href="vibe-coding-claude-code-fullstack.html" class="blog-card">
+        <span class="post-tag">IA generativa</span>
+        <h3>Vibe coding con Claude Code en proyectos fullstack reales</h3>
+        <p>Cómo integro Claude Code en mi flujo de trabajo fullstack: contexto, prompts estructurados, agentes y skills dedicadas.</p>
+        <span class="blog-card-cta">Leer artículo →</span>
+      </a>
+      <a href="arquitectura-web-escalable-en-aws.html" class="blog-card">
+        <span class="post-tag">Cloud y AWS</span>
+        <h3>De un servidor a una arquitectura escalable en AWS</h3>
+        <p>Cómo evoluciona la infraestructura web: de un servidor a un sistema con balanceo, autoescalado, caché, colas y observabilidad. Guía interactiva en 10 pasos.</p>
+        <span class="blog-card-cta">Leer artículo →</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="prose">
+    <div class="author-card">
+      <picture>
+        <source srcset="../cv-avatar-photo.webp" type="image/webp">
+        <img src="../cv-avatar-photo.png" alt="David Otero Mato" width="64" height="64" loading="lazy">
+      </picture>
+      <div>
+        <h3>David Otero Mato</h3>
+        <p>Desarrollador fullstack freelance en Donostia — PHP, Vue.js, AWS e IA generativa aplicada a proyectos reales.</p>
+        <a href="../index.html#contact">¿Hablamos de tu proyecto? →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <p>© 2026 <span>David Otero Mato</span> · Donostia, Gipuzkoa</p>
+    <p class="footer-legal footer-services">
+      <a href="../servicios/">Servicios</a>:
+      <a href="../servicios/automatizaciones/">Automatizaciones</a> ·
+      <a href="../servicios/desarrollo-web/">Desarrollo web</a> ·
+      <a href="../servicios/ia-generativa-desarrollo/">IA generativa</a> ·
+      <a href="../servicios/ia-y-mcp-para-tu-negocio/">IA y MCP</a> ·
+      <a href="../servicios/cloud-aws/">Cloud y AWS</a> ·
+      <a href="../servicios/consultoria-tech-lead/">Consultoría</a>
+    </p>
+    <p class="footer-legal">
+      <a href="../aviso-legal.html">Aviso legal</a> ·
+      <a href="../politica-privacidad.html">Privacidad</a> ·
+      <a href="../politica-cookies.html">Cookies</a> ·
+      <button type="button" data-cookie-settings>Configurar cookies</button>
+    </p>
+  </footer>
+
+  <div class="cookie-banner" id="cookie-banner" hidden role="dialog" aria-live="polite"
+    aria-label="Consentimiento de cookies">
+    <p>
+      Uso cookies analíticas (Google Analytics) para entender cómo se usa esta web. Solo se activan si las aceptas, y
+      puedes cambiar de opinión cuando quieras desde "Configurar cookies" en el pie de página. Más info en la
+      <a href="../politica-cookies.html">Política de Cookies</a>.
+    </p>
+    <div class="cookie-banner-actions">
+      <button type="button" class="btn-secondary" id="cookie-reject">Rechazar</button>
+      <button type="button" class="btn-primary" id="cookie-accept">Aceptar</button>
+    </div>
+  </div>
+
+  <script src="../js/nav.js?v=3"></script>
+  <script src="../js/theme.js?v=1"></script>
+  <script src="../js/cookie-consent.js?v=2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="../js/site-fx.js"></script>
+</body>
+
+</html>

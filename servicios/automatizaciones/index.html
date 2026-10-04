@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
   <title>Automatización con n8n, agentes IA y MCP | David Otero</title>
-  <meta name="description" content="Automatizo procesos con n8n, agentes de IA y MCP: integración de APIs, informes y flujos a medida. Freelance en Donostia, remoto para toda España.">
+  <meta name="description" content="Automatizo procesos con n8n: soporte en WhatsApp, CRM y facturación conectados, agentes de IA y MCP. Freelance en Donostia, remoto para toda España.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://davidotero.es/servicios/automatizaciones/">
   <meta name="theme-color" content="#0c0c0f">
@@ -15,7 +15,7 @@
   <meta property="og:url" content="https://davidotero.es/servicios/automatizaciones/">
   <meta property="og:site_name" content="David Otero Mato">
   <meta property="og:title" content="Automatización con n8n, agentes IA y MCP | David Otero">
-  <meta property="og:description" content="Automatizo procesos con n8n, agentes de IA y MCP: integración de APIs, informes y flujos a medida. Freelance en Donostia, remoto para toda España.">
+  <meta property="og:description" content="Automatizo procesos con n8n: soporte en WhatsApp, CRM y facturación conectados, agentes de IA y MCP. Freelance en Donostia, remoto para toda España.">
   <meta property="og:image" content="https://davidotero.es/images/og/automatizaciones.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -23,7 +23,7 @@
   <meta property="og:locale" content="es_ES">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Automatización con n8n, agentes IA y MCP | David Otero">
-  <meta name="twitter:description" content="Automatizo procesos con n8n, agentes de IA y MCP: integración de APIs, informes y flujos a medida. Freelance en Donostia, remoto para toda España.">
+  <meta name="twitter:description" content="Automatizo procesos con n8n: soporte en WhatsApp, CRM y facturación conectados, agentes de IA y MCP. Freelance en Donostia, remoto para toda España.">
   <meta name="twitter:image" content="https://davidotero.es/images/og/automatizaciones.png">
   <meta name="twitter:image:alt" content="Automatización de procesos con n8n, agentes de IA y MCP">
 
@@ -80,6 +80,20 @@
         "itemOffered": {
           "@type": "Service",
           "name": "Flujos de automatización con n8n"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Soporte automatizado por WhatsApp con n8n"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Sincronización automática de CRM y facturación"
         }
       },
       {
@@ -180,6 +194,54 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Depende de la complejidad y del número de sistemas implicados. Tras una primera conversación te preparo una propuesta cerrada, sin sorpresas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Es necesario usar la API oficial de WhatsApp?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Para un canal estable y sin riesgo de bloqueo trabajo con la API Cloud oficial de WhatsApp a través de Meta, que además es la única vía legal para dar soporte automatizado a tus clientes a escala."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué necesito contratar para tener soporte automatizado en WhatsApp?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Una cuenta de n8n (en la nube o alojada en tu propio servidor) y una cuenta de Meta para desarrolladores donde se configura el número de WhatsApp Business. Yo me encargo de la configuración técnica de ambas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿El bot de WhatsApp puede usar inteligencia artificial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Cuando las respuestas no son fijas, conecto un agente de IA dentro del flujo de n8n para que interprete el mensaje del cliente con lenguaje natural y responda con los datos reales de tu negocio."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pasa si uso un CRM o un software de facturación muy específico?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Siempre que tu herramienta tenga una API o sea compatible con una plataforma de integración, se puede conectar. Reviso tu caso concreto en la primera conversación para encontrar la vía técnica adecuada."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Es seguro el traspaso de datos de mis clientes entre el CRM y la facturación?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La conexión se hace de forma cifrada y directa entre tus propias herramientas, con credenciales protegidas y permisos mínimos, igual que en el resto de automatizaciones que construyo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pasa si la automatización falla al generar una factura?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Configuro avisos de error: si un servicio externo falla o llega un dato incorrecto, recibes una notificación inmediata para resolverlo sin perder el rastro de la venta."
       }
     }
   ]
@@ -296,6 +358,8 @@
           <li><a href="#mcp-en-n8n">MCP en n8n: cliente y servidor</a></li>
           <li><a href="#apis-paginas">Integración de APIs y generación automática de páginas</a></li>
           <li><a href="#informes-scripts">Informes automáticos, ficheros y scripts a medida</a></li>
+          <li><a href="#whatsapp">Soporte automatizado por WhatsApp con n8n</a></li>
+          <li><a href="#crm-facturacion">Sincronizar CRM y facturación</a></li>
           <li><a href="#ejemplos">Ejemplos de automatizaciones</a></li>
           <li><a href="#proceso">Cómo trabajo</a></li>
           <li><a href="#buenas-practicas">Fiabilidad, seguridad y control</a></li>
@@ -313,7 +377,7 @@
 
     
     <h2 id="tipos">Tipos de automatización que construyo</h2>
-<div class="cards"><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 20V4 M4 20h16 M8 16v-5 M12 16V8 M16 16v-3"/></svg><h3>Informes automáticos</h3><p>PDF y gráficas a partir de tus datos, con la periodicidad que necesites.</p></div><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 3v5 M15 3v5 M6 8h12v3a6 6 0 01-12 0z M12 17v4"/></svg><h3>Integración de APIs</h3><p>CRM, tienda, facturación o cualquier servicio con API conectados entre sí.</p></div><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v3 M6 8h12a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2v-6a2 2 0 012-2z M9 13h.01 M15 13h.01"/></svg><h3>Agentes de IA</h3><p>Flujos que interpretan, deciden y usan herramientas con límites claros.</p></div><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3a9 9 0 100 18 9 9 0 000-18z M3 12h18 M12 3c3 3 3 15 0 18 M12 3c-3 3-3 15 0 18"/></svg><h3>Contenido hacia la web</h3><p>Publicación y actualización de páginas mediante APIs, con aprobación previa.</p></div><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16v12H4z M4 7l8 6 8-6"/></svg><h3>Atención de correos y formularios</h3><p>Clasificación, consulta de datos y borradores de respuesta.</p></div><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3a9 9 0 100 18 9 9 0 000-18z M12 7v5l3 2"/></svg><h3>Tareas programadas</h3><p>Copias, sincronizaciones y mantenimiento en servidor con avisos de fallo.</p></div></div>
+<div class="cards"><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 20V4 M4 20h16 M8 16v-5 M12 16V8 M16 16v-3"/></svg><h3>Informes automáticos</h3><p>PDF y gráficas a partir de tus datos, con la periodicidad que necesites.</p></div><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 3v5 M15 3v5 M6 8h12v3a6 6 0 01-12 0z M12 17v4"/></svg><h3>Integración de APIs</h3><p>CRM, tienda, facturación o cualquier servicio con API conectados entre sí.</p></div><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3v3 M6 8h12a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2v-6a2 2 0 012-2z M9 13h.01 M15 13h.01"/></svg><h3>Agentes de IA</h3><p>Flujos que interpretan, deciden y usan herramientas con límites claros.</p></div><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3a9 9 0 100 18 9 9 0 000-18z M3 12h18 M12 3c3 3 3 15 0 18 M12 3c-3 3-3 15 0 18"/></svg><h3>Contenido hacia la web</h3><p>Publicación y actualización de páginas mediante APIs, con aprobación previa.</p></div><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16v12H4z M4 7l8 6 8-6"/></svg><h3>Atención de correos y formularios</h3><p>Clasificación, consulta de datos y borradores de respuesta.</p></div><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3a9 9 0 100 18 9 9 0 000-18z M12 7v5l3 2"/></svg><h3>Tareas programadas</h3><p>Copias, sincronizaciones y mantenimiento en servidor con avisos de fallo.</p></div><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 20l1.4-4.2A8 8 0 1112 20a8 8 0 01-5-1.7z M9 10h.01 M12 10h.01 M15 10h.01"/></svg><h3>Soporte en WhatsApp</h3><p>Respuestas inmediatas a tus clientes, con <a href="#whatsapp">derivación a tu equipo</a> cuando hace falta una persona.</p></div></div>
     <h2 id="n8n">Automatización con n8n: cuándo elegirlo</h2>
 <p>n8n es una plataforma de automatización de flujos de trabajo, visual y muy flexible, que se puede alojar en tu propio servidor. Cada flujo es una cadena de nodos: un disparador (un webhook, una hora concreta, un correo nuevo, un formulario) seguido de acciones (consultar una API, transformar datos, escribir en una base de datos, enviar un mensaje).</p>
 <p>Lo elijo cuando el proceso se puede describir como un flujo de pasos entre servicios, cuando quieres que tu equipo pueda <em>ver</em> qué hace cada automatización y cuando conviene tener el control de los datos, porque puede instalarse en tu propio servidor. Es más rápido de construir y de modificar que un desarrollo desde cero.</p><div class="table-wrap"><table><thead><tr><th>Situación</th><th>Enfoque que suelo recomendar</th></tr></thead><tbody><tr><td>Conectar servicios con API, mover y transformar datos, avisos</td><td>n8n</td></tr><tr><td>Flujos que necesita entender y modificar alguien del equipo</td><td>n8n</td></tr><tr><td>Procesos con IA: clasificar, resumir, responder con datos</td><td>n8n con agentes de IA y MCP</td></tr><tr><td>Volúmenes muy altos, lógica de negocio compleja o requisitos estrictos de rendimiento</td><td>Código a medida (Python, PHP o Node.js)</td></tr><tr><td>Una tarea programada muy simple en un servidor</td><td>Script con cron</td></tr></tbody></table></div><p>No hay una herramienta universal. Te diré con franqueza si tu caso se resuelve mejor con un script de veinte líneas que con un flujo visual.</p>
@@ -362,9 +426,23 @@
   <li><strong>Tareas programadas en servidor</strong> (cron) para copias, sincronizaciones y mantenimiento.</li>
 </ul><p>Los escribo en Python, PHP o Node.js, con registros de ejecución y control de errores, y los despliego en tu servidor o en la nube.</p>
 
-    
+
+    <h2 id="whatsapp">Soporte automatizado por WhatsApp con n8n</h2>
+<p>¿Tus clientes te preguntan siempre lo mismo por WhatsApp? Precio, horarios o el estado de un pedido consumen un tiempo que podrías dedicar a tareas de más valor. Diseño canales de soporte que conectan la <strong>API de WhatsApp Business</strong> con n8n para resolver al instante lo repetitivo y dejar las consultas complejas en manos de tu equipo.</p>
+<figure class="flow-figure"><div class="flow"><div class="flow-node"><strong>Cliente</strong>Escribe a tu WhatsApp</div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node"><strong>n8n</strong>Consulta tu CRM, ERP o base de datos</div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node"><strong>Respuesta</strong>En segundos, con el dato exacto</div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node"><strong>Tu equipo</strong>Si el flujo no sabe responder</div></div><figcaption>El mensaje entra por WhatsApp, n8n busca la respuesta en tus sistemas y, si no la encuentra, avisa a una persona.</figcaption></figure>
+<div class="cards"><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 1v22 M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg><h3>Sin cuotas por agente</h3><p>A diferencia de otras plataformas de atención cerradas, n8n no te cobra más cada vez que añades a alguien del equipo.</p></div><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 3v5 M15 3v5 M6 8h12v3a6 6 0 01-12 0z M12 17v4"/></svg><h3>Conecta con lo que ya usas</h3><p>Notion, Google Sheets, un CRM a medida o un ERP complejo: n8n se conecta de forma nativa.</p></div><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 18a4 4 0 010-8 5 5 0 019.6-1A4.5 4.5 0 0117 18z"/></svg><h3>Control y privacidad</h3><p>Alojado en tu propio servidor si lo necesitas: las conversaciones y los datos de tus clientes son tuyos.</p></div></div>
+<p>Un contestador automático que no sabe cuándo rendirse desespera a cualquiera. Por eso el flujo siempre ofrece una salida rápida hacia una persona: cuando una consulta lo requiere, n8n envía una alerta a tu canal de Slack, Telegram o correo para que tu equipo tome el control de la conversación sin que el cliente tenga que repetir nada.</p>
+<p>Trabajo con la <strong>API Cloud oficial de WhatsApp</strong> (a través de Meta), nunca con soluciones no oficiales que arriesgan el bloqueo del número. Si tus respuestas necesitan interpretar lenguaje natural y no solo reglas fijas, conecto un <a href="#agentes-ia">agente de IA</a> al flujo, con el mismo enfoque de permisos mínimos y aprobación humana que uso en el resto de automatizaciones. Si lo que buscas es un asistente más amplio que responda con todos los datos de tu empresa, tienes más detalle en <a href="../ia-y-mcp-para-tu-negocio/">IA y MCP para tu negocio</a> y en el artículo <a href="../../blog/chatbot-con-datos-de-tu-empresa-tool-calling.html">cómo se hace un chatbot con tool calling</a>.</p>
+
+
+    <h2 id="crm-facturacion">Sincronizar CRM y facturación</h2>
+<p>Pasar datos a mano de tu CRM a tu programa de facturación consume tiempo y abre la puerta a errores de transcripción. Conecto ambas herramientas con n8n para que, en cuanto marcas una venta como ganada, la factura se genere y se envíe sin que tengas que mover un dedo.</p>
+<figure class="flow-figure"><div class="flow"><div class="flow-node"><strong>CRM</strong>Marcas el trato como ganado</div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node"><strong>n8n</strong>Extrae cliente, conceptos e importes</div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node"><strong>Facturación</strong>Genera el documento y lo asocia al cliente</div><span class="flow-arrow" aria-hidden="true">→</span><div class="flow-node"><strong>CRM</strong>Se actualiza con el número o el PDF</div></div><figcaption>Al cerrar la venta en el CRM, n8n traslada los datos y el sistema de facturación hace el resto.</figcaption></figure>
+<div class="cards"><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 11l2 2 4-4 M5 5h14v14H5z"/></svg><h3>Cero errores de transcripción</h3><p>Los datos del cliente, los conceptos y los importes se trasladan exactos, sin copiar y pegar.</p></div><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3a9 9 0 100 18 9 9 0 000-18z M12 7v5l3 2"/></svg><h3>Facturación inmediata</h3><p>La factura se crea al cerrar la venta, sin esperar al siguiente hueco en la agenda de administración.</p></div><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 20V4 M4 20h16 M8 16v-5 M12 16V8 M16 16v-3"/></svg><h3>Visibilidad real</h3><p>Ves en el propio CRM qué facturas están emitidas o pendientes de pago, sin cambiar de pantalla.</p></div></div>
+<p>No necesitas cambiar tus herramientas actuales: conecto la gran mayoría de CRMs (HubSpot, Pipedrive, Salesforce o uno a medida) con programas de facturación como Holded o FacturaDirecta, usando integraciones nativas, APIs públicas o, cuando conviene, plataformas como Zapier o Make en vez de n8n. Si tu software es muy específico, lo valoro en la primera conversación: basta con que tenga una API o sea compatible con alguna de estas plataformas.</p>
+
     <h2 id="ejemplos">Ejemplos de automatizaciones</h2>
-<p>Estos escenarios son <strong>ejemplos ilustrativos</strong> de lo que se puede construir, pensados para que veas el tipo de problemas que resuelvo. No corresponden a clientes concretos.</p><div class="ex-grid"><div class="example"><span class="example-label">Ejemplo ilustrativo</span><h3>Alta de leads con clasificación por IA</h3><p>Un formulario web dispara un flujo que guarda el contacto en el CRM, un agente lee el mensaje, lo clasifica (presupuesto, soporte, otro) y avisa al responsable adecuado con un resumen de dos líneas.</p></div><div class="example"><span class="example-label">Ejemplo ilustrativo</span><h3>Informe semanal automático</h3><p>Cada lunes un flujo consulta las ventas y la actividad de la semana, genera un PDF con gráficas y lo envía al equipo, avisando si algún dato parece anómalo.</p></div><div class="example"><span class="example-label">Ejemplo ilustrativo</span><h3>Contenido hacia la web</h3><p>Una hoja de cálculo con productos nuevos genera borradores de fichas con ayuda de IA; tras la aprobación de una persona, una API crea las páginas en la web.</p></div><div class="example"><span class="example-label">Ejemplo ilustrativo</span><h3>Atención de correos con datos reales</h3><p>Un agente lee los correos de consulta, busca el estado del pedido en tu base de datos mediante una herramienta MCP y prepara una respuesta para que alguien la revise y la envíe.</p></div><div class="example"><span class="example-label">Ejemplo ilustrativo</span><h3>Asistente que lanza automatizaciones</h3><p>Un flujo de n8n expuesto como servidor MCP permite pedir a un asistente «genera el informe de este cliente» y que se ejecute el proceso completo.</p></div>
+<p>Estos escenarios son <strong>ejemplos ilustrativos</strong> de lo que se puede construir, pensados para que veas el tipo de problemas que resuelvo. No corresponden a clientes concretos.</p><div class="ex-grid"><div class="example"><span class="example-label">Ejemplo ilustrativo</span><h3>Alta de leads con clasificación por IA</h3><p>Un formulario web dispara un flujo que guarda el contacto en el CRM, un agente lee el mensaje, lo clasifica (presupuesto, soporte, otro) y avisa al responsable adecuado con un resumen de dos líneas.</p></div><div class="example"><span class="example-label">Ejemplo ilustrativo</span><h3>Informe semanal automático</h3><p>Cada lunes un flujo consulta las ventas y la actividad de la semana, genera un PDF con gráficas y lo envía al equipo, avisando si algún dato parece anómalo.</p></div><div class="example"><span class="example-label">Ejemplo ilustrativo</span><h3>Contenido hacia la web</h3><p>Una hoja de cálculo con productos nuevos genera borradores de fichas con ayuda de IA; tras la aprobación de una persona, una API crea las páginas en la web.</p></div><div class="example"><span class="example-label">Ejemplo ilustrativo</span><h3>Atención de correos con datos reales</h3><p>Un agente lee los correos de consulta, busca el estado del pedido en tu base de datos mediante una herramienta MCP y prepara una respuesta para que alguien la revise y la envíe.</p></div><div class="example"><span class="example-label">Ejemplo ilustrativo</span><h3>Asistente que lanza automatizaciones</h3><p>Un flujo de n8n expuesto como servidor MCP permite pedir a un asistente «genera el informe de este cliente» y que se ejecute el proceso completo.</p></div><div class="example"><span class="example-label">Ejemplo ilustrativo</span><h3>Soporte por WhatsApp</h3><p>Un cliente pregunta el estado de su pedido por WhatsApp; n8n lo busca en el ERP y responde al momento. Si la pregunta es otra, avisa al equipo por Telegram.</p></div><div class="example"><span class="example-label">Ejemplo ilustrativo</span><h3>CRM y facturación conectados</h3><p>El equipo comercial marca un trato como ganado en el CRM; n8n genera la factura en Holded y actualiza el CRM con el enlace al PDF, sin que nadie teclee un dato a mano.</p></div>
 
     </div>
 <div class="cta-band"><p>¿Te suena alguno de estos procesos?<span>Cuéntame el tuyo y te propongo un prototipo con datos reales.</span></p><a href="../../index.html#contact" class="btn-primary">Cuéntame tu caso</a></div>
@@ -430,6 +508,30 @@
       <summary>¿Cuánto cuesta automatizar un proceso?</summary>
       <p>Depende de la complejidad y del número de sistemas implicados. Tras una primera conversación te preparo una propuesta cerrada, sin sorpresas.</p>
     </details>
+    <details class="faq-item">
+      <summary>¿Es necesario usar la API oficial de WhatsApp?</summary>
+      <p>Sí. Para un canal estable y sin riesgo de bloqueo trabajo con la API Cloud oficial de WhatsApp a través de Meta, que además es la única vía legal para dar soporte automatizado a tus clientes a escala.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Qué necesito contratar para tener soporte automatizado en WhatsApp?</summary>
+      <p>Una cuenta de n8n (en la nube o alojada en tu propio servidor) y una cuenta de Meta para desarrolladores donde se configura el número de WhatsApp Business. Yo me encargo de la configuración técnica de ambas.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿El bot de WhatsApp puede usar inteligencia artificial?</summary>
+      <p>Sí. Cuando las respuestas no son fijas, conecto un agente de IA dentro del flujo de n8n para que interprete el mensaje del cliente con lenguaje natural y responda con los datos reales de tu negocio.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Qué pasa si uso un CRM o un software de facturación muy específico?</summary>
+      <p>Siempre que tu herramienta tenga una API o sea compatible con una plataforma de integración, se puede conectar. Reviso tu caso concreto en la primera conversación para encontrar la vía técnica adecuada.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Es seguro el traspaso de datos de mis clientes entre el CRM y la facturación?</summary>
+      <p>La conexión se hace de forma cifrada y directa entre tus propias herramientas, con credenciales protegidas y permisos mínimos, igual que en el resto de automatizaciones que construyo.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Qué pasa si la automatización falla al generar una factura?</summary>
+      <p>Configuro avisos de error: si un servicio externo falla o llega un dato incorrecto, recibes una notificación inmediata para resolverlo sin perder el rastro de la venta.</p>
+    </details>
 
     <h2 id="contacto">Hablemos</h2>
 <div class="callout">
@@ -494,6 +596,8 @@
           <li><a href="#mcp-en-n8n">MCP en n8n: cliente y servidor</a></li>
           <li><a href="#apis-paginas">Integración de APIs y generación automática de páginas</a></li>
           <li><a href="#informes-scripts">Informes automáticos, ficheros y scripts a medida</a></li>
+          <li><a href="#whatsapp">Soporte automatizado por WhatsApp con n8n</a></li>
+          <li><a href="#crm-facturacion">Sincronizar CRM y facturación</a></li>
           <li><a href="#ejemplos">Ejemplos de automatizaciones</a></li>
           <li><a href="#proceso">Cómo trabajo</a></li>
           <li><a href="#buenas-practicas">Fiabilidad, seguridad y control</a></li>

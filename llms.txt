@@ -5,7 +5,7 @@
 ## Servicios
 
 - [Servicios (índice)](https://davidotero.es/servicios/): resumen de todas las soluciones que ofrece.
-- [Automatizaciones](https://davidotero.es/servicios/automatizaciones/): n8n, agentes de IA, MCP Client y Server, integración de APIs, informes y scripts a medida.
+- [Automatizaciones](https://davidotero.es/servicios/automatizaciones/): n8n, soporte automatizado por WhatsApp, sincronización de CRM y facturación, agentes de IA, MCP Client y Server, integración de APIs, informes y scripts a medida.
 - [Desarrollo web](https://davidotero.es/servicios/desarrollo-web/): webs y aplicaciones a medida con PHP, Symfony y Vue.js.
 - [IA generativa en desarrollo](https://davidotero.es/servicios/ia-generativa-desarrollo/): Claude Code, agentes y flujos de trabajo con IA.
 - [IA y MCP para tu negocio](https://davidotero.es/servicios/ia-y-mcp-para-tu-negocio/): servidores MCP y tool calling para que la IA use los datos de la empresa: chatbots, respuestas automáticas y asistentes.
@@ -23,3 +23,7 @@
 - [n8n vs Make vs Zapier: cuál elegir para automatizar tu empresa](https://davidotero.es/blog/n8n-vs-make-vs-zapier.html)
 - [Desplegar una aplicación PHP en AWS: opciones y guía paso a paso](https://davidotero.es/blog/desplegar-php-en-aws.html)
 - [De un servidor a una arquitectura escalable en AWS](https://davidotero.es/blog/arquitectura-web-escalable-en-aws.html)
+- [Auditoría de costes en AWS: cómo encontrar qué infla tu factura](https://davidotero.es/blog/auditoria-costes-aws.html)
+- [CTO fraccional para startups: qué es y cuándo tiene sentido](https://davidotero.es/blog/cto-fraccional-startups.html)
+- [Modernizar una aplicación PHP antigua sin parar el negocio](https://davidotero.es/blog/modernizar-aplicacion-php-antigua.html)
+- [Auditoría de deuda técnica: qué se analiza y qué se obtiene](https://davidotero.es/blog/auditoria-deuda-tecnica.html)

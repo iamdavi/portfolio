@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+  <title>Modernizar una aplicación PHP antigua sin parar el negocio</title>
+  <meta name="description" content="Cómo modernizar una aplicación PHP antigua a PHP 8 sin perder datos ni detener el servicio: señales de alarma, proceso paso a paso y qué se gana con el código actualizado.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://davidotero.es/blog/modernizar-aplicacion-php-antigua.html">
+  <meta name="theme-color" content="#0c0c0f">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://davidotero.es/blog/modernizar-aplicacion-php-antigua.html">
+  <meta property="og:site_name" content="David Otero Mato">
+  <meta property="og:title" content="Modernizar una aplicación PHP antigua sin parar el negocio">
+  <meta property="og:description" content="Cómo modernizar una aplicación PHP antigua a PHP 8 sin perder datos ni detener el servicio: señales de alarma, proceso paso a paso y qué se gana con el código actualizado.">
+  <meta property="og:image" content="https://davidotero.es/images/og/modernizar-aplicacion-php-antigua.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Modernizar una aplicación PHP antigua">
+  <meta property="og:locale" content="es_ES">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Modernizar una aplicación PHP antigua sin parar el negocio">
+  <meta name="twitter:description" content="Cómo modernizar una aplicación PHP antigua a PHP 8 sin perder datos ni detener el servicio.">
+  <meta name="twitter:image" content="https://davidotero.es/images/og/modernizar-aplicacion-php-antigua.png">
+  <meta name="twitter:image:alt" content="Modernizar una aplicación PHP antigua">
+
+  <link rel="preload" href="../fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../css/style.css?v=28">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="icon" type="image/png" sizes="48x48" href="../favicon-48.png">
+  <link rel="alternate icon" href="../favicon.ico">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Modernizar una aplicación PHP antigua sin parar el negocio",
+  "description": "Cómo modernizar una aplicación PHP antigua a PHP 8 sin perder datos ni detener el servicio: señales de alarma, proceso paso a paso y qué se gana con el código actualizado.",
+  "author": {
+    "@type": "Person",
+    "@id": "https://davidotero.es/#david-otero",
+    "name": "David Otero Mato",
+    "url": "https://davidotero.es/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "@id": "https://davidotero.es/#david-otero",
+    "name": "David Otero Mato"
+  },
+  "datePublished": "2026-10-04",
+  "dateModified": "2026-10-04",
+  "image": "https://davidotero.es/images/og/modernizar-aplicacion-php-antigua.png",
+  "inLanguage": "es-ES",
+  "mainEntityOfPage": "https://davidotero.es/blog/modernizar-aplicacion-php-antigua.html"
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://davidotero.es/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://davidotero.es/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Modernizar una aplicación PHP antigua sin parar el negocio",
+      "item": "https://davidotero.es/blog/modernizar-aplicacion-php-antigua.html"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Se pueden perder datos durante la actualización?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No debería. El trabajo de código se hace de forma independiente a los datos. Antes de aplicar cualquier cambio definitivo en producción, se hacen copias de seguridad completas y se prueba el funcionamiento con datos reales en un entorno de pruebas aparte."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Hay que detener la actividad mientras se actualiza la aplicación?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No tiene por qué. La aplicación puede seguir funcionando con normalidad para los usuarios o el equipo. Solo cuando la versión modernizada está probada y validada en el entorno de pruebas se hace el cambio definitivo, que suele durar pocos minutos."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Qué pasa si el programador original ya no está disponible?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Es una situación habitual. Se puede analizar el código existente para entender cómo se construyó y asumir el mantenimiento y la actualización sin necesidad de contactar con el equipo anterior."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo saber si una aplicación PHP necesita esta modernización?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Si corre en PHP 7 o anterior, es una señal clara: según la tabla oficial de versiones soportadas de php.net, esas versiones ya no reciben parches de seguridad. Otras señales son lentitud, miedo a tocar el código o problemas al cambiar de hosting."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+
+<body>
+
+  <div id="particles-js"></div>
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav id="navbar" aria-label="Principal">
+    <a href="../index.html" class="nav-logo" aria-label="Inicio">
+      <svg viewBox="0 0 71 82" height="32" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+          <linearGradient id="nav-d-grad" x1="0" y1="40.5" x2="70.89" y2="40.5" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#3a7a58" />
+            <stop offset="1" stop-color="#6ec4a0" />
+          </linearGradient>
+        </defs>
+        <path fill="none" stroke="url(#nav-d-grad)" stroke-linecap="round" stroke-miterlimit="10" stroke-width="5"
+          d="M2.5,64.9V10.04c0-4.16,3.38-7.54,7.54-7.54h27.25c17.18,0,31.1,13.93,31.1,31.1h0c0,17.18-13.93,31.1-31.11,31.1h-18.44c-3.81,0-6.9,3.09-6.9,6.9h0c0,3.81,3.09,6.9,6.9,6.9h37.55" />
+      </svg>
+    </a>
+    <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#about"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 12a4 4 0 100-8 4 4 0 000 8z M4 21a8 8 0 0116 0"/></svg>Sobre mí</a></li>
+      <li><a href="../index.html#skills"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13 3L5 14h6l-1 7 8-11h-6z"/></svg>Habilidades</a></li>
+      <li><a href="../index.html#experience"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h16v11H4z M9 8V5h6v3 M4 13h16"/></svg>Experiencia</a></li>
+      <li class="has-sub">
+        <a href="../servicios/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l9 5-9 5-9-5z M3 13l9 5 9-5"/></svg>Servicios <svg class="nav-caret" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+        <button type="button" class="sub-toggle" aria-expanded="false" aria-controls="nav-sub" aria-label="Mostrar u ocultar los servicios">
+          <svg class="sub-caret" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <ul class="nav-sub" id="nav-sub">
+          <li><a href="../servicios/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l9 5-9 5-9-5z M3 13l9 5 9-5"/></svg>Todos los servicios</a></li>
+          <li><a href="../servicios/automatizaciones/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 5h6v4H4z M14 15h6v4h-6z M10 7h3a2 2 0 012 2v6"/></svg>Automatizaciones</a></li>
+          <li><a href="../servicios/desarrollo-web/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3a9 9 0 100 18 9 9 0 000-18z M3 12h18 M12 3c3 3 3 15 0 18 M12 3c-3 3-3 15 0 18"/></svg>Desarrollo web</a></li>
+          <li><a href="../servicios/ia-generativa-desarrollo/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 8l-4 4 4 4 M16 8l4 4-4 4 M14 5l-4 14"/></svg>IA generativa en desarrollo</a></li>
+          <li><a href="../servicios/ia-y-mcp-para-tu-negocio/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 3v5 M15 3v5 M6 8h12v3a6 6 0 01-12 0z M12 17v4"/></svg>IA y MCP para tu negocio</a></li>
+          <li><a href="../servicios/cloud-aws/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 18a4 4 0 010-8 5 5 0 019.6-1A4.5 4.5 0 0117 18z"/></svg>Cloud y AWS</a></li>
+          <li><a href="../servicios/consultoria-tech-lead/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 11a3 3 0 100-6 3 3 0 000 6z M3 20a6 6 0 0112 0 M17 11a3 3 0 100-6 M21 20a6 6 0 00-4-5.6"/></svg>Consultoría y Tech Lead</a></li>
+        </ul>
+      </li>
+      <li><a href="../index.html#projects"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 4h7v7H4z M13 4h7v7h-7z M4 13h7v7H4z M13 13h7v7h-7z"/></svg>Proyectos</a></li>
+      <li><a href="../index.html#cv"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 3h7l4 4v14H7z M14 3v4h4 M9 12h6 M9 16h6"/></svg>CV</a></li>
+      <li><a href="../blog/" aria-current="true"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 4h11a3 3 0 013 3v13H8a3 3 0 01-3-3z M5 17a3 3 0 013-3h11"/></svg>Blog</a></li>
+      <li><a href="../index.html#contact" class="nav-cta"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16v12H4z M4 7l8 6 8-6"/></svg>Contacto</a></li>
+    </ul>
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Cambiar a modo claro" aria-pressed="false">
+      <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2 M12 20v2 M4.9 4.9l1.4 1.4 M17.7 17.7l1.4 1.4 M2 12h2 M20 12h2 M4.9 19.1l1.4-1.4 M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+    </button>
+  </nav>
+
+  <section class="page-hero">
+    <a href="index.html" class="back-link">&larr; Volver al blog</a>
+    <h1 style="font-size: 1.9rem;">Modernizar una aplicación PHP antigua sin parar el negocio</h1>
+    <div class="post-meta">
+      <span class="post-tag">Desarrollo web</span>
+      <span class="dot">·</span>
+      <span>4 oct 2026</span>
+      <span class="dot">·</span>
+      <span>6 min de lectura</span>
+    </div>
+  </section>
+
+  <main class="guide">
+    <article class="prose">
+      <details class="toc-inline">
+        <summary>Contenido de este artículo</summary>
+        <ol>
+          <li><a href="#que-es">Qué significa modernizar una aplicación PHP</a></li>
+          <li><a href="#por-que">Por qué actualizar en vez de rehacerlo todo</a></li>
+          <li><a href="#senales">Señales de que una aplicación necesita esta modernización</a></li>
+          <li><a href="#proceso">Cómo se hace sin parar el servicio</a></li>
+          <li><a href="#beneficios">Qué se gana con el código actualizado</a></li>
+          <li><a href="#vs-otros">Modernizar o rehacer desde cero</a></li>
+          <li><a href="#faq">Preguntas frecuentes</a></li>
+        </ol>
+      </details>
+
+<h2 id="que-es">Qué significa modernizar una aplicación PHP</h2>
+<p>Si una aplicación web, un panel de gestión o un desarrollo a medida lleva años programado en PHP, es probable que vaya lenta, que dé fallos al cambiar de servidor o que dé miedo tocar una sola línea de código por si todo se rompe. No siempre hace falta tirarlo todo y empezar de cero: la mayoría de las veces es más rápido y más económico limpiar, asegurar y actualizar el código que ya existe para que vuelva a funcionar bien.</p>
+<p>Modernizar significa llevar la aplicación a una versión actual de PHP (8.x), sustituir las partes obsoletas del código y corregir lo que frena el rendimiento, conservando la lógica de negocio que ya está probada y funciona en el día a día.</p>
+
+<h2 id="por-que">Por qué actualizar en vez de rehacerlo todo</h2>
+<p>Reescribir un software completo desde cero suele ser largo, costoso y lleno de imprevistos. Al modernizar lo que ya existe, se aprovecha la lógica que ya funciona:</p>
+<div class="cards"><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 1v22 M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg><h3>Ahorro de costes</h3><p>Se evita pagar por diseñar y desarrollar de nuevo funciones que ya están resueltas.</p></div><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3a9 9 0 100 18 9 9 0 000-18z M12 7v5l3 2"/></svg><h3>Menor tiempo de entrega</h3><p>Los cambios se aplican de forma progresiva: la aplicación sigue en uso mientras se mejora.</p></div><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 11V7a6 6 0 1112 0v4 M5 11h14v9H5z"/></svg><h3>La base de datos, intacta</h3><p>La estructura de clientes, ventas o registros históricos se mantiene sin alteraciones peligrosas.</p></div></div>
+
+<h2 id="senales">Señales de que una aplicación necesita esta modernización</h2>
+<p>Situaciones <strong>ilustrativas</strong>, no casos concretos.</p><div class="ex-grid"><div class="example"><span class="example-label">Ejemplo ilustrativo</span><h3>Va lenta y nadie sabe por qué</h3><p>La aplicación se ha ido ralentizando con los años y nadie en el equipo sabe si es el código, el servidor o la base de datos.</p></div><div class="example"><span class="example-label">Ejemplo ilustrativo</span><h3>Da miedo tocar el código</h3><p>Cada cambio es una apuesta: nadie está seguro de qué puede romperse en otra parte de la aplicación.</p></div><div class="example"><span class="example-label">Ejemplo ilustrativo</span><h3>No se puede cambiar de hosting</h3><p>El proveedor actual exige mantener una versión de PHP antigua y cara, porque la aplicación no funciona con una versión moderna.</p></div></div>
+
+<h2 id="proceso">Cómo se hace sin parar el servicio</h2>
+<p>Para actualizar el software con seguridad, conviene seguir un proceso ordenado que minimiza el riesgo de caída del servicio:</p>
+<ol>
+  <li><strong>Auditoría del estado actual.</strong> Revisar la versión de PHP activa (por ejemplo 5.6 o 7.0) y detectar las funciones obsoletas o incompatibles con PHP 8.x.</li>
+  <li><strong>Entorno de pruebas.</strong> Nunca se trabaja sobre la web en vivo: se clona la aplicación en un servidor aparte para hacer todas las pruebas necesarias.</li>
+  <li><strong>Refactorización y limpieza.</strong> Se sustituye el código obsoleto (como las funciones <code>mysql_</code>) por conexiones y prácticas modernas y seguras.</li>
+  <li><strong>Optimización del rendimiento.</strong> Se corrigen los cuellos de botella que hacen que la aplicación consuma más recursos de los necesarios.</li>
+</ol>
+
+<div class="cta-band"><p>¿Tu aplicación PHP necesita una puesta al día?<span>Cuéntame tu caso; respuesta en menos de 24 horas.</span></p><a href="../index.html#contact" class="btn-primary">Cuéntame tu caso</a></div>
+
+<h2 id="beneficios">Qué se gana con el código actualizado</h2>
+<div class="cards"><div class="card"><span class="card-kpi">Hasta 2×</span><h3>Más velocidad</h3><p>PHP 7 llegó a ser hasta el doble de rápido que PHP 5.6, según el anuncio oficial de su lanzamiento en php.net. Las versiones 8.x mantienen esa línea de mejora de rendimiento.</p></div><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 11V7a6 6 0 1112 0v4 M5 11h14v9H5z"/></svg><h3>Seguridad reforzada</h3><p>Se cierran agujeros de seguridad de versiones que, según la tabla oficial de versiones soportadas de php.net, ya no reciben parches.</p></div><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 18a4 4 0 010-8 5 5 0 019.6-1A4.5 4.5 0 0117 18z"/></svg><h3>Hosting moderno y más barato</h3><p>Se puede alojar la aplicación en servidores actuales, sin mantener configuraciones antiguas y caras solo para que siga arrancando.</p></div></div>
+
+<h2 id="vs-otros">Modernizar o rehacer desde cero</h2>
+<p>Modernizar es distinto de un proyecto de <a href="../servicios/desarrollo-web/">desarrollo web a medida</a> que parte de cero o de un rediseño completo: aquí el punto de partida es la aplicación ya en marcha, y el objetivo es que siga funcionando mientras se actualiza por debajo. Cuando la base de código está tan deteriorada que ya no compensa seguir parcheando, el servicio de desarrollo a medida es el camino: diseño y arquitectura nuevos, con PHP, Symfony y Vue.js, pero reutilizando todo el conocimiento del negocio que ya se tiene del sistema anterior.</p>
+
+<h2 id="faq">Preguntas frecuentes</h2>
+<details class="faq-item">
+      <summary>¿Se pueden perder datos durante la actualización?</summary>
+      <p>No debería. El trabajo de código se hace de forma independiente a los datos. Antes de aplicar cualquier cambio definitivo en producción, se hacen copias de seguridad completas y se prueba el funcionamiento con datos reales en un entorno de pruebas aparte.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Hay que detener la actividad mientras se actualiza la aplicación?</summary>
+      <p>No tiene por qué. La aplicación puede seguir funcionando con normalidad para los usuarios o el equipo. Solo cuando la versión modernizada está probada y validada en el entorno de pruebas se hace el cambio definitivo, que suele durar pocos minutos.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Qué pasa si el programador original ya no está disponible?</summary>
+      <p>Es una situación habitual. Se puede analizar el código existente para entender cómo se construyó y asumir el mantenimiento y la actualización sin necesidad de contactar con el equipo anterior.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Cómo saber si una aplicación PHP necesita esta modernización?</summary>
+      <p>Si corre en PHP 7 o anterior, es una señal clara: según la tabla oficial de versiones soportadas de php.net, esas versiones ya no reciben parches de seguridad. Otras señales son lentitud, miedo a tocar el código o problemas al cambiar de hosting.</p>
+    </details>
+
+    <div class="callout">
+      <p><strong>¿Tienes una aplicación PHP que necesita esta puesta al día?</strong>Consulta el servicio de
+        <a href="../servicios/desarrollo-web/">desarrollo web y aplicaciones a medida con PHP, Symfony y Vue.js</a> o
+        <a href="../index.html#contact">escríbeme</a> y hablamos de tu caso.</p>
+    </div>
+  </article>
+
+    <aside class="guide-aside" aria-label="Índice y contacto">
+      <nav class="aside-card aside-toc" aria-label="Contenido del artículo">
+        <p class="aside-title">Contenido</p>
+        <ol>
+          <li><a href="#que-es">Qué significa modernizar una aplicación PHP</a></li>
+          <li><a href="#por-que">Por qué actualizar en vez de rehacerlo todo</a></li>
+          <li><a href="#senales">Señales de que una aplicación necesita esta modernización</a></li>
+          <li><a href="#proceso">Cómo se hace sin parar el servicio</a></li>
+          <li><a href="#beneficios">Qué se gana con el código actualizado</a></li>
+          <li><a href="#vs-otros">Modernizar o rehacer desde cero</a></li>
+          <li><a href="#faq">Preguntas frecuentes</a></li>
+        </ol>
+      </nav>
+      <div class="aside-card">
+        <p class="aside-title">¿Hablamos?</p>
+        <p>Cuéntame qué necesitas y te respondo en menos de 24 horas.</p>
+        <a href="../index.html#contact" class="btn-primary">Escríbeme</a>
+      </div>
+    </aside>
+  </main>
+
+  <div class="prose">
+    <h2>Sigue leyendo</h2>
+    <div class="blog-grid">
+      <a href="desplegar-php-en-aws.html" class="blog-card">
+        <span class="post-tag">Cloud y AWS</span>
+        <h3>Desplegar una aplicación PHP en AWS: opciones y guía paso a paso</h3>
+        <p>Comparativa de Lightsail, EC2, Elastic Beanstalk y contenedores, y guía paso a paso con EC2, Nginx, RDS y HTTPS.</p>
+        <span class="blog-card-cta">Leer artículo →</span>
+      </a>
+      <a href="cuanto-cuesta-una-web-a-medida.html" class="blog-card">
+        <span class="post-tag">Desarrollo web</span>
+        <h3>Cuánto cuesta una web a medida: precios y qué influye</h3>
+        <p>Rangos orientativos por tipo de proyecto, qué factores suben el precio y cómo comparar presupuestos.</p>
+        <span class="blog-card-cta">Leer artículo →</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="prose">
+    <div class="author-card">
+      <picture>
+        <source srcset="../cv-avatar-photo.webp" type="image/webp">
+        <img src="../cv-avatar-photo.png" alt="David Otero Mato" width="64" height="64" loading="lazy">
+      </picture>
+      <div>
+        <h3>David Otero Mato</h3>
+        <p>Desarrollador fullstack freelance en Donostia — PHP, Vue.js, AWS e IA generativa aplicada a proyectos reales.</p>
+        <a href="../index.html#contact">¿Hablamos de tu proyecto? →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <p>© 2026 <span>David Otero Mato</span> · Donostia, Gipuzkoa</p>
+    <p class="footer-legal footer-services">
+      <a href="../servicios/">Servicios</a>:
+      <a href="../servicios/automatizaciones/">Automatizaciones</a> ·
+      <a href="../servicios/desarrollo-web/">Desarrollo web</a> ·
+      <a href="../servicios/ia-generativa-desarrollo/">IA generativa</a> ·
+      <a href="../servicios/ia-y-mcp-para-tu-negocio/">IA y MCP</a> ·
+      <a href="../servicios/cloud-aws/">Cloud y AWS</a> ·
+      <a href="../servicios/consultoria-tech-lead/">Consultoría</a>
+    </p>
+    <p class="footer-legal">
+      <a href="../aviso-legal.html">Aviso legal</a> ·
+      <a href="../politica-privacidad.html">Privacidad</a> ·
+      <a href="../politica-cookies.html">Cookies</a> ·
+      <button type="button" data-cookie-settings>Configurar cookies</button>
+    </p>
+  </footer>
+
+  <div class="cookie-banner" id="cookie-banner" hidden role="dialog" aria-live="polite"
+    aria-label="Consentimiento de cookies">
+    <p>
+      Uso cookies analíticas (Google Analytics) para entender cómo se usa esta web. Solo se activan si las aceptas, y
+      puedes cambiar de opinión cuando quieras desde "Configurar cookies" en el pie de página. Más info en la
+      <a href="../politica-cookies.html">Política de Cookies</a>.
+    </p>
+    <div class="cookie-banner-actions">
+      <button type="button" class="btn-secondary" id="cookie-reject">Rechazar</button>
+      <button type="button" class="btn-primary" id="cookie-accept">Aceptar</button>
+    </div>
+  </div>
+
+  <script src="../js/nav.js?v=3"></script>
+  <script src="../js/theme.js?v=1"></script>
+  <script src="../js/cookie-consent.js?v=2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="../js/site-fx.js"></script>
+</body>
+
+</html>

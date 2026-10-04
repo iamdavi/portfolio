@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+  <title>Auditoría de deuda técnica: qué se analiza y qué se obtiene</title>
+  <meta name="description" content="Qué es la deuda técnica, qué se analiza en una auditoría (arquitectura, código, pruebas, dependencias) y qué entregable se obtiene al terminar.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://davidotero.es/blog/auditoria-deuda-tecnica.html">
+  <meta name="theme-color" content="#0c0c0f">
+
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://davidotero.es/blog/auditoria-deuda-tecnica.html">
+  <meta property="og:site_name" content="David Otero Mato">
+  <meta property="og:title" content="Auditoría de deuda técnica: qué se analiza y qué se obtiene">
+  <meta property="og:description" content="Qué es la deuda técnica, qué se analiza en una auditoría (arquitectura, código, pruebas, dependencias) y qué entregable se obtiene al terminar.">
+  <meta property="og:image" content="https://davidotero.es/images/og/auditoria-deuda-tecnica.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Auditoría de deuda técnica en software">
+  <meta property="og:locale" content="es_ES">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Auditoría de deuda técnica: qué se analiza y qué se obtiene">
+  <meta name="twitter:description" content="Qué se analiza en una auditoría de deuda técnica y qué entregable se obtiene al terminar.">
+  <meta name="twitter:image" content="https://davidotero.es/images/og/auditoria-deuda-tecnica.png">
+  <meta name="twitter:image:alt" content="Auditoría de deuda técnica en software">
+
+  <link rel="preload" href="../fonts/space-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../fonts/inter.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../css/style.css?v=28">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="icon" type="image/png" sizes="48x48" href="../favicon-48.png">
+  <link rel="alternate icon" href="../favicon.ico">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Auditoría de deuda técnica: qué se analiza y qué se obtiene",
+  "description": "Qué es la deuda técnica, qué se analiza en una auditoría (arquitectura, código, pruebas, dependencias) y qué entregable se obtiene al terminar.",
+  "author": {
+    "@type": "Person",
+    "@id": "https://davidotero.es/#david-otero",
+    "name": "David Otero Mato",
+    "url": "https://davidotero.es/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "@id": "https://davidotero.es/#david-otero",
+    "name": "David Otero Mato"
+  },
+  "datePublished": "2026-10-04",
+  "dateModified": "2026-10-04",
+  "image": "https://davidotero.es/images/og/auditoria-deuda-tecnica.png",
+  "inLanguage": "es-ES",
+  "mainEntityOfPage": "https://davidotero.es/blog/auditoria-deuda-tecnica.html"
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://davidotero.es/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://davidotero.es/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Auditoría de deuda técnica: qué se analiza y qué se obtiene",
+      "item": "https://davidotero.es/blog/auditoria-deuda-tecnica.html"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Hace falta dar acceso total al código fuente?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí. Para que la auditoría sea útil hace falta leer el código y revisar el histórico del repositorio. Todo el proceso se hace bajo un acuerdo de confidencialidad (NDA) firmado por ambas partes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuánto tiempo toma realizar la auditoría?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Depende del tamaño del proyecto, pero un análisis estándar para una aplicación o plataforma mediana suele requerir entre una y dos semanas de trabajo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Es lo mismo que una auditoría de seguridad o un pentest?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Se revisan riesgos de seguridad evidentes en el código y en las dependencias (versiones obsoletas, malas prácticas, gestión de credenciales), pero no sustituye a un pentest formal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Se puede ayudar a implementar las mejoras después?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, si se quiere. La auditoría es independiente de la ejecución: se puede acompañar el plan como Tech Lead freelance, encargarse del desarrollo o ayudar con la infraestructura, según lo que necesite el equipo."
+      }
+    }
+  ]
+}
+  </script>
+</head>
+
+<body>
+
+  <div id="particles-js"></div>
+  <div class="cursor"></div>
+  <div class="cursor-follower"></div>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav id="navbar" aria-label="Principal">
+    <a href="../index.html" class="nav-logo" aria-label="Inicio">
+      <svg viewBox="0 0 71 82" height="32" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+          <linearGradient id="nav-d-grad" x1="0" y1="40.5" x2="70.89" y2="40.5" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#3a7a58" />
+            <stop offset="1" stop-color="#6ec4a0" />
+          </linearGradient>
+        </defs>
+        <path fill="none" stroke="url(#nav-d-grad)" stroke-linecap="round" stroke-miterlimit="10" stroke-width="5"
+          d="M2.5,64.9V10.04c0-4.16,3.38-7.54,7.54-7.54h27.25c17.18,0,31.1,13.93,31.1,31.1h0c0,17.18-13.93,31.1-31.11,31.1h-18.44c-3.81,0-6.9,3.09-6.9,6.9h0c0,3.81,3.09,6.9,6.9,6.9h37.55" />
+      </svg>
+    </a>
+    <button class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html#about"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 12a4 4 0 100-8 4 4 0 000 8z M4 21a8 8 0 0116 0"/></svg>Sobre mí</a></li>
+      <li><a href="../index.html#skills"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13 3L5 14h6l-1 7 8-11h-6z"/></svg>Habilidades</a></li>
+      <li><a href="../index.html#experience"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 8h16v11H4z M9 8V5h6v3 M4 13h16"/></svg>Experiencia</a></li>
+      <li class="has-sub">
+        <a href="../servicios/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l9 5-9 5-9-5z M3 13l9 5 9-5"/></svg>Servicios <svg class="nav-caret" viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>
+        <button type="button" class="sub-toggle" aria-expanded="false" aria-controls="nav-sub" aria-label="Mostrar u ocultar los servicios">
+          <svg class="sub-caret" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <ul class="nav-sub" id="nav-sub">
+          <li><a href="../servicios/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l9 5-9 5-9-5z M3 13l9 5 9-5"/></svg>Todos los servicios</a></li>
+          <li><a href="../servicios/automatizaciones/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 5h6v4H4z M14 15h6v4h-6z M10 7h3a2 2 0 012 2v6"/></svg>Automatizaciones</a></li>
+          <li><a href="../servicios/desarrollo-web/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3a9 9 0 100 18 9 9 0 000-18z M3 12h18 M12 3c3 3 3 15 0 18 M12 3c-3 3-3 15 0 18"/></svg>Desarrollo web</a></li>
+          <li><a href="../servicios/ia-generativa-desarrollo/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 8l-4 4 4 4 M16 8l4 4-4 4 M14 5l-4 14"/></svg>IA generativa en desarrollo</a></li>
+          <li><a href="../servicios/ia-y-mcp-para-tu-negocio/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 3v5 M15 3v5 M6 8h12v3a6 6 0 01-12 0z M12 17v4"/></svg>IA y MCP para tu negocio</a></li>
+          <li><a href="../servicios/cloud-aws/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 18a4 4 0 010-8 5 5 0 019.6-1A4.5 4.5 0 0117 18z"/></svg>Cloud y AWS</a></li>
+          <li><a href="../servicios/consultoria-tech-lead/"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 11a3 3 0 100-6 3 3 0 000 6z M3 20a6 6 0 0112 0 M17 11a3 3 0 100-6 M21 20a6 6 0 00-4-5.6"/></svg>Consultoría y Tech Lead</a></li>
+        </ul>
+      </li>
+      <li><a href="../index.html#projects"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 4h7v7H4z M13 4h7v7h-7z M4 13h7v7H4z M13 13h7v7h-7z"/></svg>Proyectos</a></li>
+      <li><a href="../index.html#cv"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 3h7l4 4v14H7z M14 3v4h4 M9 12h6 M9 16h6"/></svg>CV</a></li>
+      <li><a href="../blog/" aria-current="true"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M5 4h11a3 3 0 013 3v13H8a3 3 0 01-3-3z M5 17a3 3 0 013-3h11"/></svg>Blog</a></li>
+      <li><a href="../index.html#contact" class="nav-cta"><svg class="nav-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 6h16v12H4z M4 7l8 6 8-6"/></svg>Contacto</a></li>
+    </ul>
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Cambiar a modo claro" aria-pressed="false">
+      <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2 M12 20v2 M4.9 4.9l1.4 1.4 M17.7 17.7l1.4 1.4 M2 12h2 M20 12h2 M4.9 19.1l1.4-1.4 M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+    </button>
+  </nav>
+
+  <section class="page-hero">
+    <a href="index.html" class="back-link">&larr; Volver al blog</a>
+    <h1 style="font-size: 1.9rem;">Auditoría de deuda técnica: qué se analiza y qué se obtiene</h1>
+    <div class="post-meta">
+      <span class="post-tag">Consultoría</span>
+      <span class="dot">·</span>
+      <span>4 oct 2026</span>
+      <span class="dot">·</span>
+      <span>6 min de lectura</span>
+    </div>
+  </section>
+
+  <main class="guide">
+    <article class="prose">
+      <details class="toc-inline">
+        <summary>Contenido de este artículo</summary>
+        <ol>
+          <li><a href="#que-es">Qué es la deuda técnica</a></li>
+          <li><a href="#que-analiza">Qué se analiza exactamente</a></li>
+          <li><a href="#senales">Señales de que conviene hacer esta auditoría</a></li>
+          <li><a href="#proceso">Cómo es el proceso</a></li>
+          <li><a href="#entrega">Qué se obtiene al terminar</a></li>
+          <li><a href="#despues">Y después de la auditoría, qué</a></li>
+          <li><a href="#faq">Preguntas frecuentes</a></li>
+        </ol>
+      </details>
+
+<h2 id="que-es">Qué es la deuda técnica</h2>
+<p>Con el tiempo, las prisas por lanzar nuevas funcionalidades hacen que el código de una aplicación acumule parches. Eso es la <strong>deuda técnica</strong>: no frena hoy, pero hace que mañana cualquier cambio sea más lento, más costoso y más propenso a fallos. Cuanto más tarde se afronta, más caro sale pagarla.</p>
+<p>Una auditoría de deuda técnica ayuda a un equipo a identificar dónde están los problemas reales de su software y cómo resolverlos, sin necesidad de empezar el proyecto de cero. No se trata de pasar una herramienta automática y entregar un informe genérico de mil páginas: es analizar a fondo la salud del proyecto con el mismo criterio con el que se decidiría la arquitectura de uno propio.</p>
+
+<h2 id="que-analiza">Qué se analiza exactamente</h2>
+<div class="cards"><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3a9 9 0 100 18 9 9 0 000-18z M15 9l-2 5-5 2 2-5z"/></svg><h3>Arquitectura y estructura</h3><p>Si los módulos están acoplados en exceso o si la base de datos sufre cuellos de botella.</p></div><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M11 4a7 7 0 100 14 7 7 0 000-14z M21 21l-5-5"/></svg><h3>Calidad y mantenibilidad</h3><p>Legibilidad del código, patrones mal aplicados y lógica duplicada que dificulta el mantenimiento.</p></div><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 5h6v4H4z M14 15h6v4h-6z M10 7h3a2 2 0 012 2v6"/></svg><h3>Pruebas y despliegue</h3><p>Cobertura de tests reales y qué tan automatizado (y seguro) es subir cambios a producción.</p></div><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 11V7a6 6 0 1112 0v4 M5 11h14v9H5z"/></svg><h3>Dependencias</h3><p>Librerías obsoletas o sin soporte que pueden poner en riesgo la seguridad del sistema.</p></div></div>
+
+<h2 id="senales">Señales de que conviene hacer esta auditoría</h2>
+<p>Escenarios <strong>ilustrativos</strong>, no casos concretos.</p><div class="ex-grid"><div class="example"><span class="example-label">Ejemplo ilustrativo</span><h3>Cada nueva función tarda más que la anterior</h3><p>El equipo nota que lo que antes se entregaba en días ahora lleva semanas, sin que haya cambiado la dificultad del producto.</p></div><div class="example"><span class="example-label">Ejemplo ilustrativo</span><h3>Nadie quiere tocar cierta parte del código</h3><p>Hay módulos "intocables" porque nadie entiende bien cómo funcionan o porque fallar ahí es muy costoso.</p></div><div class="example"><span class="example-label">Ejemplo ilustrativo</span><h3>Va a levantarse inversión o venderse la empresa</h3><p>Un inversor o comprador puede pedir una auditoría técnica (due diligence) antes de cerrar la operación.</p></div></div>
+
+<h2 id="proceso">Cómo es el proceso</h2>
+<ol>
+  <li><strong>Acceso y contexto.</strong> Se firma un acuerdo de confidencialidad (NDA) y se facilita acceso al repositorio de código.</li>
+  <li><strong>Análisis profundo.</strong> Se revisa el código manualmente, apoyado con herramientas de análisis estático.</li>
+  <li><strong>Charla con el equipo.</strong> Hablar con los programadores para entender qué partes del código causan más fricción en el día a día.</li>
+  <li><strong>Plan de acción.</strong> Un informe práctico con los problemas priorizados por impacto y esfuerzo de resolución.</li>
+</ol>
+
+<div class="cta-band"><p>¿Sospechas que tu software tiene más deuda técnica de la que se ve a simple vista?<span>Cuéntame tu caso; respuesta en menos de 24 horas.</span></p><a href="../index.html#contact" class="btn-primary">Cuéntame tu caso</a></div>
+
+<h2 id="entrega">Qué se obtiene al terminar</h2>
+<p>Al finalizar la auditoría, el entregable es de valor inmediato, no teoría abstracta:</p>
+<div class="cards"><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7 3h7l4 4v14H7z M14 3v4h4 M9 12h6 M9 16h6"/></svg><h3>Resumen ejecutivo</h3><p>Claro y sin jerga, para que el área de negocio entienda los riesgos técnicos actuales.</p></div><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 11l2 2 4-4 M5 5h14v14H5z"/></svg><h3>Tareas priorizadas</h3><p>Listas para añadir al gestor de tareas del equipo (Jira, GitHub, etc.).</p></div><div class="card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 11a3 3 0 100-6 3 3 0 000 6z M3 20a6 6 0 0112 0 M17 11a3 3 0 100-6 M21 20a6 6 0 00-4-5.6"/></svg><h3>Puesta en común</h3><p>Una videollamada para resolver dudas y trazar la hoja de ruta técnica con el equipo.</p></div></div>
+
+<h2 id="despues">Y después de la auditoría, qué</h2>
+<p>La auditoría es un <strong>diagnóstico cerrado</strong>: entra, analiza y sale con un informe y un plan, normalmente en una o dos semanas. Lo que se haga con ese plan es otra decisión: algunos equipos lo ejecutan solos con las tareas ya priorizadas, y otros prefieren acompañamiento continuado — mentoría del equipo y ejecución del plan en el tiempo — a través de una <a href="../servicios/consultoria-tech-lead/">consultoría y Tech Lead</a>. No hay una opción correcta: depende de si el equipo tiene la capacidad y el tiempo para aplicarlo, o si prefiere que alguien lo acompañe.</p>
+
+<h2 id="faq">Preguntas frecuentes</h2>
+<details class="faq-item">
+      <summary>¿Hace falta dar acceso total al código fuente?</summary>
+      <p>Sí. Para que la auditoría sea útil hace falta leer el código y revisar el histórico del repositorio. Todo el proceso se hace bajo un acuerdo de confidencialidad (NDA) firmado por ambas partes.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Cuánto tiempo toma realizar la auditoría?</summary>
+      <p>Depende del tamaño del proyecto, pero un análisis estándar para una aplicación o plataforma mediana suele requerir entre una y dos semanas de trabajo.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Es lo mismo que una auditoría de seguridad o un pentest?</summary>
+      <p>No. Se revisan riesgos de seguridad evidentes en el código y en las dependencias (versiones obsoletas, malas prácticas, gestión de credenciales), pero no sustituye a un pentest formal.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Se puede ayudar a implementar las mejoras después?</summary>
+      <p>Sí, si se quiere. La auditoría es independiente de la ejecución: se puede acompañar el plan como Tech Lead freelance, encargarse del desarrollo o ayudar con la infraestructura, según lo que necesite el equipo.</p>
+    </details>
+
+    <div class="callout">
+      <p><strong>¿Tu equipo necesita este tipo de acompañamiento?</strong>Consulta el servicio de
+        <a href="../servicios/consultoria-tech-lead/">Consultoría y Tech Lead</a> o
+        <a href="../index.html#contact">escríbeme</a> y hablamos de tu caso.</p>
+    </div>
+  </article>
+
+    <aside class="guide-aside" aria-label="Índice y contacto">
+      <nav class="aside-card aside-toc" aria-label="Contenido del artículo">
+        <p class="aside-title">Contenido</p>
+        <ol>
+          <li><a href="#que-es">Qué es la deuda técnica</a></li>
+          <li><a href="#que-analiza">Qué se analiza exactamente</a></li>
+          <li><a href="#senales">Señales de que conviene hacer esta auditoría</a></li>
+          <li><a href="#proceso">Cómo es el proceso</a></li>
+          <li><a href="#entrega">Qué se obtiene al terminar</a></li>
+          <li><a href="#despues">Y después de la auditoría, qué</a></li>
+          <li><a href="#faq">Preguntas frecuentes</a></li>
+        </ol>
+      </nav>
+      <div class="aside-card">
+        <p class="aside-title">¿Hablamos?</p>
+        <p>Cuéntame qué necesitas y te respondo en menos de 24 horas.</p>
+        <a href="../index.html#contact" class="btn-primary">Escríbeme</a>
+      </div>
+    </aside>
+  </main>
+
+  <div class="prose">
+    <h2>Sigue leyendo</h2>
+    <div class="blog-grid">
+      <a href="cto-fraccional-startups.html" class="blog-card">
+        <span class="post-tag">Consultoría</span>
+        <h3>CTO fraccional para startups: qué es y cuándo tiene sentido</h3>
+        <p>En qué se diferencia de una consultoría puntual y cuándo tiene sentido para una startup.</p>
+        <span class="blog-card-cta">Leer artículo →</span>
+      </a>
+      <a href="vibe-coding-claude-code-fullstack.html" class="blog-card">
+        <span class="post-tag">IA generativa</span>
+        <h3>Vibe coding con Claude Code en proyectos fullstack reales</h3>
+        <p>Cómo integro Claude Code en mi flujo de trabajo fullstack: contexto, prompts estructurados, agentes y skills dedicadas.</p>
+        <span class="blog-card-cta">Leer artículo →</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="prose">
+    <div class="author-card">
+      <picture>
+        <source srcset="../cv-avatar-photo.webp" type="image/webp">
+        <img src="../cv-avatar-photo.png" alt="David Otero Mato" width="64" height="64" loading="lazy">
+      </picture>
+      <div>
+        <h3>David Otero Mato</h3>
+        <p>Desarrollador fullstack freelance en Donostia — PHP, Vue.js, AWS e IA generativa aplicada a proyectos reales.</p>
+        <a href="../index.html#contact">¿Hablamos de tu proyecto? →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== FOOTER ========== -->
+  <footer>
+    <p>© 2026 <span>David Otero Mato</span> · Donostia, Gipuzkoa</p>
+    <p class="footer-legal footer-services">
+      <a href="../servicios/">Servicios</a>:
+      <a href="../servicios/automatizaciones/">Automatizaciones</a> ·
+      <a href="../servicios/desarrollo-web/">Desarrollo web</a> ·
+      <a href="../servicios/ia-generativa-desarrollo/">IA generativa</a> ·
+      <a href="../servicios/ia-y-mcp-para-tu-negocio/">IA y MCP</a> ·
+      <a href="../servicios/cloud-aws/">Cloud y AWS</a> ·
+      <a href="../servicios/consultoria-tech-lead/">Consultoría</a>
+    </p>
+    <p class="footer-legal">
+      <a href="../aviso-legal.html">Aviso legal</a> ·
+      <a href="../politica-privacidad.html">Privacidad</a> ·
+      <a href="../politica-cookies.html">Cookies</a> ·
+      <button type="button" data-cookie-settings>Configurar cookies</button>
+    </p>
+  </footer>
+
+  <div class="cookie-banner" id="cookie-banner" hidden role="dialog" aria-live="polite"
+    aria-label="Consentimiento de cookies">
+    <p>
+      Uso cookies analíticas (Google Analytics) para entender cómo se usa esta web. Solo se activan si las aceptas, y
+      puedes cambiar de opinión cuando quieras desde "Configurar cookies" en el pie de página. Más info en la
+      <a href="../politica-cookies.html">Política de Cookies</a>.
+    </p>
+    <div class="cookie-banner-actions">
+      <button type="button" class="btn-secondary" id="cookie-reject">Rechazar</button>
+      <button type="button" class="btn-primary" id="cookie-accept">Aceptar</button>
+    </div>
+  </div>
+
+  <script src="../js/nav.js?v=3"></script>
+  <script src="../js/theme.js?v=1"></script>
+  <script src="../js/cookie-consent.js?v=2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="../js/site-fx.js"></script>
+</body>
+
+</html>

@@ -173,6 +173,22 @@
         "@type": "Answer",
         "text": "Sí. Trabajo en remoto con clientes de toda España y, si conviene, nos vemos en Donostia-San Sebastián."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cómo sé si mi web tiene problemas de Core Web Vitals?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La compruebo con PageSpeed Insights y, si ya tienes tráfico real, con el informe de Core Web Vitals de Search Console, que usa datos reales de tus visitantes y no solo un test puntual. Si el móvil aparece en naranja o rojo, hay margen de mejora."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Tengo que cambiar de hosting si mi web va lenta?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No siempre. La mayoría de webs lentas mejoran optimizando el código, las imágenes y la caché, sin tocar el hosting. Si el servidor es de verdad el cuello de botella, te lo digo con datos antes de proponer un cambio."
+      }
     }
   ]
 }
@@ -287,7 +303,7 @@
           <li><a href="#web-y-ia">Webs que se conectan con automatizaciones e IA</a></li>
           <li><a href="#modernizacion">Modernización de aplicaciones PHP antiguas</a></li>
           <li><a href="#ejemplos">Ejemplos de proyectos que puedo abordar</a></li>
-          <li><a href="#rendimiento">Rendimiento: por qué importa y cómo lo cuido</a></li>
+          <li><a href="#rendimiento">Core Web Vitals: cómo mejoro una web lenta</a></li>
           <li><a href="#mantenimiento">Mantenimiento y evolución</a></li>
           <li><a href="#necesito">Qué necesito de ti para empezar</a></li>
           <li><a href="#proceso">Cómo trabajo</a></li>
@@ -312,7 +328,7 @@
   <li><strong>Sitemap y robots.txt</strong> correctos.</li>
 </ul></div><div><h3>Técnica y rendimiento</h3><ul>
   <li><strong>Imágenes optimizadas</strong> y carga eficiente de recursos.</li>
-  <li><strong>Caché bien configurada</strong> (Core Web Vitals).</li>
+  <li><strong>Caché bien configurada</strong> (<a href="#rendimiento">Core Web Vitals</a>).</li>
   <li><strong>Diseño adaptable al móvil</strong> y accesibilidad.</li>
   <li><strong>HTTPS y cabeceras de seguridad</strong>.</li>
 </ul></div></div><p>No prometo posiciones concretas en Google: dependen también del contenido, de la competencia y del tiempo. Lo que sí garantizo es que la web no tenga obstáculos técnicos para posicionar. Este mismo sitio está construido con esos criterios, con su sección de <a href="../">servicios</a> y su <a href="../../blog/">blog</a>.</p>
@@ -336,14 +352,17 @@
 <p>Escenarios <strong>ilustrativos</strong> para que veas el tipo de trabajo. No son clientes concretos.</p><div class="ex-grid"><div class="example"><span class="example-label">Ejemplo ilustrativo</span><h3>Web corporativa local con captación de contactos</h3><p>Una web de servicios profesionales con páginas por servicio, formulario de contacto con consentimiento, datos estructurados locales y carga rápida en móvil.</p></div><div class="example"><span class="example-label">Ejemplo ilustrativo</span><h3>Panel de gestión para un negocio</h3><p>Una aplicación con usuarios y roles donde el equipo gestiona clientes y pedidos, con gráficas, exportación a CSV e informes PDF.</p></div><div class="example"><span class="example-label">Ejemplo ilustrativo</span><h3>Migración de una aplicación PHP heredada</h3><p>Refactorización y paso de una aplicación Symfony antigua a una versión actual, con API REST y despliegue automatizado.</p></div>
 
     </div>
-    <h2 id="rendimiento">Rendimiento: por qué importa y cómo lo cuido</h2>
-<p>La velocidad afecta a la experiencia de tus visitantes y al posicionamiento. Sobre todo vigilo tres cosas: que el contenido principal aparezca rápido, que la página no se mueva mientras carga y que responda enseguida a la interacción (lo que se mide con los Core Web Vitals).</p><div class="cards"><div class="card"><span class="card-kpi">≤ 2,5 s</span><h3>LCP</h3><p>Tiempo hasta ver el contenido principal (umbral «bueno» de Google).</p></div><div class="card"><span class="card-kpi">≤ 200 ms</span><h3>INP</h3><p>Rapidez de respuesta a las interacciones del usuario.</p></div><div class="card"><span class="card-kpi">≤ 0,1</span><h3>CLS</h3><p>Estabilidad visual: que nada se mueva mientras carga.</p></div></div><ul>
+    <h2 id="rendimiento">Core Web Vitals: cómo mejoro una web lenta</h2>
+<p>Si tu web tarda en cargar o se nota "pesada" en el móvil, no es solo una impresión: Google lo mide con las <strong>Core Web Vitals</strong>, las tres métricas con las que juzga la experiencia real de quien te visita. Antes de tocar una línea de código, audito con <a href="https://pagespeed.web.dev/" target="_blank" rel="noopener noreferrer">PageSpeed Insights</a> y, si ya tienes tráfico, con el informe de Core Web Vitals de Search Console, para saber qué frena tu web de verdad en vez de aplicar un plugin genérico de "optimización".</p><div class="cards"><div class="card"><span class="card-kpi">≤ 2,5 s</span><h3>LCP</h3><p>Tiempo hasta ver el contenido principal (umbral «bueno» de Google).</p></div><div class="card"><span class="card-kpi">≤ 200 ms</span><h3>INP</h3><p>Rapidez de respuesta a las interacciones del usuario.</p></div><div class="card"><span class="card-kpi">≤ 0,1</span><h3>CLS</h3><p>Estabilidad visual: que nada se mueva mientras carga.</p></div></div>
+<h3>Qué reviso para acelerar una web lenta</h3>
+<ul>
   <li>Imágenes en formatos modernos como WebP, con tamaños adecuados y carga diferida cuando no son visibles.</li>
   <li>CSS y JavaScript ordenados, sin cargar librerías que no se usan.</li>
   <li>Caché bien configurada para recursos estáticos.</li>
-  <li>Fuentes cargadas de forma eficiente.</li>
+  <li>Fuentes cargadas de forma eficiente, sin bloquear el renderizado.</li>
   <li>Servidor y consultas de base de datos optimizados en aplicaciones dinámicas.</li>
 </ul>
+<p>No es solo teoría: esta misma web pasó, en la home, de 85 a 95 en Lighthouse móvil (98 a 100 en escritorio), de 0,237 a 0,001 de CLS y de 353 a 151 KiB de peso, cambiando a fuentes propias con precarga e iconos SVG en línea en vez de librerías externas, sin tocar el contenido ni el diseño. Medido con Lighthouse en producción.</p>
 
     
     <h2 id="mantenimiento">Mantenimiento y evolución</h2>
@@ -390,7 +409,7 @@
     </details>
     <details class="faq-item">
       <summary>¿Puedes rehacer o migrar una web antigua?</summary>
-      <p>Sí. Analizo el código existente, propongo migrar o refactorizar, mantengo lo que funciona y cuido las URLs para no perder posicionamiento.</p>
+      <p>Sí. Analizo el código existente, propongo migrar o refactorizar, mantengo lo que funciona y cuido las URLs para no perder posicionamiento. Si tu caso es específicamente una aplicación PHP antigua que da miedo tocar, tengo un artículo dedicado: <a href="../../blog/modernizar-aplicacion-php-antigua.html">modernizar una aplicación PHP antigua</a>.</p>
     </details>
     <details class="faq-item">
       <summary>¿Desarrollas aplicaciones a medida o solo webs informativas?</summary>
@@ -403,6 +422,14 @@
     <details class="faq-item">
       <summary>¿Trabajas con clientes de fuera de Donostia?</summary>
       <p>Sí. Trabajo en remoto con clientes de toda España y, si conviene, nos vemos en Donostia-San Sebastián.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Cómo sé si mi web tiene problemas de Core Web Vitals?</summary>
+      <p>La compruebo con PageSpeed Insights y, si ya tienes tráfico real, con el informe de Core Web Vitals de Search Console, que usa datos reales de tus visitantes y no solo un test puntual. Si el móvil aparece en naranja o rojo, hay margen de mejora.</p>
+    </details>
+    <details class="faq-item">
+      <summary>¿Tengo que cambiar de hosting si mi web va lenta?</summary>
+      <p>No siempre. La mayoría de webs lentas mejoran optimizando el código, las imágenes y la caché, sin tocar el hosting. Si el servidor es de verdad el cuello de botella, te lo digo con datos antes de proponer un cambio.</p>
     </details>
 
     <h2 id="contacto">Hablemos</h2>
@@ -430,6 +457,12 @@
         <span class="post-tag">Chatbots</span>
         <h3>Chatbot con los datos de tu empresa: tool calling y MCP</h3>
         <p>Cómo crear un chatbot que responda con datos reales usando tool calling y MCP: arquitectura, herramientas, seguridad y errores a evitar.</p>
+        <span class="blog-card-cta">Leer artículo →</span>
+      </a>
+      <a href="../../blog/modernizar-aplicacion-php-antigua.html" class="blog-card">
+        <span class="post-tag">Modernización PHP</span>
+        <h3>Modernizar una aplicación PHP antigua sin parar el negocio</h3>
+        <p>Señales de alarma, proceso paso a paso y qué se gana con el código actualizado, sin perder datos ni detener el servicio.</p>
         <span class="blog-card-cta">Leer artículo →</span>
       </a>
     </div>
@@ -467,7 +500,7 @@
           <li><a href="#web-y-ia">Webs que se conectan con automatizaciones e IA</a></li>
           <li><a href="#modernizacion">Modernización de aplicaciones PHP antiguas</a></li>
           <li><a href="#ejemplos">Ejemplos de proyectos que puedo abordar</a></li>
-          <li><a href="#rendimiento">Rendimiento: por qué importa y cómo lo cuido</a></li>
+          <li><a href="#rendimiento">Core Web Vitals: cómo mejoro una web lenta</a></li>
           <li><a href="#mantenimiento">Mantenimiento y evolución</a></li>
           <li><a href="#necesito">Qué necesito de ti para empezar</a></li>
           <li><a href="#proceso">Cómo trabajo</a></li>

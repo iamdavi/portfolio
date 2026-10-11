@@ -2091,6 +2091,15 @@ footer {
 
   .hamburger {
     display: flex;
+    order: 2;
+  }
+
+  .theme-toggle {
+    order: 1;
+  }
+
+  .scroll-indicator {
+    display: none;
   }
 
   .nav-links {
